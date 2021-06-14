@@ -1,0 +1,487 @@
+PWD /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes
+INPUT /usr/local/texlive/2017/texmf.cnf
+INPUT /usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.tex
+OUTPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.log
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/parskip/parskip.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/parskip/parskip.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amscls/amsthm.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amscls/amsthm.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/doublestroke/dsfont.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/doublestroke/dsfont.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/framed/framed.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/framed/framed.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/auxhook.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/auxhook.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/titlesec/titlesec.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/titlesec/titlesec.sty
+INPUT /usr/local/texlive/texmf-local/tex/latex/algo.sty
+INPUT /usr/local/texlive/texmf-local/tex/latex/algo.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ms/everyshi.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ms/everyshi.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics/epsfig.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/graphics/epsfig.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/tools/xspace.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/tools/xspace.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/relsize/relsize.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/relsize/relsize.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.aux
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.aux
+OUTPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.aux
+INPUT /usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.out
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.out
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.out
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.out
+OUTPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.pdf
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.out
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.out
+OUTPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.out
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.toc
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.toc
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
+OUTPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.toc
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.loa
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.loa
+OUTPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.loa
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.lof
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.lof
+OUTPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.lof
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/using_SKES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/using_SKES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/using_SKES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Vigenere_cipher.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Vigenere_cipher.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Vigenere_cipher.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/one_time_pad.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/one_time_pad.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/one_time_pad.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PRBG.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PRBG.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PRBG.png
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/WEP_Protocol.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/WEP_Protocol.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/WEP_Protocol.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/ChaCha20_Initial.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/ChaCha20_Initial.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/ChaCha20_Initial.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/ChaCha20_quarter_round.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/ChaCha20_quarter_round.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/ChaCha20_quarter_round.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/DES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/DES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/DES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Double_DES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Double_DES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Double_DES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Triple_DES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Triple_DES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Triple_DES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/SPN.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/SPN.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/SPN.png
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Add_Round_Key.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Add_Round_Key.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Add_Round_Key.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Substitute_Bytes.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Substitute_Bytes.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Substitute_Bytes.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Shift_Rows.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Shift_Rows.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Shift_Rows.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Mix_Columns.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Mix_Columns.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Mix_Columns.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_S_Box.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_S_Box.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_S_Box.png
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Key_Schedule.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Key_Schedule.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_Key_Schedule.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/ECB.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/ECB.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/ECB.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CBC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CBC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CBC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Davies_Meyer_Hash_Function.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Davies_Meyer_Hash_Function.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Davies_Meyer_Hash_Function.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PR_2PR_CR.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PR_2PR_CR.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PR_2PR_CR.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/VW_1.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/VW_1.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/VW_1.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/VW_2.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/VW_2.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/VW_2.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/VW_3.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/VW_3.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/VW_3.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Iterated_Hash_Functions.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Iterated_Hash_Functions.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Iterated_Hash_Functions.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/MAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/MAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/MAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/MAC_Application.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/MAC_Application.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/MAC_Application.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CBC_MAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CBC_MAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CBC_MAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/EMAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/EMAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/EMAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Secret_Prefix_Method.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Secret_Prefix_Method.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Secret_Prefix_Method.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Secret_Suffix_Method.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Secret_Suffix_Method.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Secret_Suffix_Method.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Envelope_Method.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Envelope_Method.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Envelope_Method.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/HMAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/HMAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/HMAC.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_GCM.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_GCM.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/AES_GCM.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Google's_Encryption.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Google's_Encryption.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Google's_Encryption.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Point_to_Point_Key_Distribution.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Point_to_Point_Key_Distribution.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Point_to_Point_Key_Distribution.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Trusted_Third_Party.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Trusted_Third_Party.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Trusted_Third_Party.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Key_Management_Problem.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Key_Management_Problem.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Key_Management_Problem.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Public_Key_Cryptography.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Public_Key_Cryptography.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Public_Key_Cryptography.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Digital_Signatures.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Digital_Signatures.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Digital_Signatures.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/OAEP_Encryption.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/OAEP_Encryption.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/OAEP_Encryption.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/OAEP_Decryption.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/OAEP_Decryption.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/OAEP_Decryption.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Signature_Generation.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Signature_Generation.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Signature_Generation.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Signature_Verification.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Signature_Verification.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Signature_Verification.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Bleichenbacher's_Attack.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Bleichenbacher's_Attack.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Bleichenbacher's_Attack.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Bleichenbacher's_Attack_Correctness.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Bleichenbacher's_Attack_Correctness.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/PKCS_Bleichenbacher's_Attack_Correctness.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_2.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_2.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_2.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Z89.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Z89.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Z89.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Example.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Example.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Example.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Geometric_Rule.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Geometric_Rule.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Geometric_Rule.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Addition_Rule.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Addition_Rule.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Elliptic_Curves_Addition_Rule.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Unautenticated_ECDH.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Unautenticated_ECDH.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Unautenticated_ECDH.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Malicious_Intruder_In_the_Middle_Attack.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Malicious_Intruder_In_the_Middle_Attack.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Malicious_Intruder_In_the_Middle_Attack.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/TLS_1_2_Record_Protocol.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/TLS_1_2_Record_Protocol.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/TLS_1_2_Record_Protocol.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Cloudflare_Random_Bit_Generation.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Cloudflare_Random_Bit_Generation.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Cloudflare_Random_Bit_Generation.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Signal_Protocol_verify_QR.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Signal_Protocol_verify_QR.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Signal_Protocol_verify_QR.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Ratchet_in_Signal_Protocol.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Ratchet_in_Signal_Protocol.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Ratchet_in_Signal_Protocol.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Post_Compromise_Security.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Post_Compromise_Security.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Post_Compromise_Security.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Example_of_Message_Transmission.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Example_of_Message_Transmission.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Example_of_Message_Transmission.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/The_First_BitCoins.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/The_First_BitCoins.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/The_First_BitCoins.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/The_Genesis_Block.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/The_Genesis_Block.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/The_Genesis_Block.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Transaction_Chain_for_the_First_Bitcoins.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Transaction_Chain_for_the_First_Bitcoins.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Transaction_Chain_for_the_First_Bitcoins.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Transaction_Chain_for_the_First_Bitcoins_2.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Transaction_Chain_for_the_First_Bitcoins_2.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Transaction_Chain_for_the_First_Bitcoins_2.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/BitCoin_Proof_of_Work.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/BitCoin_Proof_of_Work.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/BitCoin_Proof_of_Work.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/The_Blockchain.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/The_Blockchain.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/The_Blockchain.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Forks_in_the_Blockchain.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Forks_in_the_Blockchain.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Forks_in_the_Blockchain.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Transactions_with_Multiple_IO.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Transactions_with_Multiple_IO.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/Transactions_with_Multiple_IO.png
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.aux
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.out
+INPUT /Users/JasonWu/Desktop/UWaterloo/All Academic Courses/CO487/Typed_Notes/CO487_Notes.out
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

@@ -1,0 +1,67 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Use a SKES to Achieve Confidentiality}}{3}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Vigenere Cipher}}{6}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Example of One Time Pad}}{6}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Encryption of PRBG}}{8}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Description of WEP Protocol}}{10}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces ChaCha20 Initial State}}{13}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces ChaCha20 Quarter Round Function}}{14}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Data Encryption Standard (DES)}}{16}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Double-DES Encryption}}{17}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Triple DES Encryption}}{20}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces AES Encryption}}{21}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces SPN Encryption}}{22}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces AES Add Round Key}}{23}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces AES Substitute Bytes}}{24}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces AES Shift Rows}}{24}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces AES Mix Columns}}{25}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces AES SBox}}{26}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces AES Key Schedule for 128-bit keys}}{29}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Electronic Codebook (ECB) Mode}}{30}{figure.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Cipher Block Chaining (CBC) Mode}}{30}{figure.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Davies Meyer Hash Function}}{32}{figure.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Relationship between PR, 2PR, and CR}}{35}{figure.22}
+\contentsline {figure}{\numberline {23}{\ignorespaces Main Idea of VW Search}}{37}{figure.23}
+\contentsline {figure}{\numberline {24}{\ignorespaces VW's Search Flow}}{37}{figure.24}
+\contentsline {figure}{\numberline {25}{\ignorespaces Parallelizing VW Search}}{38}{figure.25}
+\contentsline {figure}{\numberline {26}{\ignorespaces Iterated Hash Functions}}{39}{figure.26}
+\contentsline {figure}{\numberline {27}{\ignorespaces Message Authentication Code (MAC)}}{45}{figure.27}
+\contentsline {figure}{\numberline {28}{\ignorespaces Applications of MAC Schemes}}{46}{figure.28}
+\contentsline {figure}{\numberline {29}{\ignorespaces MACs Based on Block Ciphers}}{47}{figure.29}
+\contentsline {figure}{\numberline {30}{\ignorespaces Encrypted CBC-MAC (EMAC)}}{48}{figure.30}
+\contentsline {figure}{\numberline {31}{\ignorespaces Secret Prefix Method}}{49}{figure.31}
+\contentsline {figure}{\numberline {32}{\ignorespaces Secret Suffix Method}}{49}{figure.32}
+\contentsline {figure}{\numberline {33}{\ignorespaces Envelope Method}}{50}{figure.33}
+\contentsline {figure}{\numberline {34}{\ignorespaces ``Hash-based'' MAC}}{51}{figure.34}
+\contentsline {figure}{\numberline {35}{\ignorespaces AES-GCM Encryption/Authentication}}{57}{figure.35}
+\contentsline {figure}{\numberline {36}{\ignorespaces Google's Encryption Flow}}{60}{figure.36}
+\contentsline {figure}{\numberline {37}{\ignorespaces Point to Point Key Distribution}}{64}{figure.37}
+\contentsline {figure}{\numberline {38}{\ignorespaces Relationship}}{65}{figure.38}
+\contentsline {figure}{\numberline {39}{\ignorespaces Key Management Problem}}{65}{figure.39}
+\contentsline {figure}{\numberline {40}{\ignorespaces Public Key Cryptography}}{66}{figure.40}
+\contentsline {figure}{\numberline {41}{\ignorespaces Digital Signatures}}{68}{figure.41}
+\contentsline {figure}{\numberline {42}{\ignorespaces OAEP Encryption}}{79}{figure.42}
+\contentsline {figure}{\numberline {43}{\ignorespaces OAEP Decryption}}{80}{figure.43}
+\contentsline {figure}{\numberline {44}{\ignorespaces PKCS Signature Generation}}{86}{figure.44}
+\contentsline {figure}{\numberline {45}{\ignorespaces PKCS Signature Verification}}{87}{figure.45}
+\contentsline {figure}{\numberline {46}{\ignorespaces PKCS Bleichenbacher's Attack}}{87}{figure.46}
+\contentsline {figure}{\numberline {47}{\ignorespaces PKCS Bleichenbacher's Attack Correctness}}{88}{figure.47}
+\contentsline {figure}{\numberline {48}{\ignorespaces Elliptic Curves}}{89}{figure.48}
+\contentsline {figure}{\numberline {49}{\ignorespaces Elliptic Curves over Finite Fields}}{89}{figure.49}
+\contentsline {figure}{\numberline {50}{\ignorespaces Elliptic Curves Examples}}{90}{figure.50}
+\contentsline {figure}{\numberline {51}{\ignorespaces Elliptic Curves Geometric Rule Description}}{91}{figure.51}
+\contentsline {figure}{\numberline {52}{\ignorespaces Elliptic Curves Addition Rules}}{91}{figure.52}
+\contentsline {figure}{\numberline {53}{\ignorespaces Unautenticated ECDH}}{98}{figure.53}
+\contentsline {figure}{\numberline {54}{\ignorespaces Malicious Intruder In the Middle Attack}}{98}{figure.54}
+\contentsline {figure}{\numberline {55}{\ignorespaces TLS 1.2 Record Protocol}}{112}{figure.55}
+\contentsline {figure}{\numberline {56}{\ignorespaces Cloudflare Random Bit Generation}}{118}{figure.56}
+\contentsline {figure}{\numberline {57}{\ignorespaces Verifying Long-Term Public Keys using QR code}}{126}{figure.57}
+\contentsline {figure}{\numberline {58}{\ignorespaces Ratchet in Signal Protocol}}{126}{figure.58}
+\contentsline {figure}{\numberline {59}{\ignorespaces Post Compromise Security in Signal Protocol}}{127}{figure.59}
+\contentsline {figure}{\numberline {60}{\ignorespaces Example of Message Transmission in Signal Protocol}}{128}{figure.60}
+\contentsline {figure}{\numberline {61}{\ignorespaces The First BitCoins and The Genesis Block}}{138}{figure.61}
+\contentsline {figure}{\numberline {62}{\ignorespaces Transaction Chain for the First Bitcoins}}{139}{figure.62}
+\contentsline {figure}{\numberline {63}{\ignorespaces Transaction Chain for the First Bitcoins Continued}}{140}{figure.63}
+\contentsline {figure}{\numberline {64}{\ignorespaces BitCoin Proof of Work}}{141}{figure.64}
+\contentsline {figure}{\numberline {65}{\ignorespaces The Blockchain}}{141}{figure.65}
+\contentsline {figure}{\numberline {66}{\ignorespaces Forks in the Blockchain}}{141}{figure.66}
+\contentsline {figure}{\numberline {67}{\ignorespaces Transactions with Multiple Inputs/Outputs}}{143}{figure.67}

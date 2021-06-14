@@ -1,0 +1,194 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Fundamental Goals of Cryptography}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Symmetric Key Encryption}{}% 3
+\BOOKMARK [2][-]{subsection.2.1}{Basic Concepts}{section.2}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Security Definitions}{subsection.2.1}% 5
+\BOOKMARK [3][-]{subsubsection.2.1.2}{The Simple Substitution Cipher}{subsection.2.1}% 6
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Work Factor}{subsection.2.1}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.4}{Polyalphabetic Ciphers}{subsection.2.1}% 8
+\BOOKMARK [3][-]{subsubsection.2.1.5}{Convention and Notations}{subsection.2.1}% 9
+\BOOKMARK [2][-]{subsection.2.2}{One Time Pad}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.3}{Stream Ciphers}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.4}{The RC4 Stream Cipher}{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Wired Equivalent Privacy \(WEP\)}{subsection.2.4}% 13
+\BOOKMARK [3][-]{subsubsection.2.4.2}{The Fluhrer-Mantin-Shamir Attack of WEP}{subsection.2.4}% 14
+\BOOKMARK [3][-]{subsubsection.2.4.3}{Lessons Learned from WEP's Insecurity}{subsection.2.4}% 15
+\BOOKMARK [2][-]{subsection.2.5}{ChaCha20 Stream Cipher}{section.2}% 16
+\BOOKMARK [2][-]{subsection.2.6}{Block Ciphers}{section.2}% 17
+\BOOKMARK [3][-]{subsubsection.2.6.1}{Double-DES}{subsection.2.6}% 18
+\BOOKMARK [3][-]{subsubsection.2.6.2}{False Keys}{subsection.2.6}% 19
+\BOOKMARK [3][-]{subsubsection.2.6.3}{Storage Units}{subsection.2.6}% 20
+\BOOKMARK [3][-]{subsubsection.2.6.4}{Triple-DES}{subsection.2.6}% 21
+\BOOKMARK [2][-]{subsection.2.7}{The Advanced Encryption Standard \(AES\)}{section.2}% 22
+\BOOKMARK [3][-]{subsubsection.2.7.1}{Operation of AES}{subsection.2.7}% 23
+\BOOKMARK [2][-]{subsection.2.8}{Performance of SKES}{section.2}% 24
+\BOOKMARK [2][-]{subsection.2.9}{Block Cipher Modes of Operation}{section.2}% 25
+\BOOKMARK [1][-]{section.3}{Hash Function}{}% 26
+\BOOKMARK [2][-]{subsection.3.1}{Definitions and Terminology}{section.3}% 27
+\BOOKMARK [2][-]{subsection.3.2}{Hash Functions from Block Ciphers}{section.3}% 28
+\BOOKMARK [2][-]{subsection.3.3}{Preimage Resistance, 2nd Preimage Resistance, and Collision Resistance}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.4}{Generic Attack}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.5}{Van Oorschot and Wiener Parallel Collision Search}{section.3}% 31
+\BOOKMARK [2][-]{subsection.3.6}{Iterated Hash Function}{section.3}% 32
+\BOOKMARK [2][-]{subsection.3.7}{Provable Security}{section.3}% 33
+\BOOKMARK [2][-]{subsection.3.8}{MDx-Family of Hash Functions}{section.3}% 34
+\BOOKMARK [2][-]{subsection.3.9}{SHA-Family of Hash Functions}{section.3}% 35
+\BOOKMARK [2][-]{subsection.3.10}{Performance}{section.3}% 36
+\BOOKMARK [1][-]{section.4}{Message Authentication Code Schemes}{}% 37
+\BOOKMARK [2][-]{subsection.4.1}{Generic Attacks on MAC schemes}{section.4}% 38
+\BOOKMARK [2][-]{subsection.4.2}{MACs Based on Block Ciphers}{section.4}% 39
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Encrypted CBC-MAC \(EMAC\)}{subsection.4.2}% 40
+\BOOKMARK [2][-]{subsection.4.3}{MACs Based on Hash Functions}{section.4}% 41
+\BOOKMARK [2][-]{subsection.4.4}{Key Derivation Functions}{section.4}% 42
+\BOOKMARK [2][-]{subsection.4.5}{GSM}{section.4}% 43
+\BOOKMARK [1][-]{section.5}{Authenticaed Encryption}{}% 44
+\BOOKMARK [2][-]{subsection.5.1}{Encrypt-and-MAC}{section.5}% 45
+\BOOKMARK [2][-]{subsection.5.2}{Encrypt-then-MAC}{section.5}% 46
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Special-Purpose AE Schemes}{subsection.5.2}% 47
+\BOOKMARK [3][-]{subsubsection.5.2.2}{CTR: CounTeR Mode of Encryption}{subsection.5.2}% 48
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Multiplying Blocks}{subsection.5.2}% 49
+\BOOKMARK [2][-]{subsection.5.3}{AES-GCM}{section.5}% 50
+\BOOKMARK [2][-]{subsection.5.4}{Encryption at Google}{section.5}% 51
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Key Management Service \(KMS\)}{subsection.5.4}% 52
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Google's storage systems}{subsection.5.4}% 53
+\BOOKMARK [3][-]{subsubsection.5.4.3}{Google's Key Management Services}{subsection.5.4}% 54
+\BOOKMARK [3][-]{subsubsection.5.4.4}{Google's Root KMS}{subsection.5.4}% 55
+\BOOKMARK [3][-]{subsubsection.5.4.5}{Google's Physical Safes}{subsection.5.4}% 56
+\BOOKMARK [1][-]{section.6}{Introduction to Public-Key Cryptography}{}% 57
+\BOOKMARK [2][-]{subsection.6.1}{Drawbacks with Symmetric-Key Cryptography}{section.6}% 58
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Key Establishment Problem}{subsection.6.1}% 59
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Key Management Problem}{subsection.6.1}% 60
+\BOOKMARK [3][-]{subsubsection.6.1.3}{Non-Repudiation is Impractical}{subsection.6.1}% 61
+\BOOKMARK [2][-]{subsection.6.2}{Public-Key Cryptography}{section.6}% 62
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Merkle Puzzles}{subsection.6.2}% 63
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Public-Key Versus Symmetric-Key}{subsection.6.2}% 64
+\BOOKMARK [3][-]{subsubsection.6.2.3}{Hybrid Schemes}{subsection.6.2}% 65
+\BOOKMARK [2][-]{subsection.6.3}{Algorithmic Number Theory}{section.6}% 66
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Fundamental Theorem of Arithmetic}{subsection.6.3}% 67
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Basic Concepts from Complexity Theory}{subsection.6.3}% 68
+\BOOKMARK [3][-]{subsubsection.6.3.3}{Basic Integer Operations}{subsection.6.3}% 69
+\BOOKMARK [3][-]{subsubsection.6.3.4}{Basic Modular Operations}{subsection.6.3}% 70
+\BOOKMARK [3][-]{subsubsection.6.3.5}{Modular Exponentiation}{subsection.6.3}% 71
+\BOOKMARK [1][-]{section.7}{RSA}{}% 72
+\BOOKMARK [2][-]{subsection.7.1}{Basic RSA Public Key Encryption}{section.7}% 73
+\BOOKMARK [3][-]{subsubsection.7.1.1}{RSA Key Generation}{subsection.7.1}% 74
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Basic RSA Encryption Scheme}{subsection.7.1}% 75
+\BOOKMARK [3][-]{subsubsection.7.1.3}{Basic RSA Signature Scheme}{subsection.7.1}% 76
+\BOOKMARK [2][-]{subsection.7.2}{QQ Browser Encryption}{section.7}% 77
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Background}{subsection.7.2}% 78
+\BOOKMARK [3][-]{subsubsection.7.2.2}{Version 1}{subsection.7.2}% 79
+\BOOKMARK [3][-]{subsubsection.7.2.3}{Version 2}{subsection.7.2}% 80
+\BOOKMARK [2][-]{subsection.7.3}{Security of RSA encryption}{section.7}% 81
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Attacks for RSA Public Key Encryption}{subsection.7.3}% 82
+\BOOKMARK [3][-]{subsubsection.7.3.2}{Security Definitions}{subsection.7.3}% 83
+\BOOKMARK [3][-]{subsubsection.7.3.3}{RSA Optimal Asymmetric Encryption Padding \(OAEP\)}{subsection.7.3}% 84
+\BOOKMARK [2][-]{subsection.7.4}{Status of Integer Factorization}{section.7}% 85
+\BOOKMARK [3][-]{subsubsection.7.4.1}{Big-O and Little-o Notation}{subsection.7.4}% 86
+\BOOKMARK [3][-]{subsubsection.7.4.2}{Measures of Running Time}{subsection.7.4}% 87
+\BOOKMARK [3][-]{subsubsection.7.4.3}{History of Factoring}{subsection.7.4}% 88
+\BOOKMARK [2][-]{subsection.7.5}{RSA Signature Scheme}{section.7}% 89
+\BOOKMARK [3][-]{subsubsection.7.5.1}{Basic RSA Signature Scheme}{subsection.7.5}% 90
+\BOOKMARK [3][-]{subsubsection.7.5.2}{Security of RSA Signature Scheme}{subsection.7.5}% 91
+\BOOKMARK [3][-]{subsubsection.7.5.3}{Full Domain Hash RSA \(RSA-FDH\)}{subsection.7.5}% 92
+\BOOKMARK [3][-]{subsubsection.7.5.4}{RSA PKCS \0431 v1.5 Signatures}{subsection.7.5}% 93
+\BOOKMARK [1][-]{section.8}{Elliptic Curve Cryptography}{}% 94
+\BOOKMARK [2][-]{subsection.8.1}{Elliptic Curves}{section.8}% 95
+\BOOKMARK [2][-]{subsection.8.2}{Elliptic Curves Discrete Logarithm Problem\(ECDLP\)}{section.8}% 96
+\BOOKMARK [2][-]{subsection.8.3}{Elliptic Curves Cryptography}{section.8}% 97
+\BOOKMARK [3][-]{subsubsection.8.3.1}{P-256 Elliptic Curve}{subsection.8.3}% 98
+\BOOKMARK [3][-]{subsubsection.8.3.2}{Curve25519}{subsection.8.3}% 99
+\BOOKMARK [3][-]{subsubsection.8.3.3}{P-384 Elliptic Curve}{subsection.8.3}% 100
+\BOOKMARK [3][-]{subsubsection.8.3.4}{Modular Reduction}{subsection.8.3}% 101
+\BOOKMARK [2][-]{subsection.8.4}{Elliptic Curves Diffie-Hellman \(ECDH\)}{section.8}% 102
+\BOOKMARK [3][-]{subsubsection.8.4.1}{Unautenticated ECDH}{subsection.8.4}% 103
+\BOOKMARK [3][-]{subsubsection.8.4.2}{Malicious-Intruder-In-the-Middle-Attack \(MITM\)}{subsection.8.4}% 104
+\BOOKMARK [3][-]{subsubsection.8.4.3}{Authenticated ECDH}{subsection.8.4}% 105
+\BOOKMARK [2][-]{subsection.8.5}{Google and ECC}{section.8}% 106
+\BOOKMARK [3][-]{subsubsection.8.5.1}{TLS Previous Implementation}{subsection.8.5}% 107
+\BOOKMARK [3][-]{subsubsection.8.5.2}{TLS Google Implementation}{subsection.8.5}% 108
+\BOOKMARK [3][-]{subsubsection.8.5.3}{RSA vs DL vs ECC Usage in TLS}{subsection.8.5}% 109
+\BOOKMARK [2][-]{subsection.8.6}{Elliptic Curves Digital Signature Algorithm \(ECDSA\)}{section.8}% 110
+\BOOKMARK [3][-]{subsubsection.8.6.1}{ECDSA Basics}{subsection.8.6}% 111
+\BOOKMARK [3][-]{subsubsection.8.6.2}{Security of ECDSA}{subsection.8.6}% 112
+\BOOKMARK [3][-]{subsubsection.8.6.3}{ECDSA vs RSA}{subsection.8.6}% 113
+\BOOKMARK [3][-]{subsubsection.8.6.4}{Performance}{subsection.8.6}% 114
+\BOOKMARK [1][-]{section.9}{Bluetooth Security}{}% 115
+\BOOKMARK [2][-]{subsection.9.1}{Brief about Bluetooth}{section.9}% 116
+\BOOKMARK [2][-]{subsection.9.2}{Secure Connections}{section.9}% 117
+\BOOKMARK [3][-]{subsubsection.9.2.1}{Phase 1: Public Key Exchange}{subsection.9.2}% 118
+\BOOKMARK [3][-]{subsubsection.9.2.2}{Phase 2: Authentication Stage 1}{subsection.9.2}% 119
+\BOOKMARK [3][-]{subsubsection.9.2.3}{Phase 3: Authentication Stage 2}{subsection.9.2}% 120
+\BOOKMARK [3][-]{subsubsection.9.2.4}{Phase 4: Link Key Calculation}{subsection.9.2}% 121
+\BOOKMARK [3][-]{subsubsection.9.2.5}{Authentication and Encryption}{subsection.9.2}% 122
+\BOOKMARK [3][-]{subsubsection.9.2.6}{KNOB Attack}{subsection.9.2}% 123
+\BOOKMARK [1][-]{section.10}{Key Management}{}% 124
+\BOOKMARK [2][-]{subsection.10.1}{Public Key Management}{section.10}% 125
+\BOOKMARK [2][-]{subsection.10.2}{Certification Authorities \(CAs\)}{section.10}% 126
+\BOOKMARK [2][-]{subsection.10.3}{Public-Key Infrastructures \(PKI\)}{section.10}% 127
+\BOOKMARK [2][-]{subsection.10.4}{Case Study: TLS}{section.10}% 128
+\BOOKMARK [3][-]{subsubsection.10.4.1}{TLS Handshake Protocol}{subsection.10.4}% 129
+\BOOKMARK [3][-]{subsubsection.10.4.2}{TLS 1.2 Record Protocol}{subsection.10.4}% 130
+\BOOKMARK [3][-]{subsubsection.10.4.3}{TLS 1.3}{subsection.10.4}% 131
+\BOOKMARK [2][-]{subsection.10.5}{Public Key Management in TLS}{section.10}% 132
+\BOOKMARK [2][-]{subsection.10.6}{Example of an X.509 Certificate}{section.10}% 133
+\BOOKMARK [2][-]{subsection.10.7}{DigiCert}{section.10}% 134
+\BOOKMARK [2][-]{subsection.10.8}{CA Security}{section.10}% 135
+\BOOKMARK [3][-]{subsubsection.10.8.1}{DigiNotar}{subsection.10.8}% 136
+\BOOKMARK [3][-]{subsubsection.10.8.2}{Other CA Breaches}{subsection.10.8}% 137
+\BOOKMARK [1][-]{section.11}{Random Bit Generation}{}% 138
+\BOOKMARK [2][-]{subsection.11.1}{Weak Random Bit Generation}{section.11}% 139
+\BOOKMARK [1][-]{section.12}{FIDO U2F}{}% 140
+\BOOKMARK [2][-]{subsection.12.1}{U2F Protocol}{section.12}% 141
+\BOOKMARK [2][-]{subsection.12.2}{U2F Notes}{section.12}% 142
+\BOOKMARK [2][-]{subsection.12.3}{Google’s Titan Security Key}{section.12}% 143
+\BOOKMARK [2][-]{subsection.12.4}{FIDO2}{section.12}% 144
+\BOOKMARK [1][-]{section.13}{The Signal Protocol}{}% 145
+\BOOKMARK [2][-]{subsection.13.1}{Introduction}{section.13}% 146
+\BOOKMARK [2][-]{subsection.13.2}{WhatsApp}{section.13}% 147
+\BOOKMARK [2][-]{subsection.13.3}{Signal Objectives}{section.13}% 148
+\BOOKMARK [2][-]{subsection.13.4}{Cryptographic Ingredients}{section.13}% 149
+\BOOKMARK [2][-]{subsection.13.5}{Signal Protocol}{section.13}% 150
+\BOOKMARK [3][-]{subsubsection.13.5.1}{Registration}{subsection.13.5}% 151
+\BOOKMARK [3][-]{subsubsection.13.5.2}{Root Key Establishment}{subsection.13.5}% 152
+\BOOKMARK [3][-]{subsubsection.13.5.3}{Verifying Long-Term Public Keys}{subsection.13.5}% 153
+\BOOKMARK [3][-]{subsubsection.13.5.4}{Forward Secrecy}{subsection.13.5}% 154
+\BOOKMARK [3][-]{subsubsection.13.5.5}{Post-Compromise Security}{subsection.13.5}% 155
+\BOOKMARK [2][-]{subsection.13.6}{Message Transmission}{section.13}% 156
+\BOOKMARK [1][-]{section.14}{Post-Quantum Cryptography \(PQC\)}{}% 157
+\BOOKMARK [2][-]{subsection.14.1}{Quantum Computers}{section.14}% 158
+\BOOKMARK [2][-]{subsection.14.2}{The Threat of Quantum Computers}{section.14}% 159
+\BOOKMARK [3][-]{subsubsection.14.2.1}{The Threat of Quantum Computers - Shor}{subsection.14.2}% 160
+\BOOKMARK [3][-]{subsubsection.14.2.2}{The Threat of Quantum Computers - Grover}{subsection.14.2}% 161
+\BOOKMARK [3][-]{subsubsection.14.2.3}{The Threat of Shor and Grover}{subsection.14.2}% 162
+\BOOKMARK [2][-]{subsection.14.3}{When will Quantum Computers be Built?}{section.14}% 163
+\BOOKMARK [2][-]{subsection.14.4}{Fault-Tolerant Quantum Computers?}{section.14}% 164
+\BOOKMARK [2][-]{subsection.14.5}{Long-Term Security}{section.14}% 165
+\BOOKMARK [2][-]{subsection.14.6}{PQC Standardization}{section.14}% 166
+\BOOKMARK [2][-]{subsection.14.7}{Quantum-Safe Candidates}{section.14}% 167
+\BOOKMARK [2][-]{subsection.14.8}{Large-scale experiments}{section.14}% 168
+\BOOKMARK [2][-]{subsection.14.9}{Commercialization}{section.14}% 169
+\BOOKMARK [1][-]{section.15}{BitCoin}{}% 170
+\BOOKMARK [2][-]{subsection.15.1}{Paper Cash}{section.15}% 171
+\BOOKMARK [2][-]{subsection.15.2}{Bitcoin Basics}{section.15}% 172
+\BOOKMARK [3][-]{subsubsection.15.2.1}{Value of a Bitcoin}{subsection.15.2}% 173
+\BOOKMARK [3][-]{subsubsection.15.2.2}{Why Use Bitcoin?}{subsection.15.2}% 174
+\BOOKMARK [3][-]{subsubsection.15.2.3}{Distributed Ledger}{subsection.15.2}% 175
+\BOOKMARK [2][-]{subsection.15.3}{Elements of Bitcoin}{section.15}% 176
+\BOOKMARK [2][-]{subsection.15.4}{Transactions}{section.15}% 177
+\BOOKMARK [3][-]{subsubsection.15.4.1}{Transaction Chain for the First Bitcoins}{subsection.15.4}% 178
+\BOOKMARK [3][-]{subsubsection.15.4.2}{Proof-of-Work}{subsection.15.4}% 179
+\BOOKMARK [2][-]{subsection.15.5}{The Blockchain}{section.15}% 180
+\BOOKMARK [3][-]{subsubsection.15.5.1}{Mining}{subsection.15.5}% 181
+\BOOKMARK [3][-]{subsubsection.15.5.2}{Security Notes}{subsection.15.5}% 182
+\BOOKMARK [3][-]{subsubsection.15.5.3}{Transactions with Multiple Inputs/Outputs}{subsection.15.5}% 183
+\BOOKMARK [3][-]{subsubsection.15.5.4}{Protecting Your Bitcoins}{subsection.15.5}% 184
+\BOOKMARK [3][-]{subsubsection.15.5.5}{Miscellaneous Notes}{subsection.15.5}% 185
+\BOOKMARK [3][-]{subsubsection.15.5.6}{The Future of Bitcoin}{subsection.15.5}% 186
+\BOOKMARK [3][-]{subsubsection.15.5.7}{Exploring Bitcoin}{subsection.15.5}% 187
+\BOOKMARK [2][-]{subsection.15.6}{Ethereum}{section.15}% 188
+\BOOKMARK [3][-]{subsubsection.15.6.1}{Enterprise Ethereum Alliance \(EEA\)}{subsection.15.6}% 189
+\BOOKMARK [3][-]{subsubsection.15.6.2}{Selected Topics for Further Study}{subsection.15.6}% 190
+\BOOKMARK [1][-]{section.16}{Wrap up}{}% 191
+\BOOKMARK [2][-]{subsection.16.1}{Cool Cryptography}{section.16}% 192
+\BOOKMARK [2][-]{subsection.16.2}{Further Study}{section.16}% 193
+\BOOKMARK [2][-]{subsection.16.3}{Final Exam}{section.16}% 194

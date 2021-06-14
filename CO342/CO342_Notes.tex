@@ -1,0 +1,1760 @@
+\documentclass[twoside]{article}
+\setlength{\oddsidemargin}{0.25 in}
+\setlength{\evensidemargin}{-0.25 in}
+\setlength{\topmargin}{-0.6 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{8.5 in}
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+%
+% ADD PACKAGES here:
+%
+
+\usepackage{amsmath,amsfonts,graphicx,mathtools}
+\usepackage{dsfont}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{framed}
+\usepackage{algo,tikz,url,amssymb,epsfig,color,xspace}
+\usepackage{algpseudocode,algorithm,algorithmicx}
+%\usepackage{draftwatermark}
+%\SetWatermarkText{\textsc{Haochen Wu}}
+%\SetWatermarkScale{2}
+%\SetWatermarkColor[gray]{0.8}
+%
+% The following commands set up the lecnum (lecture number)
+% counter and make various numbering schemes work relative
+% to the lecture number.
+%
+\newcounter{lecnum}
+\renewcommand{\thepage}{\thelecnum-\arabic{page}}
+\renewcommand{\thesection}{\thelecnum.\arabic{section}}
+\renewcommand{\theequation}{\thelecnum.\arabic{equation}}
+\renewcommand{\thefigure}{\thelecnum.\arabic{figure}}
+\renewcommand{\thetable}{\thelecnum.\arabic{table}}
+\newcommand{\pc}[1]{\mbox{\textbf{#1}}} % pseudocode
+
+%
+% The following macro is used to generate the header.
+%
+\newcommand{\lecture}[4]{
+   \pagestyle{myheadings}
+   \thispagestyle{plain}
+   \newpage
+   \setcounter{lecnum}{#1}
+   \setcounter{page}{1}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf CO342: Introduction to Graph Theory
+    \hfill Fall 2020} }
+       \vspace{4mm}
+       \hbox to 6.28in { {\Large \hfill Lecture #1: #2  \hfill} }
+       \vspace{2mm}
+       \hbox to 6.28in { {\it Lecturer: #3 \hfill Noted By: #4} }
+      \vspace{2mm}}
+   }
+   \end{center}
+   \markboth{Lecture #1: #2}{Lecture #1: #2}
+
+   {\bf Disclaimer}: {\it These notes have not been subjected to the
+   usual scrutiny reserved for formal publications. They may be distributed
+   outside this course only with the permission of the instructors.}
+   \vspace*{4mm}
+}
+%
+% Convention for citations is authors' initials followed by the year.
+% For example, to cite a paper by Leighton and Maggs you would type
+% \cite{LM89}, and to cite a paper by Strassen you would type \cite{S69}.
+% (To avoid bibliography problems, for now we redefine the \cite command.)
+% Also commands that create a suitable format for the reference list.
+\renewcommand{\cite}[1]{[#1]}
+\def\beginrefs{\begin{list}%
+        {[\arabic{equation}]}{\usecounter{equation}
+         \setlength{\leftmargin}{2.0truecm}\setlength{\labelsep}{0.4truecm}%
+         \setlength{\labelwidth}{1.6truecm}}}
+\def\endrefs{\end{list}}
+\def\bibentry#1{\item[\hbox{[#1]}]}
+
+%Use this command for a figure; it puts a figure in wherever you want it.
+%usage: \fig{NUMBER}{SPACE-IN-INCHES}{CAPTION}
+\newcommand{\fig}[3]{
+            \vspace{#2}
+            \begin{center}
+            Figure \thelecnum.#1:~#3
+            \end{center}
+    }
+% Use these for theorems, lemmas, proofs, etc.
+\newtheorem{prototheorem}{Theorem}[lecnum]
+\newenvironment{theorem}
+{\colorlet{shadecolor}{orange!15}\begin{shaded}\begin{prototheorem}\normalfont}
+		{\end{prototheorem}\end{shaded}}
+
+\newtheorem{protolemma}[prototheorem]{Lemma}
+\newenvironment{lemma}
+{\colorlet{shadecolor}{violet!15}\begin{shaded}\begin{protolemma}\normalfont}
+		{\end{protolemma}\end{shaded}}
+
+\newtheorem{protocorollary}[prototheorem]{Corollary}
+\newenvironment{corollary}
+{\colorlet{shadecolor}{yellow!15}\begin{shaded}\begin{protocorollary}\normalfont}
+		{\end{protocorollary}\end{shaded}}
+
+\newtheorem{protonotation}[prototheorem]{Proposition}
+\newenvironment{proposition}
+{\colorlet{shadecolor}{green!15}\begin{shaded}\begin{protonotation}\normalfont}
+		{\end{protonotation}\end{shaded}}
+
+\newtheorem{protoexample}[prototheorem]{Example}
+\newenvironment{example}
+{\colorlet{shadecolor}{red!15}\begin{shaded}\begin{protoexample}\normalfont}
+		{\end{protoexample}\end{shaded}}
+
+\newtheorem{protodefinition}[prototheorem]{Definition}
+\newenvironment{definition}
+{\colorlet{shadecolor}{cyan!15}\begin{shaded}\begin{protodefinition}\normalfont}
+		{\end{protodefinition}\end{shaded}}
+
+\newtheorem{protoproof}[prototheorem]{Proof}
+\renewenvironment{proof}
+{\colorlet{shadecolor}{blue!15}\begin{shaded}\begin{protoproof}
+		\normalfont}
+		{\qed\end{protoproof}\end{shaded}}
+
+% **** IF YOU WANT TO DEFINE ADDITIONAL MACROS FOR YOURSELF, PUT THEM HERE:
+
+\begin{document}
+%FILL IN THE RIGHT INFO.
+%\lecture{**LECTURE-NUMBER**}{**DATE**}{**LECTURER**}{**SCRIBE**}
+\lecture{1}{September 8}{Penny Haxell}{Haochen Wu}
+%\footnotetext{These notes are partially based on those of Nigel Mansell.}
+
+% **** YOUR NOTES GO HERE:
+
+% Some general latex examples and examples making use of the
+% macros follow.  
+%**** IN GENERAL, BE BRIEF. LONG SCRIBE NOTES, NO MATTER HOW WELL WRITTEN,
+%**** ARE NEVER READ BY ANYBODY.
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{definition}
+	A graph $G$ consists of a vertex set $V(G)$ (usually finite, assume unless otherwise specified) and a set of edges $E(G)$ where each edge is a subset of $V(G)$ of size 2. Usually write $ab$ instead of $\{a, b\}$. 
+			
+	No loop and no multiple edges between two vertices. 
+\end{definition}
+
+\begin{definition}
+	Recall definitions for \begin{itemize}
+	\item adjacent
+	\item incident
+	\item neighbour
+	\item neighbourhood
+	\item degree
+	\item complete graph
+	\item bipartite graph
+	\item $k$-regular
+	\item subgraph
+	\item path
+	\item cycle
+	\item connected graph
+	\item component
+	\item tree
+	\item planar graph
+	\item subdivision
+	\item face of a planar graph
+	\end{itemize}
+\end{definition}
+\begin{definition}
+	Let $G$ be a connected graph, and let $x \in V(G)$
+			
+	We say $x$ is a \textbf{\underline{cut vertex}} of $G$ if the graph $G - x$ obtained from $G$ by deleting the vertex $x$ is disconnected. 
+\end{definition}
+
+\begin{definition}
+	For a subset $W \subseteq V(G)$, we write $G - W$ for the graph obtained from $G$ by deleting every vertex of $W$ from $G$. 
+			
+	We say $W\subseteq V(G)$ is a \textbf{\underline{vertex cut}} of the connected graph $G$ if $G - W$ is disconnected. 
+\end{definition}
+
+Note that any complete graph has no vertex cut. 
+
+Exercise: If $G$ is a connected graph but not complete, then $G$ has a vertex cut. 
+
+\lecture{2}{September 8}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{definition}
+	Let $G$ be a connected graph, and let $k \geq 1$ be an integer. We say $G$ is \textbf{\underline{$k$-connected}} if \begin{enumerate}
+	\item $|V(G)| \geq k+1$
+	\item $G$ has no vertex cut of size $\leq k-1$
+	\end{enumerate}
+		
+	The \textbf{\underline{connectivity}} of a graph $G$ is the largest $k$ such that $G$ is $k$-connected. 
+\end{definition}
+
+\begin{definition}
+	The minimum degree of $\delta(G)$ is $\min \{d(v) : v \in V(G)\}$, where $d(v)$ is the degree of $v$. 
+\end{definition}
+
+\begin{lemma}
+	If $G$ is $k$-connected, then $\delta(G) \geq k$.
+\end{lemma}
+\begin{proof}
+	Let $x \in V(G)$ be a vertex of degree $\delta(G)$. By definition, $|V(G)| \geq k+1$. There are two cases: \begin{itemize}
+	\item If $|V(G)| \geq \delta(G) + 2$, then the neighbourhood of $x$ $N(x)$ is a vertex cut of $G$. So $|N(x)| = \delta(G) \geq k$
+	\item If $|V(G)| \neq \delta(G) + 1$, then $k+1 \leq |V(G)| \leq \delta(G) + 1$ 
+	\end{itemize}
+	So in both cases, $k \leq \delta(G)$
+\end{proof}
+
+Note that the converse of the above lemma is not true, i.e. $\delta(G)$ does NOT imply that $G$ is $k$ connected. 
+
+\begin{lemma}
+	Let $G$ be a graph with $n$ vertices, and let $1\leq k \leq n-1$. If $\delta(G) \geq \frac{n+k-2}{2}$, then $G$ is $k$-connected. 
+\end{lemma}
+\begin{proof}
+	Say $|V(G)| \geq k+1$ by assumption. We suppose on the contrary that $G$ has a vertex cut $W$ with $|W| \leq k-1$. Let $H$ be the smallest component of $G - W$. Then $|H| \leq \frac{n-|W|}{2}$. 
+			
+	For $v \in V(H)$, we see that $d(v) \leq |W| + (|H| - 1)$. So $\delta(G) \leq d(v) \leq |W| + (|H| - 1) \leq |W| + \frac{n-|W|}{2} -1 \leq \frac{n}{2} + \frac{|W|}{2} - 1 \leq \frac{n}{2} + \frac{k-1}{2} -1 = \frac{n+k-3}{2} < \frac{n+k-2}{2}$. 
+			
+	We reach a contradiction, which shows that the assumption $G$ does not have a vertex cut of size $< k-1$. So, by definition, $G$ is $k$-connected. 
+\end{proof}
+
+Note that the converse of the above lemma is not true, i.e. $G$ is $k$ connected does not imply that $\delta(G) \geq \frac{n+k-2}{2}$ where $n = |V(G)|$
+
+Note that if $G$ is $k$-connected, and $1\leq \ell \leq k$m, then $G$ is also $\ell$ connected. 
+
+\lecture{3}{September 8}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{lemma}
+	If $G$ is a 2-connected graph, and $xy, xz \in E(G)$, then there exists a cycle in $G$ containing edges $xy$ and $xz$
+\end{lemma}
+\begin{proof}
+	$G$ is 2-connected, so $G - x$ is a connected graph. Then $y$ and $z$ are joined by a path $p$ in $G - x$. So $P \cup \{x\}$ is the vertex set of a cycle in $G$ that contains $xy$ and $xz$.
+\end{proof}
+In particular, every edge $e$ in a 2-connected graph lies in a cycle. So, $G$ is 2-connected implies that $\delta(G) \geq 2$. So there exists edge $f$ different from $e$ sharing a vertex in $e$, so the cycle in $G$ containing both edges $e$ and $f$.  
+
+\begin{lemma}
+	Let $G$ be a graph, suppose that \begin{itemize}
+	\item edges $e_1$ and $e_2$ both lie in a cycle $C_1$	
+	\item edges $e_2$ and $e_3$ both lie in a cycle $C_2$
+	\end{itemize}
+	Then there exists a cycle $C_3$ in $G$ that contains both edges $e_1$ and $e_3$
+\end{lemma}
+
+\begin{proof}
+	Let $x$ and $y$ be the first two vertices of $C_1$ reached by waling around $C_2$ starting at $e_3$ and going in either direction. Then $x \neq y$ since $e_2$ is in both cycles $C_1$ and $C_2$. Then the $(x, y)$ segment of $C_2$ containing $e_3$ together with the $(y, x)$ segment of $C_1$ containing $e_1$, form a cycle in $G$ containing $e_1$  and $e_3$. 
+\end{proof}
+
+\begin{theorem}
+	Let $G$ be a graph with $|V(G)| \geq 3$. Then the following are equivalent \begin{enumerate}
+	\item[(a)] $G$ is 2-connected
+	\item[(b)]$G$ has no isolated vertices, and any two edges of $G$ lies in a common cycle
+	\item[(c)] any two vertices of $G$ lie in a common cycle. 
+	\end{enumerate}
+	It means that $(a) \Leftrightarrow (b) \Leftrightarrow (c)$
+\end{theorem}
+\begin{proof}
+	$(a) \Rightarrow (b)$: Assume $G$ is 2-connected. Then $G$ has no isolated vertices since $\delta(G) \geq 2$. Let $e$ and $f$ are distinct edges of $G$. Since $G$ is connected, then there exists a path from an end point of $e$ to an end point of $f$. Therefore, there exists a sequence of edges $e_0, e_1, ..., e_k$ in $G$ such that $e_0 = e, e_k = f$, and $e_i$ shares a vertex with $e_{i+1}$ for each $i$. 
+			
+	Since $G$ is 2-connected, by Lemma 3.11, $e$ and $e_1$ lie in a common cycle. Similarly, $e_i$ and $e_{i+1}$ lie in a common cycle for each $i$. By Lemma 3.13 (apply it $k-1$ times), we can conclude that $e$ and $f$ lie in a common cycle. 
+			
+	$(b) \Rightarrow (c)$: Let $x$ and $y$ be vertices of $G$. Since $G$ has no isolated vertices, then there exists edges $e_1$ incident to $x$ and $e_2$ incident to $y$. Then $G$ contains a cycle $C$ that contains both $e_1$ and $e_2$. So $C$ contains both $x$ and $y$ as required. 
+			
+	$(c) \Rightarrow (a)$: First, we have $|V(G)| \leq 3$ by assumption. Suppose on the contrary that $x$ is a cut vertex of $G$. Let $y$ and $z$ be vertices in distinct components of $G - x$. THen there is no path from $y$ to $z$ in $G - x $. But $y$ and $z$ lie in a common cycle. Removing $x$ cannot disonnect $y$ and $z$. This contradiction shows that $x$ cannot exist. So $G$ is 2-connected. 
+\end{proof}
+
+\lecture{4}{September 15}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+\begin{definition}
+	A \textbf{\underline{block}} is a connected graph with no cut vertex. 
+			
+	Every block is \begin{enumerate}
+	\item a single vertex (aka the trivial block)
+	\item two vertices joined by an edge
+	\item 2-connected
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	a block of a graph $G$ is a subgraph $H$ that is maximal with respect to being a block. 
+			
+	The above definition means that it is a block, and $H$ is not contained in any larger subgraph $J$ that is also a block
+\end{definition}
+
+\begin{definition}
+	Let $G$ be a connected graph. The \textbf{\underline{Block-cut vertex forest}} $F$ for $G$ is the bipartite graph with vertex classes $B$ ad $C$, where $B$ is the set of blocks of $G$, and $C$ is the set of cut vertices of $G$. The edge set of $F$ is $$\{bc : \text{block } b \text{ contains cut vertex } c\}$$
+\end{definition}
+
+\begin{theorem}
+	Let $G$ be a connected graph. Then, the block-cut vertex forest $F$ of $G$ is a tree. ($F$ is connected and has no cycles)
+\end{theorem}
+
+\begin{proof}
+	The proof of $F$ is connected is left as an exercise. 
+			
+	To prove $F$ contains no cycles, suppose on the contrary that $c_1b_1c_2b_2...c_tb_t$ is a cycle in $F$. Note that $t \geq 2$. Since each block $b_i$ is connected, there is a path joining $c_i$ to $c_{i+1}$ inside $b_i$ for each $i$. Their union gives a cycle $C$ in $G$ containing all of these cut vertices $c_1, c_2, ..., c_t$. Note that $C$ has $\geq 3$ vertices. 
+			
+	We claim that $C \cup b_i$ is 2-connected: \begin{itemize}
+	\item It has $\geq 3$ vertices since it contains $C$
+	\item $C$ has no cut vertex since it is a cycle
+	\item $b_1$ has no cut vertex since it is a block
+	\item $C \cap b_1$ contains 2 vertices. It contains $c_1$ and $c_2$. 
+	\end{itemize}
+			
+	So, for any vertex $x$, \begin{itemize}
+	\item $C - x$ is connected
+	\item $b_1 - x $ is connected
+	\item $(C - x) \cap (b_1 - x)$ is nonempty
+	\end{itemize}
+	This implies that $x$ is not a cut vertex of $C \cup b_1$. This contradicts the fact that $b_1$ is a block of $G$ since $C \cup b_1$ is 2 connected, and it contains $b_1$, and $C \cup b_1$ is larger than $b_1$. 
+			
+	Hence, $F$ does not contain a cycle. 
+\end{proof}
+
+Recall that a leaf of a tree is a vertex of degree 1. Every cut vertex of $G$ has at least 2 blocks as neighbours in $F$. So every leaf of $F$ is a block of $G$. They are called the \textbf{\underline{end-blocks}} of $G$. 
+
+\lecture{5}{September 15}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+We see that if a graph is connected but not 2-connected, then its blocks form a ``tree-like'' structure. This will help us to prove the general statements about connected graphs $G$ by allowing us to assume $G$ is 2-connected. That is, if we can prove statement $X$ for a 2-connected graph $G$, then we can conclude that $X$ is true for all connected graphs, by using induction on the number of blocks of $G$. 
+
+Recall from MATH239, let $\tilde{G}$ be a planar drawing of a planar graph $G$ and let $f$ be a face of $\tilde{G}$. Then $G$ has a planar drawing in which $f$ is the outer face. 
+
+\begin{theorem}
+	Theorem K1: Let $G$ be a connected graph, and suppose that every block of $G$ is planar, then $G$ is planar
+\end{theorem} 
+
+\begin{proof}
+	By induction on the number $t$ of blocks of $G$.
+			
+	Base Case: $t = 1$, Then $G$ itself is the only block, hence by assumption $G$ is planar. 
+			
+	Inductive Hypothesis: Assume $t \geq 2$, and that if it is a connected graph with $\leq k-1$ blocks, all of which are planar, then $H$ is planar. 
+			
+	Inductive Step: Let $b_1$ be an end block of $G$ (so it has degree 1 in the block-cut vertex forest of $G$). So $b_1$ contains exactly one cut vertex $c_1$ of $G$. Then \begin{itemize}
+	\item $b_1$ is planar by assumption
+	\item the graph $H = G - (b_1 - c_1)$ has $t-1$ blocks, all of which are blocks of $G$, hence planar by assumption. Therefore, it is planar by inductive hypothesis. 
+	\end{itemize}
+	Take a planar drawing of $b_1$ with $c_1$ on the outer face. Also, take a planar drawing of $H$ with $c_1$ on the outer face. We can glue these two drawings together at $c_1$. So this is a planar drawing of $G$, which tells us $G$ is planar as required. 
+\end{proof}
+
+\begin{definition}
+	The graph $G \setminus e$ has vertex set $V(G)$ and edge set $E(G) \setminus \{s\}$. 
+\end{definition}
+
+\begin{definition}
+	The graph $G / e$ has vertex set $V(G) \setminus \{x, y\} \cup \{z\}$ where $e = xy$ and $z$ is a new vertex, and edge set $$\{uv \in E(G) : \{u, v\} \cap \{x, y\} = \emptyset \} \cup \{uz : ux \in E(G) \setminus \{e\} \text{ or } uy \in E(G) \setminus \{e\}  \}$$
+\end{definition}
+
+\begin{definition}
+	The graph $H$ is said to be a \textbf{\underline{minor}} of $G$ if it can be obtained from $G$ by a sequence of edge deletions and edge contractions. (plus a detection of isolated vertices)
+\end{definition}
+
+\begin{definition}
+	\textbf{\underline{Subdivision}}: subdividing the edges means take edges of a graph $H$ and replace it by a path, i.e. add some vertices that have degree 2 on the edges, and we can obtain $H_1$, a subdivision of $H$. 
+			
+	Note the the vertices on the edges (newly introduced ones) are called \textbf{\underline{path vertices}}. Unchanged vertices are called \textbf{\underline{branch vertices}}. 
+\end{definition}
+
+\lecture{6}{September 15}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+\begin{lemma}
+	If $H_1$ is a subdivision of $H$, and $H_2$ is a subdivision of $H_1$, then $H_2$ is a subdivision of $H$. 
+\end{lemma}
+
+For any subdivision $H$ of graph $G$, we can obtain from $G$ to $H$ via edge deletions and contractions, i.e. $G$ contains a subvidision of $H$ implies that $G$ has $H$ as a minor. However, the converse is not true. 
+
+\begin{definition}
+	A graph is a said to be \textbf{\underline{cubic}} if every vertex has degree exactly 3 (i.e. the same as 3 regular). 
+\end{definition}
+
+\begin{lemma}
+	Let $H$ be a cubic graph. If $G$ has $H$ as a minor, then $G$ contains a subdivision of $H$. 
+\end{lemma}
+\begin{proof}
+	By induction of $|E(G)|$. 
+			
+	Base Case: $|E(G)| = |E(H)|$, then $G = H$ (plus possibly isolated vertices), note that $H$ is a subdivision of itself. 
+			
+	Inductive Hypothesis: Assume $|E(G)| > |E(H)|$ and every graph $G'$ that has $H$ as a minor, where $|E(G')| < |E(G)|$ contains a subdivision of $H$
+			
+	Inductive Conclusion: Since $G$ has $H$ as a minor, there is a sequence of edge deletions and contractions starting with $G$ and ending with $H$. Let $e= xy$ be the first edge in this sequence. 
+			
+	Case 1: The sequence starts by deleting $e$. Then the rest of the sequence shows that $G \setminus e$ has $H$ as a minor. By inductive hypothesis, since $|E(G)| > |E(G \setminus e)|$, we know that $G \setminus e$ contains a subdivision of $H$. Hence so does $G$. 
+			
+	Case 2: The sequence starts by contracting $e = xy$. Then the rest of the sequence shows that $G / e$ has $H$ as a minor. By inductive hypothesis, since $|E(G)| > |E(G / e)|$, we know that $G / e$ contains a subdivision of $H$. If the image $z$ if $e$ under contraction is not a vertex of $H_1$, then $H_1$ is also a subgraph of $G$, then $H_1$ is a subdivision of $G$. 
+			
+	So we may assume $z$ is a vertex of it. Let $H_2$ be the subgraph of $G$ such that $H_2 / e = H_1$. Since $H$ is cubic, $z$ has degree $\leq 3$ in $H_1$. Look at the $\leq 3$ edges of $H_1$ incident to $z$. One of $x$ and $y$ is incident to $\leq 1$ of them (in $H_2$). It follows that $H_2$ is a subdivision of $H_1$, or contains $H_1$. Hence, $H_2$, or a subgraph of $H_2$, is a subdivision of $H$ contained in $G$ as required.
+			
+	Note: we use degree 3 here is essentially using the fact that if $3 = a + b$, $a, b$ are non-negative integers, then one of $a, b$ is $\leq 1$.  
+\end{proof}
+
+\lecture{7}{September 22}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+\begin{definition}
+	Let $G_1$ and $G_2$ be graphs with at least 3 vertices. Suppose that \begin{itemize}
+	\item $V(G_1) \cap V(G_2) = \{u, v\}$
+	\item $uv \in E(G_1) \cap E(G_2) $
+	\end{itemize}
+	The \textbf{\underline{2-sum}} $G_1 \oplus G_2$ with respect to the edge $uv$ is the graph with vertex set $V(G_1) \cup V(G_2)$ and edge set $E(G_1) \cup E(G_2) \setminus \{uv\}$
+\end{definition}
+
+Note that any 2-sum of two cycles is a cycle. $C_k \oplus C_\ell = C_{k + \ell - 2}$
+
+\begin{lemma}
+	If $G = G_1 \oplus G_2$ and $G_2$ is 2-connected. Then $G$ contains a subdivision of $G_1$. 
+\end{lemma}
+\begin{proof}
+	Since $G_2$ is 2-connected, by a previous lemma, we know that every edge of $G_2$ lies in a cycle. Let $G$ be a cycle in $G_2$ containing $uv$. So $P = C \setminus uv$ is a path joining $u$ and $v$ in $G_2$, which together with $G_1 \setminus \{uv\}$ forms a subdivision of $G_1$. 
+\end{proof}
+
+\begin{lemma}
+	If $G = G_1 \oplus G_2$ and $G_1$ and $G_2$ are both 2-connected. Then $G$ is 2-connected. 
+\end{lemma}
+\begin{proof}
+	We will show that $G$ has no isolated vertices, and any two edges lie in a common cycle. Then we may use a previous lemma to show that $G$ is 2-connected. 
+			
+	The proof is as follows: First, $G$ has no isolated vertices. Since $G_1$ and $G_2$ are both 2-connected, we know, by a previous lemma, $\delta(G_1)$ and $\delta(G_2)$ are both $\geq 2$. Since only one edge is removed in forming $G$, there is definitely no isolated vertices. 
+			
+	Then, let $e, f \in E(G)$. If $e, f \in E(G_1)$, let $C_1$ be a cycle in $G_1$ containing $e, f$ (such cycle exists since $G_1$ is 2-connected). If $uv \notin E(C_1)$, then $C_1$ is the required cycle in $G$. If $uv \in E(C_1)$, then $C_1 \oplus C$ is the required cycle in $G$, where $C$ is a cycle in $G_2$ containing $uv$. 
+			
+	The case is similar if $e, f \in E(G_2)$. 
+			
+	The other possibility is $e \in E(G_1), f \in E(G_2)$. Let $C_1$ be a cycle in $G_1$ containing $e$ and $uv$ since $G_1$ is 2-connected. Similarly, let $C_2$ be a cycle in $G_2$ containing $f$ and $uv$ since $G_2$ is 2-connected. Then, $C_1 \oplus C_2$ is the required cycle in $G$ containing $e$ and $f$. Thus we have shown that $G$ is 2-connected. 
+\end{proof}
+
+\begin{lemma}
+	Let $G$ be a 2-connected graph. Suppose $\{x, y\}$ is a vertex cut of $G$. Let $C_1$ be a component of $G - \{x, y\}$. Then, the graph $H$ with vertex set $V(C_1) \cup \{x, y\}$ and edge set $\{wz \in E(G) : w, z \in V(H)\} \cup \{xy\}$ is 2-connected. 
+\end{lemma}
+
+\begin{proof}
+	Note that $|V(H)| \geq 3$. Since $C_1$ is nonempty. Since $C_1$ is a component, it is connected, and there exists edges joining $C_1$ to $\{x, y\}$ since $G$ is connected. Thus, $H$ is connected. 
+			
+	Suppose for a contradiction that $H$ has a cut vertex $w$. 
+			
+	Suppose $w \notin \{x, y\}$, note $x, y$ are in the same component of $H - w$ since $xy \in E(H)$. Let $K$ be a component of $H - w$ not containing $\{x, y\}$, then $K$ is a component of $G - w$. This is not possible since $G$ is 2-connected. Contradiction. 
+			
+	If $w = x$, then let $L$ be a component of $H - x$ not containing $y$. Then $L$ is a component of $G - x$, contradicting $G$ being 2-connected. Case is similar if $w = y$. 
+			
+	Hence, $H$ has no cut vertices, and hence is 2-connected as required. 
+\end{proof}
+
+\lecture{8}{September 22}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{lemma}
+	Let $G_1$, $G_2$ be $k$-connected graphs such that $|V(G_1) \cap V(G_2)| \geq k$ for some $k \geq 2$. Then $G_1 \cup G_2$ is $k$-connected. 
+\end{lemma}
+
+\begin{proof}
+	Clearly, $G_1 \cup G_2$ is connected and $|V(G_1 \cup G_2)| \geq |V(G_1)| \geq k+1$. Let $W \subset V(G_1 \cup G_2)$ be a set of size $\leq k-1$. Then \begin{itemize}
+	\item $G_1 - W$ is connected because $G_1$ is $k$-connected. 
+	\item $G_2 - W$ is connected because $G_2$ is $k$-connected. 
+	\item $V(G_1 - W) \cap V(G_2 - W) \neq \emptyset$ since $|V(G_1) \cap V(G_2)| \geq k$. 
+	\end{itemize}
+	Hence, $G_1 \cup G_2 - W$ is connected. So $G_1 \cup G_2$ has no vertex cut of size $\leq k-1$. Hence, $G_1 \cup G_2$ is $k$-connected. 
+\end{proof}
+
+\begin{theorem}
+	A structure theorem for $2$-connected graphs that have vertex cuts of size 2: \textbf{\underline{Decomposition Theorem}}
+			
+	Suppose the 2-connected graph $G$ has a vertex cut $\{x, y\}$. Then there exists graphs $G_1$ and $G_2$ with the following properties. \begin{itemize}
+	\item $V(G_1) \cap V(G_2) = \{x, y\}$
+	\item $xy \in E(G_1) \cap E(G_2)$
+	\item $G_1$ and $G_2$ are both 2-connected. 
+	\item If $xy \notin E(G)$, then $G = G_1 \oplus G_2$
+	\item If $xy \in E(G)$, then $G \setminus e = G_1 \oplus G_2$
+	\end{itemize}
+\end{theorem}
+
+\begin{proof}
+	Let $C_1, ..., C_r$ be the components of $G - \{x, y\}$. For each $i$, let $H_i$ be the graph with vertex set $V(C_i) \cup \{x, y\}$ and edge set $\{wz \in E(G) : w, z \in V(H_i)\} \cup \{xy\}$. By a previous lemma, we know that $H_i$ is 2-connected, for each $i$. 
+			
+	Let $G_1 = H_1$, and $G_2 = H_2 \cup \cdots \cup H_r$. Then $G_2$ is 2-connected since $|V(H_i) \cap V(H_j)| \geq 2$ for each $i, j \in \{2, ..., r\}$ by a previous lemma. 
+			
+	By now, $G_1$ and $G_2$ satisfy the first 3 properties. Then, if $xy \notin E(G)$, then $G = G_1 \oplus G_2$ by definition. If $xy \in E(G)$, then $G - e= G_1 \oplus G_2$ by definition. 
+\end{proof}
+
+\begin{corollary}
+	Let $G$ be a 2-connected graph with at least 4 vertices. For any edge $e \in E(G)$, either $G \setminus e$ is 2-connected or $G / e$ is 2-connected. 
+\end{corollary}
+
+\begin{proof}
+	Consider $e = xy$. Suppose $G / e$ is not 2-connected. Let $z$ be the image of $e$ in $G / e$. Note that $G / e$ is connected (For any $u, v \in V(G / e)$, we need to find a path joining them together. Then, if the original path in $G$ does not use $e$, then the same path works. if the original path in $G$ uses $e$, then the path still works but just shortened by one edge). 
+			
+	Since $G / e$ is not 2-connected, and has $\geq 3$ vertices. It has a cut vertex $w$. If $w \neq z$, then $w$ is cut vertex of $G$, contradiction. Hence, $z$ is the only cut vertex of $G / e$. 
+			
+	Hence, $\{x, y\}$ is a vertex cut of $G$. Let $G_1, G_2$ be as in the decomposition theorem. Then $G_1$ and $G_2$ are 2-connected. and $G \setminus e = G_1 \oplus G_2$. By a previous lemma, $G \setminus e$ is 2-connected. 
+\end{proof}
+
+\lecture{9}{September 22}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+The Decomposition Theorem allows us to reduce the proof of Kuratowski's Theorem to the case of 3-connected graphs: 
+\begin{theorem}
+	\textbf{\underline{Theorem K2}}: Suppose that every 3-connected graph that does not contain a subdivision of $K_5$ or $K_{3, 3}$ is planar, then every 2-connected graph that does not contain a subdivision of $K_5$ or $K_{3, 3}$ is planar. 
+\end{theorem}
+
+\begin{proof}
+	Let $G$ be a 2-connected graph without subdivision of $K_5$ or $K_{3, 3}$. We will use induction of $|V(G)|$
+			
+	Base Case: $|V(G)| \leq 5$. It is trivially true. Since the only non-planar graph with $\leq 5$ vertices is $K_5$. 
+			
+	Inductive Hypothesis: Assume $|V(G)| \geq 6$, and every 2-connected graph $H$ with $|V(H)| < |V(G)|$ with no subdivision of $K_5$ or $K_{3, 3}$ is planar. 
+			
+	Inductive Conclusion: If $G$ is 3-connected, then $G$ is planar by assumption. 
+			
+	If $G$ is not 3-connected, then it has a vertex cut $\{x, y\}$. By our decomposition theorem, there exists 2-connected graphs $G_1$ and $G_2$, each containing the edge $xy$ with $G = G_1 \oplus G_2$ or $G \setminus xy = G_1 \oplus G_2$. 
+			
+	Note that $G_1$ and $G_2$ each have fewer vertices than $G$. Since $G_2$ is 2-connected, then by a previous lemma, $G = G_1 \oplus G_2$ or $G \setminus e = G_1 \oplus G_2$ contains a subdivision of $G_1$. So either way, $G$ contains a subdivision of $G_1$. Therefore $G_1$ does not contain a subdivision of $K_5$ or $K_{3, 3}$ (Recall a subdivision of a subdivision of $K_5$ or $K_{3, 3}$ is itself a subdivision of $K_5$ or $K_{3, 3}$). That's not possible. 
+			
+	Therefore, by inductive hypothesis, $G_1$ is planar. Similarly, $G_2$ is planar. 
+			
+	Take a planar drawing of $\tilde{G_1}$ of $G_1$ with $xy$ on its outer face. And, take a planar drawing of $\tilde{G_2}$ of $G_2$ with $xy$ on its outer face. Then gluing $\tilde{G_1}$ and $\tilde{G_2}$ along $xy$ gives a planar drawing of $G$, or of $G \cup \{xy\}$, which contains $G$. 
+\end{proof}
+\begin{example}
+	The 2-sum of $H$ with a cycle $C$ with respect to the edge $uv$ is the graph obtained from $H$ by subdividing $uv$. If $C$ has length $k$, then we add $k-2$ new path vertuices to $uv$. 
+\end{example}
+
+How to ``build'' a 2-connected graph
+\begin{theorem}
+	Let $G$ be a 2-connected graph. Then, at least one of the following holds: \begin{enumerate}
+	\item $G$ is a cycle
+	\item there exists $e \in E(G)$ such that $G \setminus e$ is 2-connected
+	\item $G$ is the 2-sum of a 2-connected graph and a cycle. (This can also be written as, is obtained by subdividing an edge of a 2-connected graph)
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Call a graph \textbf{\underline{good}} if it satisfies at least one of the above properties. Note that any good graph is 2-connected. If the first property is satisfied, then it is 2-connected automatically. If the second property is satisfied, then we add an edge to the graph won't ruin the 2-connectivity. If the third property, then by an earlier lemma, it is 2-connected. 
+			
+	Fix a 2-connected graph $G$. We know $G$ contains a cycle with any edge we want, by an earlier lemma.  
+			
+	Let $H$ be a good subgraph of $G$ with the largest possible number of edges. If $H = G$, then $G$ is good, and then we are done. Assume $|E(H)| < |E(G)|$. If $|V(H)| = |V(G)|$ then there exists $e \in E(G) \setminus E(H)$, so $G \setminus e$ contains $H$. Thus $G \setminus 2$ is 2-connected, so $G$ satisfies the second property. Hence $G$ is good, contradicting that $H$ has maximal edges. 
+			
+	So we may assume that $|V(G)| > |V(H)|$. Then there exists a vertex $x \in V(G) \setminus V(H)$ and an edge $xu$ with $u \in V(H)$ since $G$ is connected. Since $G$ is 2-connected, $u$ is not a cut vertex of $G$. So there exists a path $P$ in $G - u$ from $x$ to some vertex $v \in V(H)$, such that $V(P) \cap V(H)  = \{v \}$. 
+			
+	Let $H' = \begin{dcases}
+	H & \text{ if } uv \in E(H)\\
+	H \cup \{uv\} & \text{ if } uv \notin E(H)
+	\end{dcases}$. Then, $H'$ is 2-connected since $H$ is 2-connected. 
+		
+	Let $C$ be the cycle $P \cup \{u\} \cup \{xu, uv\}$. Then $J = H' \oplus C$ is a subgraph of $G$. Since $H'$ is 2-connected, $J$ satisfies the third property. But $|E(J)| = |E(H')| + |E(C)| - 2 \geq |E(H)| + 1 > |E(H)|$, and $J$ is good, contradicting that $H$ has maximal edges. 
+			
+	Hence, $G$ is good, as required. 
+\end{proof}
+
+
+\lecture{10}{September 29}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+From Theorem 9.48, we know that any 2-connected graph could be ``built'' by starting from a cycle, and adding edges joining 2 vertices already present, or subdividing edges. 
+
+\begin{lemma}
+	Let $G$ be a 2-connected planar graph. In every planar drawing of $G$, every face is bounded by a cycle, and every edge is incident to exactly two distinct faces. 
+\end{lemma}
+
+\begin{proof}
+	By induction on $|E(G)|$. 
+			
+	Base Case: Since $G$ is 2-connected, $\delta(G) \geq 2$. So $|E(G)| = \frac{1}{2} \sum_{x \in V(G)} d(x) \geq \frac{1}{2} \cdot 2 |V(G)| = |V(G)|$. So the base case is $|E(G)| = |V(G)|$, so $G$ is a cycle. There is only one way to draw a cycle, and we have exactly two faces. The statement is trivially true. 
+			
+	Inductive Hypothesis: Assume that $|E(G)| > |V(G)|$, and every planar drawing of a 2-connected planar graph $H$ with $|E(H)| < |E(G)|$ is such that every face is bounded by a cycle, and every edge is incident to exactly two distinct faces. 
+			
+	Inductive Conclusion: Fix a planar drawing of $\tilde{G}$ of the 2-connected planar graph $G$. 
+			
+	Case 1: There exists $e = xy \in E(G)$ such that $H = G \setminus e$ is 2-connected. Then erasing $e$ from $\tilde{G}$ gives a planar drawing $\tilde{H}$ of $H$, in which $x$ and $y$ lie in the boundary of a common face $F$. By IH (apply to $H$), every face of $\tilde{H}$ is bounded by a cycle, and every edge is incident to exactly 2 distinct faces. So $F$ is bounded by a cycle. Thus in $\tilde{G}$, $e$ cuts $F$ into 2 distinct faces, both of which are bounded by cycles. Hence $\tilde{G}$ satisfies the conclusion of the theorem. 
+			
+	Case 2: $G$ is obtained by subdividing one edge of a 2-connected graph $H$. (i.e. $G = H \oplus C$ where $C$ is a cycle). Then $|E(H)| < |E(G)|$ since $|E(C)| \geq  3$. 
+			
+	We can obtain a planar drawing $\tilde{H}$ of $H$ by ``suppressing'' the interior vertices in the path $P$ in $\tilde{G}$ that replaced $f$ in $\tilde{H}$ (delete vertices, reverse engineering of subdividing). By IH (apply to $H$), every face of $\tilde{H}$ is bounded by a cycle, and every edge is incident to exactly two distinct faces. Then the same is true for $G$, since the edges of $P$ inherit the desired property from $f$. 
+\end{proof}
+
+\begin{lemma}
+	Let $G$ be a $k$-connected graph. Suppose $G$ has a vertex cut $W$ of size $k$. Then for each component $C$ of $G - W$ and each $w \in W$, there is an edge from $w$ to $C$. 
+\end{lemma}
+
+\begin{proof}
+	Suppose on the contrary that there is no edge from $w_0 \in W$ to $C$. Then $W \setminus \{w_0\}$ is a vertex cut of $G$ separating $C$ from the rest of $G$. But $|W \setminus \{w_0\}| = k-1$, contradicting the fact that $G$ is $k$-connected. 
+\end{proof}
+
+\lecture{11}{September 29}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{definition}
+	Let $G$ be a 3-connected graph and let $e \in E(G)$. We say that $e$ is \textbf{\underline{contractible}} if $G / e$ is 3-connected. 
+\end{definition}
+
+\begin{theorem}
+	Every 3-connected graph with $\geq 5$ vertices has a contractible edge. (Exclude the graph of $K_4$)
+\end{theorem}
+
+\begin{proof}
+	Suppose on the contrary that no such edge exists. Since $G / e$ has $\geq 4$ vertices for any $e$, it must have a vertex cut of size at most 2. 
+			
+	Let $e = xy \in E(G)$. Let $z$ be the image of $e$ under contraction. Then \begin{itemize}
+	\item any vertex cut of $G / e$ of size $\leq 2$ contains $z$, otherwise it would be a vertex cut of $G$ of size at most 2. 
+	\item any vertex cut of $G / e$ of size $\leq 2$ is of size $2$, otherwise $\{x, y\}$ would be a vertex cut of $G$ of size 2, contradicting that $G$ is 3-connected. 
+	\end{itemize}
+	Hence, for every edge $e = xy$ of $G$, there exists $w \in V(G) \setminus \{x, y\}$ such that $\{w,z \}$ is a vertex cut of $G / e$. Then, $\{x, y. w\}$ is a vertex cut of $G$. 
+		
+	Choose \begin{itemize}
+	\item the edge $xy$
+	\item the vertex $w$
+	\item the component $C$ of $G - \{x, y, w\}$ such that $C$ has the smallest possible number of vertices. 
+	\end{itemize}
+		
+	Let $v$ be a neighbour of $w$ in $C$. Note that $v$ exists because $\{x, y, w\}$ is a 3-vertex cut in 3-connected graph $G$ (by lemma 10.52). Since $wv \in E(G)$, there exists a vertex $u \in V(G) \setminus \{w, v\}$ such that $\{u, v, w\}$ is a vertex cut of $G$. We will use $wv \in E(G)$ and $u \in V(G)$ to show that our choice of $(xy, w, C)$ was wrong. 
+		
+	We can see that $\{w, v, u\}$ is a vertex cut of $G$. We claim that some component $D$ of $G - \{w, v, u\}$ is disjoint from $\{x, y\}$. To see this, we know that \begin{itemize}
+	\item $G - \{w, v, u\}$ has $\geq 2$ components
+	\item $xy$ is an edge
+	\end{itemize}
+	Let $q$ be a neighbour of $v$ in $D$. Again, we know $q$ exists by lemma 10.52, since $\{w, v, u\}$ is a 3-vertex cut in $G$. 
+		
+	Then $q \in C$ because $v \in C$ since all neighbours of $C$ are in $C \cup \{x, y, w\}$. But we know $q \notin \{x, y, w\}$ since $q$ is in $D$, which is disjoint from $\{x, y\}$, and $w$ is not in $G - \{w, v, u\}$. So $q \in C$.
+		
+	Thus, $D \cap C \neq \emptyset$, so $D \subseteq C$ since $D \cap \{x, y, w\} = \emptyset$. 
+		
+	But $v \in C \setminus D$, hence $|D| < |C|$. Then, $(uv, u, D)$ contradicts our choice of $(xy, w, C)$ (minimality on number of vertices in $C$). Hence, there exists some contractible edge in $G$. 
+\end{proof}
+
+\lecture{12}{September 29}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{lemma}
+	\textbf{\underline{Subdivisions of $K_5$}}: Let $e$ be an edge of a graph $G$, and suppose $G / e$ contains a subdivision of $K_5$. Then $G$ contains a subdivision of $K_5$ or $K_{3, 3}$. 
+\end{lemma}
+
+\begin{proof}
+	Let $z$ be the image of $e$ under contraction. Let $K$ be a subdivision of $K_5$ in $G / e$. If $e \notin V(K)$, then $K$ is a subdivision of $K_5$ in $G$ as well. So we may assume $z \in V(K)$. 
+			
+	If $z$ is a path vertex (degree 2) in $K$, in all cases (consider how $e=xy$ is contracted and connected to the remaining part of $K$, there are only 4 possibilities), $G$ contains a subdivision of $K$, which is a subdivision of $K_5$. 
+			
+	If $z$ is a branch vertex (degree 4) in $K$, there would be 8 cases similar to the analysis above. Let's say $e = xy$, and the four connecting vertices are $u, v, w, q$ (from left to right). The tricky case would be $x$ connects to $u$ and $v$, and $y$ connects to $w$ and $q$. In this case, we would obtain a $K_{3, 3}$. We actually have a hexagon, each vertex is $x, a, b, c, d, y$, and $e = xy$ is the edge to be contracted. We would obtain a subdivision of $K_{3, 3}$ (consider the bipartite drawing of $K_{3, 3}$), where $(b, a, y)$ is on one side of $K_{3, 3}$, and $(x, c, d)$ is on the other side of $K_{3, 3}$. 
+			
+	So in all cases, $G$ gets a subdivision of either $K_5$ or $K_{3, 3}$. 
+\end{proof}
+
+\begin{theorem}
+	\textbf{\underline{Kuratowski's Theorem for 3-connected graph (K3)}}: Let $G$ be a 3-connected graph that does not contain a subdivision of $K_5$ or $K_{3, 3}$. Then $G$ is planar. 
+\end{theorem}
+
+\begin{proof}
+	By induction on $|V(G)|$. 
+			
+	Base Case: $|V(G)| \leq 5$ since the only non-planar graph with $\leq 5$ vertices is $K_5$. Hence, the statement holds in this case. 
+			
+	Inductive Hypothesis: Assume $|V(G)| \geq 6$, and any 3-connected graph with fewer than $|V(G)|$ vertices, that does not not contain a subdivision of $K_5$ or $K_{3, 3}$, is planar. 
+			
+	Inductive Conclusion: Since $|V(G)| \geq 6$, by theorem 11.55, $G$ has a contractible edge $e$. Then $G / e$ is 3-connected and has $|V(G)| - 1$ vertices. 
+			
+	We claim that $G / e$ does not contain a subdivision of $K_5$ or $K_{3, 3}$: \begin{itemize}
+	\item Suppose $G / e$ contains a subdivision of $K_5$, then $G$ contains a subdivision of $K_5$ or $K_{3,3}$ by lemma 12.57. Contradiction. 
+	\item Suppose $G / e $ contains a subdivision of $K_{3,3}$. Then $K_{3, 3}$ is a minor of $G / e$. and hence a minor of $G$. Since $K_{3,3}$ is cubic, by lemma 6.30, $G$ contains a subdivision of $K_{3,3}$. Contradiction. 
+	\end{itemize}
+	Therefore $G / e$ satisfies the inductive hypothesis. Hence $G / e  = G'$ is planar. Fix a planar drawing $\tilde{G'}$ of $G'$. Let $z$ be the image of $e$ under contraction. Then erasing $z$ and its incident edges from $\tilde{G'}$ gives a planar drawing of $G' - z$. 
+			
+	Note $G' - z$ is 2-connected since $G'$ is 3-connected. Removing 1 vertex from a 3-connected graph won't generate any cut vertices. By lemma 10.50, every face of the drawing $\tilde{G'} - z$ is bounded by a cycle. 
+			
+	Let $C$ denote the cycle bounding the face of $\tilde{G'} - z$ that contained $z$ in $G'$. Then all neighbours of $x$ and $y$ in $G$ are neighbours of $z$ in $G'$, so they lie on the cycle $C$. 
+			
+	Label the neighbours $x_1, x_2, ..., x_t$ of $x$ in order around $C$. 
+			
+	Denote by $P_i$, the path in $C$ from $x_i$ to $x_{i+1}$ ($P_{t+1}$ is $P_1$). There are four cases: \begin{itemize}
+	\item Case I: All neighbours of $y$ are in the same $P_i$, Then we can complete the drawing to a drawing of $G$. So $G$ is planar. 
+	\item Case II: $y$ has a neighbour in the interior of some $P_i$, and a neighbour not in $P_i$. Then $G$ has a subdivision of $K_{3,3}$. The branch vertices are $\{a, b , x\} \cup \{y, x_i, x_{i+1}\}$ ($a, b$ are neighbours of $y$, where $a$ lies on $P_i$, $b$ lies on $P_{i+1}$). Contradiction. 
+	\item Case III: $y$ has $x_i$ and $x_j$ as neighbours, where $x_i$ and $x_j$ are not endpoints of the same $P_\ell$. Then $G$ has a subdivision of $K_{3,3}$. The branch vertices are $\{x_i, x, x_j\} \cup \{y, x_{j-1}, x_{-1}\}$. Contradiction.
+	\item Caie IV: $y$ has three of the $x_i$'s as $n$ neighbours. Then $G$ has a subdivision of $K_5$. The pentagon would have vertices $\{y, x, x_i, x_j, x_k\}$ where $x_i, x_j, x_k$ are neighbours of $y$. Contradiction. 
+	\end{itemize} 
+	Since only case I can occur, we proved that $G$ is planar. 
+\end{proof}
+
+\lecture{13}{October 6}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{theorem}
+	\textbf{\underline{Kuratowski's Theorem}}: A graph is planar if and only if it does not contain a subdivision of $K_5$ or $K_{3,3}$
+\end{theorem}
+
+\begin{proof}
+	$\Rightarrow$: Since $K_5$ or $K_{3,3}$ are not planar (from MATH239), if $G$ has a subdivision of $K_5$ or $K_{3,3}$, then it is not planar. 
+			
+	$\Leftarrow$: Suppose $G$ does not contain a subdivision of $K_5$ or $K_{3,3}$. \begin{itemize}
+	\item If $G$ is 3-connected, then $G$ is planar by \textbf{Theorem K3}. 
+	\item If $G$ is 2-connected, then $G$ is planar by \textbf{Theorem K2}. 
+	\item If $G$ is connected but not 2-connected, then none of its blocks contain a subdivision of $K_5$ or $K_{3,3}$, otherwise $G$ would. Each block is either an edge joining two vertices, or 2-connected. Hence, it is planar by \textbf{Theorem K2}, so every block of $G$ is planar. By Theorem K1, then $G$ is planar. 
+	\item If $G$ is not connected, all components are planar. 
+	\end{itemize}
+\end{proof}
+
+\begin{definition}
+	\textbf{\underline{Internally Disjoint Path}}: A set of paths, $\{P_1, ..., P_t\}$, with common end points $x$ and $y$ is said to be \textbf{\underline{internally-disjoint}} if $V(P_i) \cap V(P_j) = \{x, y\}$ for all $i \neq j$. 
+\end{definition}
+
+\begin{definition}
+	\textbf{\underline{	Vertex Cuts separating vertices $x$ and $y$}}: Let $x$ and $y$ be vertices in a graph $G$. A vertex cut $W$ of $G$ is said to \textbf{\underline{separate}} $x$ and $y$ if $x$ and $y$ are in different component of $G - W$. (Note that $x, y \notin W$)
+\end{definition}
+
+\begin{corollary}
+	If $x, y$ are joined by a set of $k$ internally disjoint paths in $G$, then there is no vertex cut of size $\leq k-1$ in $G$ that separates $x$ and $y$. 
+\end{corollary}
+
+\begin{theorem}
+	\textbf{\underline{Menger's Theorem}}: Let $a$ and $b$ be distinct non-adjacent vertices in a graph $G$. Let $s$ be the minimum size of a vertex cut of $G$ that separates $a$ and $b$. Then $G$ contains a set of $s$ internally disjoint paths joining $a$ and $b$. We will write it as ``$(a, b)$-paths''
+\end{theorem}
+
+\begin{proof}
+	If $s \leq 1$ then the statement is true. So we may assume $s \geq 2$. We use induction on $|E(G)|$. 
+			
+	Base Case: $|E(G)| = 0$. Statement is true trivially. 
+			
+	Inductive Hypothesis: Assume $|E(G)| \geq 1$ and for every graph with $|E(H)| < |E(G)|$ and all a, b non-adjacent in $H$, there exists a set of $t$ internally disjoint $(a, b)$-paths in $H$ where $t$ is the minimum size of a vertex cut separating $a$ and $b$ in $H$. 
+			
+	Inductive Conclusion: \begin{itemize}
+	\item Case I: All edges of $G$ are incident to $a$ or $b$. Then $s = |N(a) \cap N(b)|$
+				
+	There is a set of $s$ internally disjoint $(a, b)$-paths, namely $\{a ub : u \in N(a) \cap N(b)\}$. 
+				
+	\item Case II: There exists $e \in E(G)$, say $e =xy$, such that $\{x, y\} \cap \{a, b\} = \emptyset$. Let $H = G \setminus e$. Let $S$ be a vertex cut of minimum size separating $a$ and $b$ in $H$. 
+				
+	If $|S| \geq s$, then by inductive hypothesis, there exists a set of $s$ internally disjoint $(a, b)$-paths in $H$, and hence the same paths are also in $G$. 
+				
+	So, we may assume $|S| < s$. Note $S \cup \{x\}$ separates $a$ and $b$ in $G$. Hence, by definition of $s$, $|S \cup \{x\}| \geq s$. Therefore, $|S| = s-1$. Also, $S \cup \{x\}$ and $S \cup \{y\}$ are vertex cuts of size $s$ separating $a$ and $b$ in $G$. 
+				
+	Since $|S| < s$, then there is an $(a, b)$-path in $G - S$. Hence, it must use the edge $xy$ since there is no $(a,b)$-path in $H$. Without loss of generality, $x$ is closer to $a$ on this path than $y$ is. 
+				
+	By applying inductive hypothesis to $H = G \setminus e$, we found $S \cup \{x\}$ and $S \cup \{y\}$ are both vertex cuts of size $s$ separating $a$ and $b$ in $G$. 
+				
+	Let $G_b$ be the graph obtained from $G$ by contracting all edges in the component $C_b$ of $G - (S \cup \{x\})$ that contains $b$. Then $|E(G_b)| < |E(G)|$. Since $y$ and $b$ and the path joining them are in $C_b$. 
+				
+	Call the new vertex $z_b$. 
+				
+	So, we can apply inductive hypothesis to $G_b$, with vertices $a, z_b$. 
+				
+	If $T$ is a vertex cut separating $a$ and $z_b$ in $G_b$, then $T$ is a vertex cut separating $a$ and $z_b$ in $G$. Thus, the minimum size of a vertex cut separating $a$ and $b$ in $G_b$ is $\geq s$, by definition of $s$. To be more precise, we can say $= s$ since $S \cup \{x\}$ is such a cut. 
+				
+	By inductive hypothesis applying to $G_b$, there exists a set $\{P_1, ..., P_s\}$ of $s$ internally disjoint $(a, z_b)$-paths in $G_b$. Note that for each $i$, the neighbour of $z_b$ on $P_i$ is in $S \cup \{x\}$ since $N(Z_b) \subseteq S \cup \{x\}$. 
+				
+	Similarly, we define $G_a$ and find internally disjoint $(z_a, b)$-paths $\{Q_1, ..., Q_s\}$ in $G_a$. 
+				
+	Without loss of generality, $P_1$ contains $x$, $Q_1$ contains $y$, and for $2 \leq i \leq s$, $P_i$ and $Q_i$ both contain the same vertex $u_i \in S$. 
+				
+	Note that $V(P_i) \setminus (S \cup \{x, z_b\})$ is contained in the component of $a$ in $H - S$. Similarly, $V(Q_i) \setminus (S \cup \{y, z_a\})$ is contained in the component of $b$ in $H - S$. 
+				
+	Therefore, $V(P_i) \cap V(Q_i) = \begin{dcases}
+	ui & \text{ if } i = j \geq 2\\
+	\emptyset & \text{ otherwise }
+	\end{dcases}$. Hence, the set $\{P_1 \cup Q_1 \cup \{xy\}, P_2 \cup Q_2, ..., P_s \cup Q_s\}$ is a set of s internally disjoint $(a, b)$-paths in $G$ as required. 
+	\end{itemize}
+\end{proof}
+
+\begin{theorem}
+	\textbf{\underline{Menger-Whitney Theorem}}: Let $G$ be a graph with $\geq 2$ vertices, then $G$ is $k$-connected if and only if for every pair of vertices $a$ and $b$, there exists a set of $k$ internally disjoint $(a, b)$ paths. 
+\end{theorem}
+
+\begin{proof}
+	For $k = 1$, the statement is true by definition. So, we may assume $k \geq 2$. 
+			
+	$\Rightarrow$: Assume $G$ is $k$-connected. Then $|V(G)| \geq k + 1$. Let $a$ and $b$ be distinct vertices in $G$. \begin{itemize}
+	\item If $ab \notin E(G)$, then the minimum size $s$ of a vertex cut separating $a$ and $b$ is $\geq k$ since $G$ is $k$ connected. Hence, by \textbf{Menger's Theorem}, there exists a set of $s \geq k$ internally disjoint $(a, b)$-paths in $G$ as required. 
+	\item If $ab \in E(G)$, then we claim that $G' = G \setminus ab$ is $(k-1)$-connected. 
+			
+	The proof of the claim is as follows: Suppose not. Then $G'$ has a vertex cut of size $\leq k-2$. Then $a$ and $b$ are in different components of $G' - Y$, otherwise $Y$ is a vertex cut of $G$. Since $|V(G')| \geq k+1$, $a$ and $b$ can't be a component by their own. 
+				
+	Without loss of generality, some component of $G' - Y$ not containing $b$ has a vertex $c \neq a$. Then, $Y \cup \{a\}$ is a vertex cut of $G$ of size $\leq k-1$, separating $b$ and $c$, contradicting $G$ being $k$-connected. Hence, $G'$ is $(k-1)$-connected. 
+				
+	Hence, we can apply Menger's Theorem to the vertices $a$ and $b$ in $G \setminus ab$ to find that there exists a set $S$ of $k-1$ internally disjoint $(a, b)$-paths in $G \setminus ab$. So, $S \cup \{ab\}$ is the required set of $k$ internally disjoint $(a, b)$-paths in $G$. 
+	\end{itemize}
+			
+	$\Leftarrow$: Assume $G$ has the property that every pair of $a, b$ of vertices is joined by a set of $k$ internally disjoint $(a, b)$-paths. Then $G$ has no vertex cut of size $\leq k-1$, as we observed before. 
+			
+	Moreover, $|V(G)| \geq k+1$ since all but at most one of $k$ internally disjoint $(a, b)$-paths for fixed $a$ and $b$ each contain a distinct vertex (from each other and from $a$ and $b$). 
+			
+	Hence, $G$ is $k$-connected. 
+\end{proof}
+
+\lecture{14}{October 6}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+See \textbf{Proof 13.67}. 
+
+\lecture{15}{October 6}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+Extending a $k$-connected graph. 
+
+\begin{lemma}
+	\textbf{\underline{The Extension Lemma}}: Let $G$ be a $k$-connected graph, and let $Y \subset V(G)$ be a set of size $k$. Then, the graph $H$ with vertext set $V(H) = V(G) \cup \{x\}$ and edge set $E(H) = E(G) \cup \{xy : y \in Y\}$ is $k$-connected. Here $x$ is a new vertex. 
+\end{lemma}
+
+\begin{proof}
+	We know $|V(H)| > |V(G)| \geq k+1$. 
+			
+	Suppose $W$ is a vertex cut of $H$, and assume for a contradiction that $|W| \leq k-1$. Then $x \notin W$, otherwise $W - \{x\}$ is a vertex cut of $G$ of size $\leq k-2$, contradiction. 
+			
+	Let $z$ be a vertex in a component of $H-W$ that does not contain $x$. There exists $y \in Y \setminus W$, since $|Y| > |X|$. So $y$ is in the component of $x$ in $H - W$. Then $W$ separates $y$ and $z$ in $G$, contradicting that $G$ is $k$-connected. Hence, $W$ cannot exist. So $H$ is $k$-connected. 
+\end{proof}
+
+\begin{definition}
+	\textbf{\underline{Fans}}: Let $G$ be a graph, let $x \in V(G)$ and let $Y \subseteq V(G) \setminus\{x\}$. An $(x, Y)$-\textbf{\underline{fan}} in $G$ is a set $S = \{P_1, ..., P_k\}$ of paths in $G$ from $x$ to $Y$ such that $k = |Y|$ and $V(P_i) \cap V(P_j) = \{x\}$ for all $i \neq j$. 
+\end{definition}
+
+\begin{lemma}
+	\textbf{\underline{The Fan Lemma}}: Let $G$ be a $k$-connected graph, let $x \in V(G)$, and let $Y \subseteq V(G) \setminus\{x\}$ be such that $|Y| = k$. Then $G$ contains an $(x, Y)$-fan. 
+\end{lemma}
+
+\begin{proof}
+	Let $H$ be the graph formed by adding a new vertex $z$ to $G$ and new edges $\{zy : y \in Y\}$. Then by the extension lemma (Lemma 15.70), $H$ is $k$-connected. By the Menger-Whitney Theorem, applying it to $H$, there exists a set $\{P_1, ..., P_k\}$ of internally disjoint $(x, z)$-paths in $H$. Since $N(z) = Y$. 
+			
+	The neighbour of $z$ on $P_i$ is $y_i \in Y$, and $\{y_1, ..., y_k\} = Y$. Hence, $\{Q_1, ..., Q_k\}$ is an $(x, Y)$-fan where $Q_i = P_i - z$ for each $i$. 
+\end{proof}
+
+
+\begin{lemma}
+	\textbf{\underline{The Cycle Lemma}}: Let $G$ be a $k$-connected graph, where $k \geq 2$. Let $Y \subset V(G)$ be such that $|Y| = k$. Then, there exists a cycle in $G$ that contains every vertex of $Y$. 
+\end{lemma}
+
+\begin{proof}
+	Let $C$ be a cycle in $G$ that contains the maximum possible number of vertices of $Y$. Let $C \cap Y = \{y_1, ..., y_m\}$. 
+			
+	If $m = k$, then we are done. So, we may assume $m < k$. Let $y \in Y \setminus \{y_1, ..., y_m\}$. Note that $m \geq 2$ by our characterization theorem for 2-connected graphs. 
+			
+	\begin{itemize}
+		\item Case I: $V(C) = \{y_1, ..., y_m\}$. We apply the Fan lemma for $m$-connected graphs to $G$ with vertex $y$ and set $V(C)$, to get a $(y, V(C))$-fan $\{P_1, ..., P_m\}$ where $P_i$ joins to (without loss of generality) $y_i \in Y$ (Recall $G$ is $k$-connected implies that $G$ is $m$-connected since $m < k$). 
+		      		      		
+		      Note that since $m \geq 2$, $C \setminus \{y_1y_2\} \cup P_1 \cup P_2$ contains $\{y_1, ..., y_m\}$ plus $y$ contradicting the maximality of $C$. So this case cannot happen. 
+		      		      		
+		\item Case II: $W = \{x, y_1, ..., y_m\} \subseteq V(C)$ where $x \notin \{y_1, ..., y_m\}$. By the Fan Lemma, for $(m+1)$-connected graphs (Note that $m+1 \leq k$), there exists a $(y, W)$-fan $\{P_0, P_1, ..., P_m\}$ in $G$. 
+		      		      		
+		      For $0 \leq i \leq m$. Let $u_i$ be the vertex of $C$ that is closest to $y$ on $P_i$. Then, some segment $(y_i, y_{i+1})$ on $C$ must contain two of the vertices, say $u_j$ and $u_\ell$, since there are $m$ $y_i$'s and $m+1$ $u_i$'s. 
+		      		      		
+		      Then, the cycle formed by deleting the $(u_j, u_\ell)$-segment of $C$ and adding the $(u_j, y)$-segment of $P_j$ and the $(u_\ell, y)$-segment of $P_\ell$ is a cycle containing $\{y_1, ..., y_m, y\}$, also contradicting the maximality of $C$. 
+		      		      		
+		      Hence, $m = k$ as required. 
+	\end{itemize}
+\end{proof}
+
+\begin{lemma}
+	Every 3-connected graph $G$ contains a subdivision of $K_4$. 
+\end{lemma}
+
+\begin{proof}
+	Fix $x \in V(G)$. Then $G-x$ is 2-connected since $G$ is 3-connected. Let $C$ be a cycle in $G-x$ by the cycle lemma. 
+			
+	Let $y_1, y_2, y_3 \in V(C)$ be distinct vertices. Then, by the Fan Lemma, there exists an $(x, \{y_1, y_2, y_3\})$-fan $\{P_1, P_2, P_3\}$ in $G$. Let $u_i$ be the vertex of $P_i$ closest to $x$ on $P_i$ for each $i$, and let $Q_i$ be the $(x, u_i)$-segment of $P_i$. Then $Q_1 \cup Q_2 \cup Q_3 \cup C$ is a subdivision of $K_4$ in $G$. 
+\end{proof}
+
+\lecture{16}{October 20}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{definition}
+	A \textbf{\underline{matching}} in a graph $G$ is a set $M$ of disjoint edges (i.e. no two edges in $M$ are incident to a common vertex). 
+\end{definition}
+
+\begin{definition}
+	A matching $M$ \textbf{\underline{saturates}} $v \in V(G)$ if $v$ is incident to an edge of $M$. 
+\end{definition}
+
+\begin{definition}
+	A \textbf{\underline{maximum matching}} in $G$ is a matching of maximum size. 
+\end{definition}
+
+\begin{definition}
+	A \textbf{\underline{perfect matching}} in $G$ is a matching that saturates every vertex of $G$. 
+			
+	Note that not every graph has a perfect matching. If $G$ does have a perfect matching, then $|V(G)|$ is even. But it is not sufficient. 
+\end{definition}
+
+\begin{algorithme}
+	The Greedy Algorithm for finding a Matching: \\
+	\textbf{Input}: a graph $G$\\
+	\textbf{Output}: A matching in $G$\\
+	\>Set $M = \emptyset$, $H = G$\\
+	\>\pc{while} true: \\
+	\>\>\pc{if } $H$ has no edges \pc{then}\\
+	\>\>\> \pc{STOP} and \pc{Output} $M$\\
+	\>\>\pc{else} \\
+	\>\>\>Choose an edge $xy \in H$, add $xy$ to $M$\\
+	\>\>\>$H = H - \{x, y\}$
+\end{algorithme}
+
+The features of the above algorithm: \begin{itemize}
+\item Good ones are: it is very simple and efficient to implement
+\item Bad ones are: it does not always find a maximum matching. 
+\end{itemize}
+
+\begin{definition}
+	The maximum size of a matching in $G$ is denoted as $\nu(G)$
+\end{definition}
+
+\begin{proposition}
+	The greedy algorithm always finds a matching of size at least $\frac{1}{2} \nu(G)$ in $G$. 
+\end{proposition}
+\begin{proof}
+	Let $M$ be a matching in $G$ found by the greedy algorithm. Let $M^*$ be a maximum matching in $G$. So $|M^*| = \mu(G)$\begin{itemize}
+	\item Every edge of $G$ has a vertex that is saturated by $M$, since the algorithm does not terminate until $H$ has no edges. 
+	\item $M$ saturates $2|M|$ vertices. Hence $|M^*| \leq 2|M|$ since no two edges of $M^*$ can be incident to the same vertex. 
+	\end{itemize}
+	Thus, $\mu(G) = |M^*| \leq 2|M|$ as required
+\end{proof}
+
+For a matching in Bipartite Graph $G$, whose vertices are partitioned to $(X, Y)$, if $G$ has a matching $M$ saturating $X$, then $|S|$ vertices of $S$ are matched by $M$ to $|S|$ of the vertices of $Y$, which have to be neighbour of $S$. 
+\begin{theorem}
+	If $G$ has a matching $M$ saturating $X$, then for every subset $S \subseteq X$, $|N(S)| \geq |S|$. This is called Hall's Condition. 
+\end{theorem}
+
+\lecture{17}{October 20}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{theorem}
+	\textbf{\underline{Hall's Theorem}}: Let $G$ be a bipartite graph with vertex classes $X$ and $Y$, Then $G$ has a matching saturating $X$ if and only if $$|N(S)| \geq |S|$$ for every $S \subseteq X$
+\end{theorem}
+
+\begin{proof}
+	We have observed that if $G$ has a matching saturating $X$, then the hall's condition holds. 
+			
+	$\Leftarrow$: Assume the Hall's condition holds, we use induction on $|X|$. 
+			
+	Base Case: $|X| = 1$. Then $G$ has a matching of size 1. The base case holds. 
+			
+	Inductive Hypothesis: Assume $|X| \geq 2$, and any bipartite graph $H$ with vertex classes $X'$ and $Y'$ satisfying the Hall's condition for $X'$, where $|X'| < |X|$, has a matching saturating $X'$. 
+			
+	Inductive Conclusion: There are several cases: \begin{itemize}
+	\item Case I: Every $S \subseteq X$ with $\emptyset \neq S \neq X$ satisfies $|N(S)| > |S|$. Let $xy \in E(G)$. Let $H = G - \{x, y\}$. 
+				
+	Since $N_H(S) = N_G(S) \setminus \{y\}$ and $|N_G(S) | > |S|$. 
+				
+	Then, for every $S \subseteq X \setminus \{x\}$ we have $|N_H(S)| \geq |S|$. 
+				
+	Therefore, by the inductive hypothese applying to $H$, $H$ has a matching $M'$ saturating $X \setminus \{x\}$. Then $M' \cup \{xy\}$ is a matching in $G$ saturating $X$ as required. 
+						
+	So we may assume that Case I does not hold. 
+	\item Case II: there exists some $S_1 \subseteq X$ with $\emptyset \neq S_1 \neq X$ such that $|N(S_1)| = |S_1|$. 
+				
+	Let $G_1$ be the subgraph of $G$ induced by $S_1 \cup N(S_1)$. Then $G_1$ satisfies the Hall's condition. If $S \subseteq S_1$, then $N(S) \subseteq N(S_1)$, all of them are in $G_1$.
+				
+	Let $G_2$ be the subgraph of $G$ induced by $(X \setminus S_1) \cup (Y \setminus N(S_1))$. 
+				
+	Consider $S \subset X \setminus S_1$. Then $N_{G_2}(S) = N_G(S \cup S_1) \setminus N(S_1)$. 
+				
+	So \begin{align*}
+	|N_{G_2}(S)| &= |N_G(S \cup S_1)| - |N(S_1)|\\
+	&\geq |S \cup S_1| - |N(S_1)| \;\; \text{ By Hall's condition in } G \text{ applied to } S \cup S_1\\
+	&=|S \cup S_1| - |S_1|\\
+	&= |S|
+	\end{align*} 
+			
+	Hence $G_2$ satisfies the Hall's Condition as well. Then, since $S_1 \neq X$, we can apply the inductive hypothesis to $G_1$ and since $S_1 \neq \emptyset$ we can apply the inductive hypothesis to $G_2$, to get disjoint matchings $M_1 \in G_1$ and $M_2 \in G_2$. Then, $M_1 \cup M_2$ in $G$ saturates $x$. 
+	\end{itemize}
+\end{proof}
+
+\begin{theorem}
+	Let $G$ be a regular bipartite graph of positive degree. Then $G$ has a perfect matching. 
+\end{theorem}
+
+\begin{proof}
+	Let $k \geq 1$ be the degree of each vertex of $G$, and let $X$ and $Y$ be the vertex classes of $G$. 
+			
+	For $S \subseteq X$, we write $E(S, N(S))$ for the set of edges of $G$ that join $S$ to $N(S)$. 
+			
+	Then, since $G$ is k-regular, $|E(S, N(S))| = k$. 
+			
+	Also, since $G$ is k-regular by looking at the other side, $|E(S, N(S))| \leq k|N(S)|$. 
+			
+	So $k|N(S)| \geq |E(S, N(S))| = k|S|$, which implies $|N(S)| \geq |S|$. So, $G$ has Hall's condition. By Hall's theorem, $G$ has a matching $M$ saturating $X$. 
+			
+	Note that this matching is also perfect. Since $|E(G)| = k|X| = k|Y|$, so $|X| = |Y|$. So $M$ is a perfect matching.  
+\end{proof}
+
+\lecture{18}{October 20}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{theorem}
+	\textbf{\underline{The defect version of Hall's Theorem}}: Let $d \geq 0$, and let $G$ be a bipartite graph with vertex classes $X$ and $Y$. Then $G$ has a matching of size $\geq |X| - d$ if and only if $$|N(S)| \geq |S| - d$$ for every $S \subseteq X$
+\end{theorem}
+
+\begin{proof}
+	$\Rightarrow$: If $G$ has a matching $M$ of size $|X| - d$, then $M$ matches $\geq |S| - d$ vertices of $S$ into $N(S)$ for each $S \subseteq X$. 
+			
+	$\Leftarrow$: Assume the defected Hall's condition holds. Form the graph $H$ by adding a set $D$ of $d$ new vertices and joining them to all vertices of $X$. Then, for $S \subseteq X$, $N_H(S) = N_G(S) \cup D$. So $|N_H(S)| \geq \underbrace{|S| - d}_{\in G} + d$, $N_H(S) \geq |S|$. Hence by Hall's Theorem, $H$ has a matching $M$ saturating $X$. Since $\leq d$ edges of $M$ are not edges of $G$, $M$ has at least $|X| - d$ edges left in $G$. 
+			
+	So, $G$ has a matching of size $\geq |X| - d$
+\end{proof}
+
+\begin{definition}
+	A \textbf{\underline{vertex cover (of the edges)}} of a graph $G$ is a set $W$ of vertices of $G$ such that $G - W$ has no edges, i.e. every edge of $G$ is incident to a vertex in $W$. 
+			
+	Also, we denote the minimum size of a vertex cover of a graph $G$ as $\tau(G)$. 
+\end{definition}
+
+\begin{proposition}
+	For every graph $G$, we have $\tau(G) \geq \nu(G)$
+\end{proposition}
+\begin{proof}
+	For any matching $M$, and any vertex cover $W$, $W$ must contain a distinct vertex from each edge of $M$, so $|W| \geq |M|$. 
+\end{proof}
+
+\begin{theorem}
+	\textbf{\underline{Konig's Theorem}}: If $G$ is a bipartite graph, then $\tau(G) = \nu(G)$
+\end{theorem}
+
+\begin{proof}
+	Let $X$ and $Y$ be the vertex classes of $G$. Define $H$ by $V(H) = V(G) \cup \{x, y\}$, and $E(H) = E(G) \cup \{xz : z \in X\} \cup \{yz : z \in Y\}$. The minimum size of a vertex cut $W$ separating $x$ and $y$ in $H$ is $\tau(G)$. This is because $W$ is actually a vertex cover of $G$. 
+			
+	Therefore, by Menger's Theorem applying to $H$, there exists a set of $\geq \tau(G)$ internally disjoint $(x, y)$-paths in $H$. Taking the second edge from each of these forms a matching in $G$. 
+			
+	Hence, $G$ has a matching of size $\geq \tau(G)$. Therefore $\nu(G) \geq \tau(G)$. We already observed that $\nu(G) \leq \tau(G)$ for every $G$. So $\nu(G) = \tau(G)$. 
+\end{proof}
+
+Exercise: Prove that for every graph $G$, $\tau(G) \leq 2\nu(G)$. 
+
+\lecture{19}{October 27}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{theorem}
+	\textbf{\underline{Konig's Theorem}}: If $G$ is a bipartite graph, then $\tau(G) = \nu(G)$
+\end{theorem}
+We give another proof here. 
+\begin{proof}
+	We know already $\tau(G) \geq \nu(G)$ for every graph $G$. Let $T$ be a vertex cover of $G$ with $|T| = \tau(G)$. 
+			
+	Let $X$ and $Y$ be the vertex classes of $G$. Let $G_1$ be the subgraph of $G$ induced by $(T \cap X) \cup (Y \setminus T)$. For each $S \subseteq T \cap X$, $|N_{G_1}(S)| \geq |S|$, otherwise, $T \setminus S \cup N_{G_1} (S)$ would be a vertex cover of $G$ that is smaller than $T$.   
+			
+	Therefore, by \textbf{Hall's Theorem}, $G_1$ has a matching $M$ of size $|T \cap X|$. Similarly, the graph $G_2$ induced by $(T \cap Y) \cup (X \setminus T)$ has a matching of size $|T \cap Y|$. 
+			
+	$G_1$ and $G_2$ are disjoint, so $M_1 \cap M_2 = \emptyset$ as well. So $M_1 \cup M_2$ is a matching in $G$ of size $|T \cap X| + |T \cap Y| = |T| \tau(G)$. Hence, $\nu(G) \geq \tau(G)$ as required. 
+			
+	So, $\nu(G) \geq \tau(G)$
+\end{proof}
+
+\begin{definition}
+	A set $W \subseteq V(G)$ is called \textbf{\underline{independent}} if no two vertices of $W$ are joined by an edge of $G$. The maximum size of an independent set in $G$ is denoted as $\alpha(G)$. 
+\end{definition}
+
+\begin{definition}
+	A set $S \subseteq E(G)$ is an \textbf{\underline{edge cover}} (of the vertices) if every vertex of $G$ is incident to an edge of $S$. We denote the minimum size of an edge cover of an edge cover by $\rho(G)$. 
+\end{definition}
+
+\begin{lemma}
+	$\alpha(G) + \tau(G) = |V(G)|$ for every graph $G$. 
+\end{lemma}
+
+\begin{proof}
+	Note that $T$ is a vertex cover of $G$ if and only if $V(G) \setminus T$ is independent. Hence, $T$ is a minimum vertex cover if and only if $V(G) \setminus T$ is a maximum independent set. 
+\end{proof}
+
+\begin{lemma}
+	\textbf{\underline{Gallai's Lemma}}: If $G$ has no isolated vertices, then $\nu(G) + \rho(G) = |V(G)|$. 
+\end{lemma}
+
+\begin{proof}
+	Let $|V(G)| = n$. Let $M$ be a matching in $G$ with $|M| = \nu(G)$. Let $V(M)$ denote the set of vertices saturated by $M$. Since $M$ is maximum, $V(G) \setminus V(M)$ is independent. 
+			
+	Construct an edge cover as follows: \begin{itemize}
+	\item start with $M$
+	\item for each $x \in V(G) \setminus V(M)$, take an edge incident to $x$
+	\end{itemize}
+	We get $|M| + (n - 2|M|) = n - |M| = n - \nu(G)$ edges. Hence, $\rho(G) \leq n - \nu(G)$, so $\rho(G) + \nu(G) \leq n$. 
+		
+	Then, let $F$ be an edge cover of $G$ with $|F| = \rho(G)$. Let $H$ be the graph with $V(H) = V(G)$ and $E(H) = F$. Then, each $e \in F$ is incident to a vertex of degree in $H$ since $F$ is minimum (Otherwise, $F - \{e\}$ is a smaller edge cover).
+		
+	So $H$ has no cycles, i.e. it is a forest. We know $|V(H)| = n$, $|E(H)| = |F| = \rho(G)$. So, the number of components of the forest $H$ is $n - \rho(G) = c$ (recall from MATH239). 
+		
+	$H$ has no isolated vertices, since $F$ is an edge cover of $G$. So, we may take (at least) one edge from each component of $H$ to get a matching in $G$ of size $n - \rho(G)$. Hence, $\nu(G) \geq n - \rho(G)$. So $\nu(G) + \rho(G) \geq n$
+		
+	So, $\nu(G) + \rho(G) = n$ as desired. 
+\end{proof}
+
+\lecture{20}{October 27}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+\begin{definition}
+	Let \textbf{\underline{$M$-alternating}} path in $G$ is a path in $G$ in which every second edge is in $M$. 
+\end{definition}
+
+\begin{definition}
+	A vertex of $G$ is said to be \textbf{\underline{$M$-exposed}} if it is not saturated by $M$. 
+\end{definition}
+
+\begin{definition}
+	An \textbf{\underline{$M$-augmenting path}} is an $M$-alternating path of length at least 1 whose endpoints are both $M$-exposed. 
+\end{definition}
+
+Note that every $M$-augmenting path $P$ has odd length, and $|M \cap E(P)| < |E(P) \setminus M|$. We denote by $M \Delta E(P)$ the matching $[M \setminus (M \cap E(P))] \cup [E(P) \setminus M]$. This is the matching obtained by (from $M$) switching on $P$. 
+
+If $P$ is an $M$-augmenting path, then $|M \Delta E(P)| > |M|$, so $M$ is not a maximum matching. 
+
+Suppose $M_1$ and $M_2$ are two matchings in the same graph $G$. Let $H$ be the graph with $V(H) = V(G)$, and $E(H) = M_1 \cup M_2$. Then \begin{itemize}
+\item the maximum degree of $H$ is $\leq 2$. 
+\item Every component of $H$ is a path or a cycle
+\item Each cycle component is even, and its edges alternate between $M_1$ and $M_2$. It has the same number of $M_1$-edges as $M_2$-edges. 
+\item Each path component is either \begin{itemize}
+\item a single edge in $M_1 \cap M_2$
+\item alternating between edges in $M_1$ and $M_2$, and the number of $M_1$-edges differs from the number of $M_2$-edges by at most 1. 
+\end{itemize}
+\end{itemize}
+
+\begin{theorem}
+	\textbf{\underline{Berge's Theorem}}: A matching $M$ in a graph is a maximum matching if and only if $G$ does not contain an $M$-augmenting path
+\end{theorem}
+
+\begin{proof}
+	$\Rightarrow$: We've already observed that if $M$ is maximum, then there is no $M$-augmenting path in $G$. 
+			
+	$\Leftarrow$: Assume there is no $M$-augmenting path in $G$. Let $M^*$ be a maximum matching in $G$, and suppose for a contradiction that $|M^*| > |M|$. Define $H$ by $V(H) = V(G)$ and $E(H) = M \cup M^*$. Then, as observed previously, every component of $H$ contains the same number of $M$-edges as $M^*$-edges unless it is a path component $P$ of odd length. 
+			
+	Since $|M^*| > |M|$, such a path component $P$ must exist, that starts and ends with an $M^*$-edge. Then, the endpoints of $P$ are $M$-exposed, so $P$ is an $M$-augmenting path. Contradiction. So $|M^*| = |M|$, which shows $M$ is maximum. 
+\end{proof}
+
+\begin{theorem}
+	\textbf{\underline{Erdo's Posa's Theorem}}: For any graph $G$, $\nu(G) \geq \min\{\delta(G), \lfloor |\frac{V(G)}{2}|\rfloor\}$.
+\end{theorem}
+\begin{proof}
+	Let $M$ be a maximum matching and let $V(M)$ denote the set of vertices saturated by $M$. If $|M|$ is $\lfloor|\frac{V(G)}{2}|\rfloor$, then we're done. So, assume $|M| < \lfloor|\frac{V(G)}{2}|\rfloor$. Then, $|V(G) \setminus V(M)| \geq 2$. 
+			
+	Let $v$ and $w$ be $M$-exposed. For any $xy \in M$, if $vx \in E(G)$, then $wy \notin E(G)$, otherwise $wyxv$ is an $M$-augmenting path, contradicting Berge's Theorem. 
+			
+	Similarly, $vy \in E(G) \Rightarrow wx \notin E(G)$. So the number of edges joining $\{x, y\}$ and $\{w, v\} \leq 2$. Hence, the total number $L$ of edges from $\{w, v\}$ to $V(M)$ is $\leq 2|M|$. But $N(\{w, v\}) \subseteq V(M)$ since $M$ is maximum. So, $2 \delta (G) \leq d(v) + d(w) \leq L \leq 2|M|$. So $\delta(G) \leq |M|$. 
+\end{proof}
+
+\lecture{21}{October 27}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{definition}
+	Let $G$ be a bipartite graph with vertex classes $X$ and $Y$. A set of \textbf{\underline{preference lists}} consists of a linear order $L(z)$ of $N(z)$ for each $z \in X \cup Y$. 
+\end{definition}
+
+\begin{definition}
+	In a bipartite graph $G$ with preference lists $L$, a \textbf{\underline{matching}} $M$ is said to be \textbf{\underline{stable}} with respect to $L$ if, for every edge $xy \in E(G) \setminus M$, either \begin{itemize}
+	\item $y' > y$ in $L(x)$ where $xy' \in M$, i.e. $x$ prefers its partner $y'$ in the matching $M$ to $y$. 
+	\item or $x' > x$ in $L(y)$ where $x'y \in M$, i.e. $y$ prefers its partner $x'$ in the matching $M$ to $x$
+	\end{itemize}
+\end{definition}
+
+Stable matching exists for all bipartite graphs, but they are not always maximum matchings. 
+
+\begin{algorithme}
+	\textbf{Gale and Shapley's Greedy Algorithm}(A bipartite graph $G$, vertex classes $X, Y$, and preference list $L$)\\
+	\> Set $K(x) := L(x)$ for all $x \in X$. Set $M:= \emptyset$. \\
+	\>\pc{while} (true)\\
+	\>\>\pc{if} for each $x \in X$, either $K(x) = \emptyset$ or $M$ saturates $x$ \pc{then}\\
+	\>\>\>\pc{STOP}, and \pc{output} $M$. \\
+	\>\>\pc{choose} $M$-exposed $x \in X$ with $K(x) \neq \emptyset$\\
+	\>\>\pc{let} $y$ be the max in $K(x)$: \\
+	\>\>\pc{if} $y$ prefers $x$ to $x'$ where $x'y \in M$, \pc{then}\\
+	\>\>\>\pc{set} $M := M \setminus\{x'y\} \cup \{xy\}$\\
+	\>\>\pc{else if} $y$ is $M$-exposed, \pc{then}\\
+	\>\>\>\pc{set} $M := M \cup \{xy\}$\\
+	\>\>\>\pc{set} $K(x) := K(x) \setminus \{y\}$\\
+\end{algorithme}
+
+Note that $\sum_{x \in X}|K(x)|$ decreases in each iteration, so the algorithm terminates. 
+
+\lecture{22}{November 3}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+We prove the correctness of \textbf{Gale and Shapley's Greedy Algorithm}. 
+\begin{proof}
+	We ensured that $M$ is a matching at every iteration. Also, observe that at each iteration, the situation improves, or stays the same for every $y \in Y$, and deteriorates or stays the same for every $x \in X$. 
+			
+	To show the final matching $M^*$ is stable: Consider an edge $x_0y_0 \notin M^*$. \begin{itemize}
+	\item Case I: $y_0 = y$ for some iteration with $x=  x_0$. ``$x_0$ proposes to $y_0$''. \begin{itemize}
+	\item If $x_0y_0$ is put into $M$ in this iteration, then it is removed from $M$ in a later iteration, and replaced by some $x_1y_0$ where $y_0$ prefers $x_1$ to $x_0$. Thus, by the observation at the very beginning, $y_0$ prefers its partner in $M^*$ to $x_0$
+	\item If $x_0y_0$ is not put into $M$ in this iteration, then $y_0$ is already matched by $M$ to some $x_1$ it prefers to $x_0$. Thus, by the same observation, $y_0$ prefers its partner in $M^*$ to $x_0$
+	\end{itemize}
+	\item Case II: It never happens that $y_0 = y$ with $x = x_0$. ``$x_0$ does not propose to $y_0$''. 
+			
+	Since initially $y_0 \in K(x_0)$, when the algorithm terminates, $x_0$ is matched to some $y_1$ it prefers to $y_0$, by the stopping rule. 
+	\end{itemize}
+	Thus, $M^*$ is a stable matching. 
+\end{proof}
+
+Note that stable matchings are not unique. 
+
+\begin{theorem}
+	Let $G$ be a bipartite graph with preference lists. Then all stable matchings of $G$ saturate the same set of vertices. 
+			
+	This theorem implies that all stable matchings in $G$ have the same size. 
+\end{theorem}
+
+\begin{proof}
+	Let $M_1$ and $M_2$ be stable matchings in $G$. Let $H$ be the graph $V(H) = V(G)$ and $E(H) = M_1 \cup M_2$. Suppose $P = x_1y_1x_2...$ is a path component of $H$, where (without loss of generality) $x_1y_1 \in M_1$ and $x_2y_2 \in M_2$. Then, $x_1$ is $M_2$-exposed. 
+			
+	So, $y_1$ prefers $x_2$ to $x_1$ since $x_1y_1 \notin M_2$. $x_2$ prefers $y_2$ to $y_1$ since $x_2y_1 \notin M_1$. $y_2$ prefers $x_3$ to $x_2$ since $x_2y_2 \notin M_2$, and so on. 
+			
+	If $x_4$ is $M_1$-exposed, then $x_4y_3$ contradicts $M_1$ being stable. So, $x_4$ is matched to $y_4$ where $x_4$ prefers $y_4$ to $y_3$. If $y_4$ is $M_2$-exposed, then $x_4y_4$ contradicts $M_2$ being stable. 
+			
+	But then $P$ cannot end. So, no such $P$ can exist in $H$. Hence $M_1$ and $M_2$ saturates the same set of vertices in $G$. 
+\end{proof}
+
+\lecture{23}{November 3}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{definition}
+	Let $G$ be a bipartite graph with preference lists. A stable matching $M_0$ is said to be \textbf{\underline{$X$-optimal}} if, for every stable matching $M$, and every $x \in X$, if $xy \in M$, then there exists $y' \in Y$ such that $xy' \in M_0$ and $y' \geq y$ in $L(x)$
+			
+	i.e. this means that every $x \in X$ is matched by $M_0$ the best possible partner it could get in any stable matching
+			
+	The stable matching $M_0$ is \textbf{\underline{$X$-pessimal}} if, for every stable matching $M$, and every $x \in X$, if $xy \in M_0$, then there exists $y' \in Y$ such that $xy' \in M$ and $y' \geq y$ in $L(x)$
+			
+	i.e. this means that every $x \in X$ is matched by $M_0$ the worst possible partner it could get in any stable matching
+\end{definition}
+
+We prove that \textbf{Gale and Shapley's Greedy Algorithm} is $X$-optimal
+\begin{proof}
+	Let $M^*$ denote the stable matching found by Gale and Shapley's Greedy Algorithm. For any edge $xy \notin M^*$, if $x$ prefers $y$ to its partner in $M^*$, then, since $M^*$ is stable, $y$ prefers its partner in $M^*$ to $x$. 
+			
+	Suppose, for a contradiction, that there exists a stable matching $M'$ and $x_0y_0 \in M'$ where $x_0$ strictly prefers $y_0$ to its partner in $M^*$. Then, by the observation made, $x_1y_0 \in M^*$ for some $x_1$ that $y_0$ prefers to $x_0$. 
+			
+	So $x_1y_0$ was put into the matching $M$ in the Gale and Shapley's Greedy Algorithm in some iteration. 
+			
+	This shows that the following set is non-empty: The set of iterations $I$ of the implementation of Gale and Shapley's Greedy Algorithm that produced $M^*$, in which an edge $x_1y_0$ is put into $M$, where $x_0y_0 \in M', x_0y_0 \notin M^*$, and $x_0$ strictly prefers $y_0$ to its partner in $M^*$. 
+			
+	Let $I$ be the earliest iteration in this set. $I$ is the earliest iteration in which \begin{itemize}
+	\item we add an edge $x_1y_0$ to $M$ where
+	\item $x_0y_0 \in M'$ and $x_0$ strictly prefers $y_0$ to its partner in $M^*$. 
+	\end{itemize}
+	Since $x_1y_0 \notin M'$, $x_1y_1\in M'$ for some $y_1$ that $x_1$ prefers to $y_0$. 
+		
+	In itration $I$, $x_1$ proposes to $y_0$ (and is accepted). Since $x_1$ prefers $y_1$ to $y_0$, so $x_1$ has already been rejected by $y_1$ in an earlier iteration $I_1$. In $I_1$, $y_1$ received and accepted a proposal from some $x_2$ that $y_1$ prefers to $x_1$. Thus, in $I_1$\begin{itemize}
+	\item We add edge $x_2y_1$ to $M$, where
+	\item $x_1y_1 \in M'$ and $x_1$ strictly prefers $y_1$ to its partner in $M^*$. 
+	\end{itemize}
+	This contradicts our choice of $I$. 
+		
+	Hence, $M^*$ is $X$-optimal, as required. 
+\end{proof}
+
+Note: Gale and Shapley's Greedy Algorithm finds the same matching, independent of the order in which the vertices $x \in X$ are considered. 
+
+What about stable matching in non-bipartite graphs? Stable matchings may not exist. Consider directed odd cycle in the sense of prefernce lists. 
+
+\lecture{24}{November 3}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{definition}
+	An \textbf{\underline{odd component}} of a graph $G$ is a component with an odd number of vertices. 
+			
+	We denote the number of odd components of $G$ by $odd(G)$. 
+\end{definition}
+
+Suppose $G$ has a perfect matching $M$. Let $T \subseteq V(G)$. Then, for any odd component $C$ of $G - T$. There must be an edge of $M$ joining $C$ to $T$. Hence $odd (G - T) \leq |T|$.  
+
+\begin{theorem}
+	\textbf{\underline{Tutte's Theorem}}: A graph $G$ has a perfect matching if and only if $odd(G-T) \leq |T|$ for every $T \subseteq V(G)$ 
+			
+	Notes: \begin{itemize}
+	\item The condition is called \textbf{\underline{Tutte's condition}}. 
+	\item We know that if $G$ has a perfect matching, then $|V(G)|$ is even. By applying Tutte's condition with $T = \emptyset$, we find $odd(G) = odd(G - \emptyset) \leq |\emptyset| = 0$, so $odd(G) = 0$, i.e. every component of $G$ is even. So $|V(G)|$ is even. 
+	\end{itemize}
+\end{theorem}
+\begin{lemma}
+	Let $G$ be a graph satisfying $odd(G - T) \leq |T|$ for all $T \subseteq V(G)$. Suppose $G$ is a subgraph of $H$ where $V(H) = V(G)$, then $H$ satisfies $odd(H - T) \leq |T|$ for all $T \subseteq V(H)$. 
+\end{lemma}
+\begin{proof}
+	Let $T \subseteq V(H) = V(G)$. Then $G - T$ has $\leq |T|$ odd components. 
+			
+	Adding edges inside components of $G - T$, inside $T$, or joining $T$ to components of $G - T$ does not change the number of odd components. 
+			
+	Adding edges between components can only decrease the number of odd components, or leave it unchanged. 
+			
+	So, $odd(H - T) \leq |T|$ for each $T \subseteq V(H)$
+\end{proof}
+\begin{definition}
+	A graph $G$ is \textbf{\underline{type-0}} if $V(G)$ has a partition $X \cup Y$ such that $X = \{x \in V(G) : xz \in E(G) \text{ for all } z \in V(G) \setminus \{x\}\}$ and every component of $G - X$ is a complete graph. 
+\end{definition}
+\begin{lemma}
+	If $G$ is type-0, and $odd(G - T) \leq |T|$ for all $T \subseteq V(G)$, then $G$ has a perfect matching. 
+\end{lemma}
+\begin{proof}
+	Setting $T = X$ shows $odd(G - X) \leq |X|$. Beging constructing a matching by taking disjoint edges, one joining a vertex of each odd component of $G - X$ to $X$. Match the remainder of each odd component and every even component inside the component itself. 
+			
+	Last, complete to a perfect matching inside $X$ (recall that $|V(G)|$ is even, by Tutte's condition). 
+\end{proof}
+\lecture{25}{November 10}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+Proof of \textbf{Tutte's Theorem}: 
+\begin{proof}
+	$\Rightarrow$: We've already seen that if $G$ has a perfect matching, then for every $T \subseteq V(G)$ we have $odd(G - T)  \leq |T|$. 
+			
+	$\Leftarrow$: Let $G$ be a graph such that $odd(G - T) \leq |T|$ for all $T \subseteq V(G)$. Suppose on the contrary that $G$ does not have a perfect matching. 
+			
+	Let $H$ be a graph such that \begin{itemize}
+	\item $V(H) = V(G)$
+	\item $E(G) \subseteq E(H)$
+	\item $H$ has no perfect matching
+	\item $H \cup \{ab\}$ has a perfect matching for every $a, b$ with $ab \notin E(H)$
+	\end{itemize}
+	We can construct it from $G$ by adding edges one by one if necessary until the last condition is satisfied. 
+		
+	Then, $H$ satisfies $odd(H - T) \leq |T|$ for every $T \subseteq V(G)$ by \textbf{lemma 24.122}. 
+		
+	Aim: to get a contradiction by showing that it is type-0, this would contradict \textbf{lemma 24.125}.
+		
+	Let $X = \{x \in V(H) : xz \in E(H) \text{ for all } z \in V(H) \setminus \{x\}\}$. Note that $X = \emptyset$ is possible. If $X = V(H)$ we are done, so we may assume $X \neq V(H)$. 
+		
+	We want to show that all components of $H - X$ are complete graphs. 
+		
+	Let $C$ be a component of $H - X$. If $C$ has only 1 or 2 vertices, then it is complete. 
+		
+	We claim that there exist vertices $a, b, c \in C$, and $d \in V(H) \setminus \{a, b, c\}$ such that $ab, bc \in E(H)$, and $ac, bd \notin E(H)$. The proof is as follows: since $C$ is not complete, there exists distinct vertices $a, x \in V(C)$ where $ax \notin E(H)$. Take a shortest path $P$ in $C$ from $a$ to $x$ and let $b, c$ be the second and the third vertices on $P$. Then, $ab, bc \in E(H)$ and $ac \notin E(H)$, since $P$ is shortest. 
+		
+	There exists  $d \notin \{a, b, c\}$ where $bd \notin E(H)$, since $b \notin X$. This proves the claim. 
+		
+	By the special (maximality) property of $H$, the graph $H \cup \{ac\}$ has a perfect matching $M_1$ and $H \cup \{bd\}$ has a perfect matching $M_2$. The subgraph of $H$ with vertex set $V(H)$ and edge set $M_1 \cup M_2$ has the property that every component is \begin{itemize}
+	\item a single edge in $M_1 \cap M_2$ or
+	\item an alternating cycle
+	\end{itemize}
+	since there are no $M_1$-exposed vertices in $H \cup \{ac\}$ or $M_2$ exposed vertices in $H \cup \{bd\}$. 
+		
+	The edge $ac$ lies in an alternating cycle component, say $U$ (since $ac \notin M_2$). If $bd \notin E(U)$, then $M_1 \Delta E(U)$ is a perfect matching of $H$. Hence, $bd \in E(U)$. 
+		
+	Since $a$ and $c$ are symmetric, we may assume, without loss of generality, there is a path $P$ in $U$ having $d$ and $a$ as endpoints, that does not contain $b$ or $c$. But then $U' = P \cup \{db\} \cup \{ab\}$ is an $M_2$-alternating cycle. So, $M_2 \Delta E(U')$ is a perfect matching of $H$. 
+		
+	This contradiction shows $H$ is type-0, completing the proof.  
+\end{proof}
+
+\lecture{26}{November 10}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+Hall's Theorem implies Tutte's Theorem when $G$ is bipartite. 
+\begin{proof}
+	Suppose $G$ is bipartite and $odd(G - T) \leq |T|$ for every $T \subseteq V(G)$. 
+			
+	Let $X$ and $Y$ denote the vertex classes of $G$. We will show that $G$ has a perfect matching using \textbf{Hall's Theorem}. 
+			
+	\begin{itemize}
+		\item Take $T = X$. Note $G - X$ consists of $|Y|$ isolated vertices in $Y$. Since each isolated vertex is an odd component, $|Y| = odd(G - X) \leq |X|$ by Tutte's condition. Similarly, $|X| \geq |Y|$. Thus, $|X| = |Y|$. 
+		\item Let $S \subseteq X$, then each $x \in S$ is an isolated vertx in $G - N(S)$. Hence, $|S| \leq odd(G - N(S)) \leq |N(S)|$ by Tutte's Condition
+	\end{itemize}
+		
+	So $G$ satisfies the Hall's Condition. Thus, by \textbf{Hall's Theorem}, $G$ has a perfect matching. 
+\end{proof}
+
+Parity of $|T|$ and $odd(G - T)$
+\begin{lemma}
+	Let $G$ be a graph with an even number of vertices. Then for every $T \subseteq V(G)$, we have $odd(G - T) \equiv |T| \pmod 2$
+\end{lemma}
+\begin{proof}
+	Since $|V(G)| \equiv 0 \pmod 2$, we have $|T| + |V(G - T)| = |V(G)| \equiv 0 \pmod 2$. Then, $|T| \equiv -|V(G - T)| \equiv |V(G - T)| \pmod 2$. 
+			
+	But, \begin{align*}
+	|V(G - T)| &= \sum_{C \text{ as odd component of } G- T} |V(C)| + \sum_{C \text{ as even component of } G- T}|V(C)|\\
+	&\equiv \sum_{C \text{ as odd component of } G- T} 1 + 0 \pmod 2\\
+	&\equiv odd(G-T) \pmod 2
+	\end{align*}
+	Thus, $|T| \equiv |V(G - T)| \equiv odd(G - T) \pmod 2$. 
+\end{proof}
+
+\begin{definition}
+	Recall from MATH239 that an edge $e \in E(G)$ of a \textbf{\underline{connected}} graph $G$ is called a \textbf{\underline{bridge}} if $G \setminus e$ is disconnected
+\end{definition}
+
+\begin{theorem}
+	\textbf{Petersen's Theorem}: Let $G$ be a connected cubic graph with at most 2 bridges. Then $G$ has a perfect matching. 
+\end{theorem}
+
+\begin{proof}
+	First observe that $|V(G)|$ is even since $G$ is cubic, or by handshake lemma. 
+			
+	Suppose on the contrary that $G$ has no perfect matching. By \textbf{Tutte's Theorem}, there exists $T \subseteq V(G)$ with $odd(G - T) > |T|$. By our previous lemma, in fact $odd(G - T) \geq |T| + 2$. 
+			
+	We claim that for each odd component $C$ of $G - T$, the number of edges $m_c$ from $C$ to $T$ is odd. 
+			
+	The proof is as follows: $\sum_{v \in V(C)} d(v) = 2|E(C)| - m_c$. So $3 |V(C)| = \sum_{v \in V(C)} d(v) \equiv m_c \pmod 2$. Hence, $m_c$ is odd since $|V(C)|$ is odd. This proves the claim. 
+			
+	If $m_c = 1$, then the edge joining $C$ to $T$ is a bridge. 
+			
+	Hence, for $\geq odd(G- T) - 2$ odd components, we have $m_c \geq 3$. Thus, the total number of edges from $V(G) \setminus T$ to $T$ is \begin{align*}
+	\geq \underbrace{3(odd(G - T) - 2)}_{m_c \geq 2} + \underbrace{1\cdot(2) }_{m_c \geq 1} &= 3odd(G-T) -4\\
+	&\geq 3(|T| + 2) - 4 \text{ since }odd(G- T) \geq |T| + 2\\
+	&=3|T| + 2
+	\end{align*}
+		
+	But each vertex has degree 3, so this is impossible. Hence, $T$ cannot exist. So, $G$ satisfies Tutte's condition. Hence, $G$ has a perfect matching. 
+\end{proof}
+
+\lecture{27}{November 10}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{theorem}
+	\textbf{Defect Version of Tutte's Theorem}: Let $G$ be a graph, and let $d = \max_{T \subseteq V(G)} \{odd(G- T) - |T|\}$. Then, $G$ has a matching that saturates at least $V(G) - d$ vertices. 
+\end{theorem}
+
+\begin{proof}
+	Note that $d \geq 0$ since $d \geq odd(G - \emptyset) - |\emptyset|\geq 0 $
+			
+	If $d = 0$, then we are done by Tutte's Theorem. Let's assume $d \geq 1$. 
+			
+	For every $T \subseteq V(G)$ we have $odd(G - T) \leq |T| + d$. Construct a new graph $H$ by adding a set $A$ of $d$ new vertices and all edges $\{az : z \in V(G) \cup A \setminus \{a\}\}$. We should see that $|V(H)|$ is even since there is some $T$ such that $odd(G - T) - |T| = d$. Then we can see that $|V(H)| = |V(G - T)| + |T| +d \equiv odd(G - T) - |T| + d \equiv 2d \equiv 0 \pmod 2$. 
+	\begin{itemize}
+		\item If $\emptyset \neq S \subseteq V(H)$ and $A \neq S$, then $H - S$ has at most 1 component. So, $odd_H(H - S) \leq 1 \leq |S|$. 
+		\item If $A \subseteq S$, $odd_H(H-S) = odd(G - (S \setminus A)) \leq |S - A| + d = |S| - d + d = |S|$ by condition on $T$.
+		\item If $S = \emptyset$, then $odd_H(H - \emptyset) = 0$ since $H$ is connected and $|V(H)|$ is even. 
+	\end{itemize}
+		
+	So, by \textbf{Tutte's Theorem}, $H$ has a perfect matching $M$. At most $d$ edges of $M$ failed to be edges of $G$. The rest of $M$ is a matching in $G$, which saturates $\geq |V(G)| - d$. 
+\end{proof}
+
+\begin{theorem}
+	\textbf{Tutte-Berge Formula}: Let $G$ be a graph and let $d = \max_{T \subseteq V(G)} \{odd(G - T) - |T|\}$. THen, $\nu(G) = \frac{|V(G)| - d}{2}$. 
+			
+	Recall from previous proof, $|V(G) | - d \equiv |V(G)| + d \equiv 0 \pmod 2$. So the number in the formula is an integer. 
+\end{theorem}
+\begin{proof}
+	By the \textbf{defect version of Tutte's Theorem} we know that $G$ has a matching $M$ that saturates at least $|V(G)| - d$ vertices of $G$. So, $\nu(G) \geq |M| \geq \frac{|V(G)| - d}{2}$
+			
+	Now, consider a maximum matching $M^*$ in $G$. Let $T \subseteq V(G)$ be a subset for which $d = odd(G - T) - |T|$. 
+			
+	At most $|T|$ odd components of $G - T$ can have an $M^*$ edge joining it to $T$. Each of the remaining $d$ odd components have an $M^*$-exposed vertex. So, $M^*$ saturates at most $|V(G)| - d$ vertices. 
+			
+	Thus, $\nu(G) = |M^*| \leq \frac{|V(G)| - d}{2}$
+\end{proof}
+
+\lecture{28}{November 17}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+\begin{definition}
+	Let $G$ be a graph and let $M$ be a matching in $G$. An odd cycle $C$ in $G$ of length $2k+1$ is said to be \textbf{\underline{shrinkable}} with respect to $M$ if \begin{itemize}
+	\item $|M \cap E(C)| = k$
+	\item $C$ contains an $M$-exposed vertex. 
+	\end{itemize}
+\end{definition}
+
+\begin{lemma}
+	Let $M$ be a matching in $G$ and let $C$ be an odd cycle in $G$ that is shrinkable with respect to $M$. Let $G;$ be the grpah obtained from $G$ by contracting all edges in $E(C)$ (This is the operation of ``shrinking'' $C$ in $G$). 
+			
+	Then, $M' = M \setminus E(C)$ is maximum in $G'$ if and only if $M$ is maximum in $G$. 
+			
+	Let $c$ be the image of the contraction of $C$. Note that $c$ is $M'$-exposed in $G'$. 
+\end{lemma}
+
+\begin{proof}
+	$\Rightarrow$: Suppose $M'$ is maximum in $G'$. Suppose on the contrary that $M$ is not maximum in $G$. Then by \textbf{Berge's Theorem}, there is an $M$-augmenting path $P$ in $G$. Then $P \cap |V(C)| = \emptyset$, otherwise $P$ would be an $M'$-augmenting path in $G'$. 
+			
+	At least one endpoint $x$ of $P$ is not in $V(C)$, since $C$ is shrinkable. Let $z \in V(C)$ be the vertex of $C$ closest to $x$ on $P$. 
+			
+	Then, the $(x, z)$-segment of $P$ becomes an $M'$-augmenting path from $x$ to $c$ (the image of $C$ under contraction) in $G'$. Recall that $c$ is $M'$-exposed. This contradicts to \textbf{Berge's Theorem} in $G'$. 
+			
+	Hence, $M$ is maximum in $G$. 
+			
+	$\Leftarrow$: Suppose $M$ is maximum in $G$. Suppose on the contrary that some matching $N'$ in $G'$ satisfies $|N'| > |M'|$. Then, $N'$ corresponds to a matching $N$ in $G$ that saturates at most one vertex of $C$. 
+			
+	Then, we can add $k$ more edges in $C$ to $N$, where $C$ has length $2k+1$ to get a matching in $G$ that is larger than $M$. This contradicts the maximality of $M$. 
+\end{proof}
+
+\lecture{29}{November 17}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+Why is the condition that the shrinkable cycle contains $M$-exposed vertex necessary? If $M'$ is maximum in $G'$ and $M$ is not maximum in $G$, then the problem is that $G$ has no $M$-exposed vertex. 
+
+Note that the proof of the Cycle Lemma does NOT say that if $N'$ is a maximum matching in $G'$, then adding $k$ edges of $C$ to $N$ gives a maximum matching in $G$. It says only that this is a \textbf{larger} matching in $G$. 
+
+\begin{definition}
+	Let $M$ be a matching in a graph $G$. An \textbf{\underline{$M$-alternating tree}} in $G$ is a subgraph $T$ of $G$ with the following properties \begin{itemize}
+	\item $T$ is a tree
+	\item $T$ contains exactly one $M$-exposed vertex, called the root $s$
+	\item Each edge of $T$ at an odd distance in $T$ from $s$ is in $M$ (the distance from the closest vertex of the edge to $s$)
+	\item each vertex of $T$ at an odd distance in $T$ from $s$ has degree 2 in $T$. These are called the \textbf{\underline{inner}} vertices of $T$. The remaining vertices are the \textbf{\underline{outer}} vertices. Note that the root $s$ is outer
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	Let $M$ be a matching in $G$. An \textbf{\underline{$M$-alternating forest}} in $G$ is a subgraph $F$ of $G$ such that every component of $F$ is an $M$-alternating tree. 
+			
+	The set of \textbf{\underline{inner}} vertices of $F$ is $$I(F) = \bigcup_{T \text{ as a component of } F} I(T)$$ and the set of \textbf{\underline{outer}} vertices of F $$O(F) = \bigcup_{T \text{ as a component of } F} O(T)$$ where $I(T)$ and $O(T)$ denote the sets of inner and outer vertices of $T$ respectively. 
+\end{definition}
+
+\begin{definition}
+	We say that $F$ is \textbf{\underline{maximal $M$-alternating forest}} if there is no larger $M$-alternating forest that contains $F$. 
+\end{definition}
+
+In general, there are no edges in $G$ joining two outer vertices of $F$ where $F$ is a maximal $M$-alternating forest. 
+
+\lecture{30}{November 17}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{lemma}
+	Let $M$ be a matching in a graph $G$. Let $F$ be a maximal $M$-alternating forest in $G$. Suppose there is no edge of $G$ joining two outer vertices of $F$. Then, $M$ is a maximum matching in $G$. 
+\end{lemma}
+
+\begin{proof}
+	Note that every $M$-exposed vertex of $G$ is in $F$. Otherwise, we can add it to $F$ as a component of size 1, and this contradicts to the maximality of $F$. 
+			
+	Also, if $xy \in M$ and $x$ is in a component $T$ of $F$, then $y$ is also in $T$. 
+			
+	We claim that if $z \in O(F)$, then $N_G(z) \subseteq I(F)$. Here is the proof. Suppose $yz \in E(G)$. Then, $y \notin O(F)$ by the assumption of the lemma. 
+			
+	If $y \notin V(F)$, then $y$ is saturated by $M$ by the first observation. Let's say $xy \in M$. Then, by the second observation, $x \notin V(F)$. But then, $F \cup \{yz, yx\}$ is an $M$-alternating forest that contains $F$, contradicting the maximality of $F$. Hence, $y \in I(F)$. 
+			
+	For each component $T$ of $F$, we have $|O(T)| = |I(T)| + 1$ since each outer vertex of $T$ except the roots is matched by $M$ to an inner vertex of $T$. 
+			
+	So, $|O(F)| = |I(F)| + k$, where $k$ is the number of component of $F$, and this is the numer of $M$-exposed vertices in $G$. 
+			
+	Then, in $G - I(F)$, every vertex in $O(F)$ is an isolated vertex, i.e. a component of size 1, by the claim we proved above. Hence, $odd(G - I(F)) \geq |O(F)| = |I(F)| + k$. 
+			
+	But, $\nu(G) = \frac{|V(G)| - d}{2}$ where $d = \max_{T \subseteq V(G)}\{odd(G -T) - |T|\}$ by \textbf{Tutte-Berge's Formula}. Hence, $d \geq odd(G - I(F)) - |I(F)| \geq k$. So, $\nu(G) \leq  \frac{|V(G)| - k}{2}$. 
+			
+	But $|M| = \frac{|V(G)| - k}{2}$, so $|M| \geq \nu(G)$, and hence $M$ is maximum. 
+\end{proof}
+
+\begin{lemma}
+	Let $M$ be a matching in $G$, and let $T_1$ and $T_2$ be distinct components of an $M$-alternating forest $F$ in $G$. If there exists $xy \in E(G)$ where $x \in O(T_1)$ and $y \in O(T_2)$, then $G$ contains an $M$-augmenting path.
+\end{lemma}
+
+\begin{proof}
+	Let $s_1$ and $s_2$ denote the roots of $T_1$ and $T_2$ respectively. Then $s_1$ and $s_2$ are $M$-exposed. Then, the unique path joining $s_1$ and $s_2$ in $T_1 \cup T_2 \cup \{xy\}$ is an $M$-augmenting path. 
+\end{proof}
+
+\begin{lemma}
+	Let $M$ be a matching in a graph $G$. Let $T$ be a component of an $M$-alternating forest $F$ in $G$, and suppose there exists $xy \in E(G)$ where $x, y \in O(T)$. Then, there exists a matching $\bar{M}$ with $|\bar{M}| = |M|$ and an odd cycle $C$ in $G$ that is shrinkable with respect to $\bar{M}$. 
+\end{lemma}
+
+\begin{proof}
+	Let $C$ be the unique cycle in $T \cup \{xy\}$, and ley $P$ be the unique path from $C$ to the root $s$ in $T$. Set $\bar{M} = M \Delta E(P)$. 
+			
+	Then, $C$ is shrinkable with respect to $\bar{M}$. 
+\end{proof}
+
+
+\lecture{31}{November 24}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{algorithme}
+	Edmond's Algorithm ($G$): Finds a maximum matching\\
+	\> start with a matching $M$ in $G$ ($M$ could be empty, or more ideally, be a greedy matching)\\
+	\> \pc{construct} an $M$-alternating forest $F$\\
+	\> \pc{if} there exists $xy \in E(G)$ joining two outer verticeds in the same component of $F$\\
+	\>\> \pc{shrink} the odd cycle $C$\\
+	\>\>\pc{replace} $G$ by the resulting graph and $M$ by $\bar{M} \setminus E(C)$\\
+	\>\>\pc{go back} to the construction of $M$-alternating forest step\\
+	\> \pc{if} there exists $xy \in E(G)$ joining two outer verticeds in different component of $F$\\
+	\>\> There exists a $M$-augmenting path $P$\\
+	\>\>\pc{replace} $M$ by $M \Delta E(P)$\\
+	\>\>\pc{expand} shrunk cycles back to the original input graph with the new larger matching\\
+	\>\>We need to relabel the shrunk cycle with the new matching. \\
+	\>\>\pc{go back} to the construction of $M$-alternating forest step\\\\
+	\>Continue \pc{constructing }$F$ until no $xy \in E(G)$ joins two outer vertices.\\
+	\>\pc{Then} we STOP, \pc{output} current initial matching in original graph. 
+\end{algorithme}
+
+\lecture{32}{November 24}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{definition}
+	Let $G$ be a grpah and let $f: V(G) \rightarrow \{0, 1, 2, ...\}$ be a function. An \textbf{\underline{$f$-factor}} of $G$ is a spanning subgraph $H$ of $G$ such that $d_H(v) = f(v)$ for every $v \in V(G)$. By spanning, we mean that $V(H) = V(G)$
+			
+	For example, a perfect matching in $G$ is 1-factor, where 1 denotes the function whose value is 1 for every $v \in V(G)$
+\end{definition}
+
+Note that if $f(v) > d_G(v)$ for some $v \in V(G)$, then $G$ does not have an $f$-factor.
+
+\begin{definition}
+	Let $G$ be a graph and let $f : V(G) \rightarrow \{0, 1, 2, ...\}$, where $f(v) \leq d_G(v)$ for each $v \in V(G)$. The graph $H(G, f)$ has vertex set $$\bigcup_{v \in V(G)} (A(v) \cup B(v))$$ where \begin{itemize}
+	\item $A(v) \cap B(w) = \emptyset$ for all $v, w \in V(G)$
+	\item $|A(v)| = d_G(v)$
+	\item $|B(v)| = d_G(v) - f(v)$
+	\end{itemize}
+		
+	The edge set of $H(G, f)$ is obtained by \begin{itemize}
+	\item adding one edge $e_{vw}$ from $A(v)$ to $A(w)$ for each edge $vw \in E(G)$, such that $\{e_{vw} : vw \in E(G)\}$ is a matching in $H(G, f)$
+	\item adding add edges $xy$ with $x \in A(v)$ and $y \in B(v)$ for each $v \in V(G)$.  
+	\end{itemize}
+		
+	So, the problem of if $G$ has a $f$ factor is equivalent to if $H(G, f)$ has a perfect matching
+\end{definition} 
+
+\begin{theorem}
+	Let $G$ be a graph and $f: V(G) \rightarrow \{0, 1, 2, ...\}$ be such that $f(v) \leq d_G(v)$ for each $v \in V(G)$. Then, $G$ has a $f$-factor if and only if $H(G, f)$ has a perfect matching. 
+\end{theorem}
+
+\begin{proof}
+	$\Rightarrow$: Assume $G$ has a $f$-factor $J$. Then, $\{e_{vw} : vw \in E(J)\}$ is a matching $M_j \in H(G, f)$ that saturates exactly $f(v)$ vertices of $A(v)$ for each $v$. The remaining $d_G(v) - f(v)$ vertices in $A(v)$ can be matched to $B(v)$ to form a perfect matching of $H(G, f)$. 
+			
+	$\Leftarrow$: Assume $H(G, f)$ has a perfect matching $M$. Since $N(B(v)) = A(v)$, $M$ matches $B(v)$ to exactly $d_G(v) - f(v)$ vertices of $A(v)$ for each $v$. So, exactly $f(v)$ edges of $M$ are incident to the rest of $A(v)$. So, there are edges of the form $e_{vw}$, correponding to an $f$-factor in $G$. 
+\end{proof}
+
+\lecture{33}{November 24}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{definition}
+	A graph $G$ is said to be \textbf{\underline{even}} if every vertex of $G$ has even degree
+\end{definition}
+
+\begin{definition}
+	An \textbf{\underline{Euler tour}} of a graph $G$ is a sequence $v_0e_1v_1e_2v_2....e_kv_k$ of vertices and edges of $G$ such that \begin{itemize}
+	\item $e_i = v_{i-1}v_i$
+	\item $v_k = v_0$
+	\item $k = |E(G)|$
+	\item $e_i \neq e_j$ for all $i \neq j$
+	\end{itemize}
+\end{definition}
+
+Remark: \begin{itemize}
+\item If $G$ has an Euler tour, then $G$ is connected (except possibly it contains isolated vertices), and $G$ is even.
+\item If $G$ is a connected even graph, then it has an Euler tour. 
+\end{itemize}
+
+\begin{definition}
+	A \textbf{\underline{$k$-factor}} in a grpah $G$ is an $f$-factor for the function $f$ defined by $f(v) = k$ for each $v \in V(G)$. 
+\end{definition}
+
+\begin{theorem}
+	\textbf{Petersen's 2-factor Theorem}: Let $d \geq 2$ be even. Then every $d$-regular graph has a 2-factor. 
+\end{theorem}
+
+\begin{proof}
+	We may assume $G$ is connected, otherwise consider components separately. Then, $G$ has an Euler tour $Q$. 
+			
+	Define a bipartite graph $B(G)$ with vertex classes $V_0$ and $V_1$ each of which is a copy of $V(G)$. Let $v_0w_1$ be an edge of $B(G)$ if and only if $vw \in E(G)$ and $Q$ traverses $vw$ in the direction $v \rightarrow w$. 
+			
+	$B(G)$ is a $\frac{d}{2}$-regular bipartite graph. So, $B(G)$ has a perfect matching. $M$ gives a 2-factor in $G$ since each vertex $v \in V(G)$ is incident to 2 edges of $M$. They are all distinct since we have an Euler tour that goes through each edge exactly once. 
+\end{proof}
+
+
+\lecture{34}{December 1}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+Recall that. the principle properties of a vector space $W$ over a field $\mathbb{F}$: \begin{itemize}
+\item $W$ contains a zero vectors
+\item any $v, w \in W$ can be added to get a vector $v+w \in W$
+\item any $v \in W$ can be multiplied by any $c \in \mathbb{F}$ to get $cv \in W$. 
+\end{itemize}
+
+If $U \subseteq W$ and $U$ is also a vector space over $\mathbb{F}$, we say $U$ is a subspace of $W$. 
+
+\begin{definition}
+	Let $G$ be a graph and let $S$ be a spanning subgraph of $G$. The \textbf{\underline{characteristic vector}} $w_S$ of $S$ in the $\{0, 1\}$-vector with $|E(G)|$ coordinates, indexed by $E(G)$, whose $e_i$-th coordinate is $\begin{dcases}
+	1 & \text{if } e_i \in E(S)\\
+	0 & \text{if } e_i \notin E(S)
+	\end{dcases}$
+\end{definition}
+
+\begin{definition}
+	Let $G$ be a graph. The \textbf{\underline{flow space}} of $G$ is the set of all characteristic vectors of even spanning subgraphs of $G$. 
+\end{definition}
+
+\begin{theorem}
+	The flow space $W(G)$ of $G$ is a vector space over $\mathbb{Z}_2$. 
+\end{theorem}
+
+\begin{proof}
+	We first check principle properties for vector space over $\mathbb{Z}_2$: \begin{itemize}
+	\item The zero vector $(0, ..., 0) \in W$. This is $w_S$ where $E(S) = \emptyset$
+	\item If $w_S \in W$ and $w_T$, then $w_S + w_T \in W$, where addition is done in $\mathbb{Z}_2$. $w_S + w_T$ is the characteristic vector of the spanning subgraph $S \oplus T$ of $G$, with edge set $E(S) \cup E(T) \setminus (E(S) \cap E(T))$. Note $S \oplus T$ is even. 
+				
+	This is because, for any $v \in V(G)$, $d_{S \oplus T}(v) = d_S(v) + d_T(v) - 2d_{S\cap T}(v)$ is even. 
+	\item Scalar multiplication: $0v = (0, ..., 0)$, $1 \cdot v = v$ for all $v \in W$. 
+	\end{itemize}
+\end{proof}
+
+\begin{theorem}
+	Let $G$ be a graph and let $H$ be an even spanning subgraph of $G$. Then there exists cycles $C_1, ..., C_k$ in $G$ such that $E(H) = \bigcup_{i=1}^k E(C_i)$ and $E(C_i) \cap E(C_j) = \emptyset$ for all $i \neq j$
+\end{theorem}
+
+\begin{proof}
+	We do induction on $|E(H)|$
+			
+	Base Case: If $|E(H)| = 0$, then we take $k = 0$
+			
+	Inductive Hypothesis. Assume $|E(H)| > 0$, and every even spanning subgraph $J$ of $G$ with $|E(J)| < |E(H)|$ is the union of edge-disjoint cycles in $G$. 
+			
+	Inductive Step: For some component $H_1$ of $H$, $d_H(v) \geq 2$ for all $v \in V(H_1)$ since each degree in $H$ is positive and even. Recall from MATH239 that $H_1$ contains a cycle $C_1$.
+			
+	Then, $J = H \setminus E(C_1)$ is an even spanning subgraph of $G \setminus E(C_1)$ since $d_J(v) = d_H(v)$ if $v \notin V(C_1)$, and $d_J(v) = d_H(v) - 2$ otherwise. 
+			
+	So, by Inductive Hypothesis, $E(J) = \bigcup_{i=2}^k E(C_i)$ for some edge-disjoint cycles $C_2, ..., C_k$ in $G \setminus E(C_1)$. 
+			
+	Hence, $E(H) = \bigcup_{i=1}^k E(C_i)$ as required. 
+\end{proof}
+
+This tells us that the flow space $W(G)$ is spanned by the characteristic vectors of cycles, i.e. $$w_H = w_{C_1} + \cdots + w_{C_k}$$
+
+
+\lecture{35}{December 1}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{definition}
+	Let $G$ be a connected graph and let $T$ be a spanning tree of $G$. Let $e \in E(G) \setminus E(T)$. Then, the unique cycle $C_e$ in $T \cup \{e\}$ is called the \textbf{\underline{fundamental cycle}} for $e$ with respect to $T$. 
+\end{definition}
+
+\begin{theorem}
+	Let $G$ be a connected graph and let $T$ be a spanning tree of $G$. Then, $B_T = \{w_C :  C \in F(T)\}$ is a basis for the flow space $W(G)$ of $G$, where $F(T)$ denotes the set of all fundamental cycles in $G$ with respect to $T$. 
+\end{theorem}
+
+\begin{proof}
+	We first prove that $B_T$ is linearly independent in $W(G)$. 
+			
+	Let $F(T) = \{C_e : e \in E(G) \setminus E(T)\}$, so $C_e$ is the cycle in $T \cup \{e\}$. 
+			
+	Suppose $w_\lambda = \sum_{e \in E(G) \setminus E(T)} \lambda_e w_{C_e} = 0$, where $\lambda_e \in \mathbb{Z}_2$ for each $e$. 
+			
+	Suppose $\lambda_{e_0} = 1$, then $e_0$ is an edge of the graph $\oplus_{e \in E(G) \setminus E(T)} \lambda_e C_e$ since $e_0 \in E (C_{e_0})$, but $e_0 \notin E(C_e)$ for $e \neq e_0$. So the $e_0$-coordinate of $w_\lambda$ is 1. Contradiction. 
+			
+	Hence, $\lambda_e = 0$ for each $e$. So, $B_T$ is linearly independent. 
+			
+	We then prove that $B_T$ spans $W(G)$. Consider an arbitrary element $w_H \in W(G)$, where $H$ is an even spanning subgraph of $G$. 
+			
+	We claim that $w_H = \sum_{e \in E(G) \setminus E(T)} w_{C_e}$. Note that RHS is the characteristic vector of the graph $\oplus_{e \in E(H) \setminus E(T)} C_e = J_H$. 
+			
+	The proof is as follows: Consider $J_H \oplus H$. Each edge $e \in E(G) \setminus E(T)$ is in exactly one fundamental cycle $C_e$. Since $e \in E(G)$ as well, the edge $e$ is not in $E(J_H \oplus H)$ since $E \in E(J_H) \cap E(H)$. 
+			
+	Thus, $J_H \oplus H$ is a subgraph of $T$. If $J_H \oplus H$ has any edges, it's a forest, with $\geq 1$ edge, so it is a vertex of degree 1. This is not possible since it is even. 
+			
+	Hence, $J_H \oplus H$ has no edges, i.e. $J_H = H$. 
+			
+	So, $B_T$ is a basis of $W(G)$.   
+\end{proof}
+
+\begin{corollary}
+	Let $G$ be a connected graph with $|V(G)| = n$ and $|E(G)| = m$. Then, $dim(W(G)) = m - n + 1$ and $|W(G)| = 2^{m-n+1}$
+\end{corollary}
+
+\begin{proof}
+	Any spanning tree $T$ has $n-1$ edges, so $|B_T| = m - n + 1$.  
+\end{proof}
+
+\lecture{36}{December 1}{Penny Haxell}{Haochen Wu}\\
+This lecture's notes tend to be supplementary (add-on notes) of the course notes provided.
+
+\begin{definition}
+	A \textbf{\underline{binary code}} of length $m$ is a subspace $U$ of $\mathbb{Z}_2^m$
+\end{definition}
+
+\begin{definition}
+	The \textbf{\underline{minimum distance}} of a binary code $U$ is the smallest $t$ such that some $u \in U$ with $u \neq 0$ has exactly $t$ coordinates that are 1. 
+\end{definition}
+
+\begin{definition}
+	The \textbf{\underline{hamming distance}} between $u$ and $v$ in a binary code $U$ is the number of coordinates that are 1 in $u + v$. 
+\end{definition}
+
+\begin{lemma}
+	Let $U$ be a binary code with minimum distance $t$. Then any two distinct elements $u, v \in U$ are at Hamming distance at least $t$. 
+\end{lemma}
+\begin{proof}
+	Let $u, v \in U$, $u \neq v$. Then $u + v \in U$ since $U$ is a vector space. So $u + v$ has at least $t$ 1-coordinates by definition of $t$. 
+\end{proof}
+
+A code with high minimum distance $t$ provides good ``error correction'': if no more than $\lfloor \frac{t-1}{2} \rfloor$ error bits occur during the transimission, then the original element of the code can be recovered. 
+
+\begin{definition}
+	The \textbf{\underline{girth}} of a graph $G$ is the length of a shortest cycle in $G$. We say the girth is infinite if $G$ has no cycles. 
+\end{definition}
+
+\begin{lemma}
+	Let $G$ be a connected graph of finite girth $g$. Then, the flow space $W(G)$ is a binary code of length $m = |E(G)|$, dimension $|E(G)| - |V(G)| + 1$, and minimum distance $g$. 
+\end{lemma}
+
+\begin{proof}
+	We know that $B_T$ is a basis for $W(G)$, where $T$ is a spanning tree of $G$. So, $dim(W(G))$ is $|E(G)| - |V(G)| + 1$. Length is $m$ be definition. 
+		
+	Let $w_H \in W(G)$ be nonzero. Then, $H$ contains a cycle $C$ since $H$ is even, and $|E(H)| > 0$. Therefore $|E(H)| \geq |E(C)|\geq g$ by definition of girth. So, $W(G)$ has minimum distance $\geq g$ ($ = g$ since there exists a cycle $C_0$ of length $g$ such that $w_{C_0} \in W(G)$). 
+\end{proof}
+If we have a $d$-regular graph $G$, with girth $g$ odd, then, the number of vertices $\geq 1 + d + d(d-1) + d(d-1)^{\frac{g-1}{2}} > d^{\frac{g+1}{2}}$. 
+\end{document}
