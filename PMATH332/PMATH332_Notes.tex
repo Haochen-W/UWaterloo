@@ -1705,7 +1705,7 @@ Actually, often we will only need one of the coefficients, and there's a quick w
 		e^{i\theta} &= \cos \theta + i\sin \theta\\
 		e^{-i\theta} &= \cos \theta - i\sin \theta
 	\end{align*}
-	Sum to get $\cos \theta = \dfrac{e^{i\theta} + e^{-i\theta}}{2}$, and $\cos \theta = \dfrac{e^{i\theta} - e^{-i\theta}}{2i}$
+	Sum to get $\cos \theta = \dfrac{e^{i\theta} + e^{-i\theta}}{2}$, and $\sin \theta = \dfrac{e^{i\theta} - e^{-i\theta}}{2i}$
 
 	We define \begin{tcolorbox}[hbox, before=\par\smallskip\centering]
 		$\cos z = \dfrac{1}{2}(e^{iz}+e^{-iz})= \cosh (iz) \;\;\; \sin z = \dfrac{1}{2i}(e^{iz}-e^{-iz}) = \dfrac{1}{i}\sinh (iz)$
@@ -2386,7 +2386,46 @@ We will replace the intervals with paths.
 Now we are ready to integrate $f(z)$ along a curve. 
 
 \subsection{Contour Integrals}
-Partition curve $\mathcal{C}$ as shown. Sum, and let $\max |\Delta z_k| \rightarrow 0$: $$\int_{\mathcal{C}}f(z)dz = \lim_{\max |\Delta z_k| \rightarrow 0} \sum_{k} f(z_k^*)\Delta z_k$$
+Partition curve $\mathcal{C}$ as shown. 
+\begin{center}
+	\begin{tikzpicture}
+		\draw [shift={(-1.3292025542718235,-2.0305186851097754)},line width=2pt]  plot[domain=0.9884887019921226:2.56851289758992,variable=\t]({1*2.4169396950685256*cos(\t r)+0*2.4169396950685256*sin(\t r)},{0*2.4169396950685256*cos(\t r)+1*2.4169396950685256*sin(\t r)});
+		\draw [shift={(0.9843621078196576,2.6220842448625032)},line width=2pt]  plot[domain=4.354744569311382:6.175547368193567,variable=\t]({1*2.8119114700126486*cos(\t r)+0*2.8119114700126486*sin(\t r)},{0*2.8119114700126486*cos(\t r)+1*2.8119114700126486*sin(\t r)});
+		\draw [line width=2pt] (-0.3171126950022274,0.16430969231785086) circle (0.7475440004282073cm);
+		\draw [line width=1pt] (-1.0362019819326107,0.3685953501554997)-- (-1.280826446280993,3.343471074380167);
+		\draw [line width=1pt] (0.3731798093470926,-0.12260195090241277)-- (1.7439669421487551,3.1781818181818196);
+		\draw [line width=2pt] (0.2542208052260085,3.6753316447269215) circle (1.570509949828422cm);
+		\draw [line width=1pt] (-0.7699388865579713,3.6876383020935997)-- (1.377247260628173,3.8261664406217384);
+		\draw [->,line width=1pt] (4.113177996558903,0.6746512891065873) -- (4.39023427361518,1.6097162241715222);
+		\draw [->,line width=1pt] (-2.6747007913198737,-0.9876863732310747) -- (-2.0513241679432515,-0.32967771522241673);
+		\draw [->,line width=1pt] (-0.8738349904540759,-0.6586820442267457) -- (0.13049401387492687,-0.8664742520189535);
+		\draw [->,line width=1pt] (1.6543035376844482,-0.8664742520189535) -- (2.6932645766454857,-0.29504568059038205);
+		\draw (1.5677234511043618,5.505820120275418) node[anchor=north west] {$\Delta z_k = z_k-z_{k-1}$};
+		\draw (1.7928316762125867,1.2807118951671934) node[anchor=north west] {$\mathcal{C}$};
+		\draw (-0.9950471116661969,3.4452140596693575) node[anchor=north west] {$z_{k-1}$};
+		\draw (1.1867710701519816,3.5144781289334266) node[anchor=north west] {$z_k$};
+		\draw (0.061229944610857734,4.657335271790569) node[anchor=north west] {$z^x_{k}$};
+		\begin{scriptsize}
+			\draw [fill=black] (-3.36,-0.72) circle (2.5pt);
+			\draw [fill=black] (-2.26,0.2) circle (2.5pt);
+			\draw [fill=black] (0,-0.011900826446279563) circle (2.5pt);
+			\draw [fill=black] (2,0) circle (2.5pt);
+			\draw [fill=black] (3.78,2.32) circle (2.5pt);
+			\draw [fill=black] (-0.6423235200560911,0.2867630590794805) circle (2.5pt);
+			\draw [fill=black] (0.8892571571178356,-0.18821843697457918) circle (2.5pt);
+			\draw [fill=black] (2.7228242861993244,0.41197217314936996) circle (2.5pt);
+			\draw [fill=black] (3.3765662116567574,1.1441784153951344) circle (2.5pt);
+			\draw [fill=black] (3.700053202848346,1.8927914425049202) circle (2.5pt);
+			\draw [fill=black] (-2.870898651711336,-0.16912924903313487) circle (2.5pt);
+			\draw [fill=black] (-1.4689435447205046,0.382377903056895) circle (2.5pt);
+			\draw [fill=black] (-0.7699388865579713,3.6876383020935997) circle (2.5pt);
+			\draw [fill=black] (1.377247260628173,3.8261664406217384) circle (2.5pt);
+			\draw [fill=black] (0.2725032999256636,3.7548926367054474) circle (2.5pt);
+		\end{scriptsize}
+	\end{tikzpicture}
+\end{center}
+
+Sum, and let $\max |\Delta z_k| \rightarrow 0$: $$\int_{\mathcal{C}}f(z)dz = \lim_{\max |\Delta z_k| \rightarrow 0} \sum_{k} f(z_k^*)\Delta z_k$$
 See the text for more detail.
 
 If $\mathcal{C}$ is a single point, define $\int_{\mathcal{C}}f(z)dz = 0$. 
@@ -2404,6 +2443,22 @@ How to calculate?
 		\item $\int_{\mathcal{C}} kf(z)dz = k\int_{\mathcal{C}} f(z)dz$
 		\item $\int_{-\mathcal{C}} f(z)dz = -\int_{\mathcal{C}} f(z)dz$. Here $-\mathcal{C}$ means $\mathcal{C}$ traversed in the opposite direction
 		\item $\int_{\mathcal{C}_1 + \mathcal{C}_2} f(z)dz = \int_{\mathcal{C}_1} f(z)dz + \int_{\mathcal{C}_2} f(z)dz$. Here it means that we traverse $\mathcal{C}_1$ then traverse $\mathcal{C}_2$. 
+		\begin{center}
+			\begin{tikzpicture}
+				\draw [shift={(-4.873716704521987,-4.1312925872393205)},line width=2pt]  plot[domain=1.4439239249118083:2.378792027289586,variable=\t]({1*4.85027675018997*cos(\t r)+0*4.85027675018997*sin(\t r)},{0*4.85027675018997*cos(\t r)+1*4.85027675018997*sin(\t r)});
+				\draw [shift={(-1.4464101935800047,5.680901739769662)},line width=2pt]  plot[domain=4.199911030102511:5.195671924244747,variable=\t]({1*5.738057668725693*cos(\t r)+0*5.738057668725693*sin(\t r)},{0*5.738057668725693*cos(\t r)+1*5.738057668725693*sin(\t r)});
+				\draw [->,line width=2pt] (-8.38,-0.78) -- (-7.488743267982007,-0.04634208254139249);
+				\draw [->,line width=2pt] (-4.26,0.68) -- (-3.1529910636478036,0.202499824654236);
+				\draw (-6.36,0.08) node[anchor=north west] {$\mathcal{C}_1$};
+				\draw (-0.9,-0.24) node[anchor=north west] {$\mathcal{C}_2$};
+				\begin{scriptsize}
+					\draw [fill=black] (-8.38,-0.78) circle (2.5pt);
+					\draw [fill=black] (-4.26,0.68) circle (2.5pt);
+					\draw [fill=black] (1.22,0.6) circle (2.5pt);
+					\draw[color=black] (1.38,1.03) node {$E$};
+				\end{scriptsize}
+			\end{tikzpicture}
+		\end{center}
 	\end{itemize}
 \end{proposition}
 
@@ -2428,7 +2483,16 @@ No! LHS is real, but RHS is complex. ``$\leq$'' does NOT make any sense here.
 \end{proof}
 \begin{example}
 	Find an upper bound on $\left| \int_{\mathcal{C}} e^{\frac{1}{z}}\right|$
-
+	\begin{center}
+		\begin{tikzpicture}[scale=1.5]
+			\draw (1.5534076199727505,1.04130100687539) node[anchor=north west] {$\mathcal{C}$ is unit circle, traversed \underline{once} in positive direction};
+			\draw [->,line width=2pt] (-2,0) -- (2,0);
+			\draw [->,line width=2pt] (0,-2) -- (0,2);
+			\draw [line width=2pt] (0,0) circle (1cm);
+			\draw [shift={(0,0.0278)},->,line width=2pt] (-150.13762460175298:1.0181929476078775) arc (-150.13762460175298:-116.67295733591709:1.0181929476078775);
+			\draw [shift={(0,-0.0278)},->,line width=2pt] (20.65891618285383:1.0181929476078775) arc (20.65891618285383:58.11963965317466:1.0181929476078775);
+		\end{tikzpicture}
+	\end{center}
 	\underline{\textbf{Solution}}: $M = ?$\begin{align*}
 		\left| e^{\frac{1}{z}} \right| &= \left| e^{\frac{1}{x+iy}} \right|\\
 		&=\left| e^{\frac{x-iy}{x^2+y^2}} \right|\\
@@ -2440,13 +2504,38 @@ No! LHS is real, but RHS is complex. ``$\leq$'' does NOT make any sense here.
 \end{example}
 \begin{example}
 	Evaluate $\int_{\mathcal{C}} \cos z dz$ where $\mathcal{C}$ is the line segment from 0 to 1+2i. 
-
+	\begin{center}
+		\begin{tikzpicture}[scale=1.5]
+			\draw [->,line width=2pt] (-0.5,0) -- (2,0);
+			\draw [->,line width=2pt] (0,-0.5) -- (0,2);
+			\draw [line width=2pt] (0,0) -- (1,1);
+			\draw [->,line width=2pt] (0,0) -- (0.5,0.5);
+			\draw [fill=black] (1,1) circle (1pt);
+			\draw [fill=black] (0,0) circle (1pt);
+			\draw [fill=black] (1,1) node[anchor=north west] {$1+2i$};
+		\end{tikzpicture}
+	\end{center}
 	\textbf{\underline{Solution}}: Parameterize $\mathcal{C}$ by $$z(t) = 0+(1+2i-0)t, \;\;\; t \in [0,1]$$
 	Then $$\int_{\mathcal{C}} \cos z dx = \int_{0}^{1} \underbrace{\cos \bigg( (1+2i)t\bigg)}_{f(z(t))}\cdot \underbrace{(1+2i)}_{z'(t)} dt = \left. \sin \bigg( (1+2i)t\bigg) \right|_{0}^{1} = \sin(1+2i) - 0 = \sin(1+2i)$$
 \end{example}
 \begin{example}
 	Evaluate $\int_{\mathcal{C}} \cos z dz$ where $\mathcal{C}$ is: 
-
+	\begin{center}
+		\begin{tikzpicture}[scale=1.5]
+			\draw [->,line width=2pt] (-0.5,0) -- (2.5,0);
+			\draw [->,line width=2pt] (0,-0.5) -- (0,3);
+			\draw [line width=2pt] (0,0) -- (1,0);
+			\draw [line width=2pt] (1,0) -- (1,2);
+			\draw [->,line width=2pt] (0,0) -- (0.5,0);
+			\draw [->,line width=2pt] (1,0) -- (1,1);
+			\draw [fill=black] (1,2) circle (1pt);
+			\draw [fill=black] (0,2) circle (1pt);
+			\draw [fill=black] (0,0) circle (1pt);
+			\draw [fill=black] (1,2) node[anchor=north west] {$1+2i$};
+			\draw [fill=black] (1,0) node[anchor=north] {$1$};
+			\draw [fill=black] (0,2) node[anchor=east] {$2i$};
+		\end{tikzpicture}
+	\end{center}
 	\textbf{\underline{Solution}}: $\mathcal{C} = \mathcal{C}_1 \cup \mathcal{C}_2$ where $\begin{dcases}
 		C_1: & z(t) = t, \;\; t\in [0,1)\\
 		C_2: & z(t) = 1+(t-1)i, \;\; t \in [1,3]
@@ -2462,6 +2551,17 @@ No! LHS is real, but RHS is complex. ``$\leq$'' does NOT make any sense here.
 \begin{example}
 	Evaluate $\int_{\mathcal{C}} e^z dz$ where $\mathcal{C}$ is part of $y = x^2 + 1$ from $z = i$ to $z = 2+5i$. 
 
+	\begin{center}
+		\begin{tikzpicture}[scale=1.5]
+			\draw[<->](2,0)--(0,0)--(0,3);
+			\draw(0,0)--(-2,0);
+			\draw[black,dashed,domain=-1:1] plot(\x,2*\x*\x + 1);
+			\draw [fill=black] (0,1) circle (1pt) node[anchor=south west] {$i$};
+			\draw [fill=black] (0.75,2.1) circle (1pt) node[anchor=south west] {$2+5i$};
+			\draw [->,line width=1pt] (0.35,0.75) -- (0.75,1.2);
+		\end{tikzpicture}
+	\end{center}
+
 	\textbf{\underline{Solution}}: Let $z(t) = \underbrace{t}_x + \underbrace{(t^2+1)}_y i, \;\; t \in [0,2]$. Then, \begin{align*}
 		\int_{\mathcal{C}} e^z dz &= \int_{0}^{2} e^{z(t)} z'(t) dt\\
 		&= \int_{0}^{2} e^{t^2+(t^2+1)i} (1+2ti) dt\\
@@ -2476,6 +2576,29 @@ Does it always work that way? See the following example
 		\item $\mathcal{C}$ is line segment from 0 to $1+i$
 		\item $\mathcal{C}$ is the smallest arc of circle $x^2+(y-1)^2 = 1$ from 0 to $1+i$
 	\end{enumerate}
+	\begin{center}
+		\begin{tikzpicture}[scale=0.8]
+			\begin{axis}[
+				axis lines = middle,
+				xtick= \empty,
+				ytick= \empty,
+				]
+				\addplot[
+				ultra thick,
+				domain=0:1, 
+				samples=100, 
+				color=black,
+				] {x^2};
+			\end{axis}
+			\draw [line width=1.5pt] (0,0) -- (6.85,5.7);
+			\draw [->,line width=1.5pt] (0,0) -- (2,1.644);
+			\draw [->,line width=1.5pt] (0,0) -- (5,4.161);
+			\draw [fill=black] (6.85,5.7) circle (2pt) node[anchor=south west] {$1+i$};
+			\draw (6,3) node[anchor=south west] {$(b)$};
+			\draw (3,4) node[anchor=south west] {$(a)$};
+			\draw [->,line width=1pt] (3.35,0.75) -- (3.75,1.2);
+		\end{tikzpicture}
+	\end{center}
 
 	\textbf{\underline{Solution}}: \begin{enumerate}
 		\item parameterization: $z(t) = t(1+i), \;\; t \in [0,1]$
@@ -2502,6 +2625,19 @@ Does it always work that way? See the following example
 	\underline{\textbf{Complex Extension of Fundamental Theorem of Calculus}}: 
 
 	If $f(z)$ is continuous in a domain $D$ and has antiderivative $F(z)$ throughout $D$, then, for any contour $\mathcal{C}$ lying in $D$ with initial point $z_1$ and terminal point $z_2$, we have $$\int_{\mathcal{C}} f(z) dz = F(z_2) - F(z_1)$$
+	\begin{center}
+		\begin{tikzpicture}
+			\draw [shift={(-3.21,-3.6625)},line width=2pt]  plot[domain=0.9950484961787569:2.2972019390677167,variable=\t]({1*3.508048781017732*cos(\t r)+0*3.508048781017732*sin(\t r)},{0*3.508048781017732*cos(\t r)+1*3.508048781017732*sin(\t r)});
+			\draw [shift={(-0.10856502242152467,1.866681614349776)},line width=2pt]  plot[domain=4.28075213328399:5.906833913364336,variable=\t]({1*2.847883263024063*cos(\t r)+0*2.847883263024063*sin(\t r)},{0*2.847883263024063*cos(\t r)+1*2.847883263024063*sin(\t r)});
+			\draw [->,line width=2pt] (-2.0079049224843537,-0.36684017613882736) -- (-0.9100552328849356,-0.8660921637635719);
+			\draw (-6.12,-0.14) node[anchor=north west] {$(t=a)$};
+			\draw (1.94,1.44) node[anchor=north west] {$(t=b)$};
+				\draw [fill=black] (-5.54,-1.04) circle (2.5pt);
+				\draw[color=black] (-5.3,-1.59) node {$z_1$};
+				\draw [fill=black] (2.54,0.82) circle (2.5pt);
+				\draw[color=black] (2.66,0.35) node {$z_2$};
+		\end{tikzpicture}
+	\end{center}
 \end{theorem}
 \begin{proof}
 	First, suppose $\mathcal{C}$ is smooth, i.e. $z'(t) \neq 0$, continuous. 
@@ -2515,6 +2651,49 @@ Does it always work that way? See the following example
 	\end{align*}
 	Next, if $\mathcal{C}$ is not smooth, it has a finite number of smooth pieces, since it's a contour. 
 
+	\begin{center}
+		\begin{tikzpicture}[scale=1.2]
+			\draw [shift={(-5.0430841121495344,-1.5912550066755653)},line width=2pt]  plot[domain=1.5929506495087926:2.4511706862468396,variable=\t]({1*3.4721070512260996*cos(\t r)+0*3.4721070512260996*sin(\t r)},{0*3.4721070512260996*cos(\t r)+1*3.4721070512260996*sin(\t r)});
+			\draw [shift={(-2.014512841169199,5.73484349993133)},line width=2pt]  plot[domain=4.178998516845949:5.08841755516068,variable=\t]({1*3.19830803131203*cos(\t r)+0*3.19830803131203*sin(\t r)},{0*3.19830803131203*cos(\t r)+1*3.19830803131203*sin(\t r)});
+			\draw [line width=2pt] (-5.12,1.88)-- (-3.640710936855408,2.9808184425395896);
+			\draw [line width=2pt] (1.1084839641747943,2.7638501475686668)-- (2.72,2.82);
+			\draw [line width=2pt] (2.72,2.82)-- (3.165825552265748,0.5886224525435144);
+			\draw [->,line width=2pt] (-7.72,0.62) -- (-7.18206513988621,1.1437564262359237);
+			\draw [->,line width=2pt] (-5.12,1.88) -- (-4.4068018683208106,2.41072903470827);
+			\draw [->,line width=2pt] (-3.640710936855408,2.9808184425395896) -- (-3.063056491325477,2.713299113881047);
+			\draw [->,line width=2pt] (1.1084839641747943,2.7638501475686668) -- (1.9119854212326397,2.7918464487156527);
+			\draw [->,line width=2pt] (2.72,2.82) -- (2.9321304741182845,1.7582771474778813);
+			\draw [->,line width=2pt] (-6.7,1.46) -- (-5.943783764132144,1.7619923018438057);
+			\draw [->,line width=2pt] (-2.54,2.58) -- (-1.8950418747273785,2.53876763235051);
+				\draw [fill=black] (-7.72,0.62) circle (2.5pt);
+				\draw[color=black] (-7.539631197482891,0.3479684520382659) node {$z_1=a_0$};
+				\draw [fill=black] (-6.7,1.46) circle (2.5pt);
+				\draw[color=black] (-6.5186748317030485,1.295999363119548) node {$a_1$};
+				\draw [fill=black] (-5.12,1.88) circle (2.5pt);
+				\draw[color=black] (-4.9288999192744365,1.675211727552061) node {$a_2$};
+				\draw [fill=black] (-3.640710936855408,2.9808184425395896) circle (2.5pt);
+				\draw[color=black] (-3.747507553157761,2.419051365477375) node {$a_3$};
+				\draw [fill=black] (-2.54,2.58) circle (2.5pt);
+				\draw[color=black] (-2.5952853689205098,2.127349546683134) node {$a_4$};
+				\draw [fill=black] (-0.84,2.76) circle (2.5pt);
+				\draw [fill=black] (1.1084839641747943,2.7638501475686668) circle (2.5pt);
+				\draw [fill=black] (2.72,2.82) circle (2.5pt);
+				\draw[color=black] (2.3198902777624473,2.3315408198391028) node {$a_{n-1}$};
+		
+				\draw [fill=black] (3.165825552265748,0.5886224525435144) circle (2.5pt);
+				\draw[color=black] (2.8303684606523687,0.7709360892899149) node {$a_{n}$};
+				\draw [fill=black] (-0.2624624641389859,2.761141197351578) circle (1.5pt);
+				\draw [fill=black] (0.1441841960414415,2.7619447193095654) circle (1.5pt);
+				\draw [fill=black] (0.6383878272097848,2.762921251292355) circle (1.5pt);
+				\draw[color=black] (-7.5688013793623155,1.4272651815769564) node {$\mathcal{C}_1$};
+				\draw[color=black] (-6.139462467270535,2.0106688191654376) node {$\mathcal{C}_2$};
+				\draw[color=black] (-4.695538464239044,2.7690935480304635) node {$\mathcal{C}_3$};
+				\draw[color=black] (-3.047423188051583,3.148305912462977) node {$\mathcal{C}_4$};
+				\draw[color=black] (1.8385822767519502,3.2649866399806724) node {$\mathcal{C}_{n-1}$};
+				\draw[color=black] (3.4721124619996986,2.112764455743422) node {$\mathcal{C}_{n}$};
+		\end{tikzpicture}
+	\end{center}
+
 	Apply the result above to each piece: \begin{align*}
 		\int_{\mathcal{C}} f(z) dz &= \int_{\mathcal{C}_1} f(z) dz + \cdots + \int_{\mathcal{C}_n} f(z) dz\\
 		&=\bigg(F(a_1) - F(a_0)\bigg) + \bigg(F(a_2) - F(a_1)\bigg) + \cdots + \bigg(F(a_n) - F(a_{n-1})\bigg) \\
@@ -2524,6 +2703,19 @@ Does it always work that way? See the following example
 \end{proof}
 \begin{example}
 	Evaluate $\int_{\mathcal{C}}(1+z^2) dz$ where $\mathcal{C}$ is: 
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7]
+			\draw [->,line width=1pt] (-1,0) -- (6,0);
+			\draw [->,line width=1pt] (0,-1) -- (0,6);
+			\draw [fill=black] (0,0) circle (2pt);	
+			\draw [fill=black] (4,2) circle (2pt) node[anchor=north west]{$4+2i$};
+			\draw [fill=black] (2,-2) circle (2pt) node[anchor=north west]{$2-2i$};
+			\draw [line width=2pt] (0,0) -- (2,-2);
+			\draw [line width=2pt] (2,-2) -- (4,2);
+			\draw [->,line width=2pt] (0,0) -- (1,-1);
+			\draw [->,line width=2pt] (2,-2) -- (3,0);
+		\end{tikzpicture}
+	\end{center}
 
 	\textbf{\underline{Solution}}: \begin{align*}
 		\int_{\mathcal{C}}(1+z^2) dz &= \left. \left( z + \dfrac{z^3}{4}\right) \right|_{z=0}^{z=4+2i}\\
@@ -2533,6 +2725,24 @@ Does it always work that way? See the following example
 \end{example}
 \begin{example}
 	Evaluate $\int_{\mathcal{C}}e^z dz$ where $\mathcal{C}$ is: 
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\draw [->,line width=1pt] (-2,0) -- (2,0);
+			\draw [->,line width=1pt] (0,-2) -- (0,3);
+			
+			\draw [fill=black] (1,-1) circle (2pt)node[anchor=west]{$1-i$, staring point};
+			\draw [fill=black] (0,2) circle (2pt) node[anchor=west]{$2i$};
+			\draw [fill=black] (-1,-1) circle (2pt) node[anchor=north east]{$-1-i$};
+			
+			\draw [line width=2pt] (1,-1) -- (0,2);
+			\draw [line width=2pt] (0,2) -- (-1,-1);
+			\draw [line width=2pt] (-1,-1) -- (1,-1);
+			\draw [->,line width=2pt] (1,-1) -- (0.3333,1);
+			\draw [->,line width=2pt] (-1,-1) -- (0,-1);
+			\draw [->,line width=2pt] (0,2) -- (-0.6667,0);
+		\end{tikzpicture}
+	\end{center}
 
 	\textbf{\underline{Solution}}: \begin{align*}
 		\int_{\mathcal{C}}(1+z^2) dz &= e^z \big|_{z=1-i}^{z=1-i}\\
@@ -2554,12 +2764,68 @@ Does it always work that way? See the following example
 	
 	Then, $\int_{\mathcal{C}}f(z)dz = 0$. So $\int_{\mathcal{C}_1}f(z)dz + \int_{-\mathcal{C}_2}f(z)dz = 0$. So $\int_{\mathcal{C}_1}f(z)dz - \int_{\mathcal{C}_2}f(z)dz = 0$, implying that $$\int_{\mathcal{C}_1}f(z)dz = \int_{\mathcal{C}_2}f(z)dz $$
 
+	\begin{center}
+		\begin{tikzpicture}
+			\draw [shift={(-2.035627906976744,-1.2330697674418603)},line width=2pt]  plot[domain=1.7791035641822524:2.498177177934421,variable=\t]({1*1.9553395420530073*cos(\t r)+0*1.9553395420530073*sin(\t r)},{0*1.9553395420530073*cos(\t r)+1*1.9553395420530073*sin(\t r)});
+			\draw [shift={(-2.19,-5.73)},line width=2pt]  plot[domain=1.4284583551117214:1.6097781295132119,variable=\t]({1*6.414873342475275*cos(\t r)+0*6.414873342475275*sin(\t r)},{0*6.414873342475275*cos(\t r)+1*6.414873342475275*sin(\t r)});
+			\draw [shift={(-0.5079564032697549,4.252370572207084)},line width=2pt]  plot[domain=4.50296016502034:5.0896470496274215,variable=\t]({1*3.7135114499740265*cos(\t r)+0*3.7135114499740265*sin(\t r)},{0*3.7135114499740265*cos(\t r)+1*3.7135114499740265*sin(\t r)});
+			\draw [shift={(3.157941176470588,-2.443676470588237)},line width=2pt]  plot[domain=1.4947366073020165:2.1871624457105865,variable=\t]({1*3.9751692663793308*cos(\t r)+0*3.9751692663793308*sin(\t r)},{0*3.9751692663793308*cos(\t r)+1*3.9751692663793308*sin(\t r)});
+			\draw [shift={(-1.266385542168675,10.282530120481931)},line width=2pt]  plot[domain=4.490472272226375:4.818827251492796,variable=\t]({1*10.602532043378856*cos(\t r)+0*10.602532043378856*sin(\t r)},{0*10.602532043378856*cos(\t r)+1*10.602532043378856*sin(\t r)});
+			\draw [shift={(-1.1501410105757934,6.313431257344303)},line width=2pt]  plot[domain=4.864866495161944:5.478298056559115,variable=\t]({1*6.650592707141084*cos(\t r)+0*6.650592707141084*sin(\t r)},{0*6.650592707141084*cos(\t r)+1*6.650592707141084*sin(\t r)});
+			\draw [->,line width=2pt] (-2.239880866309157,0.68467940735749) -- (-0.9465594693424579,0.5648518075741746);
+			\draw [->,line width=2pt] (-0.3814235073243927,-0.2830047892024652) -- (0.7116184072375588,-0.07125630168796793);
+				\draw [fill=black] (-3.6,-0.06) circle (2.5pt);
+				\draw[color=black] (-4.16,0.37) node {$z_1$};
+				\draw[color=black] (-0.28,1.41) node {$\mathcal{C}_1$};
+				\draw [fill=black] (3.46,1.52) circle (2.5pt);
+				\draw[color=black] (3.62,1.95) node {$z_2$};
+				\draw[color=black] (1.42,-0.39) node {$\mathcal{C}_2$};
+		\end{tikzpicture}
+	\end{center}
+
 	3 $\Rightarrow$ 1: Construct the antiderivative. Choose a point $z_0 \in D$, and let $\mathcal{C}$ be the contour as shown. Recall the $D$ is a connected set. 
 
 	Define $F(z) = \int_{\mathcal{C}} f(w) dw$. By 3, $F(z)$ is single valued; We will show that $F'(z) = f(z)$. 
 
 	For any point $z$, choose $\Delta z$ small enough such that the line segment $\Gamma$ parameterized by $$z(t) = z + t \Delta z, \;\; t \in [0,1]$$
 	is in $D$ (This is possible since $D$ is open)
+
+	\begin{center}
+		\begin{tikzpicture}
+			\draw [rotate around={46.95421595735969:(-0.86,0.95)},line width=1pt,dash pattern=on 1pt off 1pt] (-0.86,0.95) ellipse (3.3887247469663038cm and 2.053522683269372cm);
+			\draw [shift={(-0.5329460580912843,-1.128063623789766)},line width=2pt]  plot[domain=1.9798040349547077:3.031704425177389,variable=\t]({1*2.079597320458093*cos(\t r)+0*2.079597320458093*sin(\t r)},{0*2.079597320458093*cos(\t r)+1*2.079597320458093*sin(\t r)});
+			\draw [shift={(-2.236,3.2106666666666674)},line width=2pt]  plot[domain=5.058294156974534:5.619969606216939,variable=\t]({1*2.5837020812091414*cos(\t r)+0*2.5837020812091414*sin(\t r)},{0*2.5837020812091414*cos(\t r)+1*2.5837020812091414*sin(\t r)});
+			\draw [->,line width=2pt] (-1.8683634445812771,0.4661087066427745) -- (-0.9204552320301711,0.986962907639477);
+			\draw [line width=2pt,color=red] (-0.18,1.62) -- (0.82,2.64);
+			\draw [fill=black] (-2.6,-0.9) circle (2.5pt);
+			\draw[color=black] (-2.42,-1.15) node {$z_0$};
+			\draw[color=black] (-1,0.19) node {$\mathcal{C}$};
+			\draw [fill=black] (-0.18,1.62) circle (2.5pt);
+			\draw[color=black] (0.02,1.31) node {$z$};
+			\draw [fill=black] (0.82,2.64) circle (2.5pt);
+			\draw[color=red] (0.7,2.15) node {$\Delta z$};
+		\end{tikzpicture}
+		\begin{tikzpicture}
+			\draw [line width=1pt] (0,0) -- (2,1);
+			\draw [->,line width=1pt] (0,0) -- (1,0.5);
+			\draw [fill=black] (0,0) circle (2pt) node[anchor=north west] {$z$};
+			\draw [fill=black] (2,1) circle (2pt) node[anchor=north west] {$z+\Delta z$};
+			\draw (0.5,1.5) node[anchor=north west] {$\Gamma z$};
+		\end{tikzpicture}
+		\begin{tikzpicture}
+			\draw [shift={(-0.5329460580912843,-1.128063623789766)},line width=2pt]  plot[domain=1.9798040349547077:3.031704425177389,variable=\t]({1*2.079597320458093*cos(\t r)+0*2.079597320458093*sin(\t r)},{0*2.079597320458093*cos(\t r)+1*2.079597320458093*sin(\t r)});
+			\draw [shift={(-2.236,3.2106666666666674)},line width=2pt]  plot[domain=5.058294156974534:5.619969606216939,variable=\t]({1*2.5837020812091414*cos(\t r)+0*2.5837020812091414*sin(\t r)},{0*2.5837020812091414*cos(\t r)+1*2.5837020812091414*sin(\t r)});
+			\draw [->,line width=2pt] (-1.8683634445812771,0.4661087066427745) -- (-0.9204552320301711,0.986962907639477);
+			\draw [line width=2pt,color=black] (-0.18,1.62) -- (0.82,2.64);
+			\draw [fill=black] (-2.6,-0.9) circle (2.5pt);
+			\draw[color=black] (-2.42,-1.15) node {$z_0$};
+			\draw[color=black] (-1,0.19) node {$\mathcal{C}$};
+			\draw [fill=black] (-0.18,1.62) circle (2.5pt);
+			\draw[color=black] (0.02,1.31) node {$z$};
+			\draw [fill=black] (0.82,2.64) circle (2.5pt);
+			\draw[color=black] (1.2,2.15) node {$z+\Delta z$};
+		\end{tikzpicture}
+	\end{center}
 
 	Then \begin{align*}
 		F(z + \Delta z) - F(z) &= \left(\int_{\mathcal{C}} f(w) dw + \int_{\Gamma} f(w) dw \right) - \int_{\mathcal{C}} f(w) dw \\
@@ -2575,11 +2841,35 @@ We showed that $\overline{z}$ can be integreated, but the result depends on path
 \begin{example}
 	\label{example_unit_circle}
 	\textbf{Most Important Example in this Course}: Evaluate $\int_{\mathcal{C}} \dfrac{1}{z} dz$ where $\mathcal{C}$ is the unit circle. 
-
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw (1.5534076199727505,1.04130100687539) node[anchor=north west] {$\mathcal{C}$};
+			\draw [->,line width=2pt] (-2,0) -- (2,0);
+			\draw [->,line width=2pt] (0,-2) -- (0,2);
+			\draw [line width=2pt] (0,0) circle (1cm);
+			\draw [shift={(0,0.0278)},->,line width=2pt] (-150.13762460175298:1.0181929476078775) arc (-150.13762460175298:-116.67295733591709:1.0181929476078775);
+			\draw [shift={(0,-0.0278)},->,line width=2pt] (20.65891618285383:1.0181929476078775) arc (20.65891618285383:58.11963965317466:1.0181929476078775);
+		\end{tikzpicture}
+	\end{center}
 	\textbf{\underline{Solution}}: $\dfrac{1}{z}$ does not have antiderivative over all of $\mathcal{C}$. Any branch of $\log z$ will have a problem, i.e. $\mathcal{C}$ will cross a branch cut. 
 
 	Method 1: Parameterize $\mathcal{C}$ by $e^{it}, t \in [0,2\pi]$. By definition, $$\int_{\mathcal{C}} \dfrac{1}{z} dz = \int_{0}^{2\pi} \dfrac{1}{e^{it}} \cdot i e^{it} dt = 2\pi i$$
-	Method 2: Split $\mathcal{C}$ in two, and use Theorem \ref{theorem_FTC} on each. \begin{align*}
+	Method 2: Split $\mathcal{C}$ in two, and use Theorem \ref{theorem_FTC} on each. 
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw [shift={(0,0.0278)},->,line width=2pt] (-130:1.0181929476078775) arc (-130:-116:1.0181929476078775);
+			\draw [shift={(0,0)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=1.5707963267948966:4.71238898038469,variable=\t]({1*1*cos(\t r)+0*1*sin(\t r)},{0*1*cos(\t r)+1*1*sin(\t r)});
+			\draw [shift={(0,-0.0278)},->,line width=2pt] (20.65891618285383:1.0181929476078775) arc (20.65891618285383:58.11963965317466:1.0181929476078775);
+			\draw [shift={(0,0)},line width=2pt]  plot[domain=-1.5707963267948966:1.5707963267948966,variable=\t]({1*1*cos(\t r)+0*1*sin(\t r)},{0*1*cos(\t r)+1*1*sin(\t r)});
+			\draw [->,line width=2pt] (-1.7,0) -- (1.5,0);
+			\draw [->,line width=2pt] (0,-1.63) -- (0,1.5);
+			\draw (1.5,1.04) node[anchor=north west] {$\mathcal{C}_1$};
+			\draw (-1.5,1.04) node[anchor=north west] {$\mathcal{C}_2$};
+			\draw [fill=black] (0,1) circle (1.5pt);
+			\draw [fill=black] (0,-1) circle (1.5pt);
+		\end{tikzpicture}
+	\end{center}
+	\begin{align*}
 		\int_{\mathcal{C}_1} \dfrac{1}{z} dz &= \Log z \big|_{-i}^i \;\; \text{ branch cut at }\theta = -\pi\\
 		&= \Log i - \Log (-i)\\
 		&= i \dfrac{\pi}{2} - i \left(\dfrac{-\pi}{2}\right)\\
@@ -2598,6 +2888,27 @@ We showed that $\overline{z}$ can be integreated, but the result depends on path
 		\item $z(0,t)$ is a parameterization of $\mathcal{C}$
 		\item $z(1,t)$ is a parameterization of $\mathcal{C}_1$
 	\end{enumerate}
+	\begin{center}
+		\begin{tikzpicture}
+	
+			\draw [rotate around={-34.18612248637511:(-2.63,0.98)},line width=2pt] (-2.63,0.98) ellipse (1.476705441404892cm and 1.330473209303674cm);
+			\draw [rotate around={-40.24830239488633:(-2.91,1.36)},line width=2pt,dash pattern=on 1pt off 1pt] (-2.91,1.36) ellipse (3.8236474682870503cm and 2.585610172036375cm);
+			\draw [rotate around={-39.70241522209075:(-2.69,1.5)},line width=2pt] (-2.69,1.5) ellipse (6.336753532340226cm and 3.9208602792788123cm);
+			\draw [line width=2pt,color=red] (-8.098336381390911,2.956624105149058)-- (-3.926731322258908,1.682941749407133);
+			\draw [->,line width=2pt,color=red] (-1.3058655562165333,5.879000594883997) -- (-2.585865556216534,6.959000594883997);
+			\draw [->,line width=2pt] (-6.8323457525231355,0.2109213631842326) -- (-5.906351077344857,-0.8665105540099187);
+			\draw [->,line width=2pt] (1.5639712672738808,-3.0830287877986358) -- (2.170066525189589,-2.5661148244570295);
+			\draw [->,line width=2pt] (2.2994757253168716,1.353511806482993) -- (1.659414687819761,2.4951236653406204);
+			\draw [->,line width=2pt,color=red] (-8.098336381390911,2.956624105149058) -- (-6.7652135326815745,2.549592512663935);
+			\draw (-1.4802762641285043,6.982385484830461) node[anchor=north west] {t increasing};
+			\draw (-6.916278643664484,3.9188756692444993) node[anchor=north west] {s increasing};
+			\draw (-1.595445806067826,-0.319363474122545) node[anchor=north west] {s=0};
+			\draw (0.47760594883996277,0.4637894110648436) node[anchor=north west] {$s=\frac{1}{2}$};
+			\draw (2.6427933372992087,2.0070612730517565) node[anchor=north west] {s=1};
+			\draw (3.656285306365239,-0.48060083283759564) node[anchor=north west] {$\mathcal{C}$};
+			\draw (-2.585903866745992,0.924467578822131) node[anchor=north west] {$\mathcal{C}_1$};
+		\end{tikzpicture}
+	\end{center}
 \end{definition}
 \begin{theorem}
 	\label{theorem_DIT}
@@ -2608,6 +2919,19 @@ We showed that $\overline{z}$ can be integreated, but the result depends on path
 \end{proof}
 \begin{definition}
 	A \underline{\textbf{simply connected domain}} is a domain in which every ``loop'' (closed contour) in $D$ can be continuously deformed to a point (while remaining in $D$). 
+
+	\begin{center}
+		\begin{tikzpicture}[scale=2]
+			\draw [rotate around={29.66308866226407:(-1.1239067726415999,0.41880257564299034)},line width=1pt,dash pattern=on 1pt off 1pt,fill=black,fill opacity=0.23] (-1.1239067726415999,0.41880257564299034) ellipse (1.3252510934168062cm and 0.9664278360009688cm);
+			\draw (-2.2145471317065506,-0.8336074060583876) node[anchor=north west] {simply connected};
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=2]
+			\draw [line width=2pt,dash pattern=on 1pt off 1pt,color=blue,fill=blue,fill opacity=0.3] (-0.951700400157661,0.8049623200009153) circle (0.5066931878104881cm);
+			\draw [rotate around={29.66308866226407:(-1.1239067726415999,0.41880257564299034)},line width=2pt,dash pattern=on 1pt off 1pt,fill=black,fill opacity=0.23] (-1.1239067726415999,0.41880257564299034) ellipse (1.3252510934168062cm and 0.9664278360009688cm);
+			\draw (-2.2145471317065506,-0.8336074060583879) node[anchor=north west] {Not simply connected};
+			\draw [line width=2pt,dash pattern=on 1pt off 1pt] (-0.951700400157661,0.804962320000915) circle (0.5066931878104879cm);
+		\end{tikzpicture}
+	\end{center}
 \end{definition}
 \begin{theorem}
 	\underline{\textbf{Cauchy's Integral Theorem (Cauchy-Goursat Theorem)}}: 
@@ -2629,5 +2953,23 @@ We showed that $\overline{z}$ can be integreated, but the result depends on path
 		0 & \text{ if } z_0 \text{ is exterior to }\mathcal{C}\\
 		2\pi i & \text{ if } z_0 \text{ is interior to }\mathcal{C}
 	\end{dcases}$$
+	\begin{center}
+		\begin{tikzpicture}
+			\draw [rotate around={-26.763994056438648:(-4.53,1.98)},line width=2pt] (-4.53,1.98) ellipse (2.110854853726119cm and 1.6723660524834627cm);
+			\draw [->,line width=2pt] (-6.323214910688283,1.4557010412953293) -- (-5.800821331234033,0.8296133718518715);
+			\draw [->,line width=2pt] (-3.087805653016619,0.5226667931483873) -- (-2.7610844579403135,0.8407965555992367);
+			\draw [->,line width=2pt] (-2.7832306073400943,2.582833326667509) -- (-3.3347161251638293,3.1921518127031385);
+			\draw[color=black] (-5.66,4.29) node {$\mathcal{C}$};
+			\draw [fill=black] (-2.82,3.52) circle (2.5pt)node[anchor = south west] {$z_0$};
+		\end{tikzpicture}
+		\begin{tikzpicture}
+			\draw [rotate around={-26.763994056438648:(-4.53,1.98)},line width=2pt] (-4.53,1.98) ellipse (2.110854853726119cm and 1.6723660524834627cm);
+			\draw [->,line width=2pt] (-6.323214910688283,1.4557010412953293) -- (-5.800821331234033,0.8296133718518715);
+			\draw [->,line width=2pt] (-3.087805653016619,0.5226667931483873) -- (-2.7610844579403135,0.8407965555992367);
+			\draw [->,line width=2pt] (-2.7832306073400943,2.582833326667509) -- (-3.3347161251638293,3.1921518127031385);
+			\draw[color=black] (-5.66,4.29) node {$\mathcal{C}$};
+			\draw [fill=black] (-4,3) circle (2pt) node[anchor = north] {$z_0$};
+		\end{tikzpicture}
+	\end{center}
 \end{example}
 \end{document}

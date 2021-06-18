@@ -1,6 +1,6 @@
 # UWaterloo
 
-Some typed notes for the undergraduate courses that I've taken at the University of Waterloo
+Some typed notes for the undergraduate courses that I've taken at the University of Waterloo. For personal use only. Not for distribution. 
 
 ## License
 
