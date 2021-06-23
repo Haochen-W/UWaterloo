@@ -2972,4 +2972,329 @@ We showed that $\overline{z}$ can be integreated, but the result depends on path
 		\end{tikzpicture}
 	\end{center}
 \end{example}
+
+\begin{example}
+	Evaluate $\int_{\mathcal{C}} \dfrac{2z}{z^2+2} dz$ where $\mathcal{C}$ is the positively oriented circle of radius 2 centered at origin. 
+
+	\textbf{\underline{Solution}}: We can do partial fractions: $$\dfrac{2z}{z^2+2} = \dfrac{1}{z+i\sqrt{2}} + \dfrac{1}{z-i\sqrt{2}}$$
+	
+	So we have singularities at $z = \pm i\sqrt{2}$. We can use the \textbf{Deformation Invariance Theorem} to deform $\mathcal{C}$ like below. So \begin{align*}
+		\int_{\mathcal{C}} &= \int_{\mathcal{C}_2} + \int_{\mathcal{C}_1} + \int_{-\mathcal{C}_2} + \int_{\mathcal{C}_3}\\
+		&= \int_{\mathcal{C}_1} + \int_{\mathcal{C}_3}
+	\end{align*}
+	\begin{center}
+		\begin{tikzpicture}[scale=1.4]
+			\draw [shift={(-3,0)},line width=1.2pt] (0,0) -- (-0.41:1.4) arc (-0.41:359:1.4) -- cycle;
+			\draw [shift={(-3,0)},->,line width=1.2pt] (-0.41:1.4) arc (-0.41:359:1.4);
+			\draw [->,line width=2pt] (-5,0) -- (-1,0);
+			\draw [->,line width=2pt] (-3,-2) -- (-3,2);
+			\draw [->,line width=2pt] (4,-2) -- (4,2.5);
+			\draw [->,line width=2pt] (2,0) -- (6,0);
+			\draw [line width=2pt] (4.1,-1.2)-- (4.1,1.2);
+			\draw [line width=2pt] (3.9,1.2)-- (3.9,-1.2);
+			\draw [shift={(4,1.5)},line width=2pt]  plot[domain=-1.3:4.4,variable=\t]({1*0.33*cos(\t r)+0*0.33*sin(\t r)},{0*0.33*cos(\t r)+1*0.33*sin(\t r)});
+			\draw [shift={(4,-1.5165734919853646)},line width=2pt]  plot[domain=-4.406425595473186:1.2648329418833941,variable=\t]({1*0.33199213217756796*cos(\t r)+0*0.33199213217756796*sin(\t r)},{0*0.33199213217756796*cos(\t r)+1*0.33199213217756796*sin(\t r)});
+			\draw [->,line width=2pt] (4.1,-1.2) -- (4.1,0.5041655904663183);
+			\draw [->,line width=2pt] (3.9,1.2) -- (3.9,-0.49460510437644434);
+			\draw [->,line width=0.8pt] (0,0) -- (0.5795336496891038,0);
+			\draw (4.4,2.2) node[anchor=north west] {$\mathcal{C}_1$};
+			\draw (4.38,0.82) node[anchor=north west] {$\mathcal{C}_2$};
+			\draw (3.32,-1.5) node[anchor=north west] {$\mathcal{C}_3$};
+			\draw (3.2,0.8) node[anchor=north west] {$-\mathcal{C}_2$};
+			\draw [->,line width=2pt] (3.802242230192012,1.9877757120037565) -- (3.558507967801036,1.730500657257728);
+			\draw [->,line width=2pt] (4.289710754973965,-1.9119724862518352) -- (4.560526602075049,-1.6546974315058067);
+				\draw [fill=black] (-3,0.5) circle (2.5pt);
+				\draw[color=black] (-2.6839570351207143,0.6804054129554991) node {$i\sqrt{2}$};
+				\draw [fill=black] (-3,-0.5) circle (2.5pt);
+				\draw[color=black] (-2.6983658027951107,-0.40025216262421204) node {$-\sqrt{2}$};
+		\end{tikzpicture}
+	\end{center}
+	And \begin{align*}
+		\int_{\mathcal{C}} \dfrac{2z}{z^2+2} dz &= \int_{\mathcal{C}} \left(\dfrac{1}{z+i\sqrt{2}} + \dfrac{1}{z-i\sqrt{2}}\right) dz\\
+		&= \int_{\mathcal{C}_1} \left(\dfrac{1}{z+i\sqrt{2}} + \dfrac{1}{z-i\sqrt{2}}\right) dz + \int_{\mathcal{C}_3} \left(\dfrac{1}{z+i\sqrt{2}} + \dfrac{1}{z-i\sqrt{2}}\right) dz\\
+		&= \int_{\mathcal{C}_1} \dfrac{1}{z+i\sqrt{2}} dz + \int_{\mathcal{C}_1} \dfrac{1}{z-i\sqrt{2}} dz + \int_{\mathcal{C}_3} \dfrac{1}{z+i\sqrt{2}} dz + \int_{\mathcal{C}_3} \dfrac{1}{z-i\sqrt{2}} dz\\
+		&= 0 + 2\pi i + 2\pi i + 0\\
+		&= 4\pi i
+	\end{align*}
+\end{example}
+\begin{theorem}
+	\textbf{\underline{Extended Cauchy-Goursat Theorem}}:
+	$$\int_{\mathcal{C}} f(z) dz = \sum_{i=1}^{n} \int_{\mathcal{C}_i} f(z) dz$$
+\end{theorem}
+\begin{proof}
+	Ideas (for the case of $n = 3$): Deform $\mathcal{C}$ to $\Gamma$ as shown: 
+
+	$$\int_{\mathcal{C}} = \int_{\widetilde{\mathcal{C}}} = \int_{\mathcal{C}_1} + \int_{\mathcal{C}_2} + \int_{\mathcal{C}_3}$$
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7]
+			\draw [rotate around={-33.012488056539475:(-2.89,1.85)},line width=2pt] (-2.89,1.85) ellipse (4.4cm and 4cm);
+			\draw [scale = 0.5,shift={(-8,7)},->,line width=1.2pt] (-330.8323866204222:2) arc (-330.8323866204222:27.574563959694387:2);
+			\draw [scale = 0.4,shift={(-12.5,3.1)},->,line width=1.2pt] (-12.907408671265845:2) arc (-12.907408671265845:346.84245725998517:2);
+			\draw [scale = 0.5,shift={(-3.5,2.3)},->,line width=1.2pt] (-30.1980019165662:2) arc (-30.1980019165662:329.03624346792645:2);
+			\draw (0.04,5.58) node[anchor=north west] {$\mathcal{C}$};
+			\draw (-3.44,5.46) node[anchor=north west] {$\mathcal{C}_1$};
+			\draw (-4.76,0.5) node[anchor=north west] {$\mathcal{C}_2$};
+			\draw (-0.38,2.34) node[anchor=north west] {$\mathcal{C}_3$};
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=0.7]
+			\draw [rotate around={-33.012488056539475:(-2.89,1.85)},line width=2pt] (-2.89,1.85) ellipse (4.4cm and 4cm);
+			\draw [scale = 0.5,shift={(-8,7)},->,line width=1.2pt] (-330.8323866204222:2) arc (-330.8323866204222:27.574563959694387:2);
+			\draw [scale = 0.4,shift={(-12.5,3.1)},->,line width=1.2pt] (-12.907408671265845:2) arc (-12.907408671265845:346.84245725998517:2);
+			\draw [scale = 0.5,shift={(-3.5,2.3)},->,line width=1.2pt] (-30.1980019165662:2) arc (-30.1980019165662:329.03624346792645:2);
+			\draw [->,line width=0.8pt] (1.68,3.42) -- (1,4.22);
+			\draw [->,line width=0.8pt] (-7.44,1.56) -- (-7.08,0.62);
+			\draw [line width=2pt,color=red] (-4.5,1.92)-- (-4.22,2.38);
+			\draw [shift={(-3.9103924914675763,3.5247269624573376)},line width=2pt,color=red]  plot[domain=-1.8349406448182597:4.091784852454563,variable=\t]({1*1.1858569171348023*cos(\t r)+0*1.1858569171348023*sin(\t r)},{0*1.1858569171348023*cos(\t r)+1*1.1858569171348023*sin(\t r)});
+			\draw [line width=2pt,color=red] (-4.6,2.56)-- (-4.82,2.2);
+			\draw [shift={(-5.029139360442164,1.2788590604026842)},line width=2pt,color=red]  plot[domain=1.3475373978550114:5.9388560177028165,variable=\t]({1*0.9445845132588102*cos(\t r)+0*0.9445845132588102*sin(\t r)},{0*0.9445845132588102*cos(\t r)+1*0.9445845132588102*sin(\t r)});
+			\draw [line width=2pt,color=red] (-4.14,0.96)-- (-2.82,0.76);
+			\draw [line width=2pt,color=red] (-2.88,1.26)-- (-3.92,1.4);
+			\draw [shift={(-1.74568345323741,1.1425179856115109)},line width=2pt,color=red]  plot[domain=-2.7995320181540233:3.0383898701907004,variable=\t]({1*1.1403841685871408*cos(\t r)+0*1.1403841685871408*sin(\t r)},{0*1.1403841685871408*cos(\t r)+1*1.1403841685871408*sin(\t r)});
+			\draw [shift={(-4.6408571428571435,1.16)},line width=2pt,color=red]  plot[domain=0.25:1.3828407600697714,variable=\t]({1*0.7538479790449827*cos(\t r)+0*0.7538479790449827*sin(\t r)},{0*0.7538479790449827*cos(\t r)+1*0.7538479790449827*sin(\t r)});
+			\draw [->,line width=0.8pt] (-2.42,3.3) -- (-2.5,4.24);
+			\draw [->,line width=0.8pt] (-5.3,4.2) -- (-5.32,3.38);
+			\draw [->,line width=0.8pt] (-5.56,2.38) -- (-6.18,1.86);
+			\draw [->,line width=0.8pt] (-5.66,0.28) -- (-5.3,0.12);
+			\draw [->,line width=0.8pt] (-3.9,0.68) -- (-3.18,0.54);
+			\draw [->,line width=0.8pt] (-0.82,-0.04) -- (-0.32,0.68);
+			\draw [->,line width=0.8pt] (-1.22,2.5) -- (-2.3,2.4);
+			\draw [->,line width=0.8pt] (-3.1,1.56) -- (-3.76,1.68);
+			\draw (0.04,5.58) node[anchor=north west] {$\mathcal{C}$};
+			\draw (-3.44,5.46) node[anchor=north west] {$\mathcal{C}_1$};
+			\draw (-4.76,0.5) node[anchor=north west] {$\mathcal{C}_2$};
+			\draw (-0.38,2.34) node[anchor=north west] {$\mathcal{C}_3$};
+		\end{tikzpicture}
+	\end{center}
+\end{proof}
+What about $\int_{\mathcal{C}} \dfrac{1}{(z-z_0)^2} dz$ or other powers of $z-z_0$? 
+
+Consider $\int_{\mathcal{C}} (z-z_0)^n dz$ where $n \neq -1$. \begin{itemize}
+	\item If $z_0$ is external to $\mathcal{C}$, the integral is zero, by \textbf{Cauchy's Integral Theorem}. 
+	\item If $z_0$ is internal to $\mathcal{C}$, deform $\mathcal{C}$ to the unit circle $|z - z_0| = 1$, parameterized by $z = z_0 + e^{it}$, $t \in [0,2\pi]$. We may use the radius $\epsilon$ if the circle is not small enough. The result would be the same. 
+	
+	Then \begin{align*}
+		\int_{\mathcal{C}} (z-z_0)^n dz &= \int_{\mathcal{C}} \left(e^{it}\right)^n i e^{it} dt\\
+		&= \left. \dfrac{i}{n+1} e^{i (n+1)t} \right|_0^{2\pi}\\
+		&= 0
+	\end{align*}
+\end{itemize}
+Thus for an interioir point $z_0$ in $\mathcal{C}$ \begin{tcolorbox}[hbox, before=\par\smallskip\centering]
+	$\int_{\mathcal{C}} (z-z_0)^n dz = \begin{dcases}
+		0 & \text{ if } n\neq -1\\
+		2\pi i & \text{ if } n= -1
+	\end{dcases}$
+\end{tcolorbox}
+\begin{example}
+	Let $\mathcal{C}$ be the positively oriented circle of radius 3 centered at the origin. Evaluate $\int_{\mathcal{C}} \dfrac{3z^3+2}{z^4+z^3-2z^2} dz$
+
+	\textbf{\underline{Solution}}: Note that $z^4+z^3-2z^2 = z^2(z^2+z-2) = z^2(z-1)(z+2)$. These give us the location of the singularities. 
+
+	Note the partial fractions: $$\dfrac{3z^3+2}{z^4+z^3-2z^2} = \dfrac{-1/2}{z} + \dfrac{-1}{z} + \dfrac{5/3}{z-1} + \dfrac{11/6}{z+2}$$
+	\begin{center}
+		\begin{tikzpicture}[scale=1.5]
+			\draw [->,line width=2pt] (-4,0) -- (4,0);
+			\draw [->,line width=2pt] (0,-4) -- (0,4);
+			\draw [scale=2,shift={(0,0)},->,line width=2pt] (-296.71084164999723:1.529305928947022) arc (-296.71084164999723:63.09175303350838:1.529305928947022);
+			\draw [scale=0.3,shift={(0,0)},->,line width=2pt] (-319.72843716647344:1.529305928947022) arc (-319.72843716647344:38.308140570280955:1.529305928947022);
+			\draw [scale=0.3,shift={(4,0)},->,line width=2pt] (-328.00534530115476:1.529305928947022) arc (-328.00534530115476:29.182949994425655:1.529305928947022);
+			\draw [scale=0.3,shift={(-7,0)},->,line width=2pt] (-307.3686875967014:1.529305928947022) arc (-307.3686875967014:50.62862553671965:1.529305928947022);	
+			\draw (1,0) node[anchor=north west] {$\mathcal{C}_1$};
+			\draw (-2.2,0) node[anchor=north west] {$\mathcal{C}_{-2}$};
+			\draw (0,0) node[anchor=north west] {$\mathcal{C}_0$};
+			\draw (2,3) node[anchor=north west] {$\mathcal{C}$};		
+		\end{tikzpicture}
+	\end{center}
+	By the \textbf{Extended Cauchy-Goursat Theorem}, \begin{align*}
+		\int_{\mathcal{C}} f(z) dz &= \int_{\mathcal{C}_{-2}} f(z) dz + \int_{\mathcal{C}_0} f(z) dz + \int_{\mathcal{C}_1} f(z) dz\\
+		&= \dfrac{11}{6} \cdot (2\pi i) + \dfrac{-1}{2} \cdot (2\pi i) + \dfrac{5}{3} \cdot (2\pi i)\\
+		&= 6\pi i
+	\end{align*}
+\end{example}
+\subsection{Cauchy's Integral Formula}
+\begin{theorem}
+	\textbf{\underline{Cauchy's Integral Formula (CIF)}}: Let $\mathcal{C}$ be a simple, closed, positively-oriented contour. If $f$ is analytic in some simply connected domain $D$ containing $\mathcal{C}$, and $z_0$ is any point inside $\mathcal{C}$. Then, $$\int_{\mathcal{C}}\dfrac{f(z)}{z-z_0} dz = 2\pi i f(z_0)$$
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7]
+			\draw [rotate around={-36.32682595212026:(-2.92,1.17)},line width=2pt] (-2.92,1.17) ellipse (3.990878409160468cm and 2.683320792731125cm);
+			\draw [scale=0.5,shift={(-4.34,0.7)},->,line width=1.2pt,color=red] (-308.5169263071028:2) arc (-308.5169263071028:50.29521293661713:2);
+			\draw [->,line width=2pt] (-0.16806758678252232,2.1938863664281687) -- (-1.0342237901018998,3.099173243519087);
+			\draw[color=black] (-1.74,4.27) node {$\mathcal{C}$};
+			\draw[color=red] (-3,1.59) node {$\mathcal{C}_1$};
+			\draw [fill=black] (-2.1,0.3) circle (2pt);
+			\draw[color=black] (-2.1,0.5) node {$z_0$};
+		\end{tikzpicture}
+	\end{center}
+\end{theorem}
+\begin{proof}
+	deform $\mathcal{C}$ to $\mathcal{C}_r$, a positively oriented circle of radius $r$ centered at $z_0$: $|z-z_0| = r$. We will let $r \rightarrow 0$. 
+
+	Then, \begin{align*}
+		\int_{\mathcal{C}}\dfrac{f(z)}{z-z_0} dz &= \int_{\mathcal{C}_r}\dfrac{f(z)}{z-z_0} dz\\
+		&= \int_{\mathcal{C}_r}\dfrac{f(z) - f(z_0)}{z-z_0} dz + \int_{\mathcal{C}_r}\dfrac{f(z_0)}{z-z_0} dz \;\;\text{ by linearity}\\ 
+		&= 0 + 2\pi i f(z_0)\\
+		&= 2\pi i f(z_0)
+	\end{align*}
+	To show $\int_{\mathcal{C}_r}\dfrac{f(z) - f(z_0)}{z-z_0} dz = 0$, we consider the following: 
+
+	On $\mathcal{C}_r$, we have $|f(z) - f(z_0)| \leq M$ for some $M$. Then $$\left|\dfrac{f(z) - f(z_0)}{z-z_0} \right| \leq \dfrac{M}{r} \;\;\; \text{ since } |z-z_0| = r \;\text{ on }C_r$$
+	By ML inequality, $$\left|\int_{\mathcal{C}_r} \dfrac{f(z) - f(z_0)}{z-z_0} dz \right| \leq \dfrac{M}{r} \cdot \text{length}(\mathcal{C}_r) = \dfrac{M}{r} 2\pi r = 2\pi M$$
+	Let $r \rightarrow 0$, then $M \rightarrow 0$ by continuity of $f$, and so $$\int_{\mathcal{C}_r}\dfrac{f(z) - f(z_0)}{z-z_0} dz = 0$$
+\end{proof}
+\begin{example}
+	Evaluate $\int_{\mathcal{C}} \dfrac{e^z}{z-1} dz$. 
+	\begin{center}
+		\begin{tikzpicture}[scale=0.6]
+			\draw [shift={(0,0)},->,line width=2pt] (-319.0856167799749:2) arc (-319.0856167799749:40.446232020841364:2);
+			\draw (1.7,2.08) node[anchor=north west] {$\mathcal{C}$};
+			\draw (2.18,-0.16) node[anchor=north west] {$2$};
+			\draw [->,line width=2pt] (-3,0) -- (3,0);
+			\draw [->,line width=2pt] (0,-3) -- (0,3);
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: Let $f(z) = e^z$. Since $f(z)$ is entire, and $z_0 = 1$ is inside $\mathcal{C}$, we have, by \textbf{CIF}, $$\int_{\mathcal{C}} \dfrac{e^z}{z-1} dz = 2\pi i f(1) = 2\pi i e^1 = 2\pi e i$$
+\end{example}
+\begin{example}
+	Evaluate $\int_{\mathcal{C}} \dfrac{e^{i\pi z}}{2z^2-5z+2} dz$. 
+	\begin{center}
+		\begin{tikzpicture}[scale=0.6]
+			\draw [shift={(0,0)},->,line width=2pt] (-319.0856167799749:2) arc (-319.0856167799749:40.446232020841364:2);
+			\draw (1.7,2.08) node[anchor=north west] {$\mathcal{C}$};
+			\draw (2.18,-0.16) node[anchor=north west] {$1$};
+			\draw [->,line width=2pt] (-3,0) -- (3,0);
+			\draw [->,line width=2pt] (0,-3) -- (0,3);
+			\draw [color=black] (1,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (2,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (2.5,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: \begin{align*}
+		\int_{\mathcal{C}} \dfrac{e^{i\pi z}}{2z^2-5z+2} dz &= \int_{\mathcal{C}} \dfrac{e^{i\pi z}}{2(z - \frac{1}{2})(z-2)} dz\\
+		&= \int_{\mathcal{C}} \dfrac{\frac{e^{i\pi z}}{2(z-2)}}{z - \frac{1}{2}} dz \;\; \text{ regard the numerator as } f(z)\\
+		&= 2\pi i f(\dfrac{1}{2}) \;\; \text{ by CIF}\\
+		&= 2\pi i \dfrac{e^{i \pi /2}}{2(\frac{-3}{2})}\\
+		&= \dfrac{2\pi}{3}
+	\end{align*}
+\end{example}
+From CIF, we know $$f(z_0) = \dfrac{1}{2\pi i} \int_{\mathcal{C}} \dfrac{f(z)}{z-z_0} dz$$
+\begin{center}
+	\begin{tikzpicture}[scale=0.5]
+		\draw [rotate around={-36:(-2.92,1.17)},line width=2pt] (-2.92,1.17) ellipse (3.5cm and 2.683320792731125cm);
+		\draw [->,line width=2pt] (-0.16806758678252232,2.1938863664281687) -- (-1.0342237901018998,3.099173243519087);
+		\draw[color=black] (-1.74,4.27) node {$\mathcal{C}$};
+		\draw [fill=black] (-2.1,0.3) circle (2pt);
+		\draw[color=black] (-2.1,0.5) node {$z_0$};
+	\end{tikzpicture}
+\end{center}
+So the value of $f$ at any point \underline{inside} $\mathcal{C}$ is determined by the values of $f$ \underline{on} $\mathcal{C}$
+\begin{proposition}
+	\underline{\textbf{Mean Value Property}}: If $\mathcal{C}$ is a circle of radius $R$ centered at $z_0$: \begin{align*}
+		f(z_0) &= \dfrac{1}{2\pi i} \int_{0}^{2\pi} \dfrac{f\bigg(\overbrace{z_0+Re^{it}}^{z(t)}\bigg)}{z_0+Re^{it} - z_0} \overbrace{\left(iRe^{it}\right)}^{z'(t)} \;\; \text{ by parameterizing circle}\\
+		&= \dfrac{\int_{0}^{2\pi}f\left(z_0 + Re^{it}\right)}{2\pi - 0}\\
+		&= \text{ averge value of } f \text{ on the circle, recall that } \dfrac{\int_{a}^{b}f(x)dx}{b-a} = \overline{f}
+	\end{align*}
+\end{proposition}
+\begin{theorem}
+	\underline{\textbf{Derivatives of $f$}}: $$f(z_0) = \dfrac{1}{2\pi i} \int_{\mathcal{C}} \dfrac{f(z)}{z-z_0} dz = \dfrac{1}{2\pi i} \int_{\mathcal{C}} \dfrac{f(w)}{w-z} dw$$
+	Differentiate: \begin{align*}
+		f'(z) &= \dfrac{1}{2\pi i} \int_{\mathcal{C}} f(w) \dfrac{d}{dz} \left(\dfrac{1}{w-z}\right) dw \;\;\text{ by Leibniz's rule}\\
+		&= \dfrac{1}{2\pi i} \int_{\mathcal{C}} \dfrac{f(w)}{(w-z)^2} dw
+	\end{align*} which is also differentiable. 
+	
+	Repeating and switch back to $z_0$ we get \textbf{\underline{Cauchy's Integral Formula for Derivatives (CIFD)}}: 
+
+	\begin{tcolorbox}[hbox, before=\par\smallskip\centering]
+		$f^{(n)}(z_0) = \dfrac{n!}{2\pi i} \int_{\mathcal{C}} \dfrac{f(z)}{(z-z_0)^{n+1}} dz\;\;\;\;$ where $z_0$ is inside $\mathcal{C}$
+	\end{tcolorbox} 
+\end{theorem}
+\begin{example}
+	Evaluate $\int_{\mathcal{C}} \dfrac{z^3+2z+1}{(z-1)^3} dz$. 
+	\begin{center}
+		\begin{tikzpicture}[scale=0.6]
+			\draw [shift={(0,0)},->,line width=2pt] (-319.0856167799749:2) arc (-319.0856167799749:40.446232020841364:2);
+			\draw (1.7,2.08) node[anchor=north west] {$\mathcal{C}$};
+			\draw (2.18,-0.16) node[anchor=north west] {$2$};
+			\draw [->,line width=2pt] (-3,0) -- (3,0);
+			\draw [->,line width=2pt] (0,-3) -- (0,3);
+			\draw [color=black] (1,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (2,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: Use \textbf{CIFD} with $n = 2$. $$f''(z_0) = \dfrac{2!}{2\pi i} \int_{\mathcal{C}} \dfrac{f(z)}{(z-z_0)^3} dz$$
+	Let $f(z) = z^3+2z+1$ and $z_0 = 1$. Then we have \begin{align*}
+		(6z+0+0) \bigg|_{z=1} &= \dfrac{1}{\pi i} \int_{\mathcal{C}} \dfrac{f(z)}{(z-z_0)^3} dz\\
+		6\pi i&= \int_{\mathcal{C}} \dfrac{z^3+2z+1}{(z-1)^3} dz
+	\end{align*}
+\end{example}
+\subsection{Implication of CIFD}
+\begin{corollary}
+	An analytic function is infinitely differentiable. Furthermore, with $f(z) = u(x,y) + iv(x,y)$, $u$ and $v$ $\in C^{\infty}$ (i.e. have continuous partials of all order)
+\end{corollary}
+\begin{proof}
+	$f = u + iv$, then $$f' = \begin{dcases}
+		u_x + iv_x & \Rightarrow f'' = \begin{dcases}
+			u_{xx} + iv_{xx} & \cdots\\
+			v_{xy} - iu_{xy} & \cdots
+		\end{dcases}\\
+		v_y - iu_y & \Rightarrow f'' = \begin{dcases}
+			v_{yx} - iu_{yx} & \cdots\\
+			-u_{yy} - iv_{yy} & \cdots
+		\end{dcases}\\
+	\end{dcases}$$
+	Existence of $f''$ implies $u_x, u_y, v_x, v_y$ are all continous. Also, observe that $u_{xx} = -u_{yy}$, $v_{xx} = -v_{yy}$, $v_{xy} = v_{yx}$, $u_{xy} = u_{yx}$
+\end{proof}
+\begin{theorem}
+	\underline{\textbf{Morera's Theorem}}: (the converse of \textbf{Cauchy's Integral Theorem})
+
+	Let $f$ be a continuous function in a simply connected domain $D$. If $\int_{\mathcal{C}}f(z) dz = 0$ for every closed contour $\mathcal{C}$ in $D$, then $f$ is analytic in $D$. 
+\end{theorem}
+\begin{proof}
+	We've shown that $\int_{\mathcal{C}}f(z)dz = 0$ for all $\mathcal{C}$ implies that $f$ has antiderivative in $D$, call it $F(z)$. 
+
+	Now $D$ is open, and $F$ is differentiable in $D$ ($F' = f$), so therefore $F$ is analytic, therefore $F' = f$ is analytic. 
+\end{proof}
+\begin{lemma}
+	\underline{\textbf{``Cauchy's Estimate''}}: Let $f$ be analytic on and inside a circle $\mathcal{C}$ of radius $R$ centered at $z_0$. 
+
+	If $|f(z)| \leq M$ for all $z$ on $\mathcal{C}$, then $\left| f^{(n)}(z_0)\right| \leq \dfrac{n!M}{R^n}$. 
+\end{lemma}
+\begin{proof}
+	From \textbf{CIFD}, $$\left| f^{(n)}(z_0)\right| = \left| \dfrac{n!}{2\pi i} \int_{\mathcal{C}}\dfrac{f(z)}{(z-z_0)^{n+1}} dz\right| \leq \left| \dfrac{n!}{2\pi i}\right| \overbrace{\left(\dfrac{M}{R^{n+1}}\right)}^{``M''} \cdot \overbrace{(2\pi R)}^{``\ell''}$$
+	since $|z - z_0| = R$ and the $M\ell$-inequality. 
+\end{proof}
+\begin{theorem}
+	\underline{\textbf{Liouville's Theorem}}: If $f$ is entire, and bounded for all $z \in \mathbb{C}$, then $f$ is constant. 
+\end{theorem}
+\begin{proof}
+	Have $|f(z)| \leq M$ for all $z \in \mathbb{C}$. Consider $z_0 \in \mathbb{C}$, and let $\mathcal{C}$ be circle of radius $R$ centered at $z_0$. Cauchy's estimate yields $|f'(z_0)| \leq \dfrac{M}{R}$. True for all $R$, no matter how large. So $|f'(z_0)| = 0 \Rightarrow f'(z_0) = 0$. 
+
+	$z_0$ is arbitrary, so $f$ must be constant. 
+\end{proof}
+\begin{corollary}
+	Every non-constant, entire function is unbounded. 
+\end{corollary}
+We can use this to prove the \textbf{Fundamental Theorem of Algebra}.
+\begin{theorem}
+	\textbf{\underline{Fundamental Theorem of Algebra}}: Every nonconstant polynomial with complex coefficients has at least one zero. 
+\end{theorem}
+\begin{proof}
+	If $P(z)$ has no zeros, then $\dfrac{1}{P(z)}$ is entire. Since it is continuous, we must have $|P(z)| \geq \epsilon$ for some $\epsilon > 0$. 
+
+	So, $\dfrac{1}{|P(z_0)|} \leq \dfrac{1}{\epsilon}$, implying that $\dfrac{1}{P(z_0)}$ is constant, by \textbf{Liouville's Theorem}. 
+
+	So, $P(z_0)$ is constant. Hence, a non-constant polynomial must have a zero. 
+\end{proof} 
+\begin{proposition}
+	\underline{\textbf{Maximum Modulus Principle}}: If $f(z)$ is analytic on a bounded domain $D$, and continuous on $\overline{D}$, the closure of $D$. Then, $|f(z)|$ attains a maximum value on $\overline{D}$ and it occurs on the boundary. 
+	\begin{center}
+		\begin{tikzpicture}[scale=2]
+			\draw [rotate around={6.1155035662854145:(1.5184119279070873,2.2247293404723116)},line width=2pt] (1.5184119279070873,2.2247293404723116) ellipse (1.5376469955658094cm and 0.8628370413299182cm);
+			\draw [rotate around={6.1155035662854145:(1.518411927907088,2.224729340472311)},line width=1.5pt,dash pattern=on 1pt off 3pt] (1.518411927907088,2.224729340472311) ellipse (1.5545161196559265cm and 0.8925524316187415cm);
+			\draw[color=black] (1,2.4) node {\large $\overline{D}$};
+			\draw [fill=black] (0,2) circle (1.5pt) node[anchor = east]{max};
+		\end{tikzpicture}
+	\end{center}
+\end{proposition}
 \end{document}
