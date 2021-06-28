@@ -376,9 +376,9 @@ Description of WEP Protocol: \begin{itemize}
 	Select a 24-bit IV $v$\\
 	Compute a 32-bit checksum: $S = CRC(m)$.\\
 	\hskip2.0em 802.11 specifies that a CRC-32 checksum be used. CRC-32 is \textbf{linear}. That is, for any two messages $m_1$ and $m_2$ of the same bitlength, $CRC(m_1 \oplus m_2) = CRC(m_1) \oplus CRC(m_2)$.\\
-	Compute $c = (m || S) \oplus RC4(v || k)$.\\
-	\hskip2.0em $||$ or $,$ denotes concatenation.\\
-	\hskip2.0em $(v||k)$ is the key used in the RC4 stream cipher\\
+	Compute $c = (m \| S) \oplus RC4(v \| k)$.\\
+	\hskip2.0em $\|$ or $,$ denotes concatenation.\\
+	\hskip2.0em $(v\|k)$ is the key used in the RC4 stream cipher\\
 	Send $(v, c)$ over the wireless channel
 \end{algorithm}
 
@@ -391,13 +391,13 @@ Description of WEP Protocol: \begin{itemize}
 
 \begin{algorithm}
 	\caption{The receiver of $(v, c)$ does the following}
-	Compute $(m || S) = c \oplus RC4(v || k)$.\\
+	Compute $(m \| S) = c \oplus RC4(v \| k)$.\\
 	Compute $S' = CRC(m)$; reject the packet if $S' \neq S$.
 \end{algorithm}
 
 As proved by Borisov, Goldberg, and Wagner in 2021, none of confidentiality, data integrity, and access control are achieved. There are several problems: \begin{enumerate}
 \item \textbf{IV Collision}: \begin{itemize}
-\item Suppose that two packets $(v, c)$ and $(v, c')$ use the same IV $v$. Let $m, m'$ be the corresponding plaintexts. Then $c \oplus c' = (m || S) \oplus (m' || S')$. Thus, the eavesdropper can compute $m \oplus m'$.
+\item Suppose that two packets $(v, c)$ and $(v, c')$ use the same IV $v$. Let $m, m'$ be the corresponding plaintexts. Then $c \oplus c' = (m \| S) \oplus (m' \| S')$. Thus, the eavesdropper can compute $m \oplus m'$.
 \item If $m$ is known, then $m'$ is immediately available.
 \item If $m$ is not known, then one may be able to use the expected distribution of $m$ and $m'$ to discover information about them. This is because some contents of network traffic is predictable.
 \item To finding IV Collisions: \begin{itemize}
@@ -411,17 +411,17 @@ As proved by Borisov, Goldberg, and Wagner in 2021, none of confidentiality, dat
 \item CRC-32 is used to check integrity. This is fine for random errors, but not for deliberate ones.
 \item It is easy to make controlled changes to (encrypted) packets:\begin{itemize}
 \item Suppose $(v, c)$ is an encrypted packet.
-\item Let $c = RC4(v||k) \oplus (m||S)$, where $k, m, S$ are unknown.
+\item Let $c = RC4(v\|k) \oplus (m\|S)$, where $k, m, S$ are unknown.
 \item Let $m' = m \oplus \Delta $, where $\Delta$ is a bit string. (The 1’s in $\Delta$ correspond to the bits of $m$ an attacker wishes to change.)
-\item Let $c' = c \oplus (\Delta || CRC(\Delta))$.
+\item Let $c' = c \oplus (\Delta \| CRC(\Delta))$.
 \item Then $(v, c')$ is a valid encrypted packet for $m'$.
 \end{itemize}
 \item So, WEP does not provide data integrity.
 \end{itemize}
 \item \textbf{Integrity Function is Unkeyed}: \begin{itemize}
 \item Suppose that an attacker learns the plaintext $m$ corresponding to a single encrypted packet $(v, c)$.
-\item Then, the attacker can compute the RC4 keystream $$RC4(v||k) = c \oplus (m||CRC(m))$$
-\item Henceforth, the attacker can compute a valid encrypted packet for any plaintext $m'$ of her choice: $(v, c')$, where $c' = RC4(v||k) \oplus (m'||CRC(m'))$. 
+\item Then, the attacker can compute the RC4 keystream $$RC4(v\|k) = c \oplus (m\|CRC(m))$$
+\item Henceforth, the attacker can compute a valid encrypted packet for any plaintext $m'$ of her choice: $(v, c')$, where $c' = RC4(v\|k) \oplus (m'\|CRC(m'))$. 
 \item So, WEP does not provide access control.
 \end{itemize}
 \end{enumerate}
@@ -980,7 +980,7 @@ Notes: \begin{itemize}
 This one is called \textbf{Davies-Meyer hash function}. We let $E_k$ be an $m$-bit block cipher with $n$-bit key $k$, and let IV be a fixed $m$-bit initializing value.
 
 \begin{algorithm}
-	Break up $x||1$ into $n$-bit blocks: $x = x_1, x_2 ,..., x_t$, padding out the last block with 0 bits if necessary.\\
+	Break up $x\|1$ into $n$-bit blocks: $x = x_1, x_2 ,..., x_t$, padding out the last block with 0 bits if necessary.\\
 	Define $H_0 = IV$\\
 	\For(){$i = 1...t$}{
 		Compute $H_i = E_{x_i} (H_{i-1}) \oplus H_{i-1}$
@@ -1073,8 +1073,8 @@ Relationship between PR, 2PR, and CR: \begin{itemize}
 	Suppose that $H: \{0,1\}^* \rightarrow \{0,1\}^n$ is CR. 
 	
 	Consider $\bar{H}: \{0,1\}^* \rightarrow \{0,1\}^{n+1}$ defined by $$\bar{H}(x) = \begin{dcases}
-	1||x & \text{if } x \in \{0,1\}^n\\
-	0||H(x) & \text{if } x \notin \{0,1\}^n
+	1\|x & \text{if } x \in \{0,1\}^n\\
+	0\|H(x) & \text{if } x \notin \{0,1\}^n
 	\end{dcases}$$
 	
 	Then, $\bar{H}$ is CR (since $H$ is). And, $\bar{H}$ is not PR since preimages can be efficiently found for at least half of all $y \in \{0,1\}^{n+1}$
@@ -1409,7 +1409,7 @@ SHA-256 Processing: \begin{itemize}
 \item Update chaining values: $$(H_1, H_2, ..., H_8) \leftarrow (H_1+A, H_2+B, ..., H_8+H)$$
 \end{itemize}
 
-Then output SHA-256($x$) = $H_1||H_2||H_3||H_4||H_5||H_6||H_7||H_8$
+Then output SHA-256($x$) = $H_1\|H_2\|H_3\|H_4\|H_5\|H_6\|H_7\|H_8$
 
 \subsection{Performance}
 Speed benchmarks (2017) for software implementations on an Intel Core i9 2.9 GHz 6-core Coffee Lake (8950HK) using OpenSSL 1.1.1d.
@@ -1566,9 +1566,9 @@ We can consider Secret Prefix Method: we define $$MAC_k (x) = H(K, x)$$
 This is \textbf{insecure}. Here is a \textbf{length extension attack}: \begin{enumerate}
 \item Suppose that $(x, MAC_k (x))$ is known
 \item Suppose that the bitlength of $x$ is a multiple of $r$.
-\item Then $MAC_k (x || y)$ can be computed for any $y$ (without knowledge of $k$).
+\item Then $MAC_k (x \| y)$ can be computed for any $y$ (without knowledge of $k$).
 \end{enumerate}
-Also insecure if a length block is postpended to $K || x$ prior to application of $H$.
+Also insecure if a length block is postpended to $K \| x$ prior to application of $H$.
 
 Secret Suffix Method: we define $$MAC_k (x) = H(x, K)$$
 
@@ -1706,7 +1706,7 @@ Let $k \in_R \{0,1\}^{128}$ be the secret key. Let $M = (M_1, M_2 ,... , M_u)$ b
 \begin{algorithm}
 	To encrypt $M$, Alice does the following:\\
 	Select $IV \in_R \{0, 1\}^{96}$\\
-	Let $J_0 = IV || 0^{31} || 1$\\
+	Let $J_0 = IV \| 0^{31} \| 1$\\
 	\For(){$i = 1$ to $u$}{
 		$J_i \leftarrow J_{i-1} + 1$ [increment the counter]\\
 		Compute $C_i = AES_k(J_i) \oplus M_i$
@@ -1717,7 +1717,7 @@ Let $k \in_R \{0,1\}^{128}$ be the secret key. Let $M = (M_1, M_2 ,... , M_u)$ b
 
 \begin{algorithm}
 	To decrypt, Bob does the following:\\
-	Let $J_0 = IV || 0^{31} || 1$\\
+	Let $J_0 = IV \| 0^{31} \| 1$\\
 	\For(){$i = 1$ to $u$}{
 		$J_i \leftarrow J_{i-1} + 1$ [increment the counter]\\
 		Compute $M_i = AES_k(J_i) \oplus C_i$
@@ -1760,8 +1760,8 @@ Note: \begin{itemize}
 \end{definition}
 
 \begin{algorithm}
-	Let $L = L_A || L_M $, where $L_A, L_M$ are the bitlengths of $A$, $M$ expressed as 64-bit integers. ($L$ is the length block.)\\
-	Select $IV \in_R \{0,1\}^{96}$ and let $J_0 = IV || 0^{31} || 1$\\
+	Let $L = L_A \| L_M $, where $L_A, L_M$ are the bitlengths of $A$, $M$ expressed as 64-bit integers. ($L$ is the length block.)\\
+	Select $IV \in_R \{0,1\}^{96}$ and let $J_0 = IV \| 0^{31} \| 1$\\
 	\textcolor{blue}{// Encryption}\\
 	\For(){$i = 1$ to $u$}{
 		Compute $J_i = J_{i-1} + 1$\\
@@ -1799,7 +1799,7 @@ Here is an example of AES-GCM encryption and authentication, where authenticatio
 \newpage
 \begin{algorithm}
 	Upon receiving $(IV, A, C, t)$, Bob does the following:\\
-	Let L = $L_A || L_C$ , where $L_A , L_C$ are the bitlengths of $A$, $C$ expressed as 64-bit integers.\\
+	Let L = $L_A \| L_C$ , where $L_A , L_C$ are the bitlengths of $A$, $C$ expressed as 64-bit integers.\\
 	\textcolor{blue}{// Authentication}\\
 	Let $T = 0^{128}$\\
 	Compute $H = AES_k (0^{128})$\\
@@ -1817,7 +1817,7 @@ Here is an example of AES-GCM encryption and authentication, where authenticatio
 		reject
 	}
 	\textcolor{blue}{// Decryption}\\
-	Let $J_0 = IV || 0^{31} || 1$\\
+	Let $J_0 = IV \| 0^{31} \| 1$\\
 	\For(){$i = 1$ to $u$}{
 		Compute $J_i = J_{i-1} + 1$\\
 		Compute $M_i = AES_k (J_i) \oplus C_i$
@@ -1829,7 +1829,7 @@ Here is an example of AES-GCM encryption and authentication, where authenticatio
 
 For AES-GCM, authentication only: \begin{itemize}
 	\item Consider $AES_GCM$ with no $M$, so $u = 0$, $L_M = 0$
-	\item The message to be authenticated is $A = (A_1, A_2, ..., A_v)$, where $v \leq \ell$. The tag is $(IV, t)$, where $IV \in_R \{0,1\}^{96}$ and $t = AES_k(J_0) + f_A(H)$, and $J_0 = IV||0^{31}||1$, $H = AES_k(0)$
+	\item The message to be authenticated is $A = (A_1, A_2, ..., A_v)$, where $v \leq \ell$. The tag is $(IV, t)$, where $IV \in_R \{0,1\}^{96}$ and $t = AES_k(J_0) + f_A(H)$, and $J_0 = IV\|0^{31}\|1$, $H = AES_k(0)$
 	\item The attack goal is: Eve has message-tag pairs (for messages of her choosing): $(A^j, IV^j, t^j)$, $1 \leq j \leq r$. Her goal is to produce a message-tag forgery $(A^*, IV^*, t^*)$ where $A^* \notin \{A^1,A^2,..., A^r\}$
 	\item We can assume that no two IV's in this list are the same
 	\item We can also assume that Eve does not know $k$ or $H$
@@ -2060,7 +2060,7 @@ The goal is that Alice and Bob establish a secret session key by communicating o
 An eavesdropper has to solve $500,000,000$ puzzles on average to determine the puzzle index $j$ (and thus $sk_j$).
 
 \begin{example}
-	We could make $P_i = AES-CBC_{k_i} (sk_i , n_i , n_i )$, where $k i = (r_i || 0^{88})$ and $r_i$ is a randomly selected 40-bit string.
+	We could make $P_i = AES-CBC_{k_i} (sk_i , n_i , n_i )$, where $k i = (r_i \| 0^{88})$ and $r_i$ is a randomly selected 40-bit string.
 
 	$P_i$ can be solved in $2^{40}$ steps by exhaustive key search. But an eavesdropper has to do $\sim 500,000,000$ of this exhaustive key search, which is obviously infeasible. 
 \end{example}
@@ -2402,7 +2402,7 @@ To encrypt a \textbf{WUP request} $m$, the client does the following:\begin{enum
 		int j = 10000000 + new Random().nextInt(89999999);
 		return (String.valueOf(i) + String.valueOf(j)).getBytes();
 	\end{verbatim}
-	($k = i||j$, where $i, j$ are 8-byte ASCII strings.)
+	($k = i\|j$, where $i, j$ are 8-byte ASCII strings.)
 	\item Encrypt $k$ with the server’s RSA public key $(n, e)$: $$c_1 = k^e \mod n, \text{ where } e = 65537, n=245406417573740884710047745869965023463$$
 	\item Encrypt $m$: $c_2 = AES-ECB_k (m)$.
 	\item Send $(c_1 , c_2 )$ to the server.
@@ -2732,7 +2732,7 @@ Is the basic RSA signature scheme secure?\begin{itemize}
 \subsubsection{Full Domain Hash RSA (RSA-FDH)}
 It's the same as the basic RSA signature scheme, except that the hash function is $$H : \{0, 1\}^* \rightarrow [0, n - 1]$$
 
-In practice, one could use: $$H(m) = SHA-256(1, m) || SHA-256(2, m) || \cdots || SHA-256(t, m)$$
+In practice, one could use: $$H(m) = SHA-256(1, m) \| SHA-256(2, m) \| \cdots \| SHA-256(t, m)$$
 \begin{theorem}
 	\textbf{Bellare \& Rogaway, 1996}: If RSAP is intractable and $H$ is a random function, then RSA-FDH is a secure signature scheme.
 \end{theorem}
