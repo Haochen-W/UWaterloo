@@ -3297,4 +3297,250 @@ We can use this to prove the \textbf{Fundamental Theorem of Algebra}.
 		\end{tikzpicture}
 	\end{center}
 \end{proposition}
+\section{Series Representation for Analytic Functions}
+\subsection{Sequences and Series}
+\begin{definition}
+	A sequence $\{z_n\}_{n=1}^{\infty}$ \textbf{\underline{converges}} to $z_0$ if for any $\epsilon >0$, there exists an integer $N$ such that $n > N \Rightarrow |z_n - z_0| < \epsilon$. 
+\end{definition}
+\begin{theorem}
+	Let $z_n = x_n + iy_n$ for $n = 1, 2, ...$, and $z_0 = x_0 + iy_0$. Then, $z_n \rightarrow z_0$ if and only if $x_n \rightarrow x_0$ and $y_n \rightarrow y_0$ as $n \rightarrow \infty$.  
+\end{theorem}
+\begin{example}
+	Consider $\{z^n\}_{n=1}^\infty$. 
+
+	Notice that $z^n = \left(re^{i\theta}\right)^n = r^n e^{in\theta} \rightarrow 0$ as $n \rightarrow \infty$ if and only if $r < 1$. 
+
+	In other words, $\{z^n\}_{n=1}^\infty$ converges to 0 as $n \rightarrow \infty$ if and only if $|z| < 1$. 
+	\begin{center}
+		\begin{tikzpicture}
+			\draw [shift={(-0.5981044359563294,0.5)},line width=2pt]  plot[domain=0.3699221973436013:4.035340645927191,variable=\t]({1*0.6414982809002532*cos(\t r)+0*0.6414982809002532*sin(\t r)},{0*0.6414982809002532*cos(\t r)+1*0.6414982809002532*sin(\t r)});
+			\draw [shift={(-0.8582455715337886,0.36596457227030704)},line width=2pt]  plot[domain=-2.4898182637966273:0.403064400699643,variable=\t]({1*0.9330142170483514*cos(\t r)+0*0.9330142170483514*sin(\t r)},{0*0.9330142170483514*cos(\t r)+1*0.9330142170483514*sin(\t r)});
+			\draw [shift={(-0.5045480427046264,0.997473309608541)},line width=2pt]  plot[domain=1.254673507466237:3.971455461906565,variable=\t]({1*1.6229471088014849*cos(\t r)+0*1.6229471088014849*sin(\t r)},{0*1.6229471088014849*cos(\t r)+1*1.6229471088014849*sin(\t r)});
+			\draw [->,line width=2pt] (-3,0.5) -- (1.5,0.5);
+			\draw [->,line width=2pt] (-0.5,-1) -- (-0.5,3);
+			\draw [->,line width=2pt] (-1.8348819610332607,1.9270802070181299) -- (-1.997077272230095,1.6349008089990287);
+			\draw (0.6223878562101767,1.9185010434919565) node[anchor=north west] {$r<1$};
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=1.2]
+			\draw [->,line width=2pt] (-3,0.5) -- (1.5,0.5);
+			\draw [->,line width=2pt] (-0.5,-1) -- (-0.5,3);
+			\draw (0.6223878562101767,1.9185010434919572) node[anchor=north west] {$r>1$};
+			\draw [shift={(-0.5294536511396186,0.4410267468655478)},line width=2pt]  plot[domain=2.1296040770723748:5.893465067928106,variable=\t]({1*0.20874400148675373*cos(\t r)+0*0.20874400148675373*sin(\t r)},{0*0.20874400148675373*cos(\t r)+1*0.20874400148675373*sin(\t r)});
+			\draw [shift={(-0.7328904645303506,0.6726839804296924)},line width=2pt]  plot[domain=-0.665044502793628:2.6673732224026097,variable=\t]({1*0.5039186764247519*cos(\t r)+0*0.5039186764247519*sin(\t r)},{0*0.5039186764247519*cos(\t r)+1*0.5039186764247519*sin(\t r)});
+			\draw [shift={(-0.5068527858287849,0.4913717002054116)},line width=2pt]  plot[domain=2.5937757746398566:5.26893942827544,variable=\t]({1*0.7899466029693972*cos(\t r)+0*0.7899466029693972*sin(\t r)},{0*0.7899466029693972*cos(\t r)+1*0.7899466029693972*sin(\t r)});
+			\draw [->,line width=2pt] (-1.084522204043326,1.0336398672313245) -- (-1.2634078827967452,0.7186161078256887);
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=1.5]
+			\draw [shift={(0,0)},line width=2pt] (0,0) -- (0:0.6031215425055625) arc (0:359.8875808174886:0.6031215425055625) -- cycle;
+			\draw (0.9801453496560527,0.4441293306522789) node[anchor=north west] {$r=1$};
+			\draw [->,line width=2pt] (-1.5,0) -- (1.5,0);
+			\draw [->,line width=2pt] (0,-1.5) -- (0,1.5);
+			\draw [shift={(0,0)},->,line width=2pt] (0:0.6031215425055625) arc (0:359.8875808174886:0.6031215425055625);
+		\end{tikzpicture}
+	\end{center}
+\end{example}
+\begin{definition}
+	\underline{\textbf{Series}}: $$\sum_{n=1}^\infty z_n = \lim_{k \rightarrow \infty} \sum_{n=1}^k z_n$$
+	is \underline{\textbf{convergent}} if the limit exists (called the \textbf{\underline{sum}} of the series); otherwise is \underline{\textbf{divergent}}. 
+
+	Note that the LHS does not need to start at $n = 1$. The RHS is just the partial sum. 
+\end{definition}
+\begin{proposition}
+	\textbf{\underline{Divergence Test/$n$th-term Test}}: 
+	
+	If $\sum_{n=1}^{\infty} z_n$ converges, then $\lim_{n\rightarrow \infty}z_n = 0$.
+
+	Contrapositive: if $z_n \not \rightarrow 0$, then $\sum_{n=1}^\infty z_n$ diverges. 
+\end{proposition}
+
+\begin{definition}
+	\textbf{\underline{Geometric Series}}: $$\sum_{n=0}^\infty z_n = \begin{dcases}
+		\dfrac{1}{1-z} & \text{ if } |z| < 1\\
+		\text{divergent} & \text{ if } |z| \geq 1
+	\end{dcases}$$
+	We can see that\begin{itemize}
+		\item in $\mathbb{R}$, $\sum x^n$ converges for $|x| < 1$.
+		\item in $\mathbb{C}$, $\sum z^n$ converges for $|z| < 1$.
+	\end{itemize}
+	\begin{center}
+		\begin{tikzpicture}[scale=2]
+			\draw [line width=2pt,dash pattern=on 1pt off 1pt,fill=black,fill opacity=0.36] (0,-0.020274257077004008) circle (0.78137831083494cm);
+			\draw (0.80524010232944,0.7155340247797819) node[anchor=north west] {``radius''convergence = $1$};
+			\draw [->,line width=2pt] (-1.5,0) -- (1.5,0);
+			\draw [->,line width=2pt] (0,-1.5) -- (0,1.5);
+		\end{tikzpicture}
+	\end{center}
+\end{definition}
+\begin{example}
+	$\sum_{n=0}^\infty \left(\dfrac{1}{2}+i\right)^n$ and $\sum_{n=0}^\infty i^n$ divergent. 
+
+	$\sum_{n=0}^\infty \left(\dfrac{i}{2}\right)^n$ is convergent, and equals $\dfrac{1}{1-\frac{i}{2}} = \dfrac{2}{2-i} = \dfrac{4+2i}{3}$
+\end{example}
+\begin{proposition}
+	\textbf{\underline{Comparison Test}}: If $\sum_{k=1}^\infty M_k$ is a convergent series of real numbers and $|z_k| \leq M_k$ for all sufficiently large $k$, then $\sum_{k=1}^\infty z_k$ converges. 
+\end{proposition}
+\begin{definition}
+	$\sum z_n$ is absolutely convergent if $\sum |z_n|$ converges. 
+\end{definition}
+\begin{proposition}
+	\textbf{\underline{Ratio Test}}: If $\lim_{n \rightarrow \infty} \left| \dfrac{z_{n+1}}{z_n}\right| = L$, then $\sum_{n=0}^\infty z_n$ is absolutely convergent if $L < 1$, and divergent if $L > 1$. No conclusion if $L = 1$. 
+\end{proposition}
+\begin{example}
+	$$\sum_{n=0}^\infty\dfrac{(1-i)^n}{n!} = 1 + \dfrac{1-i}{1!} + \dfrac{(1-i)^2}{2!} + \cdots \;\;\;\; [0! = 1]$$
+
+	Ratio is $$\left| \dfrac{z_{n+1}}{z_n}\right| = \left| \dfrac{(1-i)^{n+1}}{(n+1)n!} \cdot \dfrac{n!}{(1-i)^n}\right| = \dfrac{|1-i|}{n+1} = \dfrac{\sqrt{2}}{n+1} \rightarrow 0$$ as $n \rightarrow \infty$, so the series converges. 
+\end{example}
+\begin{definition}
+	\textbf{\underline{Power Series}}: $$\sum_{k=0}^\infty c_k (z - z_0)^k$$ This series could\begin{enumerate}
+		\item Converge only at $z = z_0$
+		\item Converge for all $z$; or
+		\item Converge for all $z$ such that $|z- z_0| < R$, and diverge for all $z$ such that $|z-z_0| > R$. 
+	\end{enumerate}
+	\begin{center}
+		\begin{tikzpicture}[scale=1.5]
+			\draw [line width=2pt] (-0.8654065704109678,0.07019397429883031) circle (0.8580662561299705cm);
+			\draw [->,line width=2pt] (-0.8654065704109678,0.07019397429883031) -- (-0.2321289507801273,0.6491906551041701);
+			\draw [fill=black] (-0.8654065704109678,0.07019397429883031) circle (1pt);
+			\draw[color=black] (-0.7266886156346877,-0.07757080361503244) node {$z_0$};
+			\draw[color=black] (-0.39497176725662847,0.314458199013583) node {$R$};
+		\end{tikzpicture}
+	\end{center}
+\end{definition}
+\begin{definition}
+	The \underline{\textbf{Taylor Series}} of $f(z)$ centered at $z_0$ is $$\sum_{n=0}^\infty \dfrac{f^{(n)}(z_0)}{n!}(z-z_0)^n$$
+\end{definition}
+\textbf{Convergence of Taylor Series}: In MATH138, we assumed that $\sum_{n=0}^\infty \dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n$ converges to $f(x)$ for each $x$ in interval for convenience. This is not always true. 
+
+Consider the following famous examle.\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+			axis lines = middle,
+			xtick=\empty,
+			ytick=\empty,
+			xmin=-3, xmax=3,
+			ymin=-1, ymax=1.5,
+			]		
+			\addplot[color=red, domain=0:3, samples y = 0]{exp(-1/x^2)};
+			\addplot[color=red, domain=-3:0, samples y = 0]{exp(-1/x^2)};
+			\draw [fill=black] (0,0) circle (2pt);
+			\draw [fill=black] (0,1) circle (1pt) node[anchor=north west] {$1$};
+			\draw [->,line width=1pt] (0.5,-0.5) -- (0.1,-0.1);
+			\draw [dashed, line width=1pt] (-3,1) -- (3,1);
+			\draw (0.5, -0.5) node[anchor=north] {``infinitely flat'' at the origin};
+		\end{axis}
+	\end{tikzpicture}
+\end{center} $$g(x) = \begin{dcases}
+	e^{-1/x^2} & \text{ if } x \neq 0\\
+	0 & \text{ if } x = 0\\
+\end{dcases} \;\;\;\Rightarrow \;\;\; f(x) = \sum_{n=0}^\infty \dfrac{g^{(n)}(0)}{n!}(x-0)^n = \cdots = 0$$ which converges for all $x$, but $f(x) = g(x)$ at only one point. 
+
+Good news is that in $\mathbb{C}$, things make more sense
+\subsection{Taylor Series and Convergence}
+\begin{theorem}
+	If $f$ is analytic in the disk $|z - z_0| < R$, then its Taylor series converges to $f(z)$ for all $z$ in this disc. The convergence is uniform on any closed subdisc $|z-z_0| \leq R_0 < R$. 
+\end{theorem}
+In $\mathbb{R}$, ``analytic'' means ``has a power series representation''. 
+
+What's wrong with $g(x)$ above? \begin{itemize}
+	\item In $\mathbb{R}$, $g^{(n)}(0) = 0$ for all $n$
+	\item In $\mathbb{C}$, $g^{(n)}(0) = \begin{dcases}
+		e^{-1/z^2} & \text{ if } z \neq 0\\
+		0 & \text{ if } z = 0
+	\end{dcases}$ is not even \underline{\textbf{continuous}} at $z = 0$. 
+\end{itemize}
+In $\mathbb{R}$, we only saw a cross-section, the ``bad behaviour'' was missed. 
+
+\underline{\textbf{Uniform Convergence}}: Consider the following sequence of function: \begin{enumerate}
+	\item $f_n(x) = \dfrac{\sin x}{n}$. 
+	
+	What happens as $n \rightarrow \infty$? $f_n(x) \rightarrow 0$ as $n \rightarrow \infty$. $f_n \rightarrow 0$ ``pointwise''
+
+	Over some interval: \begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+				x=1cm,y=1cm,
+				axis lines=middle,
+				xmin=-6,
+				xmax=6,
+				ymin=-3,
+				ymax=3,
+				xlabel = \(x\),
+				ylabel = {\(f_n(x)\)},
+				xtick=\empty,
+				ytick=\empty,
+				]
+				\draw [dashed, line width=1pt] (-6,1) -- (6,1);
+				\draw (0, 1) node[anchor=south west] {$\frac{1}{n}$};
+				\draw (0, -1) node[anchor=south west] {$-\frac{1}{n}$};
+				\draw [dashed, line width=1pt] (-6,-1) -- (6,-1);
+				\draw[line width=2pt,smooth,samples=100,domain=-6:6] plot(\x,{sin(((\x))*180/pi)});
+				\draw [fill=black] (-4.712,0) circle (1pt) node[anchor = north]{$a$};
+				\draw [fill=black] (1.5707,0) circle (1pt) node[anchor = north]{$b$};
+			\end{axis}
+			\end{tikzpicture}
+	\end{center}
+	$f_n(x)$ approaches zero function on $[a,b]$.
+	
+	In this case, we say ``$f_n \rightarrow 0$ uniformly''
+	\item $g_n(x) = \dfrac{nx}{1+n^2x^2}$ 
+	
+	What happens as $n \rightarrow \infty$? $g_n(x) \rightarrow 0$ as $n \rightarrow \infty$. $g_n \rightarrow 0$ ``pointwise''
+
+	Over some interval: \begin{center}
+		\begin{tikzpicture}[scale = 1.5]
+			\begin{axis}[
+				axis lines=middle,
+				xmin=-3,
+				xmax=3,
+				ymin=-1.5,
+				ymax=1.5,
+				xtick=\empty,
+				ytick=\empty,
+				xlabel = \(x\),
+				ylabel = {\(g_n(x)\)},]
+				\draw[line width=1pt, smooth, samples=100, domain=-2:3] 	
+					plot(\x,{(\x)/(1+(\x)^(2))});
+				\draw[line width=1pt, color=red, smooth, samples=100, domain=-2:3]
+					plot(\x,{(5*(\x))/(1+25*(\x)^(2))});
+				\draw [dashed, line width=1pt] (1,0) -- (1,1/2);
+				\draw [dashed, line width=1pt] (-1,0) -- (-1,-1/2);
+				\draw [dashed, line width=1pt] (1/5,0) -- (1/5,1/2);
+				\draw [dashed, line width=1pt] (-1/5,0) -- (-1/5,-1/2);
+				\draw [fill=black] (0,0.5) circle (1pt) node[anchor = east]{$\frac{1}{2}$};
+				\draw [fill=black] (0,-0.5) circle (1pt) node[anchor = west]{$\frac{1}{2}$};
+				\draw [fill=black] (0.2,0) circle (1pt) 
+						node[anchor = north]{\color{red}$\frac{1}{n}$};
+				\draw [fill=black] (-0.2,0) circle (1pt);
+				\draw [fill=black] (1,0) circle (1pt) node[anchor = north]{$\frac{1}{n}$};
+				\draw [fill=black] (-1,0) circle (1pt) node[anchor = south]{$-\frac{1}{n}$};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	$g_n(x)$ still has ``spikes'' even as $n \rightarrow \infty$. 
+
+	In this case, we say ``$g_n \rightarrow 0$ does \underline{not} converge uniformly to 0''
+\end{enumerate}
+For series, we apply the above ideas to the sequence of partial sums: $S_n(x) = \sum_{k=0}^n f_k(x)$. AMATH231 covers more on this. 
+
+\begin{proposition}
+	\underline{\textbf{Manipulation of Taylor Series}}: a few known series regarding $$f(z) = \sum_{n=0}^\infty \dfrac{f^{(n)}(z_0)}{n!}(z-z_0)^n \;\;\;\; |z-z_0| < R$$
+	$$\begin{dcases}
+		\dfrac{1}{1-z} = \sum_{n = 0}^\infty z^n & R = 1 \;\;\;\text{ radius of convergence}\\
+		e^z = \sum_{n = 0}^\infty \dfrac{1}{n!}z^n & R = \infty\\
+		\cos z = \sum_{n = 0}^\infty \dfrac{(-1)^n z^{2n}}{(2n)!} & R = \infty\\
+		\sin z = \sum_{n = 0}^\infty \dfrac{(-1)^n}{(2n+1)!}z^{2n+1} & R = \infty
+	\end{dcases}$$
+\end{proposition}
+\begin{example}
+	Expand $e^z$ about $z = i$. 
+
+	\textbf{\underline{Solution}}: $f(z) = e^z \;\; \Rightarrow \;\; f^{(n)}(i) = e^i$, so $$e^z = \sum_{n=0}^\infty \dfrac{e^i}{n!} (z-i)^n$$
+	Radius? We want $$\lim_{n \rightarrow \infty} \left| \dfrac{e^i}{(n+1)!} (z-i)^{n+1} \cdot \dfrac{n!}{e^i} \cdot \dfrac{1}{(z-i)^n}\right| = \left| \dfrac{z-i}{n+1}\right|< 1$$ by Ratio test. So the above is true for all $z$. We have $R = \infty$. 
+\end{example}
+\begin{example}
+	Maclaurin Series for $\dfrac{1}{8+z^3}$? 
+
+	\textbf{\underline{Solution}}: $$\dfrac{1}{8+z^3} = \dfrac{1}{8} \cdot \dfrac{1}{1-\left(\frac{-z^3}{8}\right)} = \dfrac{1}{8} \sum_{n=0}^\infty \left(\dfrac{-z^3}{8}\right)^n = \sum_{n=0}^\infty \dfrac{(-1)^n z^{3n}}{2^{3n+3}}$$
+	Radius? $$\left|\dfrac{-z^3}{8}\right| < 1 \;\Rightarrow \; |z|^3 < 2^3 \; \Rightarrow \; |z| < 2$$ So $R = 2$
+\end{example}
 \end{document}
