@@ -11,6 +11,7 @@
 \usepackage{framed}
 \usepackage{hyperref}
 \usepackage{titlesec}
+\usepackage{multirow}
 
 \usepackage{algo,tikz,url,amssymb,epsfig,color,xspace}
 % for making graphs
@@ -28,6 +29,8 @@
 \DeclareMathOperator\cis{cis}
 \DeclareMathOperator\Arg{Arg}
 \DeclareMathOperator\Log{Log}
+\DeclareMathOperator\sinc{sinc}
+\DeclareMathOperator\Res{Res}
 
 % algorithms
 \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
@@ -172,7 +175,7 @@ Note: We can't classify complex numbers as ``positive'' or ``negative'', and can
 	\end{enumerate}
 \end{proposition}
 \begin{center}
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=0.8]
 		\begin{axis}[
 			x=1cm,y=1cm,
 			axis lines=middle,
@@ -198,7 +201,7 @@ Note: We can't classify complex numbers as ``positive'' or ``negative'', and can
 				\draw [fill=black] (4.49,5.04) circle (1.5pt);
 			\end{scriptsize}
 		\end{axis}
-	\end{tikzpicture}\\
+	\end{tikzpicture}
 \end{center}
 
 \subsection{The Complex Plane, Polar form}
@@ -241,7 +244,7 @@ Notes: \begin{itemize}
 	Sketch the sets: \begin{enumerate}
 		\item $|z| < 3$
 		\begin{center}
-			\begin{tikzpicture}
+			\begin{tikzpicture}[scale=0.8]
 				\draw [line width=2pt,fill=black,fill opacity=0.41] (0,0) circle (3cm);
 				\draw [->,line width=1.2pt] (0,-4) -- (0,4);
 				\draw [->,line width=1.2pt] (-4,0) -- (5,0);
@@ -253,7 +256,7 @@ Notes: \begin{itemize}
 		\end{center}
 		\item $|z| = Im(z)$. Let $z = a+ib$. So, $\sqrt{a^2+b^2} = b$, which gives $a^2+b^2 = b^2$, so $a = 0, b \geq 0$
 		\begin{center}
-			\begin{tikzpicture}
+			\begin{tikzpicture}[scale=0.8]
 				\begin{axis}[
 					x=1cm,y=1cm,
 					axis lines=middle,
@@ -278,7 +281,7 @@ Notes: \begin{itemize}
 		\end{align*}
 		This is the set of points that are equidistant from $z = 1$ and $z= -i$
 		\begin{center}
-			\begin{tikzpicture}
+			\begin{tikzpicture}[scale=0.8]
 				\begin{axis}[
 					x=1cm,y=1cm,
 					axis lines=middle,
@@ -513,7 +516,7 @@ To obtain the $m$-th root of an arbitrary (non-zero) complex number $z = re^{i\t
 \subsection{Application to Electrical Circuits}
 A typical electrical circuits is like the following: 
 
-\begin{figure}[h!]
+\begin{center}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 	\draw [line width=0.8pt] (0.5,-1.5)-- (-1.9583333333333333,-1.5);
 	\draw [line width=0.8pt] (-4.5,-1.5)-- (-2.0416666666666665,-1.5);
@@ -553,7 +556,7 @@ A typical electrical circuits is like the following:
 	\draw [shift={(0.5008148358603337,0.3817510753569967)},line width=0.8pt]  plot[domain=-1.5639055836783609:1.5776870699114327,variable=\t]({1*0.1182517320664097*cos(\t r)+0*0.1182517320664097*sin(\t r)},{0*0.1182517320664097*cos(\t r)+1*0.1182517320664097*sin(\t r)});
 	\draw [shift={(0.5008148358603337,0.13175107535699673)},line width=0.8pt]  plot[domain=-1.5769809098747336:1.5646117437150597,variable=\t]({1*0.13175359507506548*cos(\t r)+0*0.13175359507506548*sin(\t r)},{0*0.13175359507506548*cos(\t r)+1*0.13175359507506548*sin(\t r)});
 \end{tikzpicture}
-\end{figure}
+\end{center}
 Laws: \begin{enumerate}
 	\item Resistor: $V = IR$
 	\item Inductor: $V = L \dfrac{dI}{dt}$
@@ -595,7 +598,7 @@ Moreover, $Z$ is called ``impedance''
 
 Combining the components: \begin{itemize}
 	\item In series: 
-	\begin{figure}[h!]
+	\begin{center}
 		\begin{tikzpicture}[scale=2.5][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 			\draw (-0.4152701058878135,2.5331448905031593) node[anchor=north west] {$\overbrace{R_1\qquad\qquad\qquad R_2\qquad \qquad\qquad R_3}$};
 			\draw (0.7212771477096162,2.723894079918112) node[anchor=north west] {$R$};
@@ -630,7 +633,7 @@ Combining the components: \begin{itemize}
 			\draw [line width=0.8pt] (2,2)-- (2.5,2);
 			\draw [line width=0.8pt] (-0.5,2)-- (-1,2);
 		\end{tikzpicture}
-	\end{figure}
+	\end{center}
 	\begin{align*}
 		R &= R_1 + R_2 + R_3 + \cdots\\
 		L &= L_1 + L_2 + L_3 + \cdots\\
@@ -638,7 +641,7 @@ Combining the components: \begin{itemize}
 		Z &= Z_1 + Z_2+ Z_3 + \cdots
 	\end{align*}
 	\item In parallel: 
-	\begin{figure}[h!]
+	\begin{center}
 		\begin{tikzpicture}[scale=1.3][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 			\draw (-2.55,0.9) node[anchor=north west] {$R_1$};
 			\draw [line width=0.8pt] (-3,0.5)-- (-4,0.5);
@@ -680,7 +683,7 @@ Combining the components: \begin{itemize}
 			\draw [->,line width=0.8pt] (-3,0) -- (-2.666666666666666,0);
 			\draw [->,line width=0.8pt] (-3,-1) -- (-2.675555555555555,-1);
 		\end{tikzpicture}
-	\end{figure}
+	\end{center}
 	\begin{align*}
 		\dfrac{1}{R} &= \dfrac{1}{R_1} + \dfrac{1}{R_2} +\dfrac{1}{R_3} + \cdots\\
 		\dfrac{1}{L} &= \dfrac{1}{L_1} + \dfrac{1}{L_2} +\dfrac{1}{L_3} + \cdots\\
@@ -691,7 +694,7 @@ Combining the components: \begin{itemize}
 \begin{example}
 	Suppose a current $I(t) = I_0 \cos t$, passes through this: 
 
-	\begin{figure}[H]
+	\begin{center}
 		\begin{tikzpicture}[scale=1.5][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 			\draw (-1.36,-0.062222222222223025) node[anchor=north west] {$R_2=10\Omega$};
 			\draw (-1.3422222222222224,1.573333333333327) node[anchor=north west] {$R_1=10\Omega$};
@@ -732,13 +735,13 @@ Combining the components: \begin{itemize}
 				\draw [fill=black] (1.5,0.5) circle (1pt);
 			\end{scriptsize}
 		\end{tikzpicture}
-	\end{figure}
+	\end{center}
 	
 	Find $V(t)$, the difference in electrical potential energy between $A$ and $B$
 	
 	\underline{\textbf{Solution}}: 
 	
-	\begin{figure}[H]
+	\begin{center}
 		\begin{tikzpicture}[scale=1.5][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 			\draw (-2.4727988094140407,1.6361413165955456) node[anchor=north west] {$Z_{R_1}=10$};
 			\draw [line width=0.8pt] (-2.25,-0.5)-- (-2.2083333333333335,-0.4166666666666667);
@@ -785,7 +788,7 @@ Combining the components: \begin{itemize}
 				\draw [fill=black] (2.5,0.5) circle (1pt);
 			\end{scriptsize}
 		\end{tikzpicture}
-	\end{figure}
+	\end{center}
 
 	Let's use the complex version of ``Ohm's Law''. We have $\dfrac{1}{Z_R} = \dfrac{1}{Z_{R_1}} + \dfrac{1}{Z_{R_2}} = \dfrac{1}{10} + \dfrac{1}{10} = \dfrac{1}{5}$, so $Z_R = 5$. 
 
@@ -798,7 +801,7 @@ Combining the components: \begin{itemize}
 		&=5I_0\sqrt{5}e^{i\arctan -2} e^{it}
 	\end{align*}
 	So, $V(t) = Re(\widetilde{V}(t)) \approx 5\sqrt{5} I_0 \cos(t-1.107)$
-	\begin{figure}[H]
+	\begin{center}
 		\begin{tikzpicture}[scale=1.5][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 			\begin{axis}[
 				x=1cm,y=1cm,
@@ -814,7 +817,7 @@ Combining the components: \begin{itemize}
 				\end{axis}
 			\draw [shift={(1.5,1.75)},<-,line width=1pt] (-2:0.65) arc (-63.43494882292201:0:0.5333333333333332);
 		\end{tikzpicture}
-	\end{figure}
+	\end{center}
 \end{example}
 
 \subsection{Sets in the Complex Plane}
@@ -827,7 +830,7 @@ Combining the components: \begin{itemize}
 \begin{example}
 	For $z_0 = 1+i$, consider $|z-(1+i)| < 1$. The neighborhood of $z_0$ and deleted neighborhood of $z_0$ is as follows: 
 
-	\begin{figure}[H]
+	\begin{center}
 		\definecolor{uu}{rgb}{0.3,0.3,0.3}
 		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 			\draw[->] (-1,0)--(5,0);
@@ -859,7 +862,7 @@ Combining the components: \begin{itemize}
 			\draw [fill=black] (4,0) circle (1pt);
 			\draw[color=black] (4,-0.35) node {2};
 		\end{tikzpicture}
-	\end{figure}
+	\end{center}
 \end{example}
 \begin{definition}
 	Let $S \subseteq \mathbb{C}$: \begin{itemize}
@@ -871,7 +874,7 @@ Combining the components: \begin{itemize}
 		\item $S$ is \underline{\textbf{closed}} if it contains all of its boundary points, equivalently if its complement is open. 
 		\item Note that $S$ could be both open and closed, when it does not have any boundary points
 	\end{itemize}
-	\begin{figure}[H]
+	\begin{center}
 		\begin{tikzpicture}[scale=0.7][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 			\draw [rotate around={-12.2550245737389:(0.82,-1.26)},line width=1.2pt,fill=black,fill opacity=0.26] (0.82,-1.26) ellipse (5.456218028894557cm and 2.1982527559027356cm);
 			\draw [fill=black] (5.7,-2.32) circle (1.5pt);
@@ -881,7 +884,7 @@ Combining the components: \begin{itemize}
 			\draw [fill=black] (-1.58,1.88) circle (1.5pt);
 			\draw[color=black] (-1.6,2.39) node {exterior point};
 		\end{tikzpicture}
-		\end{figure}
+	\end{center}
 \end{definition}
 \begin{example}
 	Note that \begin{itemize}
@@ -889,8 +892,8 @@ Combining the components: \begin{itemize}
 		\item $\mathbb{C}$ is both open and closed
 		\item $|z-z_0| \leq 1$ is closed
 		\item The figure below: it is neither open nor closed. 
-		\begin{figure}[H]
-			\begin{tikzpicture}[scale=1.3][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+		\begin{center}
+			\begin{tikzpicture}[scale=1][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 				\draw [shift={(-2.2,-0.04)},line width=1.2pt,dash pattern=on 1pt off 1pt]  plot[domain=-0.8834434406912877:0.38931672183314087,variable=\t]({1*3.467333269243094*cos(\t r)+0*3.467333269243094*sin(\t r)},{0*3.467333269243094*cos(\t r)+1*3.467333269243094*sin(\t r)});
 				\draw [shift={(0.14,-1.36)},line width=1.2pt]  plot[domain=1.2527427180455013:3.0628086926006493,variable=\t]({1*2.7752379743583204*cos(\t r)+0*2.7752379743583204*sin(\t r)},{0*2.7752379743583204*cos(\t r)+1*2.7752379743583204*sin(\t r)});
 				\draw [shift={(-0.7,-0.88)},line width=1.2pt]  plot[domain=3.2765392412560086:5.030186986194582,variable=\t]({1*1.944306222620606*cos(\t r)+0*1.944306222620606*sin(\t r)},{0*1.944306222620606*cos(\t r)+1*1.944306222620606*sin(\t r)});
@@ -901,7 +904,7 @@ Combining the components: \begin{itemize}
 				\draw [line width=2pt] (-0.01921974959665283,1.3379878398032463)-- (0.9554416977355595,-1.4772152560391683);
 				\draw [line width=2pt] (0.6895144756631459,1.3602903623247886)-- (1.2672454540513378,-0.06467714246696885);
 			\end{tikzpicture}
-		\end{figure}
+		\end{center}
 	\end{itemize}
 \end{example}
 \begin{definition}
@@ -912,7 +915,7 @@ Combining the components: \begin{itemize}
 		\item A \underline{\textbf{region}} is a domain plus some, none, or all of its boundary points. 
 		\item $S$ is \underline{\textbf{bounded}} if there exists $R \in \mathbb{R}$ such that $|z| < R$ for all $z \in S$
 	\end{itemize}
-	\begin{figure}[H]
+	\begin{center}
 		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 			\draw [rotate around={0:(0,0)},line width=2pt,fill=black,fill opacity=0.19] (0,0) ellipse (3cm and 2.23606797749979cm);
 			\draw [line width=2pt] (-2,0)-- (-0.44,-1.66);
@@ -938,17 +941,17 @@ Combining the components: \begin{itemize}
 			\end{scriptsize}
 			\draw[color=black] (0,-2) node {not connected};
 		\end{tikzpicture}
-	\end{figure}
+	\end{center}
 \end{definition}
 \begin{theorem}
 	If $u(x, y)$, defined on a domain $D$, satisfies $$\dfrac{\partial u}{\partial x} = \dfrac{\partial u}{\partial y} = 0$$ for all points in $D$, then $u(x, y) = $ constant in $D$. 
 \end{theorem}
 \begin{example}
 	Suppose we have $S_1$ and $S_2$ like this: 
-	\begin{figure}[H]
+	\begin{center}
 		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 			\draw[->] (-5,0)--(5,0);
-			\draw[->] (0,-1)--(0,5);
+			\draw[->] (0,-1)--(0,4);
 			\draw [rotate around={-0.83:(-2.77,1.55)},line width=0.5pt,
 			dash pattern=on 1pt off 1pt] (-2.77,1.55) ellipse (1.19cm and 0.97cm);
 			\draw [rotate around={-4.1:(2.52,1.56)},line width=0.5,
@@ -956,7 +959,7 @@ Combining the components: \begin{itemize}
 			\draw[color=black] (-2.9,1.77) node {$S_1$};
 			\draw[color=black] (2.56,1.89) node {$S_2$};
 		\end{tikzpicture}
-	\end{figure}
+	\end{center}
 	
 	in which we have $u(x,y) = 0$ on $S_1$ and $u(x,y) = 1$ on $S_2$. 
 
@@ -967,10 +970,9 @@ Combining the components: \begin{itemize}
 The Extended Complex Plane: 
 
 The ``neighborhood of $\infty$'' is defined as: $$N_\epsilon(\infty) = \{z \in \mathbb{C} : |z| > \dfrac{1}{\epsilon}\}$$ for some real $\epsilon > 0$
-\newpage
 The Riemann sphere: 
 
-\begin{figure}[h!]
+\begin{center}
 	\definecolor{zzttqq}{rgb}{0.6,0.2,0}
 	\begin{tikzpicture}[scale=0.8][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 		\fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (-4,2) -- (-8,-2) -- (5,-2) -- (9,2) -- cycle;
@@ -984,19 +986,19 @@ The Riemann sphere:
 		\draw (-10,4.68) node[anchor=north west] {Riemann Sphere $x_1^2+x_2^2+x_3^2=1$};
 		\draw [->,line width=1pt] (-4.44,3.8) -- (-2.8879528204616975,2.7676214529424588);
 		\draw (3.5,3) node[anchor=north west] {``Stereographic Projection''};
-		\draw[color=black] (0.18,-3.65) node {$d$};
+		\draw[color=black] (0.25,-3.65) node {$d$};
 		\draw [fill=black] (0,4) circle (1pt);
-		\draw[color=black] (-0.6,4.49) node {(0,0,1)};
+		\draw[color=black] (-0.7,4.49) node {(0,0,1)};
 		\draw[color=black] (-1.94,1.07) node {$e$};
 		\draw [fill=black] (5,-1) circle (1pt);
 		\draw[color=black] (5.14,-1.31) node {$(x_1, x_2)$};
 		\draw [fill=black] (2.78,1.22) circle (1pt);
 	\end{tikzpicture}
-\end{figure}
+\end{center}
 
 We can define a one-to-one mapping between $x_1x_2$-plane and the sphere: 
 
-\begin{figure}[h!]
+\begin{center}
 	\definecolor{uuuuuu}{rgb}{0.27,0.27,0.27}
 	\begin{tikzpicture}[scale=0.8][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 		\draw [line width=2pt] (0,0) circle (3cm);
@@ -1014,7 +1016,7 @@ We can define a one-to-one mapping between $x_1x_2$-plane and the sphere:
 		\draw [fill=uuuuuu] (0,-3) circle (2pt);
 		\draw [fill=black] (1.4211057346355416,2.642055731998471) circle (2.5pt);
 	\end{tikzpicture}
-\end{figure}
+\end{center}
 
 See the course text for more detail, in particular: \begin{itemize}
 	\item Circles and lines all map circles on the sphere
@@ -1035,8 +1037,8 @@ We can think of it as a mapping.
 			
 			$f(z) = (x+iy)^2 = \underbrace{(x^2-y^2)}_{u} + i\underbrace{2xy}_{v}$ 
 
-			\begin{figure}[H]
-				\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+			\begin{center}
+				\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm, scale=0.8]
 					\draw [shift={(-5,1)},line width=0.4pt] (0,0) -- (0:1) arc (0:30:1) -- cycle;
 					\draw [shift={(3,1)},line width=0.4pt] (0,0) -- (0:0.9) arc (0:60:0.9) -- cycle;
 					\draw [->,line width=2pt] (-6,1) -- (0,1);
@@ -1060,7 +1062,7 @@ We can think of it as a mapping.
 					\draw[color=black] (5.74,5.69) node {$F'$};
 					\draw [fill=black] (-3.766891108675446,1.711935750346352) circle (1.5pt);
 				\end{tikzpicture}
-			\end{figure}
+			\end{center}
 			
 			Note that $f(z) = (re^{i\theta})^2 = r^2e^{i2\theta}$ (angle is doubled)
 			\item the strip $1 \leq Re(z) \leq 2$
@@ -1075,7 +1077,7 @@ We can think of it as a mapping.
 					v=4y
 				\end{dcases} \Rightarrow u = 4 - \big(\dfrac{v}{4}\big)^2$, which is a parabola
 			\end{itemize}
-			\begin{figure}[H]
+			\begin{center}
 				\definecolor{qqqqff}{rgb}{0,0,1}
 				\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 					\begin{axis}[
@@ -1102,7 +1104,7 @@ We can think of it as a mapping.
 					\draw[color=black] (3.3,0.5) node {2};
 					\draw [fill=black] (2.5,1) circle (2pt);
 				\end{tikzpicture}
-				\begin{tikzpicture} 
+				\begin{tikzpicture}[scale=0.8]
 					\begin{axis}[
 						axis x line=middle,
 						axis y line=middle,
@@ -1117,10 +1119,10 @@ We can think of it as a mapping.
 				\draw (1,4) node[anchor=north west] {$u=1-(\frac{v}{2})^2$};
 				\draw (7,4) node[anchor=north west] {$u=4-(\frac{v}{4})^2$};
 				\end{tikzpicture}
-			\end{figure}
+			\end{center}
 		\end{enumerate}
 		\item $f(z) = |z|$. This one maps complex plane to non-negative real axis. 
-		\begin{figure}[H]
+		\begin{center}
 			\begin{tikzpicture}[scale=0.8][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 				\draw [->,line width=2pt] (-3,-2) -- (-3,4);
 				\draw [->,line width=2pt] (-6,1) -- (0,1);
@@ -1137,7 +1139,7 @@ We can think of it as a mapping.
 				\draw (11.06,1.86) node[anchor=north west] {$u$};
 				\draw (6.38,4.08) node[anchor=north west] {$v$};
 			\end{tikzpicture}
-		\end{figure}
+		\end{center}
 		\item $f(z) = z-z_0 = (x+iy) - (x_0+iy_0) = (x-x_0) + i(y-y_0)$. This is a translation. 
 		\item $f(z) = z_0z$, so $$f(z) = r_0e^{i\theta_0}re^{i\theta} = \underbrace{r_0}_{\text{magnification}}re^{i\underbrace{\theta_0}_{\text{rotation}}+\theta} = r_0re^{i\theta_0+\theta}$$
 		\item $f(z) = \overline{z} = x-iy \rightarrow \begin{dcases}
@@ -1148,7 +1150,7 @@ We can think of it as a mapping.
 		
 		We can do this step by step. First it's a rotation of $\dfrac{\pi}{2}$ (comes from the first $i$), then its a shift down 3 units. 
 
-		\begin{figure}[H]
+		\begin{center}
 			\begin{tikzpicture}[scale=0.4][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 				\draw [line width=2pt] (1,7)-- (1,-2);
 				\draw [line width=0.4pt] (1,6)-- (2,7);
@@ -1189,16 +1191,16 @@ We can think of it as a mapping.
 					\draw [fill=black] (28,-2) circle (1.5pt);
 				\end{scriptsize}
 			\end{tikzpicture}
-		\end{figure}
+		\end{center}
 
 		The image is the half-plane $v\geq -2$. 
 		\item Inversion mapping. $f(z) = \dfrac{1}{z} = \dfrac{1}{re^{i\theta}} = \dfrac{1}{r}e^{-i\theta}$. So, it's a scaling by $r$, and then reflection through the $x$-axis. 
 		
 		For this mapping, unit circle maps to the unit circle. Outside points go to inside, and inside points go to outside. 
 
-		\begin{figure}[H]
+		\begin{center}
 			\definecolor{uuu}{rgb}{0.3,0.3,0.3}
-			\begin{tikzpicture}[scale=1.5][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+			\begin{tikzpicture}[scale=1.2][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 				\draw [shift={(0,0)},line width=2pt] (0,0) -- (0:0.4193384935264618) arc (0:45:0.4193384935264618) -- cycle;
 				\draw [->,line width=1.2pt] (-3,0) -- (3,0);
 				\draw [->,line width=1.2pt] (0,-3) -- (0,3);
@@ -1217,7 +1219,7 @@ We can think of it as a mapping.
 					\draw [fill=black] (-2,2) circle (1.5pt);
 				\end{scriptsize}
 			\end{tikzpicture}
-		\end{figure}
+		\end{center}
 
 		\item Image of circle $(x-1)^2+y^2 = 1$ under $f(z) = \dfrac{1}{z}$. 
 		
@@ -1231,7 +1233,7 @@ We can think of it as a mapping.
 			v = r\sin \theta
 		\end{dcases}$ in the uv plane. 
 
-		\begin{figure}[H]
+		\begin{center}
 			\begin{tikzpicture}[scale=0.8][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 				\draw [line width=1.6pt,fill=black,fill opacity=0.19] (-2,1) circle (2cm);
 				\draw [->,line width=1.2pt] (-4,-1) -- (-4,4);
@@ -1262,12 +1264,12 @@ We can think of it as a mapping.
 					\draw [fill=black] (8.5,1) circle (1.5pt);
 				\end{scriptsize}
 			\end{tikzpicture}
-		\end{figure}
+		\end{center}
 
 		\item $w = f(z) = \dfrac{z}{z+1}$, find the image of upper-half of unit circle. 
 		
 		First, $f(z) = \dfrac{z+1-1}{z+1} = 1 - \dfrac{1}{z+1}$. This is a sequence of transformations:$$z \rightarrow \underbrace{z+1}_{\text{shift right}} \rightarrow \underbrace{\dfrac{1}{z+1}}_{\text{invert}} \rightarrow \underbrace{\dfrac{-1}{z+1}}_{\text{reflect and rotate }\pi} \rightarrow \underbrace{1-\dfrac{1}{z+1}}_{\text{shift right}}$$
-		\begin{figure}[H]
+		\begin{center}
 			\begin{tikzpicture}[scale=0.55][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 				\draw [->,line width=1.2pt] (-7,0) -- (-3,0);
 				\draw [->,line width=1.2pt] (-5,-1) -- (-5,3);
@@ -1299,7 +1301,7 @@ We can think of it as a mapping.
 					\draw [fill=black] (1,0) circle (1pt);
 				\end{scriptsize}
 			\end{tikzpicture}
-		\end{figure}
+		\end{center}
 	\end{enumerate}
 \end{example}
 \subsection{Limits and Differentiation}
@@ -1514,7 +1516,7 @@ Exercise: show that if $v$ is the harmonic conjugate of $u$, then $-u$ is the ha
 	i.e. Find $\Phi(x, y)$
 
 	\begin{center}
-		\begin{tikzpicture}[scale=1.5]
+		\begin{tikzpicture}[scale=1.2]
 			\begin{axis}[
 				x=1cm,y=1cm,
 				axis lines=middle,
@@ -1528,7 +1530,7 @@ Exercise: show that if $v$ is the harmonic conjugate of $u$, then $-u$ is the ha
 				\draw[line width=0.4pt,fill=black,fill opacity=0.37](3.274662080624353,3.11793063089423)--(3.078142092260624,2.9111782391579215)--(2.8331024958925553,2.65074890403309)--(2.62235876612791,2.424204095840096)--(2.439457643220119,2.2250738399129717)--(2.2794823017751518,2.04842367788164)--(2.1386215920525538,1.8904238450658102)--(2.013876570275504,1.7480557314641392)--(1.902855849728697,1.6189071575747387)--(1.8036299216591194,1.5010266134562968)--(1.7146255358809155,1.3928175502537714)--(1.6345478583034294,1.2929604406494146)--(1.5623222466932392,1.2003544486994708)--(1.4970501151013949,1.1140731785323166)--(1.4379750703709617,1.0333306842479673)--(1.3844566424842901,0.9574550615662721)--(1.3359497007199626,0.8858677118248286)--(1.2919881773739395,0.818066898532164)--(1.2521720907696334,0.7536145864448188)--(1.2161571212858309,0.692125814902348)--(1.1836461820996187,0.6332600448465099)--(1.154382562835803,0.5767140551255507)--(1.1281443245617162,0.5222160635606788)--(1.1047396989865015,0.4695208222398513)--(1.0840033005398864,0.41840549181549586)--(1.0657930022854967,0.36866614127247027)--(1.0499873589659243,0.3201147512818441)--(1.0364834854637945,0.27257662342757116)--(1.025195318469489,0.22588811613663334)--(1.0160522045474452,0.1798946424041676)--(1.0089977701103137,0.1344488753675005)--(1.0039890388117536,0.08940911616915155)--(1.0009957701407863,0.044637784888429025)--(1,0)--(1.0009957701407863,-0.044637784888429025)--(1.0039890388117536,-0.08940911616915155)--(1.0089977701103137,-0.1344488753675005)--(1.0160522045474452,-0.1798946424041676)--(1.025195318469489,-0.22588811613663334)--(1.0364834854637945,-0.27257662342757116)--(1.0499873589659243,-0.3201147512818441)--(1.0657930022854967,-0.36866614127247027)--(1.0840033005398864,-0.41840549181549586)--(1.1047396989865015,-0.4695208222398513)--(1.1281443245617162,-0.5222160635606788)--(1.154382562835803,-0.5767140551255507)--(1.1836461820996187,-0.6332600448465099)--(1.2161571212858309,-0.6921258149023477)--(1.2521720907696334,-0.7536145864448188)--(1.2919881773739395,-0.8180668985321636)--(1.3359497007199626,-0.8858677118248286)--(1.3844566424842901,-0.9574550615662718)--(1.4379750703709617,-1.0333306842479673)--(1.4970501151013949,-1.1140731785323166)--(1.5623222466932392,-1.2003544486994708)--(1.6345478583034294,-1.2929604406494148)--(1.7146255358809155,-1.392817550253771)--(1.8036299216591194,-1.501026613456297)--(1.902855849728697,-1.6189071575747385)--(2.013876570275504,-1.7480557314641394)--(2.106493985617573,-1.853757478283976)--(2.7272960359541996,-1.853757478283976)--(2.705031186697621,-1.8213164801886406)--(2.6215420882179234,-1.6948400869397646)--(2.545247951175891,-1.5742576450394234)--(2.475585301839686,-1.4589457106707866)--(2.4120621868658976,-1.3483486171270012)--(2.354248395352079,-1.241968400168796)--(2.3017673458053984,-1.1393563596241645)--(2.2542893280972573,-1.040105944013966)--(2.2115258561439055,-0.943846710219957)--(2.1732249376845645,-0.8502391603390652)--(2.1391671068871294,-0.7589702966439806)--(2.1091620963576054,-0.6697497657421086)--(2.0830460495047594,-0.5823064866179866)--(2.0606791936405027,-0.4963856757631847)--(2.0419439098274945,-0.41174619716713284)--(2.0267431481919322,-0.3281581764072716)--(2.0149991478729583,-0.24540082707429625)--(2.0066524295027275,-0.16326044477827598)--(2.0016610355153692,-0.08152852936525122)--(2,0)--(2.0016610355153692,0.08152852936525122)--(2.0066524295027275,0.16326044477827598)--(2.0149991478729583,0.24540082707429625)--(2.0267431481919322,0.3281581764072716)--(2.0419439098274945,0.41174619716713284)--(2.0606791936405027,0.4963856757631847)--(2.0830460495047594,0.5823064866179866)--(2.1091620963576054,0.6697497657421086)--(2.1391671068871294,0.7589702966439806)--(2.1732249376845645,0.8502391603390652)--(2.2115258561439055,0.943846710219957)--(2.2542893280972573,1.040105944013966)--(2.3017673458053984,1.1393563596241647)--(2.354248395352079,1.241968400168796)--(2.4120621868658976,1.3483486171270014)--(2.475585301839686,1.4589457106707866)--(2.545247951175891,1.5742576450394234)--(2.6215420882179234,1.6948400869397648)--(2.705031186697621,1.8213164801886406)--(2.796362079425364,1.9543901553293148)--(2.8962793668882174,2.094858985961207)--(3.005643055848226,2.2436332541591244)--(3.1254502909692925,2.4017575900411)--(3.2568623181918555,2.570438126012377)--(3.401238197238152,2.751076384681428)--(3.560177306884961,2.945311945526085)--(3.704513524284938,3.11793063089423);
 				\draw [line width=0.5pt,dash pattern=on 1pt off 1pt] (0,0)-- (3,3);
 				\draw [line width=0.5pt,dash pattern=on 1pt off 1pt] (0,0)-- (3,-3);
-				\draw (1.0948081886474288,2.0078399652952794) node[anchor=north west] {$\Phi=0$};
+				\draw (0.5948081886474288,2.0078399652952794) node[anchor=north west] {$\Phi=0$};
 				\draw (2.3567061247556373,1.210851795121674) node[anchor=north west] {$\Phi=10$};
 			\end{axis}
 		\end{tikzpicture}
@@ -2890,7 +2892,6 @@ We showed that $\overline{z}$ can be integreated, but the result depends on path
 	\end{enumerate}
 	\begin{center}
 		\begin{tikzpicture}
-	
 			\draw [rotate around={-34.18612248637511:(-2.63,0.98)},line width=2pt] (-2.63,0.98) ellipse (1.476705441404892cm and 1.330473209303674cm);
 			\draw [rotate around={-40.24830239488633:(-2.91,1.36)},line width=2pt,dash pattern=on 1pt off 1pt] (-2.91,1.36) ellipse (3.8236474682870503cm and 2.585610172036375cm);
 			\draw [rotate around={-39.70241522209075:(-2.69,1.5)},line width=2pt] (-2.69,1.5) ellipse (6.336753532340226cm and 3.9208602792788123cm);
@@ -2934,6 +2935,7 @@ We showed that $\overline{z}$ can be integreated, but the result depends on path
 	\end{center}
 \end{definition}
 \begin{theorem}
+	\label{theorem_CIT}
 	\underline{\textbf{Cauchy's Integral Theorem (Cauchy-Goursat Theorem)}}: 
 
 	If $f$ is analytic in a simply connected domain $D$, and $\mathcal{C}$ is a closed contour in $D$, then $$\int_{\mathcal{C}}f(z)dz = 0$$
@@ -3069,7 +3071,7 @@ We showed that $\overline{z}$ can be integreated, but the result depends on path
 What about $\int_{\mathcal{C}} \dfrac{1}{(z-z_0)^2} dz$ or other powers of $z-z_0$? 
 
 Consider $\int_{\mathcal{C}} (z-z_0)^n dz$ where $n \neq -1$. \begin{itemize}
-	\item If $z_0$ is external to $\mathcal{C}$, the integral is zero, by \textbf{Cauchy's Integral Theorem}. 
+	\item If $z_0$ is external to $\mathcal{C}$, the integral is zero, by \textbf{Cauchy's Integral Theorem} \ref{theorem_CIT}. 
 	\item If $z_0$ is internal to $\mathcal{C}$, deform $\mathcal{C}$ to the unit circle $|z - z_0| = 1$, parameterized by $z = z_0 + e^{it}$, $t \in [0,2\pi]$. We may use the radius $\epsilon$ if the circle is not small enough. The result would be the same. 
 	
 	Then \begin{align*}
@@ -3523,13 +3525,37 @@ In $\mathbb{R}$, we only saw a cross-section, the ``bad behaviour'' was missed.
 For series, we apply the above ideas to the sequence of partial sums: $S_n(x) = \sum_{k=0}^n f_k(x)$. AMATH231 covers more on this. 
 
 \begin{proposition}
-	\underline{\textbf{Manipulation of Taylor Series}}: a few known series regarding $$f(z) = \sum_{n=0}^\infty \dfrac{f^{(n)}(z_0)}{n!}(z-z_0)^n \;\;\;\; |z-z_0| < R$$
+	\underline{\textbf{Manipulation of Taylor Series}}: a few known series regarding $$f(z) = \sum_{n=0}^\infty \dfrac{f^{(n)}(z_0)}{n!}(z-z_0)^n \;\;\;\; |z-z_0| < R, \;\;\text{ (radius of convergence)}$$
 	$$\begin{dcases}
-		\dfrac{1}{1-z} = \sum_{n = 0}^\infty z^n & R = 1 \;\;\;\text{ radius of convergence}\\
+		\dfrac{1}{1-z} = \sum_{n = 0}^\infty z^n & R = 1 \\
 		e^z = \sum_{n = 0}^\infty \dfrac{1}{n!}z^n & R = \infty\\
 		\cos z = \sum_{n = 0}^\infty \dfrac{(-1)^n z^{2n}}{(2n)!} & R = \infty\\
-		\sin z = \sum_{n = 0}^\infty \dfrac{(-1)^n}{(2n+1)!}z^{2n+1} & R = \infty
+		\sin z = \sum_{n = 0}^\infty \dfrac{(-1)^n}{(2n+1)!}z^{2n+1} & R = \infty\\
+		\cosh z = \sum_{n = 0}^\infty \dfrac{z^{2n}}{(2n)!} & R = \infty\\
+		\sinh z = \sum_{n = 0}^\infty \dfrac{z^{2n+1}}{(2n+1)!}z^{2n+1} & R = \infty\\
+		(1+z)^\alpha = 1+\alpha z + \dfrac{\alpha(\alpha-1)}{2!}z^2 + \dfrac{\alpha(\alpha-1)(\alpha-2)}{3!} + \cdots & R = 1, \alpha \in \mathbb{C}
 	\end{dcases}$$
+	we can manipulate the series as follows: \begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Allowable operations on series with radius $R$ & Radius of Convergence of the result\\
+			\hline
+			Multiplication by $c \in \mathbb{C}$ & $R$\\
+			\hline
+			Substitution $z \rightarrow cz^k, k \in \mathbb{N}$ & \multirow{2}{*}{Get $|cz^k| < R$, so $|z| < \left(\frac{R}{|c|}\right)^{\frac{1}{k}}$}\\
+			$\uparrow$ Note: (use $z-z_0$ here if $z_0 \neq 0$) &\\
+			\hline
+			Differentiation & $R$\\
+			\hline
+			Antidifferentiation & $R$\\
+			\hline
+			Addition (series with radii $R_1, R_2$) & $\min(R_1, R_2)$\\
+			\hline
+			Multiplication (series with radii $R_1, R_2$) & \multirow{2}{*}{$\min(R_1, R_2)$}\\
+			$\uparrow$ Note: This is difficult since $\sum a_n \sum b_n \neq \sum a_n b_n$ &\\
+			\hline
+		\end{tabular}
+	\end{center}
 \end{proposition}
 \begin{example}
 	Expand $e^z$ about $z = i$. 
@@ -3543,4 +3569,482 @@ For series, we apply the above ideas to the sequence of partial sums: $S_n(x) = 
 	\textbf{\underline{Solution}}: $$\dfrac{1}{8+z^3} = \dfrac{1}{8} \cdot \dfrac{1}{1-\left(\frac{-z^3}{8}\right)} = \dfrac{1}{8} \sum_{n=0}^\infty \left(\dfrac{-z^3}{8}\right)^n = \sum_{n=0}^\infty \dfrac{(-1)^n z^{3n}}{2^{3n+3}}$$
 	Radius? $$\left|\dfrac{-z^3}{8}\right| < 1 \;\Rightarrow \; |z|^3 < 2^3 \; \Rightarrow \; |z| < 2$$ So $R = 2$
 \end{example}
+\begin{example}
+	Expand $\dfrac{1}{1+z}$ about $z = 1$. 
+
+	\textbf{\underline{Solution}}: Need powers of $z=1$: \begin{align*}
+		\dfrac{1}{1+z} &= \dfrac{1}{2+(z-1)}\\
+		&= \dfrac{1}{2} \cdot \dfrac{1}{1-(-\frac{z-1}{2})}\\
+		&=\dfrac{1}{2} \sum_{n=0}^\infty \left(-\dfrac{z-1}{2}\right)^n \;\;\text{ by known series}\\
+		&=\sum_{n=0}^\infty \dfrac{(-1)^n}{2^{n+1}}(z-1)^n
+	\end{align*}
+	which converges for $\left| -\dfrac{z-1}{2}\right| < 1 \Rightarrow |z-1| < 2$. So $R = 2$. 
+\end{example}
+\begin{example}
+	Expand $\dfrac{1}{(1-z)^2}$ about $z = 0$. 
+
+	\textbf{\underline{Solution}}: Key idea: $\dfrac{d}{dz}\left(\dfrac{1}{1-z}\right) = \dfrac{1}{(1-z)^2}$. So \begin{align*}
+		\dfrac{1}{(1-z)^2} &= \dfrac{d}{dz}\left(\dfrac{1}{1-z}\right)\\
+		&= \dfrac{d}{dz} \sum_{n=0}^\infty z^n \;\;\text{ by known series}\\
+		&= \sum_{n=1}^\infty nz^{n-1}\\
+		&= \sum_{n=0}^\infty (n+1)z^{n} \;\;\; \text{ for } |z| < 1
+	\end{align*}
+\end{example}
+\begin{example}
+	Expand $\dfrac{4}{z^2+2z-3}$ about $z = 0$. 
+
+	\textbf{\underline{Solution}}: \begin{align*}
+		\dfrac{4}{z^2+2z-3} &= \dfrac{1}{z-1} - \dfrac{1}{z+3}\\
+		&= \dfrac{-1}{1-z} - \dfrac{1}{3} \cdot \dfrac{1}{1-(\frac{-z}{3})}\\
+		&= \underbrace{-\sum_{n=0}^\infty z^n}_{|z| < 1} - \underbrace{\dfrac{1}{3} \cdot \sum_{n=0}^\infty \left(\dfrac{-z}{3}\right)^n}_{\left| \frac{-z}{3}\right| < 1 \;\Rightarrow \; |z| < 3}\\
+		&= \sum_{n=0}^\infty \left(-1-\dfrac{(-1)^n}{3^{n+1}}\right)z^n\;\;\;\text{ for } |z| < 1 \;\;\; (R = 1)
+	\end{align*}
+\end{example}
+\begin{example}
+	\begin{align*}
+		\dfrac{\sin z}{z} &= \dfrac{\sum_{n = 0}^\infty \dfrac{(-1)^n}{(2n+1)!}z^{2n+1}}{z}\\
+		&= 1-\dfrac{z^2}{3!} + \dfrac{z^4}{5!} - \cdots 
+	\end{align*}
+	for $|z| < \infty$, $z \neq 0$. 
+\end{example}
+\begin{definition}
+	\textbf{``$\sinc$'' Function}: $$\sinc z = \begin{dcases}
+		\dfrac{\sin z}{z} & \text{ for } z \neq 0\\
+		1 & \text{ for } z = 0
+	\end{dcases}$$
+\end{definition}
+\subsection{Laurent Series}
+What about series with $z^k, k \in \mathbb{Z}$? 
+\begin{example}
+	$$e^z = \sum_{n=0}^\infty \dfrac{1}{n!}z^n = 1+z+\dfrac{1}{2}z^2 + \cdots \;\; \text{ for } |z| < \infty$$
+	Consider $$e^{\frac{1}{z}} = \sum_{n=0}^\infty \dfrac{1}{n!}\left(\dfrac{1}{z}\right)^n = 1+\dfrac{1}{z}+\dfrac{1}{2}\dfrac{1}{z^2} + \cdots \;\; \text{ for } |z| > 0$$
+	Partial sums approximate $e^{\frac{1}{z}}$ well for \underline{large} $|z|$
+\end{example}
+\begin{example}
+	$$f(z) = \dfrac{3}{2+z-z^2} = \dfrac{1}{1+z} + \dfrac{1}{2-z}$$
+	\begin{align*}
+		\dfrac{1}{1+z} &= \begin{dcases}
+			\sum_{n=0}^\infty (-1)^nz^n & \text{ for } |z| < 1\\
+			\dfrac{\frac{1}{z}}{1+\frac{1}{z}} = \dfrac{1}{z} \cdot \sum_{n=0}^\infty (-1)^n\left(\dfrac{1}{z}\right)^n = \sum_{n=0}^\infty \dfrac{(-1)^n}{z^{n+1}} & \text{ for } |z| > 1
+		\end{dcases}\\
+		\dfrac{1}{2-z} &= \begin{dcases}
+			\dfrac{1}{2} \cdot \dfrac{1}{1-\frac{z}{2}} = \dfrac{1}{2} \sum_{n=0}^\infty \left(\dfrac{z}{2}\right)^n =\sum_{n=0}^\infty \dfrac{z^n}{2^{n+1}} & \text{ for } |z| < 2\\
+			\dfrac{-\frac{1}{z}}{1-\frac{2}{z}} = \dfrac{-1}{z} \sum_{n=0}^\infty \left(\dfrac{2}{z}\right)^n = \sum_{n=0}^{\infty} \dfrac{-2^n}{z^{n+1}} & \text{ for } |z| > 2
+		\end{dcases}
+	\end{align*}
+	\\\\
+	Put it all together $$f(z) = \begin{dcases}
+		\sum_{n=0}^\infty \left((-1)^n + \dfrac{1}{2^{n+1}}\right) z^n & \text{ if } |z| < 1\\
+		\sum_{n=0}^\infty \dfrac{(-1)^n}{z^{n+1}} + \sum_{n=0}^\infty \dfrac{z^n}{2^{n+1}} & \text{ if } 1 < |z| < 2\\
+		\sum_{n=0}^\infty \left((-1)^n - 2^n\right) \cdot \dfrac{1}{z^{n+1}}& \text{ if } |z| > 2
+	\end{dcases}$$
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw [line width=2pt,fill=black,fill opacity=0.35] (0,0) circle (1cm);
+			\draw [line width=2pt,fill=black,fill opacity=0.36] (0,0) circle (2cm);
+			\draw [->,line width=2pt] (-3,0) -- (3,0);
+			\draw [->,line width=2pt] (0,-3) -- (0,3);
+			\draw[color=black] (2.1,-0.33) node {$2$};
+			\end{tikzpicture}
+	\end{center}
+\end{example}
+\begin{definition}
+	Let $f$ be analytic in the annulus $r_1 < |z - z_0| < r_2$. For any $z$ in this domain, $f$ can be expressed as its \underline{\textbf{Laurent series}}: $$f(z) = \sum_{-\infty}^\infty c_n (z - z_0)^n$$ where $c_n = \dfrac{1}{2\pi i} \int_{\mathcal{C}} \dfrac{f(z)}{(z-z_0)^{n+1}} dz$ where $\mathcal{C}$ is a positively oriented circle centered at $z_0$, with radius $r \in (r_1, r_2)$. 
+
+	The convergence is uniform on any closed subannulus contained in the domain. 
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7]
+			\draw [shift={(0,0)},->,line width=2pt,dashed] (30:4) arc (30:390:4);
+			\draw [shift={(0,0)},->,line width=2pt] (-90:3) arc (-90:270:3);
+			\draw [shift={(0,0)},->,line width=2pt,dashed] (0:2) arc (0:360:2);
+			\draw [->,line width=2pt] (0,0) -> (1.5,1.3);
+			\draw [->,line width=2pt] (0,0) -> (-1, 3.9);
+			\filldraw[black] (0,0) circle (2pt) node[anchor=north west]{\large $z_0$};
+			\draw[black] (1,0.7) circle node[anchor=north west]{\large $r_1$};
+			\draw[black] (-1.5,3.3) circle node[anchor=north west]{\large $r_2$};
+		\end{tikzpicture}
+	\end{center}
+\end{definition}
+Note: if $f$ is analytic throughout the disc $|z - z_0| < r_2$, then $c_n = 0$ for $n \leq -1$ by Cauchy's Integral Theorem \ref{theorem_CIT}, and we just end up with the Taylor expansion.
+\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\draw [line width=0pt,fill=black,fill opacity=0.36] (0,0) circle (2cm);
+		\draw [line width=2pt,dashed] (0,0) circle (2cm);
+		\draw [line width=2pt,dashed] (0,0) circle (2cm);	
+		\filldraw[black] (0,0) circle (2pt);
+	\end{tikzpicture}
+\end{center}
+\subsection{Zeros and Singularities}
+\begin{definition}
+	A point where a function $f(z)$ is not analytic but which is the limit of points where $f$ is analytic is called a \textbf{\underline{singular point}} (or \textbf{\underline{singularity}})
+\end{definition} 
+\begin{example}
+	The poles of a rational function are singularities.
+\end{example}
+\begin{definition}
+	A point $z_0$ is called a \textbf{\underline{zero of order $m$}} if $f$ is analytic at $z_0$ and $f(z_0) = f'(z_0) = \cdots = f^{(m-1)}(z_0) = 0$ but $f^{(m)}(z_0) \neq 0$. If $m = 1$, we have a \textbf{\underline{simple zero}}
+\end{definition}
+\begin{example}
+	$f(z) = z \sin z^2$. About $z = 0$, we have $$f(z) = z \cdot (z^2 - \dfrac{1}{3!} (z^2)^2 + \cdots) = z^3 - \dfrac{1}{6}z^5 + \cdots $$
+	So $f(0) = 0, f'(0) = 0, f''(0) = 0$, but $f'''(0) \neq 0$. So $f$ has a zero of order 3 at $z_0 = 0$. 
+\end{example}
+\begin{theorem}
+	Suppose $f(z)$ is analytic at $z_0$. Then $f$ has a zero of order $m$ at $z_0$ if and only if it can be expressed in the form $$f(z) = (z-z_0)^mg(z)$$ where $g(z)$ is analytic at $z_0$ and $g(z_0) \neq 0$
+\end{theorem}
+\begin{proof}
+	\begin{align*}
+		f(z) &= \underbrace{0 + 0 + \cdots + 0}_{m \text{ terms}} + \underbrace{c_m}_{\neq 0}(z-z_0)^m + c_{m+1}(z-z_0)^{m+1} + \cdots \\
+		&= (z-z_0)^m \cdot \underbrace{(c_m + c_{m+1}(z-z_0) + c_{m+2}(z-z_0)^2 + \cdots)}_{\text{ analytic function }g(z)}
+	\end{align*}
+\end{proof}
+\begin{example}
+	$f(z) = z^{10}e^z$ has a zero of order 10 at $z = 0$ since $e^z$ is analytic and $e^0 \neq 0$. 
+\end{example}
+\begin{proposition}
+	Some results follows: 
+	\begin{enumerate}
+		\item If $f,g$ are analytic at $z_0$ with zeros of order $m$ and $n$ respectively, then $fg$ has zero of order $m+n$ at $z_0$. 
+		\item If $f$ is analytic at $z_0$, and $f(z_0) = 0$ then either $f(z) = 0$ in some neighborhood of $z_0$ or else there is a deleted neighborhood of $z_0$ in which $f$ has no zeroes. 
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\begin{enumerate}
+		\item Use the definition
+		\item Let $\sum_{n=0}^\infty c_n (z-z_0)^n$ be Taylor series of $f$ about $z_0$. We know this converges to $f(z)$ in some neighborhood $N_{\epsilon}$ of $z_0$. 
+		
+		If $c_n = 0$ for all $n$, then $f(z) = 0$ in $N_{\epsilon}$. 
+
+		If not, let $m$ be the smallest integer such that $c_m \neq 0$. Then $f$ has zero of order $m$ at $z_0$, so $$f(z) = (z-z_0)^mg(z)$$
+		where $g$ is analytic and $g(z_0) \neq 0$. But then $g$ is also continous, so there exist $N_\delta \subseteq N_\epsilon$ in which $g(z) \neq 0$. 
+		
+		Hence $f(z) \neq 0$ in $N_\delta$ except at $z_0$. 
+	\end{enumerate}
+\end{proof}
+\begin{definition}
+	$f(z)$ has an \textbf{\underline{isolated singularity}} at $z_0$ if $f$ is not analytic at $z_0$ but is analytic at every other point in some neighborhood of $z_0$
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw [line width=0pt,fill=black,fill opacity=0.36] (0,0) circle (2cm);
+			\draw [line width=2pt,dashed] (0,0) circle (2cm);
+			\draw [line width=2pt,dashed] (0,0) circle (2cm);	
+			\filldraw[black] (0,0) circle (2pt);
+		\end{tikzpicture}
+	\end{center}
+\end{definition}
+\begin{definition}
+	Suppose $f(z)$ has an isolated singularity at $z_0$ and Laurent series $\sum_{-\infty}^{\infty}c_n(z-z_0)^n$ for $0 < |z-z_0| < R$. \begin{enumerate}
+		\item If $c_n = 0$ for all $n < 0$, then $f$ has a \underline{\textbf{removable singularity}} at $z_0$
+		\item If $c_n = 0$ for all $n < -m$, ($m>0$), but $c_{-m} \neq 0$ (think about $\sum_{n=-m}^\infty c_n(z-z_0)^n$), then $f$ has a \underline{\textbf{pole of order $m$}} at $z_0$. If $m = 1$, we have a \underline{\textbf{``simple hole''}}
+		\item If $c_n \neq 0$ for infinitely many negative integers $n$, then $f$ has an \underline{\textbf{essential singularity}} at $z_0$. 
+	\end{enumerate}
+\end{definition}
+\begin{example}
+	\begin{itemize}
+		\item $f(z) = e^{\frac{1}{z}} = 1 + \dfrac{1}{z} + \dfrac{1}{2z^2} + \dfrac{1}{6z^3} + \cdots $ has essential singularity
+		\item $g(z) = \dfrac{\sin z}{z} = 1 - \dfrac{z^2}{6} + \dfrac{z^4}{5!} - \cdots $ has a removable singularity at $z = 0$. 
+		\item $h(z) = \dfrac{e^z}{z^3} = \dfrac{1}{z^3} + \dfrac{1}{z^2} + \dfrac{1}{2z} + \dfrac{1}{6} + \dfrac{1}{4!} z + \cdots$ has a pole of order 3 at $z = 0$. 
+	\end{itemize}
+\end{example}
+Note: Removable singularities can be ``removed'' by defining $$f(z_0) = \lim_{z \rightarrow z_0} f(z) , \;\text{ e.g. } \sinc z = \begin{dcases}
+	\dfrac{\sin z}{z} & z \neq 0\\
+	1 & z = 0
+\end{dcases}$$
+\begin{theorem}
+	For a pole of order $m$, $f(z) = \dfrac{c_{-m}}{(z-z_0)^m} + \dfrac{c_{-m+1}}{(z-z_0)^{m-1}} + \cdots$. So $$\lim_{z \rightarrow z_0} (z-z_0)^nf(z) = \begin{dcases}
+		\infty & \text{ if } n < m\\
+		c_{-m} & \text{ if } n = m\\
+		0 & \text{ if } n > m
+	\end{dcases}$$
+	which gives useful technique for classifying poles: keep multiplying by $z - z_0$ until the limit exists
+\end{theorem}
+\begin{corollary}
+	If $f$ has a pole of order $m$ at $z_0$, then the function $h(z) = (z-z_0)^mf(z)$ is analytic and non-zero at $z_0$. We may write $f(z) = \dfrac{h(z)}{(z-z_0)^m}$
+\end{corollary}
+\begin{corollary}
+	If $f$ is analytic and has a \underline{zero} of order $m$ at $z_0$, then $\dfrac{1}{f}$ has a \underline{pole} of order $m$ at $z_0$. 
+\end{corollary}
+\begin{example}
+	Find and classify isolated singularities: \begin{enumerate}
+		\item $\dfrac{1}{z^2+2z+1} = \dfrac{1}{(z+1)^2}$: $z = -1$ is a pole of order 2 by definition
+		\item $f(z) = \dfrac{\sin z}{z^3+z} = \dfrac{\sin z}{z(z^2+1)}$: singularities at $z= 0$ and $z = -1$. 
+		\begin{itemize}
+			\item $z= 0$: Try \begin{align*}
+				\lim_{z \rightarrow 0} (z-0)^0 \dfrac{\sin z}{z^3+z} &= \lim_{z \rightarrow 0} \dfrac{\cos z}{3z^2+1} \;\;\text{By L'Hopital's Rule}\\
+				&= 1
+			\end{align*} So $f$ has a removable singularity at $z = 0$
+			\item $z= -1$: Try $\lim_{z \rightarrow -1} (z-(-1))^0 \dfrac{\sin z}{z^3+z} = \dfrac{1}{2}\sin (1)$. 
+			% 	Try \begin{align*}
+			% 	\lim_{z \rightarrow -1} (z-(-1))^1 \dfrac{\sin z}{z^3+z} &= \lim_{z \rightarrow -1} (z+1) \dfrac{\sin z}{z^3+z}\\
+			% 	&= \lim_{z \rightarrow -1} \dfrac{\sin z}{z(z^2+1)}\\
+			% 	&= \dfrac{\sin (-1)}{-1}\\
+			% 	&= \sin 1\\
+			% 	&\neq 0
+			% \end{align*} 
+			% So $f$ has a pole of order 1 (``simple pole'') at $z = -1$
+			So $f$ has a removable singularity at $z = -1$
+		\end{itemize}
+	\end{enumerate}
+\end{example}
+\begin{example}
+	Locate and classify isolated singularities for $f(z) = \dfrac{e^{iz}-1}{z^4(z-2i)^6}$.
+
+	\textbf{\underline{Solution}}: \begin{itemize}
+		\item At $z = 2i$: $\left.\dfrac{e^{iz}-1}{z^4}\right|_{z=2i} \neq 0$, so $f$ has a pole of order 6 at $z = 2i$. 
+		\item At $z = 0$, $$\lim_{z \rightarrow 0} z^4\dfrac{e^{iz}-1}{z^4(z-2i)^6} = 0$$$$\lim_{z \rightarrow 0} z^3\dfrac{e^{iz}-1}{z^4(z-2i)^6} = \lim_{z \rightarrow 0} \dfrac{1-iz+\cdots -1}{z(z-2i)^6} \neq 0$$
+		So $z = 0$ is a pole of order 3. 
+	\end{itemize}
+\end{example}
+\begin{example}
+	Locate and classify isolated singularities for $f(z) = \dfrac{e^z - e}{\Log z}$.
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7]
+			\draw [->,line width=2pt] (-3,0) -> (3, 0);
+			\draw [->,line width=2pt] (0, -3) -> (0, 3);
+			\draw[black] (0,0) circle (2pt);
+			\draw[black] (-0.5,0) circle (2pt);
+			\draw[black] (-1,0) circle (2pt);
+			\draw[black] (-1.5,0) circle (2pt);
+			\draw[black] (-2,0) circle (2pt);
+			\draw[black] (-2.5,0) circle (2pt);
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: \begin{itemize}
+		\item $z = 0$ is not an \underline{isolated} singularity since it's a branch point. 
+		\item $z=1$ is an isolated singularity. $$\lim_{z \rightarrow 1} \dfrac{e^z - e}{\Log z} = \lim_{z \rightarrow 1}\dfrac{e^z}{1/z} = e \neq 0$$
+		So $z= 1$ is a removable singularity. 
+	\end{itemize}
+\end{example}
+\begin{example}
+	Locate and classify isolated singularities for $f(z) = \dfrac{e^z}{\Log z}$.
+
+	\textbf{\underline{Solution}}: Look at $z=1$ again. $\lim_{z \rightarrow 1} \dfrac{e^z}{\Log z} = ``\infty''$. $$\lim_{z \rightarrow 1} (z-1)\dfrac{e^z}{\Log z} = \lim_{z \rightarrow 1} \dfrac{e^z+(z-1)e^z}{1/z} = e \neq 0$$
+	So $z = 1$ is a pole of order 1, i.e. a simple pole. 
+
+	\textbf{\underline{Solution 2}}: Let $g(z) = \dfrac{1}{f(z)} = \dfrac{\Log z}{e^z}$. Then, $g(1) = 0$, and $$g'(1) = \left.\left(\dfrac{e^z\frac{1}{z} - \Log z \cdot e^z}{(e^z)^2}\right)\right|_{z=1} = \dfrac{1}{e} \neq 0$$
+	So $g$ has a simple zero at $z = 1$, implying $f$ has a simple pole at $z = 1$. 
+
+	\textbf{\underline{Solution 3}}: Look at the Laurent series. \begin{align*}
+		e^z &= e + e(z-1) + \dfrac{1}{2}e(z-1)^2 + \cdots\\
+		\Log z &= 0 + 1 \cdot (z-1) + \dfrac{1}{2} (-1) (z-1)^2 + \cdots
+	\end{align*}
+	So $\dfrac{e^z}{\Log z} \approx \dfrac{e}{z-1}$ for $z$ near 1, implying that $z=1$ is a simple pole. 
+\end{example}
+\begin{theorem}
+	\underline{\textbf{Picard's Theorem}}: The following two statements are equivalent (if and only if relationship): \begin{enumerate}
+		\item $z_0$ is an essential singularity of $f$
+		\item $f$ assumes every value in $\mathbb{C}$, except possibily one exception, infinitely many times in every neighborhood of $z_0$
+	\end{enumerate}
+\end{theorem}
+\begin{example}
+	Consider $f(z) = e^{\frac{1}{z}}$. 
+
+	Since $e^{\frac{1}{z}} = 1 + \left(\frac{1}{z}\right) + \frac{1}{2}\left(\frac{1}{z}\right)^2 + \cdots$, we have that $z=0$ is an essential singularity of $f$. 
+
+	Observe that $e^{\frac{1}{z}}$ near 0 ``mirrors'' $e^w$ near $w = \infty$. 
+
+	$e^w$ can take any value $\neq 0$, this is because, if we let $z = e^w, w = \Log z$ is defined for all $z$ (despite the branch cut). $e^w$ is periodic as well. 
+	\begin{center}
+		\begin{tikzpicture}
+			\draw [->,line width=2pt] (-3,0) -> (3, 0);
+			\draw [->,line width=2pt] (0, -3) -> (0, 3);
+			\draw [line width=2pt,dashed] (0,0) circle (2cm);
+			\draw[black] (2,0) circle node[anchor=north west]{\large $R$};
+			\draw [->,line width=2pt] (5,0.5) -> (2.5, 1.5);
+			\draw[black] (5,1) circle node[anchor=north west]{\normalsize $e^w$ attains any value infinitely many times };
+			\draw[black](5,0.5)circle node[anchor=north west]{\normalsize \textbf{outside} circle of radius $R$};
+			\draw [->,line width=2pt] (5,-2) -> (1, -1);
+			\draw[black] (5,-2) circle node[anchor=west]{\normalsize $e^{\frac{1}{z}}$ any value infinitely many times};
+			\draw[black](5,-2.5)circle node[anchor=north west]{\normalsize \textbf{inside} circle of radius $R$};
+		\end{tikzpicture}
+	\end{center}
+\end{example}
+We could say that ``$e^z$ has an essential singularity at $\infty$''. More generally, $f(z)$ has a pole of order $m$ at $\infty$ if and only if $f(\frac{1}{z})$ has a pole of order $m$ at 0. 
+\section{Residue Theory}
+\subsection{Residues}
+Why are we studying Laurent series? One reason is that: if $f(z)$ is analytic except at $z_0$, then \begin{align*}
+	\int_{\mathcal{C}}f(z) dz &= \int_{\mathcal{C}} \left(\cdots + \dfrac{c_{-2}}{(z-z_0)^2}+ \dfrac{c_{-1}}{z-z_0}+c_0 + c_1(z-z_0) + \cdots\right) dz\\
+	&= \cdots + 0 + c_{-1}\cdot 2\pi i + 0 + 0 + \cdots
+\end{align*}
+This result depends only on coefficient of $\dfrac{1}{z-z_0}$. 
+
+$c_{-1}$ is called the \textbf{\underline{residue of $f$ at $z_0$}}, denoted $\Res(f,z_0)$ or $\Res(z_0)$
+
+\begin{theorem}
+	Let $D$ be a simply-connected domain, and $\mathcal{C}$ be a simple, closed, positively-oriented contour in $D$. If $f$ is analytic inside and on $\mathcal{C}$, except at points $z_1, z_2, ..., z_n$ interior to $\mathcal{C}$, then $$\int_{\mathcal{C}}f(z)dz = 2\pi i \cdot \sum_{k=1}^n \Res(f, z_k)$$
+\end{theorem}
+\begin{proof}
+	Follows from the above result and the extended Cauchy-Goursat Theorem. 
+	\begin{center}
+		\begin{tikzpicture}[scale=0.6]
+			\draw [line width=2pt] (-0.74,0.48) circle (4.860658391617333cm);
+			\draw [line width=2pt] (-3.84,1.56) circle (1.3172699040060087cm);
+			\draw [line width=2pt] (0.44,-1.3) circle (2.1800917411888885cm);
+			\draw [->,line width=2pt] (-2.522885958256148,1.5397367070500947) -- (-2.5865247623295207,1.9649689229396934);
+			\draw [->,line width=2pt] (-0.3319852033317943,0.7388327164916617) -- (-1.0510544065335923,0.2904580336358318);
+			\draw [->,line width=2pt] (-5.337043401473921,-1.0989844726801725) -- (-4.8562346554474916,-2.1050749043873123);
+			\draw [->,line width=2pt] (4.008637445889633,-0.5575174251523569) -- (4.1174086846445075,0.6577100738284576);
+			\draw [fill=black] (-3.84,1.56) circle (2.5pt);
+			\draw [fill=black] (0.44,-1.3) circle (2.5pt);
+		\end{tikzpicture}
+	\end{center}
+\end{proof}
+\begin{example}
+	Evaluate $\int_{\mathcal{C}}e^{\frac{2i}{z}}dz$.
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw [->,line width=2pt] (-2,0) -- (2,0);
+			\draw [->,line width=2pt] (0,-2) -- (0,2);
+			\draw [shift={(0,0)},->,line width=2pt] (-360:1) arc (-360:0:1);
+			\draw [color=black] (0,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: $$e^{\frac{2i}{z}} = 1 + \left(\dfrac{2i}{z}\right) + \dfrac{1}{2!}\left(\dfrac{2i}{z}\right)^2 + \cdots$$ which implies $\Res(0) = 2i$
+
+	So $\int_{\mathcal{C}}e^{\frac{2i}{z}}dz = 2\pi i \cdot \Res(0) = 2\pi i \cdot 2i = -4\pi$
+\end{example}
+\begin{example}
+	Evaluate $\int_{\mathcal{C}}\dfrac{5z-3}{z(z-1)}dz$.
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw [->,line width=2pt] (-2,0) -- (2,0);
+			\draw [->,line width=2pt] (0,-2) -- (0,2);
+			\draw [shift={(0,0)},->,line width=2pt] (-360:1) arc (-360:0:1);
+			\draw [color=black] (0,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (0.5,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: Use partial fractions or $\int_{\mathcal{C}} = \int_{\mathcal{C}_1} + \int_{\mathcal{C}_2}$, use CIF on each part. 
+
+	\textbf{\underline{Solution 2}}: Series expansion of $f(z) = \dfrac{5z-3}{z(z-1)}$: \begin{itemize}
+		\item About $z=0$: \begin{align*}
+			&-\dfrac{5z-3}{z}\cdot \dfrac{1}{1-z}\\
+			=& (-5 + \dfrac{3}{z})(1+z+z^2+\cdots), \;\;\;\;\; |z| < 1\\
+			=& \dfrac{3}{z} + (3-5) + (3-5)z + \cdots\\
+			\Rightarrow & \Res(0) = 3
+		\end{align*}
+		\item About $z=1$: \begin{align*}
+			&\;\;\dfrac{1}{z-1} \cdot \left(\dfrac{5(z-1)+2}{1+(z-1)}\right)\\
+			=& \left(5+\dfrac{2}{z-1}\right) \left(\dfrac{1}{1-(-(z-1))}\right)\\
+			= & \left(5+\dfrac{2}{z-1}\right) \left(1-(z-1)+(z-1)^2 - \cdots \right) \;\;\;\; \text{for} |z-1| < 1\\
+			= & \dfrac{2}{z-1} + (5-2) + (5-2)(z-1) + \cdots \\
+			\Rightarrow & \Res(1) = 2
+		\end{align*}
+	\end{itemize}
+	So, by the residue theorem, $\int_{\mathcal{C}} f(z) = 2\pi i (3+2) = 10\pi i$
+\end{example}
+Actually, we do not need the whole series. Look for shortcuts: \begin{itemize}
+	\item If $f$ has a simple pole at $z_0$: \begin{align*}
+		& \;\;f(z) = \dfrac{c_{-1}}{z-z_0} + c_0 + c_1(z-z_0) + \cdots \\
+		\Rightarrow & (z-z_0)f(z) = c_{-1} + c_0 (z-z_0) + c_1(z-z_0)^2 + \cdots\\
+		\Rightarrow & \Res(f, z_0) = \lim_{z \rightarrow z_0} (z-z_0)f(z) = c_{-1}
+	\end{align*}
+	\item If $f$ has a pole of order $m$ at $z_0$: \begin{align*}
+		& \;\;f(z) = \dfrac{c_{-m}}{(z-z_0)^m} + \dfrac{c_{-m+1}}{(z-z_0)^{m-1}} + \cdots + \dfrac{c_{-1}}{z-z_0} + c_0 + c_1(z-z_0) + \cdots \\
+		\Rightarrow & (z-z_0)^mf(z) = c_{-m} + c_{-m+1}(z-z_0) + \cdots + c_{-1}(z-z_0)^{m-1}+c_0(z-z_0)^m + \cdots\\
+		\Rightarrow & \dfrac{d^{m-1}}{dz^{m-1}} \bigg((z-z_0)^{m}f(z)  \bigg) = 0+0+ \cdots + 0 + (m-1)! c_{-1} + const * (z-z_0) + \cdots
+	\end{align*}
+	Let $z \rightarrow z_0$, and rearrange to get $$\Res(f, z_0) = \lim_{z \rightarrow z_0} \left(\dfrac{1}{(m-1)!}\dfrac{d^{m-1}}{dz^{m-1}}((z-z_0)^{m}f(z))\right)$$
+	\item If $f$ has a removable singularity at $z=z_0$: $\Res(f, z_0) = 0$
+	\item If $f$ has an essential singularity at $z=z_0$: Need to find the Laurent series. There is no shortcut here. 
+\end{itemize}
+\begin{example}
+	Evaluate $\int_{\mathcal{C}} \dfrac{e^z}{z^4+z^2} dz$
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw [->,line width=2pt] (-2,0) -- (2,0);
+			\draw [->,line width=2pt] (0,-1.5) -- (0,2.5);
+			\draw [shift={(0,0.5)},->,line width=2pt] (-360:1) arc (-360:0:1);
+			\draw [color=black] (0,1)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (0,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (0,-1)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: $f(z) = \dfrac{e^z}{z^2(z+i)(z-i)}$. It has a simple pole at $z=i$, and pole of order $2$ at $z=0$. 
+	$$\Res(f, i) = \lim_{z \rightarrow i} (z-i)\cdot \dfrac{e^z}{z^2(z+i)(z-i)} = \dfrac{e^i}{-2i} = \dfrac{ie^i}{2}$$
+	$$\Res(f, 0) = \lim_{z \rightarrow 0} \dfrac{1}{(2-1)!} \dfrac{d}{dz} \left(z^2\cdot \dfrac{e^z}{z^2(z+i)(z-i)}\right) = \lim_{z \rightarrow 0} \dfrac{(z^2+1)e^z - e^z\cdot 2z}{(z^2+1)^2} = 1$$
+	By Residue Theorem, $$\int_{\mathcal{C}} \dfrac{e^z}{z^4+z^2} dz = 2\pi i \left(1+\dfrac{ie^i}{2}\right)$$
+\end{example}
+\begin{example}
+	Evaluate $\int_{\mathcal{C}} \dfrac{dz}{z^4+1}$
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw [->,line width=2pt] (-0.5,0) -- (2,0);
+			\draw [->,line width=2pt] (0,-0.5) -- (0,2);
+			\draw [->,line width=2pt] (0,0) -- (1,0);
+			\draw [->,line width=2pt] (1,0) -- (1,1);
+			\draw [->,line width=2pt] (1,1) -- (0,1);
+			\draw [->,line width=2pt] (0,1) -- (0,0);
+			\draw (1,0) node [anchor=north] {$1$};
+			\draw (0,1) node [anchor=east] {$i$};
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: $f(z) = \dfrac{1}{z^4+1}$. Poles at $z= (-1)^{\frac{1}{4}} = \left(e^{i(\pi + 2k\pi)}\right)^{\frac{1}{4}} = e^{i\left(\frac{\pi}{4}+k\frac{\pi}{2}\right)}$
+
+	The only relevant pole is $z_0 = e^{i\pi / 4} = \dfrac{1}{\sqrt{2}} + \dfrac{1}{\sqrt{2}}i$, a simple pole. 
+
+	Now, $\Res(f, z_0) = \lim_{z \rightarrow z_0} (z-z_0)\dfrac{1}{z^4+1} = \lim_{z \rightarrow z_0} \dfrac{1}{4z^3} = \dfrac{1}{4z_0^3} = \dfrac{1}{4}\left(e^{i\pi /4}\right)^3 = \dfrac{1}{4}e^{-i3\pi/4}$
+
+	Thus, $$\int_{\mathcal{C}} \dfrac{dz}{z^4+1} = 2\pi i \left(\dfrac{1}{4}e^{-3\pi/4}\right) = \dfrac{\pi}{2}i\left(\dfrac{-1}{\sqrt{2}}-\dfrac{1}{\sqrt{2}}i\right) = \dfrac{\pi}{2\sqrt{2}} - \dfrac{\pi}{2\sqrt{2}}i$$
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw [->,line width=2pt] (-2,0) -- (2,0);
+			\draw [->,line width=2pt] (0,-2) -- (0,2);
+			\draw [line width=2pt,dashed] (-1.5,-1.5) -- (1.5,1.5);
+			\draw [line width=2pt,dashed] (1.5,-1.5) -- (-1.5,1.5);
+			\draw [color=black] (-1.5,-1.5)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (1.5,1.5)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (1.5,-1.5)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (-1.5,1.5)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (0,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (0.5,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+		\end{tikzpicture}
+	\end{center}
+\end{example}
+\begin{example}
+	Evaluate $\int_{\mathcal{C}} \dfrac{dz}{(z+1)^3(z^2+4)}$
+	\begin{center}
+		\begin{tikzpicture}[scale=0.8]
+			\draw [->,line width=1pt] (-4,0) -- (4,0);
+			\draw [->,line width=1pt] (0,-3) -- (0,3);
+			\draw [rotate around={0:(0,0)},->,line width=1pt] (0,0) ellipse (3 and 2);
+			\draw [->,line width=1pt] (2.2,1.6) -- (1.7,2);	
+			\draw [color=black] (-1,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt) node[anchor=north]{$-1$};
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: \begin{align*}
+		\Res(-1) &= \lim_{z \rightarrow -1} \dfrac{d^2}{dz^2}\left((z+1)^3 \cdot \dfrac{1}{(z+1)^3(z^2+4)}\right)\\
+		&=\lim_{z \rightarrow -1} \dfrac{d^2}{dz^2}\left(\dfrac{1}{z^2+4}\right)\\
+		&= \dfrac{-1}{125}
+	\end{align*}
+	Thus, $\int_{\mathcal{C}} \dfrac{dz}{(z+1)^3(z^2+4)} = 2\pi i \left(\dfrac{-1}{125}\right) = \dfrac{-2\pi i}{125}$
+\end{example}
+\begin{example}
+	$f(z) = \dfrac{\tanh z}{z^2}$. Find $\Res(0)$ and $\Res(\frac{\pi}{2}i)$
+
+	\textbf{\underline{Solution}}: \begin{itemize}
+		\item At $z=0$: Pole of what order? $$f(z) = \dfrac{\tanh z}{z^2} = \dfrac{\sinh z}{z^2 \cosh z} = \dfrac{z + \frac{1}{3!}z^3 + \cdots}{z^2\cdot(1+\frac{1}{2!}z^2+\cdots)} \approx \dfrac{1}{z^2\cdot 1} = \dfrac{1}{z}$$
+		for $z \approx 0$. So it's a simple pole. By inspection, $\Res(0) = 1$. 
+		\item At $z=\frac{\pi}{2}i$: is a simple zero of $\cosh z$ (derivative $\neq 0$ at $\frac{\pi}{2}i$), and $\sinh \neq 0$ and $z^2 \neq 0$ at $\frac{\pi}{2}i$. So, $\frac{\pi}{2}i$ is a simple pole of $f(z)$. 
+		
+		So \begin{align*}
+			\Res\left(\frac{\pi}{2}i\right) &= \lim_{z \rightarrow \frac{\pi}{2}i} \left(z - \frac{\pi}{2}i\right) \dfrac{\sinh z}{z^2 \cdot \cosh z}\\
+			&= \lim_{z \rightarrow \frac{\pi}{2}i} \dfrac{\sinh z + (z-\frac{\pi}{2}i)\cosh z}{2z\cosh z + z^2 \sinh z}\\
+			&= \dfrac{\sinh(\frac{\pi}{2}i)+0}{0 + (\frac{\pi}{2}i)^2\sinh(\frac{\pi}{2}i)}\\
+			&= \dfrac{-4}{\pi^2}
+		\end{align*}
+	\end{itemize}
+\end{example}
+\begin{theorem}
+	Shortcut for simple poles: With $f(z) = \dfrac{P(z)}{Q(z)}$, in which $P(z)$ is analytic, $\neq 0$ at $z_0$, and $Q(z)$ has a simple zero at $z_0$, we know $\Res(f,z_0) = \dfrac{P(z_0)}{Q'(z_0)}$
+\end{theorem}
+\begin{proof}
+	$$\Res(f,z_0) = \lim_{z \rightarrow z_0} (z-z_0)\dfrac{P(z)}{Q(z)}= \lim_{z \rightarrow z_0} (z-z_0)\dfrac{(1)P(z) + (z-z_0)P(z)}{Q'(z)} = \dfrac{P(z_0)}{Q'(z_0)}$$
+\end{proof}
+We do not need to memorize the theorem. Just use L'Hopital's Rule. 
 \end{document}
