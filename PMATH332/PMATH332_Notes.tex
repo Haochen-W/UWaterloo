@@ -31,6 +31,10 @@
 \DeclareMathOperator\Log{Log}
 \DeclareMathOperator\sinc{sinc}
 \DeclareMathOperator\Res{Res}
+\DeclareMathOperator\cpv{cpv}
+\DeclareMathOperator\const{const}
+% \DeclareMathOperator\Re{Re}
+% \DeclareMathOperator\Im{Im}
 
 % algorithms
 \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
@@ -139,7 +143,7 @@ The Fundamentals: \begin{itemize}
 	\item Fix: intepret ``$\sqrt{\;\;\;}$'' differently for complex numbers - it must be multivalued, and define the imaginary unit $i$ by $i^2 = 1$
 \end{itemize}
 \begin{definition}
-	\underline{\textbf{Complex number}}: $$z = \underbrace{a}_{\text{``real part''} \;\; Re(z)} + i\underbrace{b}_{\text{``imaginary part''} \;\; Im(z) \text{ which is real!}} \;\; \text{ where } a, b \in \mathbb{R}$$
+	\underline{\textbf{Complex number}}: $$z = \underbrace{a}_{\text{``real part''} \;\; \Re(z)} + i\underbrace{b}_{\text{``imaginary part''} \;\; \Im(z) \text{ which is real!}} \;\; \text{ where } a, b \in \mathbb{R}$$
 	$\mathbb{C} = $ set of complex numbers. Note that $\mathbb{R} \subset \mathbb{C}$
 \end{definition}
 \begin{definition}
@@ -169,8 +173,8 @@ Note: We can't classify complex numbers as ``positive'' or ``negative'', and can
 		\item $\overline{\overline{z}} = z$
 		\item $\overline{z \pm w} = \overline{z} \pm \overline{w}$
 		\item $\overline{zw} = \overline{z} \;\overline{w}$ and $\overline{\bigg(\dfrac{z}{w}\bigg)} = \dfrac{(\overline{z})}{(\overline{w})}$
-		\item $z + \overline{z} = 2Re(z) \;\; \Rightarrow \;\; Re(z) = \frac{1}{2}(z + \overline{z})$
-		\item $z - \overline{z} = 2iIm(z) \;\; \Rightarrow \;\; Im(z) = \frac{1}{2i}(z - \overline{z})$
+		\item $z + \overline{z} = 2Re(z) \;\; \Rightarrow \;\; \Re(z) = \frac{1}{2}(z + \overline{z})$
+		\item $z - \overline{z} = 2iIm(z) \;\; \Rightarrow \;\; \Im(z) = \frac{1}{2i}(z - \overline{z})$
 		\item $z\overline{z} = a^2+b^2$ which is real!
 	\end{enumerate}
 \end{proposition}
@@ -209,8 +213,8 @@ Note: We can't classify complex numbers as ``positive'' or ``negative'', and can
 	\begin{tikzpicture}
 		\draw [->,line width=2pt] (0,-2) -- (0,3);
 		\draw [->,line width=2pt] (-3,0) -- (4,0);
-		\draw (0.3,3.86) node[anchor=north west] {Im$(z)$};
-		\draw (4.28,-0.02) node[anchor=north west] {Re$(z)$};
+		\draw (0.3,3.86) node[anchor=north west] {$\Im(z)$};
+		\draw (4.28,-0.02) node[anchor=north west] {$\Re(z)$};
 		\draw (2.9,-0.02) node[anchor=north west] {$a$};
 		\draw (-0.84,2.64) node[anchor=north west] {$b$};
 		\draw (3.66,2.62) node[anchor=north west] {$z=a+bi$};
@@ -250,11 +254,11 @@ Notes: \begin{itemize}
 				\draw [->,line width=1.2pt] (-4,0) -- (5,0);
 				\draw (-1.3,4) node[anchor=north west] {$3i$};
 				\draw (3.44,-0.1) node[anchor=north west] {$3$};
-				\draw (5,0.68) node[anchor=north west] {Re$(z)$};
-				\draw (0.48,4.04) node[anchor=north west] {Im$(z)$};
+				\draw (5,0.68) node[anchor=north west] {$\Re(z)$};
+				\draw (0.48,4.04) node[anchor=north west] {$\Im(z)$};
 			\end{tikzpicture}
 		\end{center}
-		\item $|z| = Im(z)$. Let $z = a+ib$. So, $\sqrt{a^2+b^2} = b$, which gives $a^2+b^2 = b^2$, so $a = 0, b \geq 0$
+		\item $|z| = \Im(z)$. Let $z = a+ib$. So, $\sqrt{a^2+b^2} = b$, which gives $a^2+b^2 = b^2$, so $a = 0, b \geq 0$
 		\begin{center}
 			\begin{tikzpicture}[scale=0.8]
 				\begin{axis}[
@@ -268,8 +272,8 @@ Notes: \begin{itemize}
 					ytick=\empty,]
 				\end{axis}
 				\draw [line width=3pt] (5,6)--(5,1);
-				\draw (5.2,6) node[anchor=north west] {Im$(z)$};
-				\draw (10,1.5) node[anchor=north west] {Re$(z)$};
+				\draw (5.2,6) node[anchor=north west] {$\Im(z)$};
+				\draw (10,1.5) node[anchor=north west] {$\Re (z)$};
 			\end{tikzpicture}
 		\end{center}
 		\item $|z-1| = |z+i|$. So 
@@ -293,8 +297,8 @@ Notes: \begin{itemize}
 					ytick=\empty,]
 				\end{axis}
 			\draw [line width=2pt] (2,8)--(8,2);
-			\draw (5.2,10) node[anchor=north west] {Im$(z)$};
-			\draw (10,5.5) node[anchor=north west] {Re$(z)$};
+			\draw (5.2,10) node[anchor=north west] {$\Im(z)$};
+			\draw (10,5.5) node[anchor=north west] {$\Re(z)$};
 			\end{tikzpicture}
 		\end{center}
 	\end{enumerate}
@@ -339,8 +343,8 @@ This is known as ``Triangle Inequality''. This also extends to $$|z_1 = z_2 + \c
 		\begin{tikzpicture}
 			\draw [->,line width=0.8pt] (-1,0) -- (5,0);
 			\draw [->,line width=0.8pt] (0,-1) -- (0,4);
-			\draw (0.4,4) node[anchor=north west] {Im$(z)$};
-			\draw (5,0) node[anchor=north west] {Re$(z)$};
+			\draw (0.4,4) node[anchor=north west] {$\Im(z)$};
+			\draw (5,0) node[anchor=north west] {$\Re(z)$};
 			\draw [line width=2pt] (0,0)-- (3.64,2.68);
 			\draw [shift={(0,0)},->,line width=0.8pt] (0:1.2) arc (0:36.362868584929245:1.2);
 			\draw (1.2,0.7) node[anchor=north west] {$\theta$};
@@ -364,8 +368,8 @@ Notes: \begin{itemize}
 		\begin{tikzpicture}[scale=1.5]
 			\draw [->,line width=0.8pt] (-2,0) -- (2,0);
 			\draw [->,line width=0.8pt] (0,-2) -- (0,2);
-			\draw (0,2) node[anchor=north west] {Im$(z)$};
-			\draw (2,0) node[anchor=north west] {Re$(z)$};
+			\draw (0,2) node[anchor=north west] {$\Im(z)$};
+			\draw (2,0) node[anchor=north west] {$\Re(z)$};
 			\draw [fill=black] (-1.5,-1.5) circle (1.5pt);
 			\draw [fill=black] (-1.5,0) circle (1pt);
 			\draw (-1.7,0.3) node[anchor=north west] {$-1$};
@@ -462,8 +466,8 @@ Notice that $$e^{i0} = e^{2\pi i} = e^{-2\pi i} = e^{4\pi i} = e^{-4\pi i} = \cd
 $$e^{(\pi / 2)i} = i \;\;\;\; e^{(-\pi/2) i}= -i \;\;\;\; e^{\pi i} = -1$$
 
 Also notice that \begin{align*}
-	\cos \theta &= Re(e^{i\theta}) = \dfrac{e^{i\theta} + e^{-i\theta}}{2} \\
-	\sin \theta &= Im(e^{i\theta}) = \dfrac{e^{i\theta} - e^{-i\theta}}{2i} 
+	\cos \theta &= \Re(e^{i\theta}) = \dfrac{e^{i\theta} + e^{-i\theta}}{2} \\
+	\sin \theta &= \Im(e^{i\theta}) = \dfrac{e^{i\theta} - e^{-i\theta}}{2i} 
 \end{align*}
 
 Hence, $$z_1z_2 = (r_1e^{i\theta_1})(r_2e^{i\theta_2}) = (r_1r_2)e^{i(\theta_1+\theta_2)}$$
@@ -562,16 +566,16 @@ Laws: \begin{enumerate}
 	\item Inductor: $V = L \dfrac{dI}{dt}$
 	\item Capacitor: $C\dfrac{dV}{dt} = I$
 \end{enumerate}
-Suppose the current is $$I(t) = \underbrace{I_0}_{\text{amplitude}}\cos \underbrace{\omega}_{\text{frequency}} t = Re(\underbrace{I_0e^{i\omega t}}_{\text{call it } \widetilde{I}(t)})$$
+Suppose the current is $$I(t) = \underbrace{I_0}_{\text{amplitude}}\cos \underbrace{\omega}_{\text{frequency}} t = \Re(\underbrace{I_0e^{i\omega t}}_{\text{call it } \widetilde{I}(t)})$$
 Then \begin{enumerate}
-	\item Law 1 tells us $V = (I_0\cos \omega t)(R) = Re(\widetilde{I}(t)\cdot R)$. So ``complex voltage'' is \begin{tcolorbox}[hbox, before=\par\smallskip\centering]
+	\item Law 1 tells us $V = (I_0\cos \omega t)(R) = \Re(\widetilde{I}(t)\cdot R)$. So ``complex voltage'' is \begin{tcolorbox}[hbox, before=\par\smallskip\centering]
 		$\tilde{V} = R\widetilde{I}$
 	\end{tcolorbox}
 	\item Law 2 tells us \begin{align*}
 		V&= L\cdot (-\omega I_0\sin\omega t)\\
-		&=-\omega LI_0\cdot \underbrace{Re(e^{i(\omega t - \dfrac{\pi}{2})})}_{= \cos(\omega t - \dfrac{\pi}{2}) = \sin \omega t}\\
-		&=Re(-\omega L I_0 e^{i\omega t} e^{-i \dfrac{\pi}{2}})\\
-		&=Re(i\omega LI_0e^{i\omega t})
+		&=-\omega LI_0\cdot \underbrace{\Re(e^{i(\omega t - \dfrac{\pi}{2})})}_{= \cos(\omega t - \dfrac{\pi}{2}) = \sin \omega t}\\
+		&=\Re(-\omega L I_0 e^{i\omega t} e^{-i \dfrac{\pi}{2}})\\
+		&=\Re(i\omega LI_0e^{i\omega t})
 	\end{align*}
 	So \begin{tcolorbox}[hbox, before=\par\smallskip\centering]
 		$\widetilde{V} = i\omega L\widetilde{I}$
@@ -579,8 +583,8 @@ Then \begin{enumerate}
 	\item Law 3 tells us \begin{align*}
 		V &= \dfrac{1}{C}\int I(t)\\
 		&= \dfrac{I_0}{C\omega} \sin \omega t\\
-		&=Re(\dfrac{I_0}{C\omega}e^{i(\omega t - \dfrac{\pi}{2})})\\
-		&=Re(\dfrac{I_0}{iC\omega}e^{i\omega t})
+		&=\Re(\dfrac{I_0}{C\omega}e^{i(\omega t - \dfrac{\pi}{2})})\\
+		&=\Re(\dfrac{I_0}{iC\omega}e^{i\omega t})
 	\end{align*}
 	So \begin{tcolorbox}[hbox, before=\par\smallskip\centering]
 		$\widetilde{V} = \dfrac{1}{iC\omega}\widetilde{I}$
@@ -800,7 +804,7 @@ Combining the components: \begin{itemize}
 		&=5I_0(1-2i)e^{it}\\
 		&=5I_0\sqrt{5}e^{i\arctan -2} e^{it}
 	\end{align*}
-	So, $V(t) = Re(\widetilde{V}(t)) \approx 5\sqrt{5} I_0 \cos(t-1.107)$
+	So, $V(t) = \Re(\widetilde{V}(t)) \approx 5\sqrt{5} I_0 \cos(t-1.107)$
 	\begin{center}
 		\begin{tikzpicture}[scale=1.5][line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 			\begin{axis}[
@@ -1065,7 +1069,7 @@ We can think of it as a mapping.
 			\end{center}
 			
 			Note that $f(z) = (re^{i\theta})^2 = r^2e^{i2\theta}$ (angle is doubled)
-			\item the strip $1 \leq Re(z) \leq 2$
+			\item the strip $1 \leq \Re(z) \leq 2$
 			
 			With $1 \leq x \leq 2$, the boundaries become: \begin{itemize}
 				\item $x = 1 \Rightarrow \begin{dcases}
@@ -1146,7 +1150,7 @@ We can think of it as a mapping.
 			u = x\\
 			v = -y
 		\end{dcases}$. This is a reflection on $y$-axis. 
-		\item Find image of half-plane $Re(z) \geq 1$ under the map $\omega = f(z) = iz-3i$. 
+		\item Find image of half-plane $\Re(z) \geq 1$ under the map $\omega = f(z) = iz-3i$. 
 		
 		We can do this step by step. First it's a rotation of $\dfrac{\pi}{2}$ (comes from the first $i$), then its a shift down 3 units. 
 
@@ -1574,7 +1578,7 @@ Notes: \begin{itemize}
 \begin{definition}
 	\underline{\textbf{Polynomials}}: 
 	$$p(z) = a_0 + a_1z + a_2z^2 + \cdots + a_nz^n \;,\;\;\; a_i\in \mathbb{C}$$
-	There are obviously \underline{\textbf{entire}}. 
+	They are obviously \underline{\textbf{entire}}. 
 
 	The fundamental theorem of algebra guarantees that we can factor this as $$p(z) = a_n(z-z_1)(z-z_2) \cdots (z-z_n)$$
 	Note that $z_i$ are not necessarily distinct. 
@@ -1733,7 +1737,7 @@ The $\cosh x$ and $\cos y$ are the even parts, and $\sinh x$ and $i\sin y$ are t
 Familiar identities hold true. 
 \begin{example}
 	\begin{align*}
-		\cos^4 \theta &= (\dfrac{e^{i\theta} + e^{-i\theta}}{2})^4\\
+		\cos^4 \theta &= \left(\dfrac{e^{i\theta} + e^{-i\theta}}{2}\right)^4\\
 		&=\dfrac{1}{16}(e^{i4\theta} + 4e^{2\theta} + 6 + 4e^{-i2\theta} + e^{-i4\theta})\\
 		&=\dfrac{1}{8} \cos 4 \theta + \dfrac{1}{2}\cos 2\theta + \dfrac{3}{8}
 	\end{align*}
@@ -1886,7 +1890,7 @@ How to define $\log z$? Let $z = e^w$ and solve for $w$. Note that: \begin{itemi
 	\begin{itemize}
 		\item $\Log(1+i) = \ln |1+i| + i\Arg (1+i) = \ln \sqrt{2} + i \dfrac{\pi}{4}$
 		\item $\Log(i) = \ln |i| + i\Arg (i) = 0 + i \pi$
-		\item $\Log e^z = z$ if and only if $Im(z) \in (-\pi, \pi]$
+		\item $\Log e^z = z$ if and only if $\Im(z) \in (-\pi, \pi]$
 		\item $\Log z$ has discontinuity on negative real axis
 		\begin{center}
 			\begin{tikzpicture}
@@ -2132,7 +2136,7 @@ as expected.
 
 	In $\mathbb{C}$, we define $\sinh^{-1}z = \log(z + \sqrt{z^2+1})$. 
 
-	Similarly, $\sin^{-1}z = -i \log (iz + (1-z^2)^{\frac{1}{2}})$. Note that for this fefinition, it involves two sets of branches, one with $\log$, and the other one with $(1-z^2)^{\frac{1}{2}}$
+	Similarly, $\sin^{-1}z = -i \log (iz + (1-z^2)^{\frac{1}{2}})$. Note that for this definition, it involves two sets of branches, one with $\log$, and the other one with $(1-z^2)^{\frac{1}{2}}$
 \end{definition}
 \section{Complex Integration}
 \subsection{Contours}
@@ -2144,10 +2148,10 @@ Complex values functions of a real variable are easy to integrate: $$\int_a^b \b
 		\item $$\int_0^1(t+i)^2 dt \int_0^1 \bigg((t^2-1)+i(2t)\bigg)dt = \dfrac{-2}{3}+2i$$
 		\item We can use a special trick (instead of using integration by parts twice). 
 		\begin{align*}
-			\int_0^\pi e^{2\pi}\cos x dx &= \int_0^\pi e^2x(Re(e^ix))dx\\
-			&=Re \bigg(\int_0^\pi e^{(2+i)\pi}\bigg)\\
-			&=Re \bigg(\left.\dfrac{e^{(2+i)}}{2+i} \right\vert_{0}^{\pi} \bigg)\\
-			&=Re \bigg(\left.\dfrac{e^{2x}(\cos x + i\sin x)}{2+i} \cdot \dfrac{2-i}{2-i}\right\vert_{0}^{\pi}\bigg)\\
+			\int_0^\pi e^{2\pi}\cos x dx &= \int_0^\pi e^2x(\Re(e^{ix}))dx\\
+			&=\Re \bigg(\int_0^\pi e^{(2+i)\pi}\bigg)\\
+			&=\Re \bigg(\left.\dfrac{e^{(2+i)}}{2+i} \right\vert_{0}^{\pi} \bigg)\\
+			&=\Re \bigg(\left.\dfrac{e^{2x}(\cos x + i\sin x)}{2+i} \cdot \dfrac{2-i}{2-i}\right\vert_{0}^{\pi}\bigg)\\
 			&=\bigg[\left.\dfrac{2}{5}e^{2x}\cos x + \dfrac{1}{5}e^{2x}\sin x \bigg]\right\vert_{0}^{\pi}\\
 			&=-\dfrac{2}{5}e^{-2\pi} + \dfrac{2}{5}
 		\end{align*}
@@ -3091,7 +3095,7 @@ Thus for an interioir point $z_0$ in $\mathcal{C}$ \begin{tcolorbox}[hbox, befor
 
 	\textbf{\underline{Solution}}: Note that $z^4+z^3-2z^2 = z^2(z^2+z-2) = z^2(z-1)(z+2)$. These give us the location of the singularities. 
 
-	Note the partial fractions: $$\dfrac{3z^3+2}{z^4+z^3-2z^2} = \dfrac{-1/2}{z} + \dfrac{-1}{z} + \dfrac{5/3}{z-1} + \dfrac{11/6}{z+2}$$
+	Note the partial fractions: $$\dfrac{3z^3+2}{z^4+z^3-2z^2} = \dfrac{-1/2}{z} + \dfrac{-1}{z^2} + \dfrac{5/3}{z-1} + \dfrac{11/6}{z+2}$$
 	\begin{center}
 		\begin{tikzpicture}[scale=1.5]
 			\draw [->,line width=2pt] (-4,0) -- (4,0);
@@ -3192,8 +3196,8 @@ From CIF, we know $$f(z_0) = \dfrac{1}{2\pi i} \int_{\mathcal{C}} \dfrac{f(z)}{z
 So the value of $f$ at any point \underline{inside} $\mathcal{C}$ is determined by the values of $f$ \underline{on} $\mathcal{C}$
 \begin{proposition}
 	\underline{\textbf{Mean Value Property}}: If $\mathcal{C}$ is a circle of radius $R$ centered at $z_0$: \begin{align*}
-		f(z_0) &= \dfrac{1}{2\pi i} \int_{0}^{2\pi} \dfrac{f\bigg(\overbrace{z_0+Re^{it}}^{z(t)}\bigg)}{z_0+Re^{it} - z_0} \overbrace{\left(iRe^{it}\right)}^{z'(t)} \;\; \text{ by parameterizing circle}\\
-		&= \dfrac{\int_{0}^{2\pi}f\left(z_0 + Re^{it}\right)}{2\pi - 0}\\
+		f(z_0) &= \dfrac{1}{2\pi i} \int_{0}^{2\pi} \dfrac{f\bigg(\overbrace{z_0+\Re^{it}}^{z(t)}\bigg)}{z_0+\Re^{it} - z_0} \overbrace{\left(iRe^{it}\right)}^{z'(t)} \;\; \text{ by parameterizing circle}\\
+		&= \dfrac{\int_{0}^{2\pi}f\left(z_0 + \Re^{it}\right)}{2\pi - 0}\\
 		&= \text{ averge value of } f \text{ on the circle, recall that } \dfrac{\int_{a}^{b}f(x)dx}{b-a} = \overline{f}
 	\end{align*}
 \end{proposition}
@@ -3532,7 +3536,7 @@ For series, we apply the above ideas to the sequence of partial sums: $S_n(x) = 
 		\cos z = \sum_{n = 0}^\infty \dfrac{(-1)^n z^{2n}}{(2n)!} & R = \infty\\
 		\sin z = \sum_{n = 0}^\infty \dfrac{(-1)^n}{(2n+1)!}z^{2n+1} & R = \infty\\
 		\cosh z = \sum_{n = 0}^\infty \dfrac{z^{2n}}{(2n)!} & R = \infty\\
-		\sinh z = \sum_{n = 0}^\infty \dfrac{z^{2n+1}}{(2n+1)!}z^{2n+1} & R = \infty\\
+		\sinh z = \sum_{n = 0}^\infty \dfrac{z^{2n+1}}{(2n+1)!} & R = \infty\\
 		(1+z)^\alpha = 1+\alpha z + \dfrac{\alpha(\alpha-1)}{2!}z^2 + \dfrac{\alpha(\alpha-1)(\alpha-2)}{3!} + \cdots & R = 1, \alpha \in \mathbb{C}
 	\end{dcases}$$
 	we can manipulate the series as follows: \begin{center}
@@ -3734,7 +3738,7 @@ Note: if $f$ is analytic throughout the disc $|z - z_0| < r_2$, then $c_n = 0$ f
 \begin{definition}
 	Suppose $f(z)$ has an isolated singularity at $z_0$ and Laurent series $\sum_{-\infty}^{\infty}c_n(z-z_0)^n$ for $0 < |z-z_0| < R$. \begin{enumerate}
 		\item If $c_n = 0$ for all $n < 0$, then $f$ has a \underline{\textbf{removable singularity}} at $z_0$
-		\item If $c_n = 0$ for all $n < -m$, ($m>0$), but $c_{-m} \neq 0$ (think about $\sum_{n=-m}^\infty c_n(z-z_0)^n$), then $f$ has a \underline{\textbf{pole of order $m$}} at $z_0$. If $m = 1$, we have a \underline{\textbf{``simple hole''}}
+		\item If $c_n = 0$ for all $n < -m$, ($m>0$), but $c_{-m} \neq 0$ (think about $\sum_{n=-m}^\infty c_n(z-z_0)^n$), then $f$ has a \underline{\textbf{pole of order $m$}} at $z_0$. If $m = 1$, we have a \underline{\textbf{``simple pole''}}
 		\item If $c_n \neq 0$ for infinitely many negative integers $n$, then $f$ has an \underline{\textbf{essential singularity}} at $z_0$. 
 	\end{enumerate}
 \end{definition}
@@ -4047,4 +4051,941 @@ Actually, we do not need the whole series. Look for shortcuts: \begin{itemize}
 	$$\Res(f,z_0) = \lim_{z \rightarrow z_0} (z-z_0)\dfrac{P(z)}{Q(z)}= \lim_{z \rightarrow z_0} (z-z_0)\dfrac{(1)P(z) + (z-z_0)P(z)}{Q'(z)} = \dfrac{P(z_0)}{Q'(z_0)}$$
 \end{proof}
 We do not need to memorize the theorem. Just use L'Hopital's Rule. 
+\subsection{Application to Real Integrals}
+Consider $$\int_{0}^{2\pi} F(\cos \theta, \sin \theta) d\theta$$The key idea is to view it as a parameterized form of a contour integral. 
+
+Let $z=e^{i\theta}, 0 \leq \theta \leq 2\pi$, i.e. a unit circle. \begin{center}
+	\begin{tikzpicture}[scale=1.2]
+		\draw [->,line width=2pt] (-2,0) -- (2,0);
+		\draw [->,line width=2pt] (0,-1.5) -- (0,1.5);
+		\draw [shift={(0,0)},->,line width=2pt] (-360:1) arc (-360:0:1);
+	\end{tikzpicture}
+\end{center}
+
+Then $dz = ie^{i\theta} d\theta$, so $d\theta = \dfrac{dz}{iz}$. 
+
+Also, $\cos \theta = \dfrac{e^{i\theta} + e^{-i\theta}}{2} = \dfrac{z+z^{-1}}{2}$, $\sin \theta = \dfrac{e^{i\theta}-e^{-i\theta}}{2i} = \dfrac{z-z^{-1}}{2i}$. 
+
+\begin{example}
+	Evaluate $\int_{0}^{2\pi} \dfrac{1}{8+\sin\theta} d\theta$
+
+	\textbf{\underline{Solution}}: Using the above substitution, we get $$I = \int_{0}^{2\pi} \dfrac{1}{8+\sin\theta} d\theta = \int_{\mathcal{C}}\dfrac{1}{8 + \frac{1}{2i}(z-\frac{1}{z})} \dfrac{dz}{iz} = \int_{\mathcal{C}} \dfrac{2}{z^2+16iz-1}dz$$
+	\begin{center}
+		\begin{tikzpicture}[scale=1.2]
+			\draw [->,line width=2pt] (-2,0) -- (2,0);
+			\draw [->,line width=2pt] (0,-1.5) -- (0,1.5);
+			\draw [shift={(0,0)},->,line width=2pt] (-360:1) arc (-360:0:1);
+			\draw [color=black] (0,-0.3)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+		\end{tikzpicture}
+	\end{center}
+	Poles at $z = \dfrac{-16i \pm \sqrt{-16^2+4}}{2} = -8i \pm \sqrt{63}i$. Only $(-8+\sqrt{63})i$ is inside $\mathcal{C}$, and $\Res(f, (-8+\sqrt{63})i) = \cdots = \dfrac{-i}{\sqrt{63}}$, so by the residue theorem, we have $I = 2\pi i \cdot \left(\dfrac{-i}{\sqrt{63}}\right) = \dfrac{2\pi}{\sqrt{63}}$.
+\end{example}
+Generalize the process above, we may see that $$\int_{0}^{2\pi} \dfrac{1}{k+\sin\theta} = \dfrac{2\pi}{\sqrt{k^2-1}}, \;\;\; k > 1$$
+
+\begin{example}
+	Evaluate $\int_{0}^{\pi} \dfrac{\cos \theta}{5+4\cos\theta} d\theta$
+
+	\textbf{\underline{Solution}}: Let $I = \int_{0}^{\pi} \dfrac{\cos \theta}{5+4\cos\theta} d\theta$. We want to have $\int_{0}^{2\pi}$. Notice that\begin{align*}
+		\int_{0}^{\pi} F(\cos \theta) d\theta &= \dfrac{1}{2} \int_{-\pi}^{\pi} F(\cos \theta) d\theta \;\;\text{ by symmetry}\\
+		&=\dfrac{1}{2} \int_{0}^{2\pi} F(\cos \theta) d\theta \;\;\text{ by periodicity}
+	\end{align*}
+	So, \begin{align*}
+		I = \dfrac{1}{2} \int_{0}^{2\pi} \dfrac{\cos \theta}{5+4\cos \theta} d\theta &= \dfrac{1}{2} \int_{|z| = 1} \dfrac{\frac{1}{2}(z+z^{-1})}{5+4(z+z^{-1})/2} \dfrac{dz}{iz}\\
+		&= \dfrac{1}{2i} \int_{|z|=1} \dfrac{z+\frac{1}{z}}{10z+4(z^2+1)} dz\\
+		&=\dfrac{-i}{2} \int_{|z|=1} \dfrac{z^2+1}{4z^3+10z^2+4z} dz\\
+		&= \dfrac{-i}{4} \int_{|z|=1} \dfrac{z^2+1}{z(2z^2+5z+2)}dz\\
+		&= \dfrac{-i}{4} \int_{|z|=1} \dfrac{z^2+1}{z(2z+1)(z+2)} dz
+	\end{align*}
+	\begin{center}
+		\begin{tikzpicture}[scale=1.2]
+			\draw [->,line width=2pt] (-2,0) -- (2,0);
+			\draw [->,line width=2pt] (0,-1.5) -- (0,1.5);
+			\draw [shift={(0,0)},->,line width=2pt] (-360:1) arc (-360:0:1);
+			\draw [color=black] (0,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (-0.5,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+			\draw [color=black] (-1.6,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0) -- ++(5pt,-5pt);
+		\end{tikzpicture}
+	\end{center}
+	Two simple poles inside $|z| = 1$: \begin{itemize}
+		\item $z = 0$: $\Res(0) = \lim_{z\rightarrow 0}(z-0) \cdot \dfrac{z^2+1}{z(2z+1)(z+2)} = \dfrac{1}{2}$
+		\item $z = -\dfrac{1}{2}$: $\Res\left(-\dfrac{1}{2}\right) = \lim_{z\rightarrow -\frac{1}{2}}\left(z+\dfrac{1}{2}\right) \cdot \dfrac{z^2+1}{z(2z+1)(z+2)} = \dfrac{5/4}{-3/2} = \dfrac{-5}{6}$
+	\end{itemize}
+	So by Residue Theorem $$I = \dfrac{-i}{4} \cdot 2\pi i \cdot \left(\dfrac{1}{2} - \dfrac{5}{6}\right) = \dfrac{\pi}{2}\cdot \left(-\dfrac{1}{3}\right) = \dfrac{-\pi}{6}$$
+\end{example}
+\begin{example}
+	Evaluate $\int_{0}^{2\pi} \dfrac{\cos 2\theta}{5-4\sin\theta} d\theta$
+
+	\textbf{\underline{Solution}}: Let $I = \int_{0}^{2\pi} \dfrac{\cos 2\theta}{5-4\sin\theta} d\theta$. 
+
+	Let $z = e^{i\theta}$, so $dz = izd\theta$, and \begin{align*}
+		I &= \int_{0}^{2\pi} \dfrac{(e^{i2\theta} + e^{-i2\theta})/2}{5-4(e^{i\theta - e^{-i\theta}})/2i} d\theta\\
+		&= i \int_{|z|=1} \dfrac{z^2+z^{-2}}{10i-4(z-z^{-1})} \dfrac{dz}{iz}\\
+		&= \int_{\mathcal{C}} \dfrac{z^4+1}{-4z^4+10iz^3+4z^2} dz\\
+		&= \dfrac{-1}{2} \int_{\mathcal{C}} \dfrac{z^4+1}{z^2(2z^2-5iz-2)} dz\\
+		&= \dfrac{-1}{2} \int_{\mathcal{C}} \dfrac{z^4+1}{z^2(2z-i)(z-2i)}dz
+ 	\end{align*}
+	$z=2i$ is not inside $\mathcal{C}$. So we consider \begin{itemize}
+		\item $z = 0$: \begin{align*}
+			\Res(0) &= \lim_{z \rightarrow 0} \left(\dfrac{d}{dz} \left(z^2 \cdot \dfrac{z^4+1}{z^2 (2z-i)(z-2i)}\right)\right)\\
+			&= \lim_{z \rightarrow 0} \dfrac{(2z-i)(z-2i)(4z^3) - (z^4+1)(4z-5i)}{(2z-i)^2(z-2i)^2}\\
+			&= \dfrac{5i}{4}
+		\end{align*}
+		\item $z = \dfrac{i}{2}$: \begin{align*}
+			\Res\left(\dfrac{i}{2}\right) &= \lim_{z \rightarrow \frac{i}{2}} \left(z-\dfrac{i}{2}\right) \dfrac{z^4+1}{z^2(2z-i)(z-2i)}\\
+			&= \dfrac{17/16}{\frac{-1}{4}\cdot 2\cdot \left(\frac{-3}{2} i\right)}\\
+			&=\dfrac{4}{3i} \cdot \dfrac{17}{16}\\
+			&=\dfrac{17}{12i}
+		\end{align*}
+	\end{itemize}
+	So $I = \dfrac{-1}{2} \cdot 2\pi i \left(\dfrac{5i}{4} + \dfrac{17}{12i}\right) = -\pi \cdot \left(\dfrac{17}{12} - \dfrac{15}{12}\right) = \dfrac{-\pi}{6}$. 
+\end{example}
+\subsection{Integral From $-\infty$ to $\infty$}
+Recall that $\int_{-\infty}^{\infty}f(x)dx = \int_{-\infty}^{a}f(x)dx + \int_{a}^{\infty}f(x)dx$ Both term must exist. So, $\int_{-\infty}^{\infty}x dx$ is technically divergent in this case. 
+
+\begin{definition}
+	The \textbf{\underline{Cauchy Principle Value}} of $\int_{-\infty}^{\infty}f(x)dx$ is $\lim_{t \rightarrow \infty} \int_{-t}^{t}f(x)dx$
+\end{definition}
+\begin{example}
+	The Cauchy Principle Value (cpv) of $\int_{-\infty}^{\infty}xdx$ is 0. 
+	\begin{center}
+		\begin{tikzpicture}[scale=1.2]
+			\draw [->,line width=1pt] (-2,0) -- (2,0);
+			\draw [->,line width=1pt] (0,-2) -- (0,2);
+			\draw [line width=2pt] (-1.5,-1.5) -- (1.5,1.5);
+			\draw [line width=1pt] (0.2,0) -- (0.2,0.2);
+			\draw [line width=1pt] (0.4,0) -- (0.4,0.4);
+			\draw [line width=1pt] (0.6,0) -- (0.6,0.6);
+			\draw [line width=1pt] (0.8,0) -- (0.8,0.8);
+			\draw [line width=1pt] (1,0) -- (1,1);
+			\draw [line width=1pt] (-1.2,0) -- (-1.2,-1.2);
+			\draw [line width=1pt] (-0.2,0) -- (-0.2,-0.2);
+			\draw [line width=1pt] (-0.4,0) -- (-0.4,-0.4);
+			\draw [line width=1pt] (-0.6,0) -- (-0.6,-0.6);
+			\draw [line width=1pt] (-0.8,0) -- (-0.8,-0.8);
+			\draw [line width=1pt] (-1,0) -- (-1,-1);
+			\draw [line width=1pt] (-1.2,0) -- (-1.2,-1.2);
+			\draw [color=black] (-1.2,0) node[anchor = south]{$-t$};
+			\draw [color=black] (1.1,0) node[anchor = north]{$t$};
+		\end{tikzpicture}
+	\end{center}
+\end{example}
+\begin{theorem}
+	If $\int_{-\infty}^{\infty} f(x)dx$ is convergent, then $\int_{-\infty}^{\infty}f(x)dx = \cpv\int_{-\infty}^{\infty}f(x)dx$
+\end{theorem}
+\begin{proof}
+	Idea: interpret the real axis as part of a large contour: 
+	\begin{center}
+		\begin{tikzpicture}[scale=1.2]
+			\draw [->,line width=1pt] (-2,0) -- (2,0);
+			\draw [->,line width=1pt] (0,-0.5) -- (0,1.5);
+			\draw [shift={(0,0)},->,line width=2pt] (360:1) arc (0:180:1);
+			\draw [->,line width=2pt] (-1,0) -- (0,0);
+			\draw [->,line width=2pt] (0,0) -- (1,0);
+			\node at (-1,-0.3) {$-R$};
+			\node at (1,-0.3) {$R$};
+			\node at (1,1) {$\mathcal{C}_R$};
+		\end{tikzpicture}
+	\end{center}
+	Then \begin{align*}
+		\int_{\mathcal{C}}f(z)dz &= \int_{\mathcal{C}_x}f(z)dz + \int_{\mathcal{C}_R}f(z)dz\\
+		&= \int_{-R}^Rf(x)dx + \int_{\mathcal{C}_R}f(z)dz
+	\end{align*}
+	So \begin{equation*}
+		\label{eq:imporper_int}
+		\cpv\int_{-\infty}^{\infty}f(x)dx = \lim_{R \rightarrow \infty}\left[\underbrace{\int_{\mathcal{C}}f(z)dz}_{\text{we know how to compute it}} - \underbrace{\int_{\mathcal{C}_R}f(z)dz}_{\text{approaches 0 under certain conditions}}\right]
+	\end{equation*}
+\end{proof}
+Integrals of form $$\int_{-\infty}^{\infty}\dfrac{P(x)}{Q(x)}dx$$ where $P(x)$, $Q(x)$ are polynomials. 
+
+Idea: We want $\dfrac{P(x)}{Q(x)} \rightarrow 0$ fast enough as $R \rightarrow 0$ to ``more than'' counter the lengthening of the contour. Need $\deg(P) < \deg(Q)$? -1? -2? 
+
+If $\deg Q - \deg P \geq 2$, then $\lim_{|z| \rightarrow \infty} \dfrac{zP(z)}{Q(z)} = 0$. So for any $\epsilon > 0$, choose $R$ large enough such that $\left| \dfrac{zP(z)}{Q(z)}\right| < \dfrac{\epsilon}{\pi}$ when $|z| = R$. So $\left|\dfrac{P(z)}{Q(z)}\right| \leq \dfrac{\epsilon}{\pi |z|} = \dfrac{\epsilon}{\pi R}$ on $\mathcal{C}_R$. 
+
+Thus, $\left|\int_{\mathcal{C}_R}\dfrac{P(z)}{Q(z)}dz\right| \leq \dfrac{\epsilon}{\pi R} = \epsilon$, and we have shown $$\lim_{R \rightarrow \infty}\int_{\mathcal{C}_R}\dfrac{P(z)}{Q(z)}dz = 0$$
+From the result above and the residue theorem, we now have $$\int_{-\infty}^{\infty}\dfrac{P(x)}{Q(x)}dx = 2\pi i \sum \Res(f, \text{ upper half plane}), \;\;\;\;\text{ if } \deg Q - \deg P \geq 2$$
+\begin{example}
+	Evaluate $\int_{-\infty}^{\infty} \dfrac{1}{(x^2+1)(x^2+4)}dx$
+
+	\textbf{\underline{Solution}}: $$f(z) = \dfrac{1}{(z^2+1)(z^2+4)} = \dfrac{1}{(z-i)(z+i)(z-2i)(z+2i)}$$
+	$$\Res(f, i) = \lim_{z \rightarrow i} (z-i)f(z) = \dfrac{1}{(2i)(-i)(3i)} = \dfrac{1}{6i}$$
+	$$\Res(f, 2i) = \dfrac{1}{(i)(3i)(4i)} = \dfrac{-1}{12i}$$
+	So $I = 2\pi i \cdot \left(\dfrac{1}{6i}-\dfrac{1}{12i}\right) = \dfrac{\pi}{6}$
+\end{example}
+\begin{example}
+	Evaluate $\int_{0}^{\infty} \dfrac{1}{x^6+1} dx$
+
+	\textbf{\underline{Solution}}: By symmetry, $\int_{0}^{\infty} \dfrac{1}{x^6+1} dx = \dfrac{1}{2}\int_{-\infty}^{\infty} \dfrac{1}{x^6+1} dx$. 
+
+	With $f(z) = \dfrac{1}{z^6+1}$, poles are $(-1)^{1/6} = \left(e^{i(\pi + 2k\pi)}\right)^{1/6} = e^{i(\frac{\pi}{6}+k\pi/3)} = e^{i\pi/6}, e^{i\pi/2}, e^{i5\pi/6}$ in upper half plane. 
+
+	All simple poles, so \begin{align*}
+		\Res(e^{i\pi/6}) &= \lim_{z\rightarrow e^{i\pi/6}} (z-e^{i\pi 6}) \dfrac{1}{z^6+1} = \lim_{\rightarrow e^{i\pi/6}} \dfrac{1}{6z^5} = \dfrac{1}{6} e^{-i5\pi/6}\\
+		\Res(i) &= \cdots = \lim_{z \rightarrow i} \dfrac{1}{6z^5} = \dfrac{1}{6i}\\
+		\Res(e^{i5\pi/6}) &= \cdots = \dfrac{1}{6}e^{-i25\pi / 6} = \dfrac{1}{6}e^{-i\pi/6}
+	\end{align*}
+	Thus \begin{align*}
+		\int_{0}^{\infty} \dfrac{1}{x^6+1} dx &= \dfrac{1}{2} 2\pi i \cdot \left(\dfrac{1}{6} e^{-i5\pi/6} + \dfrac{1}{6i} + \dfrac{1}{6}e^{-i\pi/6} \right)\\
+		&= \dfrac{\pi i}{6} \left(\cos \dfrac{5\pi}{6} - i\sin \dfrac{5\pi }{6} + \dfrac{1}{i} + \cos \dfrac{\pi}{6} - i\sin \dfrac{\pi}{6}\right)\\
+		&= \dfrac{\pi i}{6} \left(-2i\sin \dfrac{\pi}{6} + \dfrac{1}{i}\right)\\
+		&= \dfrac{\pi i}{6} (-i -i)\\
+		&= \dfrac{\pi}{3}
+	\end{align*}
+	\begin{center}
+		\begin{tikzpicture}[scale=1.5]
+			\draw [->,line width=1pt] (-2,0) -- (2,0);
+			\draw [->,line width=1pt] (0,-1) -- (0,2);
+			\draw [shift={(0,0)},line width=2pt] (0,0) -- (0:1.4116731711233967) arc (0:30:1.4116731711233967) -- cycle;
+			\draw [shift={(0,0)},line width=2pt] (0,0) -- (0:0.9175875612302079) arc (0:150:0.9175875612302079) -- cycle;
+			\draw [shift={(0,0)},line width=2pt] (0,0) -- (150:0.7058365855616984) arc (150:180:0.7058365855616984) -- cycle;
+			\draw [shift={(0,0)},->,line width=2pt] (0:1.4116731711233967) arc (0:30:1.4116731711233967);
+			\draw [shift={(0,0)},->,line width=2pt] (0:0.9175875612302079) arc (0:150:0.9175875612302079);
+			\draw [line width=2pt] (0,0)-- (2.1718152126618198,1.2358038869808756);
+			\draw [line width=2pt] (0,0)-- (-1.6395121452758774,0.9513764722094057);
+			\draw[color=black] (0.1,1.5) node {$\frac{\pi}{6}$};
+			\draw[color=black] (1.6,0.5) node {$\frac{5\pi}{6}$};
+			\draw[color=black] (-1.2,0.3) node {$\frac{\pi}{6}$};
+		\end{tikzpicture}
+	\end{center}
+\end{example}
+Integrals of the form $\int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)} \cos \alpha x dx$: 
+
+We can change the above $\cos \alpha x$ to be $\sin \alpha x$. 
+
+Note that $|\sin z|$ and $\cos z$ grow exponentially as $\Im z \rightarrow \infty$
+
+Wrtie $\int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)} \cos \alpha x dx = \Re\left(\int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)}e^{i\alpha x}dx\right)$ (or with $\Im()$ for $\sin \alpha x$)
+
+\begin{theorem}
+	\underline{\textbf{Jordan's Lemma}}: Let $P(z)$, $Q(z)$ be polynomials with $deg Q - \deg P \geq 1$, then $$\lim_{R \rightarrow \infty} \int_{\mathcal{C}_R} \dfrac{P(x)}{Q(x)}e^{i\alpha x} dz = 0$$
+\end{theorem}
+\begin{proof}
+	Ideas: Similar to the previous one, but more complicated. The key ideas are $$|e^{i \alpha z}| = |e^{i\alpha(x+iy)}| = |e^{i\alpha x - \alpha y}| = e^{-\alpha y}$$
+	So $e^{i\alpha z} \rightarrow 0$ exponentially as $\Im(z) \rightarrow \infty$. 
+	
+	Meanwhile, as $\Re(z) \rightarrow \infty$, $|e^{i\alpha z}| \rightarrow 1$ for $y \approx 0$ so need $\dfrac{P}{Q} \rightarrow 0$ as $x \rightarrow \infty$. 
+
+	Now we have \begin{align*}
+		\cpv \int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)}\cos \alpha x dx &= \lim_{R \rightarrow \infty} \int_{-R}^{R} \dfrac{P(x)}{Q(x)} \cos \alpha x dx\\
+		&= \lim_{R \rightarrow \infty} \Re \left(\int_{-R}^{R}\dfrac{P(x)}{Q(x)}e^{i\alpha x} \right)\\
+		&= \Re \left(\lim_{R \rightarrow \infty} \int_{\mathcal{C}} \dfrac{P(z)}{Q(z)}e^{i\alpha z}dz - \underbrace{\int_{\mathcal{C}_R} \dfrac{P(z)}{Q(z)}e^{i\alpha z}dz}_{\rightarrow 0 \text{ by the lemma}} \right)\\
+		&= \Re\left(2\pi i \cdot \sum \Res\left(\dfrac{P(z)}{Q(z)}e^{i\alpha z, \text{ upper-half plane}}\right)\right)
+	\end{align*}
+	For $\sin \alpha x$, just change $\Re$ to be $\Im$. 
+\end{proof}
+\begin{example}
+	Evaluate $\cpv \int_{-\infty}^{\infty} \dfrac{x\sin x}{x^2+4}dx$
+
+	Note: this might not converge in the usual sense. $\left|\dfrac{x \sin x}{x^2+4}\right| \approx \left|\dfrac{1}{x}\right|$ as $x \rightarrow \infty$ (but sort of alternating). 
+
+	\underline{\textbf{Solution}}: Let $f(z) = \dfrac{ze^{iz}}{z^2+4}$. Poles at $z=2i$. $z=-2i$ is not in the upper half plane, so we ignore. 
+
+	$\Res(2i) = \lim_{z \rightarrow 2i} (z-2i) \dfrac{z e^{iz}}{(z+2i)(z-2i)} = \dfrac{2i e^{i(2i)}}{4i} = \dfrac{1}{2}e^{-2}$. 
+
+	Thus, $\cpv \int_{-\infty}^{\infty} \dfrac{x\sin x}{x^2+4}dx = \Im \left(2\pi i \cdot \dfrac{1}{2}e^{-2}\right) = \dfrac{\pi}{e^2}$. 
+\end{example}
+\begin{example}
+	Evaluate $\int_{-\infty}^{\infty} \dfrac{\cos 3x}{x^4+4}dx$
+
+	Note: this would converge in the usual sense, so $\cpv \int = \int$ by comparison test. 
+
+	\textbf{\underline{Solution}}: Let $f(z) = \dfrac{e^{i3z}}{z^4+4}$. Poles at $\left(4e^{i (\pi + 2k\pi)}\right)^{\frac{1}{4}} = \sqrt{2}e^{i\pi/4}, \sqrt{2}e^{i3\pi/4}, ... = 1+i, -1+i$ (others not on the upper half plane, so not of interest)
+	\begin{align*}
+		\Res(1+i) &= \lim_{z \rightarrow 1+i} (z-(1+i)) \dfrac{e^{i3z}}{z^4+4}\\
+		&= \lim_{z \rightarrow 1+i} \dfrac{(1)e^{i3z} - (z-(1+i))(\cdots)}{4z^3} \;\;\text{ by L'Hospitals Rule}\\
+		&= \dfrac{e^{i(1+i)}}{4(1+i)^3}\\
+		&= \dfrac{1}{4} e^{-3}e^{3i} \left(\sqrt{2}e^{i\pi/4}\right)^{-3}\\
+		&= \dfrac{1}{4e^3} \cdot \dfrac{e^{3i}}{2\sqrt{2}} \left(\cos \dfrac{3\pi}{4} - i\sin \dfrac{3\pi}{4}\right)\\
+		&= \dfrac{1}{8\sqrt{2}e^3}\left(\dfrac{-1}{\sqrt{2}} -\dfrac{i}{\sqrt{2}}\right) (\cos 3 + i \sin 3)\\
+		&= \dfrac{1}{16e^3} \left[(-\cos 3 + \sin 3) + i(-\cos 3 - \sin 3)\right]
+	\end{align*}
+	Similarly, $Res(-1+i) = \dfrac{1}{16e^3} \left[(\cos 3 - \sin 3) + i(-\cos 3 - \sin 3)\right]$. 
+
+	Thus, \begin{align*}
+		\int_{-\infty}^{\infty} \dfrac{\cos 3x}{x^4+4}dx &= \Re\left(2\pi i \cdot \left(\dfrac{-i}{8e^3}(\cos 3 + \sin 3)\right)\right)\\
+		&= \dfrac{\pi}{4e^3}(\cos 3 + \sin 3)
+	\end{align*}
+\end{example}
+Note that in general, $$\int_{-\infty}^{\infty} \dfrac{\cos kx}{x^4+4}dx = \dfrac{\pi}{4} \cdot \dfrac{\cos k + \sin k}{e^k}, \;\;\; k > 0$$
+e.g. $\int_{-\infty}^{\infty} \dfrac{\cos 100\pi x}{x^4+4}dx = \dfrac{\pi}{4}e^{-100\pi}$
+\subsection{Very Improper Integrals}
+Consider $\int_{-\infty}^{\infty} \dfrac{x}{x^3-8} dx$. This one does not converge in the usual sense. \begin{center}
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+		\begin{axis}[
+			x=1cm,y=1cm,
+			axis lines=middle,
+			xmin=-1.5,
+			xmax=5,
+			ymin=-2,
+			ymax=2,
+			xtick=\empty,
+			ytick=\empty,]
+			\draw [line width=1pt] (0.5,-0.5) -- (0.5,0.5) node[anchor = west]{$a$};
+			\draw [line width=1pt] (4,-0.5) -- (4,0.5) node [anchor = west]{$c$};
+			\draw [line width=1pt] (4,-0.5) -- (4,0.5) node [anchor = west]{$c$};
+			\draw  (2.5,-0.5) node [anchor = west]{$b=2$};
+			\draw[line width=2pt,color=blue,smooth,samples=100,domain=-1.3439180884170492:6.405280137720002] plot(\x,{(\x)/((\x)^(3)-8)});
+			\draw[line width=0.4pt,dash pattern=on 1pt off 1pt,fill=blue,fill opacity=0.5](2.0000285966234452,2.30817163919324)--(2.0000285488426908,0)--(6.405280137720002,0)--(6.405280137720002,0.025139425426404634)--(6.405280137719998,0.025139425426404634)--(6.399307521374185,0.02518828146648636)--(6.368358509400403,0.0254454354389698)--(6.337409497426622,0.02570666748792648)--(6.30646048545284,0.02597206731600204)--(6.275511473479058,0.026241727195883913)--(6.244562461505276,0.02651574206226124)--(6.213613449531497,0.026794209607767416)--(6.182664437557715,0.027077230383109344)--(6.151715425583934,0.027364907901594605)--(6.120766413610152,0.02765734874829077)--(6.08981740163637,0.02795466269405377)--(6.058868389662589,0.028256962814684147)--(6.027919377688806,0.028564365615486725)--(5.996970365715025,0.028876991161513706)--(5.966021353741241,0.02919496321380772)--(5.93507234176746,0.029518409371965322)--(5.904123329793678,0.029847461223372566)--(5.873174317819896,0.03018225449946914)--(5.842225305846115,0.03052292923945347)--(5.811276293872333,0.030869629961822825)--(5.780327281898551,0.031222505844215088)--(5.74937826992477,0.031581710912006025)--(5.718429257950988,0.031947404236182565)--(5.6874802459772065,0.03231975014102288)--(5.656531234003425,0.03269891842215671)--(5.625582222029643,0.033085084575629524)--(5.594633210055862,0.033478430038611014)--(5.56368419808208,0.033879142442466564)--(5.532735186108298,0.034287415878923866)--(5.501786174134517,0.03470345118015602)--(5.470837162160735,0.03512745621362104)--(5.439888150186953,0.03555964619259762)--(5.408939138213172,0.036000244003390865)--(5.37799012623939,0.036449480550272716)--(5.3470411142656085,0.036907595119299814)--(5.316092102291827,0.03737483576221911)--(5.285143090318045,0.03785145970178616)--(5.2541940783442636,0.03833773375990456)--(5.223245066370481,0.03883393481010688)--(5.192296054396699,0.03934035025601768)--(5.161347042422918,0.03985727853756354)--(5.130398030449136,0.040385029666839094)--(5.0994490184753545,0.04092392579568161)--(5.068500006501573,0.04147430181717908)--(5.037550994527791,0.04203650600351544)--(5.00660198255401,0.042610900682751224)--(4.975652970580228,0.04319786295735717)--(4.944703958606446,0.04379778546754888)--(4.913754946632665,0.04441107720273975)--(4.882805934658883,0.045038164364693316)--(4.851856922685101,0.045679491286294456)--(4.82090791071132,0.04633552141017208)--(4.789958898737538,0.04700673833180386)--(4.7590098867637565,0.04769364691213109)--(4.728060874789975,0.04839677446518245)--(4.697111862816193,0.049116672026694314)--(4.666162850842412,0.049853915710279056)--(4.63521383886863,0.05060910815830337)--(4.604264826894848,0.051382880095321014)--(4.573315814921067,0.052175891992651435)--(4.542366802947285,0.05298883585353984)--(4.511417790973503,0.05382243712925173)--(4.480468778999722,0.054677456777499286)--(4.44951976702594,0.055554693475730006)--(4.418570755052158,0.0564549860031105)--(4.387621743078377,0.057379215806447774)--(4.356672731104595,0.05832830976690784)--(4.3257237191308135,0.059303243186169294)--(4.294774707157032,0.06030504301267067)--(4.26382569518325,0.061334791330858084)--(4.232876683209469,0.0623936291388753)--(4.201927671235687,0.06348276044300787)--(4.170978659261905,0.06460345670040292)--(4.140029647288124,0.06575706164524231)--(4.109080635314342,0.06694499653766298)--(4.0781316233405605,0.06816876587940422)--(4.047182611366779,0.06942996364546974)--(4.016233599392997,0.07073028008714109)--(3.9852845874192147,0.07207150916858385)--(3.9543355754454326,0.07345555670715342)--(3.923386563471651,0.07488444929653967)--(3.8924375514978693,0.07636034410223014)--(3.8614885395240877,0.07788553963067207)--(3.830539527550306,0.07946248758721541)--(3.7995905155765244,0.0810938059537416)--(3.7686415036027427,0.08278229343521859)--(3.737692491628961,0.08453094544565043)--(3.7067434796551795,0.08634297182864158)--(3.675794467681398,0.08822181653660481)--(3.644845455707616,0.0901711795263711)--(3.6138964437338346,0.09219504116848555)--(3.582947431760053,0.09429768951396479)--(3.5519984197862713,0.096483750817121)--(3.5210494078124897,0.0987582237779305)--(3.490100395838708,0.1011265180444242)--(3.4591513838649264,0.10359449760727303)--(3.4282023718911443,0.10616852982831537)--(3.3972533599173627,0.10885554097620613)--(3.366304347943581,0.11166307930056944)--(3.3353553359697994,0.11459938686726465)--(3.3044063239960177,0.11767348160941082)--(3.273457312022236,0.12089525133162925)--(3.2425083000484545,0.12427556175114969)--(3.211559288074673,0.12782638108522346)--(3.180610276100891,0.1315609242205333)--(3.1496612641271096,0.13549382015402583)--(3.118712252153328,0.13964130721111948)--(3.0877632401795467,0.14402146157282958)--(3.056814228205765,0.14865446593926435)--(3.0258652162319826,0.15356292680472564)--(2.994916204258201,0.15877225092872702)--(2.963967192284419,0.16431109430577298)--(2.933018180310638,0.17021190046682586)--(2.902069168336856,0.17651154956551748)--(2.8711201563630744,0.18325214579956328)--(2.8401711443892927,0.19048197883671059)--(2.809222132415511,0.19825670582800453)--(2.7782731204417295,0.20664081541049992)--(2.747324108467948,0.21570945544432288)--(2.716375096494166,0.2255507344814448)--(2.6854260845203846,0.23626864669712144)--(2.654477072546603,0.24798682665891528)--(2.6235280605728213,0.2608534222560237)--(2.5925790485990396,0.27504749457894695)--(2.561630036625258,0.2907875337527285)--(2.5306810246514764,0.30834295452959276)--(2.4997320126776947,0.3280498634191254)--(2.468783000703913,0.3503330713987154)--(2.4378339887301315,0.3757374425544571)--(2.40688497675635,0.4049735495004299)--(2.3759359647825677,0.4389858802335251)--(2.344986952808787,0.47905775815098167)--(2.314037940835005,0.5269783022701848)--(2.2830889288612233,0.5853189059444278)--(2.252139916887441,0.6579133343011592)--(2.2366654109005504,0.7013020906883415)--(2.2211909049136596,0.7507408725927214)--(2.2057163989267687,0.8075944227407392)--(2.190241892939878,0.8736715105439705)--(2.174767386952987,0.9514215100748568)--(2.1670301339595417,0.9956874732628532)--(2.1592928809660963,1.0442455574346683)--(2.151555627972651,1.0977530273378744)--(2.1438183749792055,1.1570085867535147)--(2.13608112198576,1.222992587940402)--(2.1283438689923146,1.2969217853179542)--(2.1206066159988692,1.3803251647636832)--(2.1167379895021465,1.4261683203536828)--(2.112869363005424,1.4751509617350673)--(2.109000736508701,1.527607347429888)--(2.1051321100119784,1.5839209357214514)--(2.1012634835152557,1.6445337826862125)--(2.097394857018533,1.7099581800241235)--(2.0935262305218103,1.7807911812178443)--(2.0896576040250876,1.8577328884182438)--(2.085788977528365,1.9416096871773998)--(2.0838546642800035,1.9864486907934276)--(2.081920351031642,2.033404064637533)--(2.079986037783281,2.0826293467438965)--(2.0780517245349195,2.1342932953345923)--(2.076117411286558,2.1885818227142337)--(2.074183098038197,2.2457002317207126)--(2.0722487847898354,2.3058758114342415)--(2.07217883367445,2.30817163919324);
+			\draw[line width=0.4pt,dash pattern=on 1pt off 1pt,fill=blue,fill opacity=0.5](2.0000285966234452,2.30817163919324)--(2.0000285488426908,0)--(6.405280137720002,0)--(6.405280137720002,0.025139425426404634)--(6.405280137719998,0.025139425426404634)--(6.399307521374185,0.02518828146648636)--(6.368358509400403,0.0254454354389698)--(6.337409497426622,0.02570666748792648)--(6.30646048545284,0.02597206731600204)--(6.275511473479058,0.026241727195883913)--(6.244562461505276,0.02651574206226124)--(6.213613449531497,0.026794209607767416)--(6.182664437557715,0.027077230383109344)--(6.151715425583934,0.027364907901594605)--(6.120766413610152,0.02765734874829077)--(6.08981740163637,0.02795466269405377)--(6.058868389662589,0.028256962814684147)--(6.027919377688806,0.028564365615486725)--(5.996970365715025,0.028876991161513706)--(5.966021353741241,0.02919496321380772)--(5.93507234176746,0.029518409371965322)--(5.904123329793678,0.029847461223372566)--(5.873174317819896,0.03018225449946914)--(5.842225305846115,0.03052292923945347)--(5.811276293872333,0.030869629961822825)--(5.780327281898551,0.031222505844215088)--(5.74937826992477,0.031581710912006025)--(5.718429257950988,0.031947404236182565)--(5.6874802459772065,0.03231975014102288)--(5.656531234003425,0.03269891842215671)--(5.625582222029643,0.033085084575629524)--(5.594633210055862,0.033478430038611014)--(5.56368419808208,0.033879142442466564)--(5.532735186108298,0.034287415878923866)--(5.501786174134517,0.03470345118015602)--(5.470837162160735,0.03512745621362104)--(5.439888150186953,0.03555964619259762)--(5.408939138213172,0.036000244003390865)--(5.37799012623939,0.036449480550272716)--(5.3470411142656085,0.036907595119299814)--(5.316092102291827,0.03737483576221911)--(5.285143090318045,0.03785145970178616)--(5.2541940783442636,0.03833773375990456)--(5.223245066370481,0.03883393481010688)--(5.192296054396699,0.03934035025601768)--(5.161347042422918,0.03985727853756354)--(5.130398030449136,0.040385029666839094)--(5.0994490184753545,0.04092392579568161)--(5.068500006501573,0.04147430181717908)--(5.037550994527791,0.04203650600351544)--(5.00660198255401,0.042610900682751224)--(4.975652970580228,0.04319786295735717)--(4.944703958606446,0.04379778546754888)--(4.913754946632665,0.04441107720273975)--(4.882805934658883,0.045038164364693316)--(4.851856922685101,0.045679491286294456)--(4.82090791071132,0.04633552141017208)--(4.789958898737538,0.04700673833180386)--(4.7590098867637565,0.04769364691213109)--(4.728060874789975,0.04839677446518245)--(4.697111862816193,0.049116672026694314)--(4.666162850842412,0.049853915710279056)--(4.63521383886863,0.05060910815830337)--(4.604264826894848,0.051382880095321014)--(4.573315814921067,0.052175891992651435)--(4.542366802947285,0.05298883585353984)--(4.511417790973503,0.05382243712925173)--(4.480468778999722,0.054677456777499286)--(4.44951976702594,0.055554693475730006)--(4.418570755052158,0.0564549860031105)--(4.387621743078377,0.057379215806447774)--(4.356672731104595,0.05832830976690784)--(4.3257237191308135,0.059303243186169294)--(4.294774707157032,0.06030504301267067)--(4.26382569518325,0.061334791330858084)--(4.232876683209469,0.0623936291388753)--(4.201927671235687,0.06348276044300787)--(4.170978659261905,0.06460345670040292)--(4.140029647288124,0.06575706164524231)--(4.109080635314342,0.06694499653766298)--(4.0781316233405605,0.06816876587940422)--(4.047182611366779,0.06942996364546974)--(4.016233599392997,0.07073028008714109)--(3.9852845874192147,0.07207150916858385)--(3.9543355754454326,0.07345555670715342)--(3.923386563471651,0.07488444929653967)--(3.8924375514978693,0.07636034410223014)--(3.8614885395240877,0.07788553963067207)--(3.830539527550306,0.07946248758721541)--(3.7995905155765244,0.0810938059537416)--(3.7686415036027427,0.08278229343521859)--(3.737692491628961,0.08453094544565043)--(3.7067434796551795,0.08634297182864158)--(3.675794467681398,0.08822181653660481)--(3.644845455707616,0.0901711795263711)--(3.6138964437338346,0.09219504116848555)--(3.582947431760053,0.09429768951396479)--(3.5519984197862713,0.096483750817121)--(3.5210494078124897,0.0987582237779305)--(3.490100395838708,0.1011265180444242)--(3.4591513838649264,0.10359449760727303)--(3.4282023718911443,0.10616852982831537)--(3.3972533599173627,0.10885554097620613)--(3.366304347943581,0.11166307930056944)--(3.3353553359697994,0.11459938686726465)--(3.3044063239960177,0.11767348160941082)--(3.273457312022236,0.12089525133162925)--(3.2425083000484545,0.12427556175114969)--(3.211559288074673,0.12782638108522346)--(3.180610276100891,0.1315609242205333)--(3.1496612641271096,0.13549382015402583)--(3.118712252153328,0.13964130721111948)--(3.0877632401795467,0.14402146157282958)--(3.056814228205765,0.14865446593926435)--(3.0258652162319826,0.15356292680472564)--(2.994916204258201,0.15877225092872702)--(2.963967192284419,0.16431109430577298)--(2.933018180310638,0.17021190046682586)--(2.902069168336856,0.17651154956551748)--(2.8711201563630744,0.18325214579956328)--(2.8401711443892927,0.19048197883671059)--(2.809222132415511,0.19825670582800453)--(2.7782731204417295,0.20664081541049992)--(2.747324108467948,0.21570945544432288)--(2.716375096494166,0.2255507344814448)--(2.6854260845203846,0.23626864669712144)--(2.654477072546603,0.24798682665891528)--(2.6235280605728213,0.2608534222560237)--(2.5925790485990396,0.27504749457894695)--(2.561630036625258,0.2907875337527285)--(2.5306810246514764,0.30834295452959276)--(2.4997320126776947,0.3280498634191254)--(2.468783000703913,0.3503330713987154)--(2.4378339887301315,0.3757374425544571)--(2.40688497675635,0.4049735495004299)--(2.3759359647825677,0.4389858802335251)--(2.344986952808787,0.47905775815098167)--(2.314037940835005,0.5269783022701848)--(2.2830889288612233,0.5853189059444278)--(2.252139916887441,0.6579133343011592)--(2.2366654109005504,0.7013020906883415)--(2.2211909049136596,0.7507408725927214)--(2.2057163989267687,0.8075944227407392)--(2.190241892939878,0.8736715105439705)--(2.174767386952987,0.9514215100748568)--(2.1670301339595417,0.9956874732628532)--(2.1592928809660963,1.0442455574346683)--(2.151555627972651,1.0977530273378744)--(2.1438183749792055,1.1570085867535147)--(2.13608112198576,1.222992587940402)--(2.1283438689923146,1.2969217853179542)--(2.1206066159988692,1.3803251647636832)--(2.1167379895021465,1.4261683203536828)--(2.112869363005424,1.4751509617350673)--(2.109000736508701,1.527607347429888)--(2.1051321100119784,1.5839209357214514)--(2.1012634835152557,1.6445337826862125)--(2.097394857018533,1.7099581800241235)--(2.0935262305218103,1.7807911812178443)--(2.0896576040250876,1.8577328884182438)--(2.085788977528365,1.9416096871773998)--(2.0838546642800035,1.9864486907934276)--(2.081920351031642,2.033404064637533)--(2.079986037783281,2.0826293467438965)--(2.0780517245349195,2.1342932953345923)--(2.076117411286558,2.1885818227142337)--(2.074183098038197,2.2457002317207126)--(2.0722487847898354,2.3058758114342415)--(2.07217883367445,2.30817163919324);
+			\draw[line width=0.4pt,dash pattern=on 1pt off 1pt,fill=blue,fill opacity=0.5](-9.516923128996607E-9,0)--(0.023811054775161572,-0.002976386869572493)--(0.05476006674894324,-0.0068451488463652016)--(0.0857090787227249,-0.010714478100370316)--(0.11665809069650657,-0.014585155784570722)--(0.14760710267028823,-0.018458308171521928)--(0.17855611464406965,-0.022335408143085943)--(0.20950512661785156,-0.02621827769663448)--(0.24045413859163323,-0.030109091745652534)--(0.27140315056541486,-0.03401038350116904)--(0.30235216253919656,-0.03792505173285168)--(0.3333011745129782,-0.041856370225840774)--(0.3642501864867599,-0.045807999772405454)--(0.3951991984605415,-0.049784003067415275)--(0.4261482104343232,-0.05378886291467539)--(0.45709722240810485,-0.05782750419896326)--(0.48804623438188655,-0.061905320137866336)--(0.5189952463556682,-0.06602820340054759)--(0.5499442583294498,-0.07020258277004132)--(0.5808932703032315,-0.07443546613495526)--(0.6118422822770132,-0.0787344907297656)--(0.6427912942507948,-0.08310798170540544)--(0.6737403062245765,-0.08756502031021388)--(0.7046893181983581,-0.09211552320382792)--(0.7356383301721399,-0.09677033472387352)--(0.7665873421459213,-0.10154133429085478)--(0.7975363541197029,-0.10644156158784857)--(0.8284853660934851,-0.11148536271093955)--(0.8594343780672665,-0.11668856118289825)--(0.8903833900410482,-0.1220686585946201)--(0.9213324020148298,-0.12764507073643347)--(0.9522814139886114,-0.13343940647109115)--(0.9832304259623931,-0.13947579837090723)--(1.0141794379361748,-0.14578129641254492)--(1.0451284499099565,-0.15238633895653703)--(1.076077461883738,-0.15932531905658026)--(1.1070264738575197,-0.1666372691524199)--(1.1379754858313014,-0.17436669382727119)--(1.168924497805083,-0.18256458915875276)--(1.1998735097788649,-0.19128969912034574)--(1.2308225217526465,-0.20061007573761483)--(1.2617715337264281,-0.21060503208063405)--(1.2927205457002098,-0.22136760836355)--(1.3236695576739914,-0.23300771545648435)--(1.354618569647773,-0.24565618315374718)--(1.3855675816215547,-0.2594700321581358)--(1.4165165935953363,-0.27463942409171643)--(1.447465605569118,-0.29139694742608363)--(1.4784146175428998,-0.31003020952607285)--(1.5093636295166815,-0.3308991945990654)--(1.540312641490463,-0.35446063360498187)--(1.5712616534642447,-0.3813029292608999)--(1.6022106654380264,-0.4121973845966945)--(1.633159677411808,-0.44817536333694186)--(1.6641086893855896,-0.4906481075799572)--(1.6950577013593713,-0.5415995181770118)--(1.7260067133331531,-0.6039095884824028)--(1.7569557253069348,-0.6819249523225752)--(1.7724302312938256,-0.7288269089265315)--(1.7879047372807164,-0.7825289590858729)--(1.8033792432676072,-0.8446377012072199)--(1.818853749254498,-0.9173086887445419)--(1.8343282552413889,-1.0035028053256905)--(1.8420655082348343,-1.0529136129298782)--(1.8498027612282797,-1.107401122617625)--(1.857540014221725,-1.1677926744327858)--(1.8652772672151705,-1.2351056663042548)--(1.873014520208616,-1.3106054554053512)--(1.8807517732020613,-1.3958858006012744)--(1.884620399698784,-1.4428086265042668)--(1.8884890261955067,-1.492982794169078)--(1.8923576526922294,-1.5467588857395707)--(1.8962262791889521,-1.6045397612500643)--(1.9000949056856749,-1.6667906804137798)--(1.9039635321823976,-1.7340518708206123)--(1.9078321586791203,-1.8069542613384677)--(1.911700785175843,-1.8862393514507902)--(1.9155694116725657,-1.972784543096276)--(1.917503724920927,-2.0190988678105226)--(1.9194380381692884,-2.067635771195776)--(1.9213723514176497,-2.1185592900303574)--(1.923306664666011,-2.1720500100298477)--(1.9252409779143724,-2.228307206781259)--(1.925754911127338,-2.244047946564409)--(2,-2.244047946564409)--(2,0);
+			\draw[line width=0.4pt,dash pattern=on 1pt off 1pt,fill=blue,fill opacity=0.5](-9.516923128996607E-9,0)--(0.023811054775161572,-0.002976386869572493)--(0.05476006674894324,-0.0068451488463652016)--(0.0857090787227249,-0.010714478100370316)--(0.11665809069650657,-0.014585155784570722)--(0.14760710267028823,-0.018458308171521928)--(0.17855611464406965,-0.022335408143085943)--(0.20950512661785156,-0.02621827769663448)--(0.24045413859163323,-0.030109091745652534)--(0.27140315056541486,-0.03401038350116904)--(0.30235216253919656,-0.03792505173285168)--(0.3333011745129782,-0.041856370225840774)--(0.3642501864867599,-0.045807999772405454)--(0.3951991984605415,-0.049784003067415275)--(0.4261482104343232,-0.05378886291467539)--(0.45709722240810485,-0.05782750419896326)--(0.48804623438188655,-0.061905320137866336)--(0.5189952463556682,-0.06602820340054759)--(0.5499442583294498,-0.07020258277004132)--(0.5808932703032315,-0.07443546613495526)--(0.6118422822770132,-0.0787344907297656)--(0.6427912942507948,-0.08310798170540544)--(0.6737403062245765,-0.08756502031021388)--(0.7046893181983581,-0.09211552320382792)--(0.7356383301721399,-0.09677033472387352)--(0.7665873421459213,-0.10154133429085478)--(0.7975363541197029,-0.10644156158784857)--(0.8284853660934851,-0.11148536271093955)--(0.8594343780672665,-0.11668856118289825)--(0.8903833900410482,-0.1220686585946201)--(0.9213324020148298,-0.12764507073643347)--(0.9522814139886114,-0.13343940647109115)--(0.9832304259623931,-0.13947579837090723)--(1.0141794379361748,-0.14578129641254492)--(1.0451284499099565,-0.15238633895653703)--(1.076077461883738,-0.15932531905658026)--(1.1070264738575197,-0.1666372691524199)--(1.1379754858313014,-0.17436669382727119)--(1.168924497805083,-0.18256458915875276)--(1.1998735097788649,-0.19128969912034574)--(1.2308225217526465,-0.20061007573761483)--(1.2617715337264281,-0.21060503208063405)--(1.2927205457002098,-0.22136760836355)--(1.3236695576739914,-0.23300771545648435)--(1.354618569647773,-0.24565618315374718)--(1.3855675816215547,-0.2594700321581358)--(1.4165165935953363,-0.27463942409171643)--(1.447465605569118,-0.29139694742608363)--(1.4784146175428998,-0.31003020952607285)--(1.5093636295166815,-0.3308991945990654)--(1.540312641490463,-0.35446063360498187)--(1.5712616534642447,-0.3813029292608999)--(1.6022106654380264,-0.4121973845966945)--(1.633159677411808,-0.44817536333694186)--(1.6641086893855896,-0.4906481075799572)--(1.6950577013593713,-0.5415995181770118)--(1.7260067133331531,-0.6039095884824028)--(1.7569557253069348,-0.6819249523225752)--(1.7724302312938256,-0.7288269089265315)--(1.7879047372807164,-0.7825289590858729)--(1.8033792432676072,-0.8446377012072199)--(1.818853749254498,-0.9173086887445419)--(1.8343282552413889,-1.0035028053256905)--(1.8420655082348343,-1.0529136129298782)--(1.8498027612282797,-1.107401122617625)--(1.857540014221725,-1.1677926744327858)--(1.8652772672151705,-1.2351056663042548)--(1.873014520208616,-1.3106054554053512)--(1.8807517732020613,-1.3958858006012744)--(1.884620399698784,-1.4428086265042668)--(1.8884890261955067,-1.492982794169078)--(1.8923576526922294,-1.5467588857395707)--(1.8962262791889521,-1.6045397612500643)--(1.9000949056856749,-1.6667906804137798)--(1.9039635321823976,-1.7340518708206123)--(1.9078321586791203,-1.8069542613384677)--(1.911700785175843,-1.8862393514507902)--(1.9155694116725657,-1.972784543096276)--(1.917503724920927,-2.0190988678105226)--(1.9194380381692884,-2.067635771195776)--(1.9213723514176497,-2.1185592900303574)--(1.923306664666011,-2.1720500100298477)--(1.9252409779143724,-2.228307206781259)--(1.925754911127338,-2.244047946564409)--(2,-2.244047946564409)--(2,0);
+			\draw[line width=0.4pt,dash pattern=on 1pt off 1pt,fill=blue,fill opacity=0.5](-1.3439180884170492,0.12887527415791927)--(-1.3439180884170492,0)--(-9.516923128996607E-9,0)--(-0.00713795719862009,0.0008922446092659907)--(-0.03808696917240175,0.004760838267240947)--(-0.06903598114618342,0.008629142744767502)--(-0.09998499311996532,0.012496562772797707)--(-0.13093400509374675,0.01636215962928419)--(-0.16188301706752842,0.02022465219163543)--(-0.19283202904131005,0.024082418849905123)--(-0.22378104101509172,0.027933500541509917)--(-0.2547300529888734,0.031775605161710935)--(-0.28567906496265505,0.0356061135942688)--(-0.31662807693643696,0.039422087592998055)--(-0.34757708891021866,0.04322027972685164)--(-0.3785261008840002,0.04699714557829523)--(-0.4094751128577818,0.050748858356679964)--(-0.44042412483156335,0.05447132605504673)--(-0.47137313680534504,0.05816021124023365)--(-0.5023221487791267,0.06181095352254603)--(-0.5332711607529085,0.06541879470306802)--(-0.5642201727266901,0.06897880654450995)--(-0.5951691847004719,0.07248592105628653)--(-0.6261181966742535,0.07593496312732667)--(-0.6570672086480351,0.079320685282303)--(-0.6880162206218168,0.08263780427996213)--(-0.7189652325955984,0.08588103921769627)--(-0.74991424456938,0.08904515075605568)--(-0.7808632565431618,0.0921249810322876)--(-0.8118122685169434,0.09511549379481407)--(-0.8427612804907251,0.09801181426233518)--(-0.8737102924645068,0.10080926819324626)--(-0.9046593044382885,0.10350341964431395)--(-0.9356083164120701,0.10609010690273168)--(-0.9665573283858517,0.10856547609306563)--(-0.9975063403596335,0.11092601199008413)--(-1.028455352333415,0.11316856560948906)--(-1.0594043643071966,0.11529037820016191)--(-1.0903533762809783,0.11728910132236592)--(-1.1213023882547601,0.11916281276469062)--(-1.1522514002285418,0.1209100281264668)--(-1.1832004122023236,0.12252970796974104)--(-1.214149424176105,0.12402126052346478)--(-1.2450984361498867,0.12538454000006172)--(-1.2760474481236683,0.12661984065885515)--(-1.3069964600974502,0.12772788681995703)--(-1.3379454720712318,0.12870981909445367)--(-1.3439180884170456,0.12887527415791927);
+			\draw[line width=0.4pt,dash pattern=on 1pt off 1pt,fill=blue,fill opacity=0.5](-1.3439180884170492,0.12887527415791927)--(-1.3439180884170492,0)--(-9.516923128996607E-9,0)--(-0.00713795719862009,0.0008922446092659907)--(-0.03808696917240175,0.004760838267240947)--(-0.06903598114618342,0.008629142744767502)--(-0.09998499311996532,0.012496562772797707)--(-0.13093400509374675,0.01636215962928419)--(-0.16188301706752842,0.02022465219163543)--(-0.19283202904131005,0.024082418849905123)--(-0.22378104101509172,0.027933500541509917)--(-0.2547300529888734,0.031775605161710935)--(-0.28567906496265505,0.0356061135942688)--(-0.31662807693643696,0.039422087592998055)--(-0.34757708891021866,0.04322027972685164)--(-0.3785261008840002,0.04699714557829523)--(-0.4094751128577818,0.050748858356679964)--(-0.44042412483156335,0.05447132605504673)--(-0.47137313680534504,0.05816021124023365)--(-0.5023221487791267,0.06181095352254603)--(-0.5332711607529085,0.06541879470306802)--(-0.5642201727266901,0.06897880654450995)--(-0.5951691847004719,0.07248592105628653)--(-0.6261181966742535,0.07593496312732667)--(-0.6570672086480351,0.079320685282303)--(-0.6880162206218168,0.08263780427996213)--(-0.7189652325955984,0.08588103921769627)--(-0.74991424456938,0.08904515075605568)--(-0.7808632565431618,0.0921249810322876)--(-0.8118122685169434,0.09511549379481407)--(-0.8427612804907251,0.09801181426233518)--(-0.8737102924645068,0.10080926819324626)--(-0.9046593044382885,0.10350341964431395)--(-0.9356083164120701,0.10609010690273168)--(-0.9665573283858517,0.10856547609306563)--(-0.9975063403596335,0.11092601199008413)--(-1.028455352333415,0.11316856560948906)--(-1.0594043643071966,0.11529037820016191)--(-1.0903533762809783,0.11728910132236592)--(-1.1213023882547601,0.11916281276469062)--(-1.1522514002285418,0.1209100281264668)--(-1.1832004122023236,0.12252970796974104)--(-1.214149424176105,0.12402126052346478)--(-1.2450984361498867,0.12538454000006172)--(-1.2760474481236683,0.12661984065885515)--(-1.3069964600974502,0.12772788681995703)--(-1.3379454720712318,0.12870981909445367)--(-1.3439180884170456,0.12887527415791927);
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+\begin{definition}
+	Let $f(x)$ be continuous on $[a,c]$ except at $b$. Then $$\cpv \int_{a}^{c} f(x)dx = \lim_{\epsilon \rightarrow 0^+} \left(\int_{a}^{b-\epsilon}f(x)dx + \int_{b+\epsilon}^{c}f(x)dx\right)$$ Also $$\cpv \int_{-\infty}^{\infty} f(x)dx = \lim_{\epsilon \rightarrow 0^+, R\rightarrow \infty} \left(\int_{-R}^{b-\epsilon}f(x)dx + \int_{b+\epsilon}^{R}f(x)dx\right)$$ 
+\end{definition}
+How to use residues when there's a singularity on the real axis? 
+
+Go around it! \begin{center}
+	\begin{tikzpicture}[scale=2]
+		\draw [->,line width=1pt] (-3,0) -- (3,0);
+		\draw [->,line width=1pt] (0,-0.5) -- (0,2.5);
+		\draw [shift={(0,0)},line width=1pt] (0,0) -- (0:2) arc (0:180:2) -- cycle;
+		\draw [shift={(0,0)},->,line width=2pt] (0:2) arc (0:180:2);
+		\draw [->,line width=2pt] (-2,0) -- (0.3,0);
+		\draw [->,line width=2pt] (0.7,0) -- (2,0);
+		\draw [shift={(0.5,0)},<-,line width=2pt] (-5:0.2) arc (-5:180:0.2);
+		\draw[color=black] (1.5,1.95) node {$\mathcal{C}_R$};
+		\draw[color=black] (-0.6,0.1) node {$\mathcal{C}_1$};
+		\draw [color=black] (0.52,0)-- ++(-1.5pt,-1.5pt) -- ++(3pt,3pt) ++(-3pt,0) -- ++(3pt,-3pt)node[anchor = north]{$b$};
+		\draw[color=black] (0.5,0.35) node {$\mathcal{C}_\epsilon$};
+		\draw[color=black] (1.5,0.1) node {$\mathcal{C}_2$};
+	\end{tikzpicture}
+\end{center}
+Consider the following example: 
+
+$$\cpv \int_{-\infty}^{\infty}f(x)dx = \lim_{\epsilon \rightarrow 0^+, R \rightarrow \infty} \left(\int_{\mathcal{C}_1} f(z)dz + \int_{\mathcal{C}_2} f(z)dz\right)$$ and $$\int_{\mathcal{C}} f(z)dz = \int_{\mathcal{C}_1} f(z)dz + \int_{\mathcal{C}_\epsilon} f(z)dz + \int_{\mathcal{C}_2} f(z)dz + \int_{\mathcal{C}_R} f(z)dz$$
+So $$\cpv\int_{-\infty}^{\infty} f(x)dx = \lim_{\epsilon \rightarrow 0^+, R\rightarrow \infty} \left(\underbrace{\int_{\mathcal{C}} f(z)dz}_{\text{ equals }\sum\Res(\text{upper half plane})} - \underbrace{\int_{\mathcal{C}_\epsilon} f(z)dz}_{?} - \underbrace{\int_{\mathcal{C}_R} f(z)dz}_{\rightarrow 0 \text{ as }R \rightarrow 0, \text{ if conditions satisfied}}\right)$$
+\begin{lemma}
+	If $f$ has a simple pole at $z_0$ and $\Gamma_\epsilon$ is the circular arc $z(t) = z_0 + \epsilon e^{i\theta}, \;\; \theta_1 \leq \theta \leq \theta_2$. Then $\lim_{\epsilon \rightarrow 0}\int_{\Gamma_\epsilon} f(z)dz = i(\theta_2 - \theta_1) \Res(z_0)$
+	\begin{center}
+		\begin{tikzpicture}[scale=0.8]
+			\draw [shift={(-1.56,-0.14)},->,line width=2pt] (-6.861522030912378:1.5) arc (-6.861522030912378:46.54815769897798:1.5);
+			\draw [line width=2pt,dashed] (-1.56,-0.14)-- (2.04,3.66);
+			\draw [line width=2pt,dashed] (-1.56,-0.14)-- (3.26,-0.72);
+			\draw[color=black] (3.42,-0.29) node {$\theta_1$};
+			\draw [fill=black] (-1.56,-0.14) circle (2.5pt);
+			\draw[color=black] (-1.4,0.29) node {$Z_0$};
+			\draw[color=black] (2.2,4.09) node {$\theta_2$};
+			\draw[color=black] (0.54,1) node {$T_\epsilon$};
+			\draw [fill=black] (-1.64,-0.54) circle (2.5pt);
+			\draw [fill=black] (-0.2,-0.74) circle (2.5pt);
+			\draw [<->,line width=1pt] (-1.64,-0.54) -- (-0.2,-0.74);
+			\draw[color=black] (-0.9,-1) node {$\epsilon$};
+		\end{tikzpicture}
+	\end{center}
+\end{lemma}
+\begin{proof}
+	$f(z) = \dfrac{c_{-1}}{z-z_0} + g(z)$, where $g(z)$ is analytic. 
+
+	Then $$\int_{\Gamma_\epsilon}f(z) = \int_{\Gamma_\epsilon}\dfrac{c_{-1}}{z-z_0} dz + \int_{\Gamma_\epsilon}g(z)dz$$
+	The second term $\rightarrow 0$ as $\epsilon \rightarrow 0$ by the $M\ell$ inequality: $\left| \int_{\Gamma_\epsilon} g(z)dz\right| \leq M \cdot (\theta_2 - \theta_1)\epsilon$
+	So, $$\int_{\Gamma_\epsilon}f(z) = \int_{\theta_1}^{\theta_2}\dfrac{c_{-1}}{\epsilon e^{i\theta}}\cdot \underbrace{\epsilon ie^{i\theta}}_{z'(\theta)}d\theta = ic_{-1}(\theta_2-\theta_1) = i(\theta_2-\theta_1)\Res(z_0), \;\;\text{as } \epsilon \rightarrow 0$$
+\end{proof}
+Thus, $$\int_{\mathcal{C}_\epsilon}f(z)dz = -\pi i \Res(f, b)$$ The negative sign implies negatively oriented, the $\pi$ implies a semicircle. 
+
+So if $f$ satisfies one of the earlier conditions, and $b \in \mathbb{R}$ is a simple pole, then\begin{tcolorbox}[hbox, before=\par\smallskip\centering]
+	$\cpv\int_{-\infty}^{\infty}f(x)dx = 2\pi i \cdot \sum \Res(\text{upper half plane}) + \pi i \Res(b)$
+\end{tcolorbox}
+Note that we can easily extend this to any finite number of simple poles on the $x$-axis. 
+\begin{example}
+	Evaluate $\cpv\int_{-\infty}^{\infty} \dfrac{x}{x^3-8}dx$
+
+	\textbf{\underline{Solution}}: $f(z) = \dfrac{z}{z^3-8} = \dfrac{z}{(z-2)(z+1+\sqrt{3}i)(z+1-\sqrt{3}i)}$. 
+	\begin{align*}
+		\Res(2) &= \lim_{z \rightarrow 2}(z-2)\cdot \dfrac{z}{z^3-8} = \lim_{z\rightarrow 2}\dfrac{2z-2}{3z^2} = \dfrac{1}{6}\\
+		\Res(-1+\sqrt{3}i)&= \lim_{z \rightarrow -1+\sqrt{3}i} (z+1-\sqrt{3}i) \cdot \dfrac{z}{(z-2)(z+1+\sqrt{3}i)(z+1-\sqrt{3}i)}\\ 
+		&= \lim_{z \rightarrow -1+\sqrt{3}i} \dfrac{1}{2z-2+1+\sqrt{3}i}\\
+		&= \dfrac{1}{-3+3\sqrt{3}i}\\
+		&= \dfrac{-1-\sqrt{3}i}{12}
+	\end{align*}
+	So, $$\cpv\int_{-\infty}^{\infty} \dfrac{x}{x^3-8}dx = 2\pi i \cdot \left(\dfrac{-1-\sqrt{3}i}{12}\right) + \pi i \cdot \dfrac{1}{6} = \dfrac{2\sqrt{3}\pi}{6} = \dfrac{\sqrt{3}\pi}{6}$$
+\end{example}
+\begin{example}
+	Evaluate $\cpv\int_{-\infty}^{\infty} \dfrac{\cos2x}{x^2-16}dx$
+
+	\textbf{\underline{Solution}}: $f(z) = \dfrac{e^{i2z}}{z^2-16}$. We have simple poles at $z = \pm 4$. 
+	\begin{align*}
+		\Res(4)&= \lim_{z\rightarrow 4} (z-4)\cdot \dfrac{e^{i2z}}{(z+4)(z-4)} = \dfrac{e^{i8}}{8}\\
+		\Res(-4)&= \lim_{z\rightarrow -4} (z+4)\cdot \dfrac{e^{i2z}}{(z+4)(z-4)} = \dfrac{e^{-i8}}{-8}
+	\end{align*}
+	So \begin{align*}
+		\cpv\int_{-\infty}^{\infty}\dfrac{e^{i2z}}{z^2-16}dz &= \pi i \cdot \left(\dfrac{1}{8}e^{i8}-\dfrac{1}{8}e^{-i8}\right)\\
+		&= \dfrac{\pi i}{8} \cdot 2i\sin 8\\
+		&= \dfrac{-\pi}{4} \sin 8
+	\end{align*}
+	Thus, $$\cpv\int_{-\infty}^{\infty} \dfrac{\cos2x}{x^2-16}dx = \Re(\dfrac{-\pi}{4} \sin 8) = \dfrac{-\pi}{4}\sin 8$$
+\end{example}
+We can also see that $$\cpv\int_{-\infty}^{\infty} \dfrac{\sin2x}{x^2-16}dx = \Im(\dfrac{-\pi}{4} \sin 8) = 0$$ as expected by symmetry
+
+In general, this technique only works for \underline{simple poles}, e.g. $$\underbrace{\cpv \int_{-\infty}^{\infty}\dfrac{1}{x^2}dx}_{\text{ clearly }>0, \; = \infty \text{ in fact}} \neq \pi i \cdot \underbrace{\Res(0)}_{=0 \text{ by inspection}}$$
+\section{Conformal Mapping}
+\subsection{Application to Dirichlet Problems}
+Consider a 2D region. \begin{center}
+	\begin{tikzpicture}
+		\draw [rotate around={-34.09497795476566:(-2.48,1.86)},line width=2pt,fill=black,fill opacity=0.26] (-2.48,1.86) ellipse (3.0711080874603747cm and 2.63956528331173cm);
+		\draw [->,line width=2pt] (2.1,0.62) -- (0.66,1.02);
+		\draw[color=black] (-2.68,2.89) node {Temperature $u(x,y;t)$};
+		\draw[color=black] (2.5,0.61) node[anchor = north] {boundary};
+	\end{tikzpicture}
+\end{center}
+Temperature satisfies the Partial Differential Equation $$\dfrac{\partial u}{\partial t} = K \left(\dfrac{\partial^2 u}{\partial x^2} + \dfrac{\partial^2 u}{\partial y^2} \right)$$ in which $K$ is known as Thermal diffusivity. 
+
+As $t \rightarrow \infty$, $\dfrac{\partial u}{\partial t} \rightarrow 0$, so steady-state temperature satisfies $$\dfrac{\partial^2 u}{\partial x^2} + \dfrac{\partial^2 u}{\partial y^2} = 0 \;\;\;\;\;\text{(Laplace's Equation)}$$ also written as $u_{xx} + u_{yy} = 0$, or $\nabla^2 u = 0$. 
+\begin{definition}
+	Let $D$ be a domain with a piecewise-smooth boundary. A \underline{\textbf{Dirichlet Problem}} consists of Laplace's Equation, $\nabla^2 f = 0$ within $D$, together with prescribed values of $f$ on the boundary. 
+\end{definition}
+Recall that if $f(z)=u+iv$ is analytic, then $u$ and $v$ are harmonic (i.e. solutions to Laplace's Equation). 
+\begin{example}
+	Solve 
+	\begin{center}
+		$\begin{dcases}
+			\nabla^2 \Phi = 0 & \text{ on }\rightarrow\\
+			\Phi = 1 & \text{ on }x^2-y^2 = 1\\
+			\Phi = 0 & \text{ on }x^2-y^2 = 4
+		\end{dcases}$ \;\;\; \begin{tikzpicture}[scale=0.8]
+			\begin{axis}[
+				x=1cm,y=1cm,
+				axis lines=middle,
+				xmin=-1,
+				xmax=7,
+				ymin=-2,
+				ymax=3,
+				xtick={0,1,2},
+				ytick=\empty,]
+				\draw[line width=0.4pt,dash pattern=on 1pt off 1pt,fill=black,fill opacity=0.37](3.274662080624353,3.11793063089423)--(3.078142092260624,2.9111782391579215)--(2.8331024958925553,2.65074890403309)--(2.62235876612791,2.424204095840096)--(2.439457643220119,2.2250738399129717)--(2.2794823017751518,2.04842367788164)--(2.1386215920525538,1.8904238450658102)--(2.013876570275504,1.7480557314641392)--(1.902855849728697,1.6189071575747387)--(1.8036299216591194,1.5010266134562968)--(1.7146255358809155,1.3928175502537714)--(1.6345478583034294,1.2929604406494146)--(1.5623222466932392,1.2003544486994708)--(1.4970501151013949,1.1140731785323166)--(1.4379750703709617,1.0333306842479673)--(1.3844566424842901,0.9574550615662721)--(1.3359497007199626,0.8858677118248286)--(1.2919881773739395,0.818066898532164)--(1.2521720907696334,0.7536145864448188)--(1.2161571212858309,0.692125814902348)--(1.1836461820996187,0.6332600448465099)--(1.154382562835803,0.5767140551255507)--(1.1281443245617162,0.5222160635606788)--(1.1047396989865015,0.4695208222398513)--(1.0840033005398864,0.41840549181549586)--(1.0657930022854967,0.36866614127247027)--(1.0499873589659243,0.3201147512818441)--(1.0364834854637945,0.27257662342757116)--(1.025195318469489,0.22588811613663334)--(1.0160522045474452,0.1798946424041676)--(1.0089977701103137,0.1344488753675005)--(1.0039890388117536,0.08940911616915155)--(1.0009957701407863,0.044637784888429025)--(1,0)--(1.0009957701407863,-0.044637784888429025)--(1.0039890388117536,-0.08940911616915155)--(1.0089977701103137,-0.1344488753675005)--(1.0160522045474452,-0.1798946424041676)--(1.025195318469489,-0.22588811613663334)--(1.0364834854637945,-0.27257662342757116)--(1.0499873589659243,-0.3201147512818441)--(1.0657930022854967,-0.36866614127247027)--(1.0840033005398864,-0.41840549181549586)--(1.1047396989865015,-0.4695208222398513)--(1.1281443245617162,-0.5222160635606788)--(1.154382562835803,-0.5767140551255507)--(1.1836461820996187,-0.6332600448465099)--(1.2161571212858309,-0.6921258149023477)--(1.2521720907696334,-0.7536145864448188)--(1.2919881773739395,-0.8180668985321636)--(1.3359497007199626,-0.8858677118248286)--(1.3844566424842901,-0.9574550615662718)--(1.4379750703709617,-1.0333306842479673)--(1.4970501151013949,-1.1140731785323166)--(1.5623222466932392,-1.2003544486994708)--(1.6345478583034294,-1.2929604406494148)--(1.7146255358809155,-1.392817550253771)--(1.8036299216591194,-1.501026613456297)--(1.902855849728697,-1.6189071575747385)--(2.013876570275504,-1.7480557314641394)--(2.106493985617573,-1.853757478283976)--(2.7272960359541996,-1.853757478283976)--(2.705031186697621,-1.8213164801886406)--(2.6215420882179234,-1.6948400869397646)--(2.545247951175891,-1.5742576450394234)--(2.475585301839686,-1.4589457106707866)--(2.4120621868658976,-1.3483486171270012)--(2.354248395352079,-1.241968400168796)--(2.3017673458053984,-1.1393563596241645)--(2.2542893280972573,-1.040105944013966)--(2.2115258561439055,-0.943846710219957)--(2.1732249376845645,-0.8502391603390652)--(2.1391671068871294,-0.7589702966439806)--(2.1091620963576054,-0.6697497657421086)--(2.0830460495047594,-0.5823064866179866)--(2.0606791936405027,-0.4963856757631847)--(2.0419439098274945,-0.41174619716713284)--(2.0267431481919322,-0.3281581764072716)--(2.0149991478729583,-0.24540082707429625)--(2.0066524295027275,-0.16326044477827598)--(2.0016610355153692,-0.08152852936525122)--(2,0)--(2.0016610355153692,0.08152852936525122)--(2.0066524295027275,0.16326044477827598)--(2.0149991478729583,0.24540082707429625)--(2.0267431481919322,0.3281581764072716)--(2.0419439098274945,0.41174619716713284)--(2.0606791936405027,0.4963856757631847)--(2.0830460495047594,0.5823064866179866)--(2.1091620963576054,0.6697497657421086)--(2.1391671068871294,0.7589702966439806)--(2.1732249376845645,0.8502391603390652)--(2.2115258561439055,0.943846710219957)--(2.2542893280972573,1.040105944013966)--(2.3017673458053984,1.1393563596241647)--(2.354248395352079,1.241968400168796)--(2.4120621868658976,1.3483486171270014)--(2.475585301839686,1.4589457106707866)--(2.545247951175891,1.5742576450394234)--(2.6215420882179234,1.6948400869397648)--(2.705031186697621,1.8213164801886406)--(2.796362079425364,1.9543901553293148)--(2.8962793668882174,2.094858985961207)--(3.005643055848226,2.2436332541591244)--(3.1254502909692925,2.4017575900411)--(3.2568623181918555,2.570438126012377)--(3.401238197238152,2.751076384681428)--(3.560177306884961,2.945311945526085)--(3.704513524284938,3.11793063089423);
+				\draw[line width=0.4pt,fill=black,fill opacity=0.37](3.274662080624353,3.11793063089423)--(3.078142092260624,2.9111782391579215)--(2.8331024958925553,2.65074890403309)--(2.62235876612791,2.424204095840096)--(2.439457643220119,2.2250738399129717)--(2.2794823017751518,2.04842367788164)--(2.1386215920525538,1.8904238450658102)--(2.013876570275504,1.7480557314641392)--(1.902855849728697,1.6189071575747387)--(1.8036299216591194,1.5010266134562968)--(1.7146255358809155,1.3928175502537714)--(1.6345478583034294,1.2929604406494146)--(1.5623222466932392,1.2003544486994708)--(1.4970501151013949,1.1140731785323166)--(1.4379750703709617,1.0333306842479673)--(1.3844566424842901,0.9574550615662721)--(1.3359497007199626,0.8858677118248286)--(1.2919881773739395,0.818066898532164)--(1.2521720907696334,0.7536145864448188)--(1.2161571212858309,0.692125814902348)--(1.1836461820996187,0.6332600448465099)--(1.154382562835803,0.5767140551255507)--(1.1281443245617162,0.5222160635606788)--(1.1047396989865015,0.4695208222398513)--(1.0840033005398864,0.41840549181549586)--(1.0657930022854967,0.36866614127247027)--(1.0499873589659243,0.3201147512818441)--(1.0364834854637945,0.27257662342757116)--(1.025195318469489,0.22588811613663334)--(1.0160522045474452,0.1798946424041676)--(1.0089977701103137,0.1344488753675005)--(1.0039890388117536,0.08940911616915155)--(1.0009957701407863,0.044637784888429025)--(1,0)--(1.0009957701407863,-0.044637784888429025)--(1.0039890388117536,-0.08940911616915155)--(1.0089977701103137,-0.1344488753675005)--(1.0160522045474452,-0.1798946424041676)--(1.025195318469489,-0.22588811613663334)--(1.0364834854637945,-0.27257662342757116)--(1.0499873589659243,-0.3201147512818441)--(1.0657930022854967,-0.36866614127247027)--(1.0840033005398864,-0.41840549181549586)--(1.1047396989865015,-0.4695208222398513)--(1.1281443245617162,-0.5222160635606788)--(1.154382562835803,-0.5767140551255507)--(1.1836461820996187,-0.6332600448465099)--(1.2161571212858309,-0.6921258149023477)--(1.2521720907696334,-0.7536145864448188)--(1.2919881773739395,-0.8180668985321636)--(1.3359497007199626,-0.8858677118248286)--(1.3844566424842901,-0.9574550615662718)--(1.4379750703709617,-1.0333306842479673)--(1.4970501151013949,-1.1140731785323166)--(1.5623222466932392,-1.2003544486994708)--(1.6345478583034294,-1.2929604406494148)--(1.7146255358809155,-1.392817550253771)--(1.8036299216591194,-1.501026613456297)--(1.902855849728697,-1.6189071575747385)--(2.013876570275504,-1.7480557314641394)--(2.106493985617573,-1.853757478283976)--(2.7272960359541996,-1.853757478283976)--(2.705031186697621,-1.8213164801886406)--(2.6215420882179234,-1.6948400869397646)--(2.545247951175891,-1.5742576450394234)--(2.475585301839686,-1.4589457106707866)--(2.4120621868658976,-1.3483486171270012)--(2.354248395352079,-1.241968400168796)--(2.3017673458053984,-1.1393563596241645)--(2.2542893280972573,-1.040105944013966)--(2.2115258561439055,-0.943846710219957)--(2.1732249376845645,-0.8502391603390652)--(2.1391671068871294,-0.7589702966439806)--(2.1091620963576054,-0.6697497657421086)--(2.0830460495047594,-0.5823064866179866)--(2.0606791936405027,-0.4963856757631847)--(2.0419439098274945,-0.41174619716713284)--(2.0267431481919322,-0.3281581764072716)--(2.0149991478729583,-0.24540082707429625)--(2.0066524295027275,-0.16326044477827598)--(2.0016610355153692,-0.08152852936525122)--(2,0)--(2.0016610355153692,0.08152852936525122)--(2.0066524295027275,0.16326044477827598)--(2.0149991478729583,0.24540082707429625)--(2.0267431481919322,0.3281581764072716)--(2.0419439098274945,0.41174619716713284)--(2.0606791936405027,0.4963856757631847)--(2.0830460495047594,0.5823064866179866)--(2.1091620963576054,0.6697497657421086)--(2.1391671068871294,0.7589702966439806)--(2.1732249376845645,0.8502391603390652)--(2.2115258561439055,0.943846710219957)--(2.2542893280972573,1.040105944013966)--(2.3017673458053984,1.1393563596241647)--(2.354248395352079,1.241968400168796)--(2.4120621868658976,1.3483486171270014)--(2.475585301839686,1.4589457106707866)--(2.545247951175891,1.5742576450394234)--(2.6215420882179234,1.6948400869397648)--(2.705031186697621,1.8213164801886406)--(2.796362079425364,1.9543901553293148)--(2.8962793668882174,2.094858985961207)--(3.005643055848226,2.2436332541591244)--(3.1254502909692925,2.4017575900411)--(3.2568623181918555,2.570438126012377)--(3.401238197238152,2.751076384681428)--(3.560177306884961,2.945311945526085)--(3.704513524284938,3.11793063089423);
+				\draw [line width=0.5pt,dash pattern=on 1pt off 1pt] (0,0)-- (3,3);
+				\draw [line width=0.5pt,dash pattern=on 1pt off 1pt] (0,0)-- (3,-3);
+				\draw (0.5948081886474288,2.0078399652952794) node[anchor=north west] {$\phi=1$};
+				\draw (2.3567061247556373,1.210851795121674) node[anchor=north west] {$\phi=0$};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: Note $f(z) = z^2 = (x+iy)^2 = x^2-y^2 + i\cdot 2xy$. 
+
+	So, set $\Phi(x,y) = x^2-y^2$? No, second Boundary Condition not satisfies. 
+	
+	Idea: by linearity, $\phi(x,y) = A(x^2-y^2)+B$ is also harmonic. Applying Boundary Condition: \begin{itemize}
+		\item $\phi = 1$ on $x^2-y^2=1$ gives $A\cdot 1 + B = 1$, gives $B = -A+1$
+		\item $\phi = 0$ on $x^2-y^2=4$ gives $A\cdot 4 + B = 0$, gives $3A+1=0$
+		\item So $A = -\dfrac{1}{3}$, $B = \dfrac{4}{3}$
+	\end{itemize}
+	So the solution is $\phi(x,y) = -\dfrac{1}{3}(x^2-y^2) + \dfrac{4}{3}$
+\end{example}
+Note: The curves $x^2-y^2=k$ and $xy=k$ intersect orthogonally at every point.\begin{center}
+	\definecolor{ccqqqq}{rgb}{0.8,0,0}
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=middle,
+		xmin=-4,
+		xmax=4,
+		ymin=-4,
+		ymax=4,
+		xtick=\empty,
+		ytick=\empty,]
+		\addplot [domain=-10:10, samples=100, color=red,]{1/x};
+		\addplot [domain=-10:10, samples=100, color=red,]{-1/x};
+		\addplot [domain=-10:10, samples=100, color=red,]{3/x};
+		\addplot [domain=-10:10, samples=100, color=red,]{-3/x};		
+		\draw [samples=50,domain=-0.99:0.99,rotate around={0:(0,0)},xshift=0cm,yshift=0cm,line width=1pt] plot ({1*(1+(\x)^2)/(1-(\x)^2)},{1*2*(\x)/(1-(\x)^2)});
+		\draw [samples=50,domain=-0.99:0.99,rotate around={0:(0,0)},xshift=0cm,yshift=0cm,line width=1pt] plot ({1*(-1-(\x)^2)/(1-(\x)^2)},{1*(-2)*(\x)/(1-(\x)^2)});
+		\draw [samples=50,domain=-0.99:0.99,rotate around={90:(0,0)},xshift=0cm,yshift=0cm,line width=1pt] plot ({1*(1+(\x)^2)/(1-(\x)^2)},{1*2*(\x)/(1-(\x)^2)});
+		\draw [samples=50,domain=-0.99:0.99,rotate around={90:(0,0)},xshift=0cm,yshift=0cm,line width=1pt] plot ({1*(-1-(\x)^2)/(1-(\x)^2)},{1*(-2)*(\x)/(1-(\x)^2)});
+		\draw [samples=50,domain=-0.99:0.99,rotate around={0:(0,0)},xshift=0cm,yshift=0cm,line width=1pt] plot ({1.73*(1+(\x)^2)/(1-(\x)^2)},{1.73*2*(\x)/(1-(\x)^2)});
+		\draw [samples=50,domain=-0.99:0.99,rotate around={0:(0,0)},xshift=0cm,yshift=0cm,line width=1pt] plot ({1.73*(-1-(\x)^2)/(1-(\x)^2)},{1.73*(-2)*(\x)/(1-(\x)^2)});
+		\draw [samples=50,domain=-0.99:0.99,rotate around={90:(0,0)},xshift=0cm,yshift=0cm,line width=1pt] plot ({1.73*(1+(\x)^2)/(1-(\x)^2)},{1.73*2*(\x)/(1-(\x)^2)});
+		\draw [samples=50,domain=-0.99:0.99,rotate around={90:(0,0)},xshift=0cm,yshift=0cm,line width=1pt] plot ({1.73*(-1-(\x)^2)/(1-(\x)^2)},{1.73*(-2)*(\x)/(1-(\x)^2)});
+	\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{theorem}
+	Let $f(z) = u(x,y)+iv(x,y)$ be analytic in a domain $D$. Then the level curves of $u$ are orthogonal to the level curves for $v$ at every point in $D$. 
+\end{theorem}
+\begin{example}
+	Consider some useful functions: \begin{itemize}
+		\item $f(z) = z = x+iy$, so $u(x,y) = x$ and $v(x,y) = y$ are harmonic. 
+		
+		This is useful for strips. $\phi(x,y) = Ax+B$. \begin{center}
+			\begin{tikzpicture}
+				\fill[line width=2pt,color=blue,fill=blue,fill opacity=0.1] (1,3) -- (2,3) -- (2,-3) -- (1,-3) -- cycle;
+				\draw [->,line width=2pt] (-3,0) -- (3,0);
+				\draw [->,line width=2pt] (0,-3) -- (0,3);
+				\draw [line width=2pt] (1,3)-- (1,-3);
+				\draw [line width=2pt] (2,3)-- (2,-3);
+				\draw [->,line width=2pt] (-1.1,1.42) -- (0.82,1.08);
+				\draw [->,line width=2pt] (3.62,2.88) -- (1.56,2.16);
+				\draw [->,line width=2pt] (3.92,0.82) -- (2.1,0.82);
+				\draw[color=black] (0.8,-0.35) node {$1$};
+				\draw[color=black] (2.3,-0.37) node {$3$};
+				\draw[color=black] (-1.48,1.63) node {$\phi=1$};
+				\draw[color=black] (3.82,2.73) node[anchor = north] {$\nabla^2\phi = 0$};
+				\draw[color=black] (4.3,0.89) node [anchor = north]{$\phi=3$};
+			\end{tikzpicture}
+		\end{center}
+		In this example, $$\begin{dcases}
+			0 = A+B\\
+			10 = 3A+B
+		\end{dcases} \Rightarrow A = 5, B = -5$$ So $\phi(x,y) = 5x-5$
+		\item $f(z) = \log z = \ln|z| + i\arg(z)$ is also analytic, which gives solutions to the problems where boundaries are $\ln|z|=k$ (i.e. $|z|$ is constant) or $\arg(z) = k$.
+		\begin{center}
+			\begin{tikzpicture}
+				\draw [line width=1pt,fill=black,fill opacity=0.5] (0,0) circle (2cm);
+				\draw [line width=2pt,color=white,fill=white,fill opacity=1] (0,0) circle (1cm);
+				\draw [->,line width=2pt] (-3,0) -- (3,0);
+				\draw [->,line width=2pt] (0,-3) -- (0,3);
+			\end{tikzpicture}
+			\begin{tikzpicture}
+				\fill[line width=2pt,color=black,fill=black,fill opacity=0.1] (-2.598076211353316,2.5) -- (0,0) -- (3.38,2.42) -- cycle;
+				\draw [line width=2pt] (-2.598076211353316,2.5)-- (0,0);
+				\draw [line width=2pt] (0,0)-- (3.38,2.42);
+				\draw [->,line width=2pt] (-3.4641016151377544,0) -- (4.3,0);
+				\draw [->,line width=2pt] (0,-2) -- (0,4);
+				\draw[color=black] (-2.76,2.19) node[anchor = north] {$\theta = \theta_2$};
+				\draw[color=black] (3.3,2.05) node[anchor = north] {$\theta = \theta_1$};
+			\end{tikzpicture}
+		\end{center}
+	\end{itemize}
+\end{example} 
+\begin{example}
+	Solve \begin{center}
+		\begin{tikzpicture}
+			\draw [line width=1pt,fill=black,fill opacity=0.5] (0,0) circle (2cm);
+			\draw [line width=2pt,color=white,fill=white,fill opacity=1] (0,0) circle (1cm);
+			\draw [->,line width=2pt] (-3.4641016151377544,0) -- (4.3,0);
+			\draw [->,line width=2pt] (0,-3) -- (0,4);
+			\draw [->,line width=2pt] (4.06,1.62) -- (1.1,0.7);
+			\draw [->,line width=2pt] (1.74,3.4) -- (1.02,1.9);
+			\draw [->,line width=2pt] (2.44,-2.7) -- (0.69,-0.72);
+			\draw[color=black] (0.18,1.31) node {$1$};
+			\draw[color=black] (4.16,1.21) node {$\nabla^2\phi=0$};
+			\draw[color=black] (0.2,2.43) node {$2$};
+			\draw[color=black] (2.14,3.33) node [anchor=west]{$\phi=100$};
+			\draw[color=black] (2.88,-2.47) node {$\phi=0$};
+		\end{tikzpicture}
+	\end{center}
+	$\phi(x,y) = A\ln|z|+B$
+	$$\begin{dcases}
+		A \ln(1) + B = 0 & \Rightarrow B = 0\\
+		A \ln(2) + B = 100 & \Rightarrow A = \dfrac{100}{\ln 2}
+	\end{dcases}$$
+	So $$\phi(x,y) = \dfrac{100}{\ln 2} \ln|z| = \dfrac{100}{\ln 2} \ln(\sqrt{x^2+y^2}) = \dfrac{50}{\ln 2} \ln(x^2+y^2)$$
+\end{example}
+\begin{example}
+	Solve \begin{center}
+		\begin{tikzpicture}
+			\fill[line width=2pt,color=red,fill=red,fill opacity=0.1] (3,0) -- (0,-0.02) -- (-3,3) -- (3,3) -- cycle;
+			\draw [shift={(0,-0.02)},->,line width=2pt] (0.38196620472902576:0.6) arc (0.38196620472902576:134.80964927337024:0.6);
+			\draw [->,line width=1pt] (-3.464,0) -- (4.3,0);
+			\draw [->,line width=1pt] (0,-2) -- (0,4);
+			\draw [line width=2pt] (0,-0.02)-- (-3,3);
+			\draw [line width=2pt] (0,-0.02)-- (3,0);
+			\draw[color=black] (1.42,1.63) node {$\nabla^2\phi=0$};
+			\draw[color=black] (0.58,0.87) node [anchor=west]{$\frac{3\pi}{4}$};
+			\draw[color=black] (-1.7,1.51) node [anchor=north east]{$\phi=5$};
+			\draw[color=black] (1.58,-0.09) node [anchor=north]{$\phi=2$};
+		\end{tikzpicture}
+	\end{center}
+	$\phi(x,y) = A\Arg z + B$
+	$$\begin{dcases}
+		A \cdot 0 + B = 2 & \Rightarrow B = 2\\
+		A \cdot \dfrac{3\pi}{4}+ B = 5 & \Rightarrow A = \dfrac{4}{\pi}
+	\end{dcases}$$
+	So $$\phi(x,y) = \dfrac{4}{\pi} \Arg z + 2$$
+\end{example}
+Note that using $\mathbb{C}$ can give nicer notation. With $x$ and $y$, $$\Arg z = \begin{dcases}
+	\arctan\left(\dfrac{y}{x}\right) & \text{ in the first quadrant}\\
+	\dfrac{\pi}{2} & \text{ on vertical axis}\\
+	\arctan\left(\dfrac{y}{x}\right)+\pi & \text{ in the second quadrant}
+\end{dcases}$$
+Recall that we already know $f(z) = z$ and $f(z) = \log z$, and we know their real and imaginary part functions. Conveniently, we know \begin{center}
+	\begin{tikzpicture}
+		\fill[line width=2pt,color=red,fill=red,fill opacity=0.1] (-0.5,4) -- (0,4) -- (0,1) -- (-0.5,1) -- cycle;
+		\fill[line width=2pt,color=red,fill=red,fill opacity=0.1] (-2,-1) -- (2,-1) -- (2,-1.5) -- (-2,-1.5) -- cycle;
+		\draw (-8.896848802236827,1.263284334458733) node[anchor=north west] {$f(z)=z=x+iy$};
+		\draw [->,line width=2pt] (-5.48,1.12) -- (-3.84,2.22);
+		\draw [->,line width=2pt] (-5.46,0.34) -- (-4.16,-1.46);
+		\draw [->,line width=2pt] (-2,2) -- (2,2);
+		\draw [->,line width=2pt] (-1,1) -- (-1,4);
+		\draw [->,line width=2pt] (-2,-2) -- (2,-2);
+		\draw [->,line width=2pt] (-1,-3) -- (-1,0);
+		\draw [line width=2pt,dash pattern=on 1pt off 1pt] (-0.5,1)-- (-0.5,4);
+		\draw [line width=2pt,dash pattern=on 1pt off 1pt] (0,4)-- (0,1);
+		\draw [line width=2pt,dash pattern=on 1pt off 1pt] (-2,-1)-- (2,-1);
+		\draw [line width=2pt,dash pattern=on 1pt off 1pt] (-2,-1.5)-- (2,-1.5);
+	\end{tikzpicture}\\
+	\begin{tikzpicture}
+		\draw [line width=1pt,fill=black,fill opacity=0.5] (2,2) circle (1.5cm);
+		\draw [line width=2pt,color=white,fill=white,fill opacity=1] (2,2) circle (1cm);
+		\fill[line width=2pt,color=red,fill=red,fill opacity=0.1] (3.1685425333467765,-3) -- (2,-3) -- (1,-1.5) -- (3.5,-1.5) -- (3.5,-3) -- cycle;
+		\draw [->,line width=1pt] (0,2) -- (4,2);
+		\draw [->,line width=1pt] (2,0) -- (2,4);
+		\draw [->,line width=1pt] (0,-3) -- (4,-3);
+		\draw [->,line width=1pt] (2,-5) -- (2,-1);
+		\draw [->,line width=1pt] (-3.46,0.54) -- (-1.82,1.46);
+		\draw [->,line width=1pt] (-3.5,-1.28) -- (-2.3,-2.62);
+		\draw (-8.939894519177383,0.07769628293135626) node[anchor=north west] 
+		{$f(z)=\log z = \ln |z| + i \arg z$};
+		\draw [line width=2pt,dash pattern=on 1pt off 1pt] (2,-3)-- (1,-1.5);
+		\draw [line width=2pt,dash pattern=on 1pt off 1pt] (2,-3)-- (3.5,-3);
+	\end{tikzpicture}
+\end{center}
+
+Suppose we want to know more about general boundaries. We may consider try to find some mapping such that the image is one of the four images we get from above. 
+
+For example, we may try to find mappings such that: \begin{center}
+	\begin{tikzpicture}
+		\fill[line width=2pt,color=black,fill=black,fill opacity=0.1] (12,3.5) -- (13.5,3.5) -- (13.5,0.5) -- (12,0.5) -- cycle;
+		\draw [->,line width=2pt] (0,2) -- (4,2);
+		\draw [->,line width=2pt] (2,0) -- (2,4);
+		\draw [->,line width=2pt] (10,2) -- (14,2);
+		\draw [->,line width=2pt] (12,0) -- (12,4);
+		\draw (5.662842835981328,3.4347192177394974) node[anchor=north west] {$w=f(z)=u+iv$};
+		\draw [->,line width=2pt] (5.72,2.08) -- (8.34,2.12);
+		\draw [shift={(2,1.986653030680646)},line width=2pt]  plot[domain=-1.5707963267948966:1.5707963267948966,variable=\t]({1*1.4974423154078726*cos(\t r)+0*1.4974423154078726*sin(\t r)},{0*1.4974423154078726*cos(\t r)+1*1.4974423154078726*sin(\t r)});
+		\draw [shift={(2,1.986653030680646)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=1.5707963267948966:4.71238898038469,variable=\t]({1*1.4974423154078726*cos(\t r)+0*1.4974423154078726*sin(\t r)},{0*1.4974423154078726*cos(\t r)+1*1.4974423154078726*sin(\t r)});
+		\draw[color=black] (2.691927070493769,2.4112025058489728) node {$\nabla$};
+		\draw[color=black] (2.8368497907614545,3.153931447220858) node {$\phi=10$};
+		\draw[color=black] (11.803943107324512,1.016321323272505) node {$\phi=0$};
+		\draw[color=black] (11.858289127424895,3.153931447220858) node {$\phi=10$};
+		\draw[color=black] (12.858289127424895,1.5) node {$\nabla$};
+		\draw[color=black] (0.6992396668130892,2.3206258056816695) node {$\phi=0$};
+		\draw[color=black] (0.6992396668130892,2.3206258056816695) node {$\phi=0$};
+		\draw [color=black] (2,3.4709498978064195) circle (2.5pt);
+		\draw [color=black] (2,0.5) circle (2.5pt);
+		\draw [color=black] (12,2.0036073550961095) circle (2.5pt);
+	\end{tikzpicture}
+\end{center}
+
+Does $\phi_{uu} + \phi_{vv} = 0$ implies $\phi_{xx} + \phi_{yy} = 0$? Is the map invertible? Let's have 6 theorems to help answer these questions. 
+\begin{theorem}
+	Let $f(z)$ be analytic at $z_0$. If $f'(t_0) \neq 0$, then there exists neighborhood of $z_0$ in which $w = f(z)$ is invertible. Also, the derivative of the inverse $z = f^{-1}(w)$ is $\dfrac{dz}{dw} = \dfrac{1}{\underbrace{dw/dz}_{f'(z)}}$. 
+\end{theorem}
+\begin{proof}
+	Partial proof: $$ \text{Jacobian} = \det \begin{pmatrix}
+		u_x & u_y\\v_x & v_y
+	\end{pmatrix} = u_xv_y - u_yv_x = u_x^2+u_y^2 = |f'(z_0)|^2 > 0$$
+	This is not equal to 0 and orientation preserved. 
+\end{proof}
+\begin{theorem}
+	Suppose that an analytic function $w = f(z) = u(x,y) + iv(x,y)$ maps a domain $D_{xy}$ onto a domain $D_{uv}$. Suppose also that a scalar field $\Phi(u,v)$ is harmonic in $D_{uv}$. Then the scalar field $\phi(x,y) = \Phi\big(u(x,y), v(x,y)\big)$ is harmonic in $D_{xy}$
+\end{theorem}
+\begin{definition}
+	A mapping which preserves the angle of intersection (and the ``sense'' of that angle) between any two curves intersecting at $z_0$ is said to be \textbf{\underline{conformal}} at $z_0$. If it is conformal at every point in a domain $D$, then it is \underline{\textbf{conformal}} on that domain. 
+	\begin{center}
+		\begin{tikzpicture}
+			\draw [->,line width=2pt] (0,0) -- (6,0);
+			\draw [->,line width=2pt] (1,-1) -- (1,4);
+			\draw [->,line width=2pt] (7,0) -- (12,0);
+			\draw [->,line width=2pt] (8,-1) -- (8,4);
+			\draw [shift={(5.340712847362063,-9.277950060410792)},line width=2pt]  plot[domain=1.5309416696551146:1.9233920962229458,variable=\t]({1*11.527103638065165*cos(\t r)+0*11.527103638065165*sin(\t r)},{0*11.527103638065165*cos(\t r)+1*11.527103638065165*sin(\t r)});
+			\draw [shift={(6.851303011677934,-0.9781499692685922)},line width=2pt]  plot[domain=1.8540920431213956:2.7955997135668924,variable=\t]({1*4.476589369749907*cos(\t r)+0*4.476589369749907*sin(\t r)},{0*4.476589369749907*cos(\t r)+1*4.476589369749907*sin(\t r)});
+			\draw [shift={(11.906363636363638,1.864545454545455)},line width=2pt]  plot[domain=2.4960125457128215:3.9005264087308347,variable=\t]({1*2.186368361363257*cos(\t r)+0*2.186368361363257*sin(\t r)},{0*2.186368361363257*cos(\t r)+1*2.186368361363257*sin(\t r)});
+			\draw [shift={(12.2542458677686,3.4310795454545495)},line width=2pt]  plot[domain=3.212442962065017:4.372432181150451,variable=\t]({1*2.9817265227461576*cos(\t r)+0*2.9817265227461576*sin(\t r)},{0*2.9817265227461576*cos(\t r)+1*2.9817265227461576*sin(\t r)});
+			\draw [->,line width=2pt] (6.34,1.64) -- (7.22,1.64);
+				\draw [fill=black] (0,0) circle (2pt);
+				\draw [fill=black] (3.62,2.12) circle (2.5pt);
+				\draw[color=black] (3.6,2.47) node {$z_0$};
+				\draw[color=black] (4.5,2.45) node {$\beta$};
+				\draw [fill=black] (9.72,1.86) circle (2.5pt);
+				\draw[color=black] (9.6,2.67) node {$\beta$};
+				\draw[color=black] (10.08,1.99) node {$w_0$};
+				\draw [shift={(5,2.46)},->,line width=1pt] (-6.1155035662854065:0.5) arc (-6.1155035662854065:68.19859051364818:0.5);
+				\draw [shift={(9.76,2.74)},->,line width=1pt,color=black] (70.34617594194658:1) arc (70.34617594194658:124.15969454566937:1);
+		\end{tikzpicture}
+	\end{center} 
+\end{definition}
+\begin{theorem}
+	Let $f(z)$ be analytic in a domain $D$. Then $f(z)$ is conformal at every point in $D$ where $f'(z) \neq 0$
+\end{theorem}
+\begin{theorem}
+	\underline{\textbf{The Riemann Mapping Theorem}}: Let $D$ and $D'$ be any two simply-connected domains, but not the entire plane. Let $z_0 \in D, w_0 \in D'$ and $\alpha \in \mathbb{R}$. There exists a unique conformal mapping $w = f(z)$ of $D$ onto $D'$ such that $f(z_0) = w_0$ and $\Arg f'(z_0) = \alpha$. 
+\end{theorem}
+We will require $f'(z) \neq 0$ inside $D$, but $f'(z)$ might be zero on the boundary. 
+\begin{theorem}
+	Let $f$ be analytic at $z_0$. If $f^{(j)}(z_0) = 0$ for $j = 1, 2, ..., k-1$ but $f^{(k)}(z_0) \neq 0$, then the mapping $w = f(z)$ magnifies angles at $z_0$ by a factor of $k$.  
+\end{theorem}
+\begin{example}
+	$f(z) = z^3$
+	\begin{center}
+		\begin{tikzpicture}
+			\fill[line width=2pt,color=red,fill=red,fill opacity=0.1] (5,0) -- (1,0) -- (1,3) -- (5,3) -- cycle;
+			\fill[line width=2pt,color=red,fill=red,fill opacity=0.1] (7,-3) -- (7,4) -- (8,4) -- (8,-3) -- cycle;
+			\fill[line width=2pt,color=red,fill=red,fill opacity=0.12] (8,4) -- (11,4) -- (11,0) -- (8,0) -- cycle;
+			\draw [->,line width=2pt] (0,0) -- (6,0);
+			\draw [->,line width=2pt] (1,-1) -- (1,4);
+			\draw [->,line width=2pt] (7,0) -- (12,0);
+			\draw [->,line width=2pt] (8,-3) -- (8,4);
+			\draw [shift={(3.6869855394883198,-0.3870411568409357)},line width=2pt]  plot[domain=1.2627953360665423:2.5393920271817576,variable=\t]({1*2.4839312824469535*cos(\t r)+0*2.4839312824469535*sin(\t r)},{0*2.4839312824469535*cos(\t r)+1*2.4839312824469535*sin(\t r)});
+			\draw [shift={(4.721177052423342,0.8012166172106829)},line width=2pt]  plot[domain=1.7632459095926063:3.2664535951648856,variable=\t]({1*2.0975061488921796*cos(\t r)+0*2.0975061488921796*sin(\t r)},{0*2.0975061488921796*cos(\t r)+1*2.0975061488921796*sin(\t r)});
+			\draw [shift={(12.55702127659575,1.6476595744680844)},line width=2pt]  plot[domain=2.572798508405804:3.5262931010469685,variable=\t]({1*2.844956621843653*cos(\t r)+0*2.844956621843653*sin(\t r)},{0*2.844956621843653*cos(\t r)+1*2.844956621843653*sin(\t r)});
+			\draw [shift={(12.46542082738945,3.4994008559201184)},line width=2pt]  plot[domain=3.229081133283786:4.207970063930722,variable=\t]({1*3.197650807367087*cos(\t r)+0*3.197650807367087*sin(\t r)},{0*3.197650807367087*cos(\t r)+1*3.197650807367087*sin(\t r)});
+			\draw [shift={(5,2.46)},->,line width=1pt] (-6.1155035662854065:0.5) arc (-6.1155035662854065:68.19859051364818:0.5);
+			\draw [shift={(9.76,2.74)},->,line width=1pt,color=black] (70.34617594194658:1) arc (70.34617594194658:124.15969454566937:1);
+		\end{tikzpicture}
+	\end{center}
+	Angles are preserved everywhere except at the origin (tripled there). 
+\end{example}
+\begin{example}
+	Find the image of the square shown under $w = f(z) = z^2 = x^2-y^2 + i\cdot 2xy$
+	\begin{center}
+		\begin{tikzpicture}
+			\fill[line width=2pt,color=red,fill=red,fill opacity=0.1] (5,0) -- (1,0) -- (1,4) -- (5,4) -- cycle;
+			\draw [->,line width=2pt] (0,0) -- (6,0);
+			\draw [->,line width=2pt] (1,-1) -- (1,5);
+			\draw[color=black] (3,-0.6) node {$\textcircled{4}$};
+			\draw[color=black] (3,4.5) node {$\textcircled{2}$};
+			\draw[color=black] (0.5,2.5) node {$\textcircled{1}$};
+			\draw[color=black] (5.6,2.5) node {$\textcircled{3}$};
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: We look at boundaries: \begin{enumerate}
+		\item $x=0, 0 \leq y \leq 1$. Then $\begin{dcases}
+			u = -y^2\\v=0 & -1 \leq u \leq 0
+		\end{dcases}$
+		\item $y=1, 0 \leq x \leq 1$. Then $\begin{dcases}
+			u = x^2-1\\v=2x
+		\end{dcases}$, so $u = \left(\dfrac{v}{2}\right)^2-1, -1 \leq u \leq 0$. 
+		\item $x=1, 0\leq y\leq 1$. Then $\begin{dcases}
+			u = 1-y^2\\v = 2y
+		\end{dcases}$, so $u = 1-\left(\dfrac{v}{2}\right)^2, 0 \leq v \leq 2$
+		\item $y=0, 0 \leq x \leq 1$. Then $\begin{dcases}
+			u=x^2\\v=0 & 0\leq u \leq 1
+		\end{dcases}$
+	\end{enumerate}
+	\begin{center}
+		\begin{tikzpicture}
+			\draw [->,line width=1pt] (-5,0) -- (5,0);
+			\draw [->,line width=1pt] (0,-1) -- (0,5);
+			\draw [shift={(2.75,-2.75)},line width=2pt]  plot[domain=1.9576720445259248:2.7547169358587653,variable=\t]({1*7.2886898685566255*cos(\t r)+0*7.2886898685566255*sin(\t r)},{0*7.2886898685566255*cos(\t r)+1*7.2886898685566255*sin(\t r)});
+			\draw [shift={(-2.75,-2.75)},line width=2pt]  plot[domain=0.3868757177310281:1.1839206090638685,variable=\t]({1*7.2886898685566255*cos(\t r)+0*7.2886898685566255*sin(\t r)},{0*7.2886898685566255*cos(\t r)+1*7.2886898685566255*sin(\t r)});
+			\draw [line width=2pt] (-4,0)-- (4,0);
+			\draw [line width=2pt] (0,3.4928266270772594)-- (-3.2974949877213926,0.5030770316169896);
+			\draw [line width=2pt] (1.0384245826581624,3.4302140701042694)-- (-2.577450582532008,0.12740168977905006);
+			\draw [line width=2pt] (1.6958564308745572,2.960619892806845)-- (-1.3095463038289612,0.1274016897790501);
+			\draw [line width=2pt] (2.4315539753071893,2.2562286268607075)-- (0,0);
+			\draw [line width=2pt] (2.869841874118119,1.7396750318335412)-- (0.8349337724959449,-0.029129702653424655);
+			\draw [line width=2pt] (3.3081297729290484,1.1605088798333842)-- (2.1565313924324747,-0.06261255697298984);
+			\draw[color=black] (-2.358306633126541,3.01540588015821) node {$\textcircled{2}$};
+			\draw[color=black] (2.196756886658479,3.4536937789691398) node {$\textcircled{3}$};
+			\draw [line width=1pt] (-4.5,0) -- (0,0);
+			\draw [line width=1pt] (0,0) -- (4.2,0);
+			\draw[color=black] (-2.358306633126541,-0.5) node {$\textcircled{1}$};
+			\draw[color=black] (2.196756886658479,-0.5) node {$\textcircled{4}$};
+		\end{tikzpicture}
+	\end{center}
+	This looks inside maps to inside. Take a point to check: $f\left(e^{i\pi/4}\right) = e^{i\pi/2} = i$. 
+
+	Note: Angle at $z = 0$ is \underline{doubled} ($f''(0) \neq 0$), rest are preserved. 
+\end{example}
+\begin{theorem}
+	If $f$ is analytic, then it will map closed curves to closed curves. 
+
+	This holds true given the assumption that we can include the point at infinity. One example would be: circles can map to lines. 
+
+	This thereom also implies that $f$ will map domains to domains. 
+\end{theorem}
+\begin{proposition}
+	Let's consider some common mappings: \begin{itemize}
+		\item \textbf{\underline{Linear Transformations}}: $w = f(z) = az+b$, $a, b \in \mathbb{C}, a \neq 0$. $a$ is for scaling and rotation, and $b$ is for translation. 
+		
+		This maps circles to circles, and lines to lines.
+		\item \textbf{\underline{Inversion Mapping}}: $w = \dfrac{1}{z}$. Recall that $w = \dfrac{1}{re^{i\theta}} = \dfrac{1}{r} e^{-i\theta}$. \begin{center}
+			\begin{tikzpicture}[scale=1.5]
+				\draw [shift={(-3,0)},line width=2pt] (0,0) -- (0:0.4301992033966805) arc (0:52.27752679938211:0.4301992033966805) -- cycle;
+				\draw [shift={(3,0)},line width=2pt] (0,0) -- (-38.498751162585776:0.4301992033966805) arc (-38.498751162585776:0:0.4301992033966805) -- cycle;
+				\draw [->,line width=2pt] (-5,0) -- (-1,0);
+				\draw [->,line width=2pt] (1,0) -- (5,0);
+				\draw [->,line width=2pt] (-3,-2) -- (-3,2);
+				\draw [->,line width=2pt] (3,-2) -- (3,2);
+				\draw [line width=2pt,dash pattern=on 1pt off 1pt] (-3,0) circle (1.5cm);
+				\draw [line width=2pt,dash pattern=on 1pt off 1pt] (3,0) circle (1.5cm);
+				\draw [line width=2pt] (-3,0)-- (-2.4335437373415534,0.7323149380995903);
+				\draw [line width=2pt] (3,0)-- (5.306876888867611,-1.8348906387361545);
+				\draw [shift={(-3,0)},->,line width=2pt] (0:0.4301992033966805) arc (0:52.27752679938211:0.4301992033966805);
+				\draw [shift={(3,0)},->,line width=2pt] (-38.498751162585776:0.4301992033966805) arc (-38.498751162585776:0:0.4301992033966805);
+				\draw [->,line width=2pt] (-0.40043254286168484,0.07232582965579784) -- (0.5746856515041245,0.07232582965579784);
+				\draw[color=black] (-2.881247949115876,0.6387547807947613) node {$r$};
+				\draw[color=black] (3.47136028770844,-0.7) node {$\frac{1}{r}$};
+				\draw [fill=black] (-2.4335437373415534,0.7323149380995903) circle (2.5pt);
+				\draw[color=black] (-2.321988984700191,1.0402740372983303) node {$z$};
+				\draw[color=black] (-2.479728692612307,0.39497523220330866) node {$\theta$};
+				\draw [fill=black] (5.306876888867611,-1.8348906387361545) circle (2.5pt);
+				\draw[color=black] (5.622356304691842,-1.612621050314536) node {$w$};
+				\draw[color=black] (3.7,-0.2) node {$\theta$};
+				\end{tikzpicture}
+		\end{center}
+		
+		This maps circles and lines to circles or lines. 
+		\item \textbf{\underline{Mobius Transformation}}: aka ``bilinear'', ``linear fractional''. $w = f(z) = \dfrac{az+b}{cz+d}$, $a,b,c,d \in \mathbb{C}$. 
+	\end{itemize}
+	For the lasp mapping, we have the following properties: \begin{enumerate}
+		\item $$f(z) = \dfrac{a(cz+d)+bc-ad}{c(cz+d)} = \dfrac{a}{c} + \dfrac{bc-ad}{c} \cdot \dfrac{1}{cz+d}$$ in which we assume $bc-ad \neq 0$, otherwise $f$ is constant. This is a composition of linear, inversion, then linear maps. 
+		\item $$f'(z) = \dfrac{a(cz+d)-c(az+b)}{(cz+d)^2} = \dfrac{ad-bc}{(cz+d)^2 \neq 0}$$ since $bc-ad\neq 0$. So $f$ is analytic and conformal except at $z = \dfrac{-d}{c}$. 
+		\item We can find $$f^{-1}: w = \dfrac{az+b}{cz+d} \Rightarrow \cdots \Rightarrow z = \dfrac{b-dw}{cw-a} = f^{-1}(w)$$ which is also Mobius. 
+		
+		If we define $$\begin{dcases}
+			f\left(\dfrac{-d}{c}\right) = \infty\\
+			f(\infty) = \dfrac{a}{c}\\
+			f^{-1}(\infty) = \dfrac{-d}{c}\\
+			f^{-1}\left(\dfrac{a}{c}\right) = \infty
+		\end{dcases}$$ then $f$ is invertible on entire extended complex plane. 
+		\item Circles and lines map to circles or lines. 
+		\item There exists Mobius transformation which maps three distinct points $z_1, z_2, z_3$ to 3 distinct points $w_1, w_2, w_3$. 
+		
+		This is because there are really only 3 constants $$f(z) = \dfrac{z+\frac{b}{a}}{\frac{c}{a}z + \frac{d}{a}} = \dfrac{z+A}{Bz+C}$$
+	\end{enumerate}
+\end{proposition}
+\begin{example}
+	Solve the Dirichlet Problem: \begin{center}
+		\begin{tikzpicture}[scale=1.5]
+			\draw [line width=2pt,dash pattern=on 1pt off 1pt,fill=black,fill opacity=0.21] (-3,0) circle (1.5cm);
+			\fill[line width=2pt,color=red,fill=red,fill opacity=0.1] (3,2) -- (5,2) -- (5,-2) -- (3,-2) -- cycle;
+			\draw [->,line width=2pt] (-5,0) -- (-1,0);
+			\draw [->,line width=2pt] (1,0) -- (5,0);
+			\draw [->,line width=2pt] (-3,-2) -- (-3,2);
+			\draw [->,line width=2pt] (3,-2) -- (3,2);
+			\draw [->,line width=2pt] (-0.40043254286168484,0.07232582965579784) -- (0.5746856515041245,0.07232582965579784);
+			\draw [shift={(-3,0)},line width=2pt]  plot[domain=1.5707963267948966:4.71238898038469,variable=\t]({1*1.5*cos(\t r)+0*1.5*sin(\t r)},{0*1.5*cos(\t r)+1*1.5*sin(\t r)});
+			\draw[color=black] (3.0304947218445624,0.1561023578447017) node {$v$};
+			\draw[color=black] (-3.1194428446197455,0.116552920118243) node {$\nabla^2\phi=0$};
+			\draw[color=black] (3.3271155047930017,-0.37781505146249084) node {$a$};
+			\draw [fill=black] (-1.5,0) circle (2pt)node[anchor=north east]{$C$};
+			\draw [fill=black] (-3,1.5) circle (2.5pt);
+			\draw[color=black] (-2.7,1.7578545857662793) node {$A$};
+			\draw [fill=black] (-3,-1.5) circle (2.5pt);
+			\draw[color=black] (-2.7,-1.2380153220129677) node {$B$};
+			\draw[color=black] (-1,0.5) node {$\phi=10$};
+			\draw[color=black] (-3.7027970510850094,1.1942750981642427) node {$\phi=0$};
+			\draw [fill=black] (3,0.012735646086288892) circle (2.5pt);
+			\draw[color=black] (2.733873938896123,-0.1701805033985826) node {$B'$};
+			\draw[color=black] (2.8,-0.5) node {$\phi=10$};
+			\draw [fill=black] (3,-1) circle (2.5pt) node[anchor=east] {$C'$};
+			\draw[color=black] (2.5,1.2) node {$\phi=0$};
+			\draw [fill=black] (3,2.5) circle (2pt)node[anchor=east] 
+			{$A_1 \rightarrow \infty$};
+		\end{tikzpicture}
+	\end{center}
+
+	\textbf{\underline{Solution}}: Map circle to a line using Mobius transform. 
+
+	Send discontinuities (points $A$ and $B$) to convenient locations on Imaginary axis. Say $f(i) = \infty$ and $f(-i) = 0$. 
+
+	Put the third point somewhere else on the line, say $f(1) = -i$. 
+
+	Note: orientation is preserved (on left as $A' \rightarrow B' \rightarrow C'$)
+
+	Find $\Phi(u,v)$: region is a wedge, so $\Phi(u,v) = c_1 \Arg(w) + c_2$. 
+
+	Apply BC: $$\begin{dcases}
+		c_1 \cdot \left(-\dfrac{\pi}{2}\right) + c_2 = 10\\
+		c_1 \cdot \left(\dfrac{\pi}{2}\right) + c_2 = 0
+	\end{dcases} \Rightarrow \begin{dcases}
+		c_1 = \dfrac{-10}{\pi}\\c_2 = 5
+	\end{dcases}$$
+	So $\Phi(u,v) = 5- \dfrac{10}{\pi}\Arg w$. How to get $\phi(x,y)$? We need the map. 
+
+	Let $$f(z) = \dfrac{z+a}{bz+c} \;\;\Rightarrow \;\;\begin{dcases}
+		f(i) = \infty & \Rightarrow bi+c = 0 \Rightarrow c = -bi\\
+		f(-i) = 0 & \Rightarrow \dfrac{-i+a}{bi+c} = 0 \Rightarrow a=i\\
+		f(1) = -i & \Rightarrow \dfrac{i+a}{b+c} = -i \Rightarrow \cdots \Rightarrow b = -1, c = i
+	\end{dcases}$$
+	So $w = \dfrac{z+i}{-z+i}$, and so $\phi(x,y) = 5-\dfrac{10}{\pi} \Arg\left(\dfrac{z+i}{-z+i}\right)$
+
+	Note that $$w = \dfrac{(x+iy)+i}{-(x+iy)+i} = \cdots = \dfrac{-x^2-y^2+1-2xi}{x^2+(y-1)^2} = u+iv$$
+	Then \begin{align*}
+		\Arg w &= \arctan \left(\dfrac{v}{u}\right)\\
+		&= \arctan \left(\dfrac{-2x}{-x^2-y^2+1}\right)\\
+		\phi(x,y)&= 5 - \dfrac{10}{\pi} \arctan \left(\dfrac{2x}{x^2+y^2-1}\right) 
+	\end{align*}
+\end{example}
+There are many ways to solve the above problem, but it will always have a unique solution when expressed in terms of $x$ and $y$. 
+
+We could look at isotherms: $\Phi = \const$, so $\arctan \left(\dfrac{2x}{x^2+y^2-1}\right) = \const$, so $x^2 + (\const) x + y^2 = 1$. This is circles through $(0, \pm 1)$. \begin{center}
+	\begin{tikzpicture}
+		\draw [->,line width=2pt] (-4,0) -- (4,0);
+		\draw [->,line width=2pt] (0,-4) -- (0,4);
+		\draw [line width=2pt] (0,0) circle (3cm);
+		\draw [shift={(4,0)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=2.498091544796509:3.7850937623830774,variable=\t]({1*5*cos(\t r)+0*5*sin(\t r)},{0*5*cos(\t r)+1*5*sin(\t r)});
+		\draw [shift={(-4,0)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=-0.6435011087932843:0.6435011087932844,variable=\t]({1*5*cos(\t r)+0*5*sin(\t r)},{0*5*cos(\t r)+1*5*sin(\t r)});
+		\draw [shift={(-1.25,0)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=-1.1760052070951357:1.1760052070951352,variable=\t]({1*3.25*cos(\t r)+0*3.25*sin(\t r)},{0*3.25*cos(\t r)+1*3.25*sin(\t r)});
+		\draw [shift={(1.25,0)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=1.965587446494658:4.317597860684928,variable=\t]({1*3.25*cos(\t r)+0*3.25*sin(\t r)},{0*3.25*cos(\t r)+1*3.25*sin(\t r)});
+		\draw [shift={(0,5.5)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=3.7850937623830774:5.639684198386302,variable=\t]({1*2.5*cos(\t r)+0*2.5*sin(\t r)},{0*2.5*cos(\t r)+1*2.5*sin(\t r)});
+		\draw [shift={(0,4)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=-3.141592653589793:0,variable=\t]({1*1*cos(\t r)+0*1*sin(\t r)},{0*1*cos(\t r)+1*1*sin(\t r)});
+		\draw [shift={(0,-4)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=0:3.141592653589793,variable=\t]({1*1*cos(\t r)+0*1*sin(\t r)},{0*1*cos(\t r)+1*1*sin(\t r)});
+		\draw [shift={(0,-5.5)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=0.6435011087932844:2.498091544796509,variable=\t]({1*2.5*cos(\t r)+0*2.5*sin(\t r)},{0*2.5*cos(\t r)+1*2.5*sin(\t r)});
+		\draw [fill=black] (0,0) circle (2.5pt);
+		\draw [color=black] (0,3) circle (2.5pt);
+		\draw[color=black] (-2.8885767441860475,2.0674367864693464) node {$\phi=0$};
+		\draw [color=black] (0,-3) circle (2.5pt);
+		\draw[color=black] (3.5,1.5465065539112057) node {$\phi=10$};
+	\end{tikzpicture}
+\end{center}
+
+Harmonic conjugate function $\Psi(x, y)$ will have $\Psi(x,y) = k$ curves orthogonal, called ``flow lines''. \begin{center}
+	\begin{tikzpicture}
+		\draw [->,line width=2pt] (-4,0) -- (4,0);
+		\draw [->,line width=2pt] (0,-4) -- (0,4);
+		\draw [line width=2pt] (0,0) circle (3cm);
+		\draw [shift={(0,7)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=4.068887871591405:5.355890089177974,variable=\t]({1*5*cos(\t r)+0*5*sin(\t r)},{0*5*cos(\t r)+1*5*sin(\t r)});
+		\draw [shift={(0,9.5)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=4.222431654130961:5.202346306638418,variable=\t]({1*8.5*cos(\t r)+0*8.5*sin(\t r)},{0*8.5*cos(\t r)+1*8.5*sin(\t r)});
+		\draw [shift={(0,-9.5)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=1.0808390005411683:2.060753653048625,variable=\t]({1*8.5*cos(\t r)+0*8.5*sin(\t r)},{0*8.5*cos(\t r)+1*8.5*sin(\t r)});
+		\draw [shift={(0,-7)},line width=2pt,dash pattern=on 1pt off 1pt]  plot[domain=0.9272952180016122:2.214297435588181,variable=\t]({1*5*cos(\t r)+0*5*sin(\t r)},{0*5*cos(\t r)+1*5*sin(\t r)});
+	\end{tikzpicture}
+\end{center}
+
+Fluids: $\vec{v} = \Delta \phi$
+\begin{proposition}
+	\textbf{\underline{The Cross-Ratio Formula}}: To map $z_1, z_2$, and $z_3$ to $w_1, w_2$, and $w_3$ respectively, set $$\dfrac{(w-w_1)(w_2-w_3)}{(w-w_3)(w_2-w_1)} = \dfrac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)}$$
+	Shorthand notation: $(w,w_1,w_2,w_3) = (z, z_1, z_2, z_3)$. 
+
+	Note: if we use $\infty$ as one of the points, e.g. $z_3 = \infty$, then RHS simplifies to $$\dfrac{z-z_1}{z_2-z_1}\cdot\underbrace{\dfrac{z_2-z_3}{z-z_3}}_{\rightarrow 1} = \dfrac{z-z_1}{z_2-z_1}$$
+\end{proposition}
+\begin{example}
+	Find a mapping which takes circle $|z+1| = 1$ to the real axis. 
+
+	\textbf{\underline{Solution}}: Choose points on circle: $z_1 = -2, z_2 = -1-i, z_3 = 0$, and map these to (respectively) $w_1 = -1, w_2 = 0, w_3 = \infty$. 
+	$$\dfrac{(w-w_1)(w_2-w_3)}{(w-w_3)(w_2-w_1)} = \dfrac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)} \;\;\;\Rightarrow \;\;\;\dfrac{w+1}{1} = \dfrac{(z+2)(-1-i)}{z(1-i)}$$
+	So $$w = \dfrac{(-1+i)z+(-2-2i)}{(1-i)z}$$
+	Note that interior points maps to upper half plane. 
+\end{example}
+\begin{example}
+	This is a ``pipe within a pipe''
+
+	Find $\phi(x,y)$
+
+	\textbf{\underline{Solution}}: Key idea: $z= 0$ in on both circles, so send it to $\infty$ so that we get lines. 
+
+	Which other points? One option: notice orthogonal intersection with $y$-axis, so if we map $y$-axis to $v$-axis
+
+
+	So we get horizontal lines. 
+
+	Choose points: $$\begin{dcases}
+		z_1 = 0 & \Rightarrow w_1 = \infty\\
+		z_2 = 2i & \Rightarrow w_2 = 0\\
+		z_3 = 4i & \Rightarrow w_3 = i
+	\end{dcases}$$
+	The mapping is $$\dfrac{(w-w_1)(w_2-w_3)}{(w-w_3)(w_2-w_1)} = \dfrac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)} \;\;\;\Rightarrow \;\;\;\dfrac{-i}{w-i} = \dfrac{z(2i-4i)}{(z-4i)(2i)}$$
+	So $$w = i + i\cdot \dfrac{z-4i}{z} = \dfrac{iz+iz+4}{z} = \dfrac{2iz+4}{z}$$
+	The image is 
+
+	Is it mapping inside to inside? Let's check a point. $f(3i) = \dfrac{2i(3i)+4}{3i} = \dfrac{2i}{3}$. So yes. 
+
+	The solution in $w$-plane is (using the function $g(w) = w$ which is analytic everywhere) $$\Phi(u,v) = A\cdot v + B$$
+	Applying Boundary Conditions: $$\begin{dcases}A \cdot 1 + B = 15 & \Rightarrow A = -50\\ A \cdot 0 + B = 65 & \Rightarrow B = 65\end{dcases} \;\;\;\Rightarrow \;\;\;\Phi(u,v) = -50v+65 = -50\Im(w)+65$$
+	So, $\phi(x,y) = -50\Im\left(\dfrac{2iz+4}{z}\right) + 65$. To write in terms of $x$ and $y$, ntoe that $$\dfrac{2iz+4}{z} = \dfrac{2i(x+iy)+4}{x+iy} = \cdots = \dfrac{\text{stuff } + i(2x^2+2y^2-4y)}{x^2+y^2}$$
+	So \begin{align*}
+		\phi(x,y) &= -50\Im\left(\dfrac{2iz+4}{z}\right) + 65\\
+		&= -50\cdot \left(\dfrac{2(x^2+y^2-2y)}{x^2+y^2}\right) + 65\\
+		&= \cdots\\
+		&= \dfrac{200y}{x^2+y^2}-65
+	\end{align*}
+\end{example}
 \end{document}
