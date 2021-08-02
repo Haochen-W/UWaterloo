@@ -103,7 +103,7 @@
 	\vspace*{\fill}
 	\centering
 		
-	\textbf{\Huge AMATH / PMATH 332 Course Notes} \\ [0.4em]
+	\textbf{\Huge AMATH / PMATH 332 Course Note} \\ [0.4em]
 	\textbf{\Large Applied Complex Analysis} \\ [1em]
 	\textbf{\Large Haochen Wu} \\ [1em]
 	\textbf{\large University of Waterloo} \\
@@ -114,6 +114,9 @@
 \newpage 
 
 \pagenumbering{roman}
+\section*{Acknowledgments}
+I would like to thank Juxin Fa for creating beautiful and scalable figures in this note, which help a lot in illustrating the concepts and examples in complex analysis. 
+\newpage
 
 \tableofcontents
 \newpage
@@ -173,8 +176,8 @@ Note: We can't classify complex numbers as ``positive'' or ``negative'', and can
 		\item $\overline{\overline{z}} = z$
 		\item $\overline{z \pm w} = \overline{z} \pm \overline{w}$
 		\item $\overline{zw} = \overline{z} \;\overline{w}$ and $\overline{\bigg(\dfrac{z}{w}\bigg)} = \dfrac{(\overline{z})}{(\overline{w})}$
-		\item $z + \overline{z} = 2Re(z) \;\; \Rightarrow \;\; \Re(z) = \frac{1}{2}(z + \overline{z})$
-		\item $z - \overline{z} = 2iIm(z) \;\; \Rightarrow \;\; \Im(z) = \frac{1}{2i}(z - \overline{z})$
+		\item $z + \overline{z} = 2\Re(z) \;\; \Rightarrow \;\; \Re(z) = \frac{1}{2}(z + \overline{z})$
+		\item $z - \overline{z} = 2i\Im(z) \;\; \Rightarrow \;\; \Im(z) = \frac{1}{2i}(z - \overline{z})$
 		\item $z\overline{z} = a^2+b^2$ which is real!
 	\end{enumerate}
 \end{proposition}
@@ -1347,9 +1350,9 @@ What about functions without real analogues?
 	\textbf{\underline{Solution}}: 
 	\begin{align*}
 		f'(z_0) &= \lim_{z \rightarrow z_0}\dfrac{\overline{z} - \overline{z_0}}{z-z_0}\\
-		&=\lim_{z \rightarrow z_0} \dfrac{\overline{z-z_0}}{z-z_0}\\
-		&=\lim_{z \rightarrow z_0} \dfrac{\overline{re^{i\theta}}}{re^{i\theta}} \;\;\text{ where }\;\; z-z_0 = e^{i\theta}\\
-		&=\lim_{z \rightarrow z_0} \dfrac{e^{-i\theta}}{e^{i\theta}}\\
+		&=\lim_{z \rightarrow z_0} \dfrac{\;\;\;\overline{z-z_0}\;\;\;}{z-z_0}\\
+		&=\lim_{z \rightarrow z_0} \dfrac{\;\;\;\overline{re^{i\theta}}\;\;\;}{re^{i\theta}} \;\;\text{ where }\;\; z-z_0 = e^{i\theta}\\
+		&=\lim_{z \rightarrow z_0} \dfrac{\;e^{-i\theta}\;}{e^{i\theta}}\\
 		&=\lim_{z \rightarrow z_0} e^{-i2\theta}
 	\end{align*}
 	which depends on $\theta$! No unique value, so limit DNE. So, $f$ is not differentiable anywhere. 
@@ -1607,7 +1610,7 @@ Partial Fractions has simpler rules:
 	This gives us $$1 = A\cdot (z+4)(z+i)(z-i) + B(z+i)(z-i) + C(z+4)^2(z-i) + D(z+4)^2(z+i)$$
 	We can solve this by: \begin{itemize}
 		\item set $z = -4$, this gives us $1 = 0 + (-4+i)(-4-i)B +0+0$, so $B = \dfrac{1}{17}$
-		\item set $z = -i$, this gives us $1 = 0 + 0 + (-i+4)^2(-2i)C +0$. Then we conpute $(-2i)(15-8i) = 16-30i$, also $(-16-30i) = \dfrac{(-16-30i)(-16+30i)}{(-16+30i)} = \dfrac{1156}{(-16+30i)} = \dfrac{578}{-8+15i}$. 
+		\item set $z = -i$, this gives us $1 = 0 + 0 + (-i+4)^2(-2i)C +0$. Then we compute $(-2i)(15-8i) = 16-30i$, also $(-16-30i) = \dfrac{(-16-30i)(-16+30i)}{(-16+30i)} = \dfrac{1156}{(-16+30i)} = \dfrac{578}{-8+15i}$. 
 		
 		Hence, $C = \dfrac{-8+15i}{578}$. 
 		\item set $z = -4$, this gives us $1 = 0 + 0+0+ (i+4)^2(2i)D$, so $D = \dfrac{-8-15i}{578}$. The trick to compute things here is that, we can replace $i$ with $-i$ from $C$ since the expression is similar to $C$. 
@@ -1914,7 +1917,7 @@ How to define $\log z$? Let $z = e^w$ and solve for $w$. Note that: \begin{itemi
 \begin{proof}
 	Let \begin{align*}
 		w = \Log z &= \ln |z| + i \Arg (z)\\
-		&=\dfrac{1}{2} \ln (x^2+y^2) + i \bigg(\arctan (\dfrac{y}{x}) \pm \pi\bigg)\\
+		&=\dfrac{1}{2} \ln (x^2+y^2) + i \bigg(\arctan \left(\dfrac{y}{x}\right) \pm \pi\bigg)\\
 		&= u(x,y) + iv(x,y)
 	\end{align*}
 	Now, \begin{align*}
@@ -2047,7 +2050,7 @@ where $\Arg_{\tau}(z) \in (\tau, \tau + 2\pi]$. Note that $\Log z = \Log_{-\pi}$
 	\end{center}
 \end{example}
 
-Here is another way to solve the above problem. $$\Log(z^2+1) = \Log((z+i)(z-i)) = \Log_{\tau_1}(z+i) + \Log_{\tau_2}(z-i)$$ for some $\tau_1, \tau_2$
+Here is another way to solve the above problem. $$\Log(z^2+1) = \Log\bigg((z+i)(z-i)\bigg) = \Log_{\tau_1}(z+i) + \Log_{\tau_2}(z-i)$$ for some $\tau_1, \tau_2$
 
 Some possibilities are: \begin{itemize}
 	\item $\tau_1 = \dfrac{-\pi}{2}$, $\tau_2 = \dfrac{-3\pi}{2}$
@@ -2445,10 +2448,10 @@ How to calculate?
 \end{definition}
 \begin{proposition}
 	Properties: \begin{itemize}
-		\item $\int_{\mathcal{C}} \bigg(f(z) +g(z) \bigg)dz = \int_{\mathcal{C}} f(z)dz + \int_{\mathcal{C}} g(z)dz$
-		\item $\int_{\mathcal{C}} kf(z)dz = k\int_{\mathcal{C}} f(z)dz$
-		\item $\int_{-\mathcal{C}} f(z)dz = -\int_{\mathcal{C}} f(z)dz$. Here $-\mathcal{C}$ means $\mathcal{C}$ traversed in the opposite direction
-		\item $\int_{\mathcal{C}_1 + \mathcal{C}_2} f(z)dz = \int_{\mathcal{C}_1} f(z)dz + \int_{\mathcal{C}_2} f(z)dz$. Here it means that we traverse $\mathcal{C}_1$ then traverse $\mathcal{C}_2$. 
+		\item $\displaystyle\int_{\mathcal{C}} \bigg(f(z) +g(z) \bigg)dz = \int_{\mathcal{C}} f(z)dz + \int_{\mathcal{C}} g(z)dz$
+		\item $\displaystyle\int_{\mathcal{C}} kf(z)dz = k\int_{\mathcal{C}} f(z)dz$
+		\item $\displaystyle\int_{-\mathcal{C}} f(z)dz = -\int_{\mathcal{C}} f(z)dz$. Here $-\mathcal{C}$ means $\mathcal{C}$ traversed in the opposite direction
+		\item $\displaystyle\int_{\mathcal{C}_1 + \mathcal{C}_2} f(z)dz = \int_{\mathcal{C}_1} f(z)dz + \int_{\mathcal{C}_2} f(z)dz$. Here it means that we traverse $\mathcal{C}_1$ then traverse $\mathcal{C}_2$. 
 		\begin{center}
 			\begin{tikzpicture}
 				\draw [shift={(-4.873716704521987,-4.1312925872393205)},line width=2pt]  plot[domain=1.4439239249118083:2.378792027289586,variable=\t]({1*4.85027675018997*cos(\t r)+0*4.85027675018997*sin(\t r)},{0*4.85027675018997*cos(\t r)+1*4.85027675018997*sin(\t r)});
@@ -2846,7 +2849,7 @@ We showed that $\overline{z}$ can be integreated, but the result depends on path
 \subsection{Cauchy's Integral Theorem}
 \begin{example}
 	\label{example_unit_circle}
-	\textbf{Most Important Example in this Course}: Evaluate $\int_{\mathcal{C}} \dfrac{1}{z} dz$ where $\mathcal{C}$ is the unit circle. 
+	\textbf{Most Important Example in this Course}: Evaluate $\displaystyle\int_{\mathcal{C}} \dfrac{1}{z} dz$ where $\mathcal{C}$ is the unit circle. 
 	\begin{center}
 		\begin{tikzpicture}[scale=1]
 			\draw (1.5534076199727505,1.04130100687539) node[anchor=north west] {$\mathcal{C}$};
@@ -2951,9 +2954,9 @@ We showed that $\overline{z}$ can be integreated, but the result depends on path
 	Since $\int_{\mathcal{C}}f(z)dz = 0 \Leftrightarrow f$ has an antiderivative in $D$, we have that if $f$ is analytic, then $f$ also has an antiderivative, which is analytic. So every analytic function is infinitely antidifferentiable.  
 \end{corollary}
 \begin{example}
-	Back to Example \ref{example_unit_circle}. We know that $\int_{\mathcal{C}} \dfrac{1}{z}dz = 2\pi i$ for \underline{any} closed contour enclosing the origin. 
+	Back to Example \ref{example_unit_circle}. We know that $\displaystyle\int_{\mathcal{C}} \dfrac{1}{z}dz = 2\pi i$ for \underline{any} closed contour enclosing the origin. 
 
-	Also, $\int_{\mathcal{C}} \dfrac{1}{z}dz = 0$ for any closed contours \underline{not} enclosing the origin. 
+	Also, $\displaystyle\int_{\mathcal{C}} \dfrac{1}{z}dz = 0$ for any closed contours \underline{not} enclosing the origin. 
 
 	Could shift results: $$\int_{\mathcal{C}}\dfrac{1}{z-z_0}dz = \begin{dcases}
 		0 & \text{ if } z_0 \text{ is exterior to }\mathcal{C}\\
@@ -2980,7 +2983,7 @@ We showed that $\overline{z}$ can be integreated, but the result depends on path
 \end{example}
 
 \begin{example}
-	Evaluate $\int_{\mathcal{C}} \dfrac{2z}{z^2+2} dz$ where $\mathcal{C}$ is the positively oriented circle of radius 2 centered at origin. 
+	Evaluate $\displaystyle\int_{\mathcal{C}} \dfrac{2z}{z^2+2} dz$ where $\mathcal{C}$ is the positively oriented circle of radius 2 centered at origin. 
 
 	\textbf{\underline{Solution}}: We can do partial fractions: $$\dfrac{2z}{z^2+2} = \dfrac{1}{z+i\sqrt{2}} + \dfrac{1}{z-i\sqrt{2}}$$
 	
@@ -3085,13 +3088,13 @@ Consider $\int_{\mathcal{C}} (z-z_0)^n dz$ where $n \neq -1$. \begin{itemize}
 	\end{align*}
 \end{itemize}
 Thus for an interioir point $z_0$ in $\mathcal{C}$ \begin{tcolorbox}[hbox, before=\par\smallskip\centering]
-	$\int_{\mathcal{C}} (z-z_0)^n dz = \begin{dcases}
+	$\displaystyle\int_{\mathcal{C}} (z-z_0)^n dz = \begin{dcases}
 		0 & \text{ if } n\neq -1\\
 		2\pi i & \text{ if } n= -1
 	\end{dcases}$
 \end{tcolorbox}
 \begin{example}
-	Let $\mathcal{C}$ be the positively oriented circle of radius 3 centered at the origin. Evaluate $\int_{\mathcal{C}} \dfrac{3z^3+2}{z^4+z^3-2z^2} dz$
+	Let $\mathcal{C}$ be the positively oriented circle of radius 3 centered at the origin. Evaluate $\displaystyle\int_{\mathcal{C}} \dfrac{3z^3+2}{z^4+z^3-2z^2} dz$
 
 	\textbf{\underline{Solution}}: Note that $z^4+z^3-2z^2 = z^2(z^2+z-2) = z^2(z-1)(z+2)$. These give us the location of the singularities. 
 
@@ -3140,14 +3143,14 @@ Thus for an interioir point $z_0$ in $\mathcal{C}$ \begin{tcolorbox}[hbox, befor
 		&= 0 + 2\pi i f(z_0)\\
 		&= 2\pi i f(z_0)
 	\end{align*}
-	To show $\int_{\mathcal{C}_r}\dfrac{f(z) - f(z_0)}{z-z_0} dz = 0$, we consider the following: 
+	To show $\displaystyle\int_{\mathcal{C}_r}\dfrac{f(z) - f(z_0)}{z-z_0} dz = 0$, we consider the following: 
 
 	On $\mathcal{C}_r$, we have $|f(z) - f(z_0)| \leq M$ for some $M$. Then $$\left|\dfrac{f(z) - f(z_0)}{z-z_0} \right| \leq \dfrac{M}{r} \;\;\; \text{ since } |z-z_0| = r \;\text{ on }C_r$$
 	By ML inequality, $$\left|\int_{\mathcal{C}_r} \dfrac{f(z) - f(z_0)}{z-z_0} dz \right| \leq \dfrac{M}{r} \cdot \text{length}(\mathcal{C}_r) = \dfrac{M}{r} 2\pi r = 2\pi M$$
 	Let $r \rightarrow 0$, then $M \rightarrow 0$ by continuity of $f$, and so $$\int_{\mathcal{C}_r}\dfrac{f(z) - f(z_0)}{z-z_0} dz = 0$$
 \end{proof}
 \begin{example}
-	Evaluate $\int_{\mathcal{C}} \dfrac{e^z}{z-1} dz$. 
+	Evaluate $\displaystyle\int_{\mathcal{C}} \dfrac{e^z}{z-1} dz$. 
 	\begin{center}
 		\begin{tikzpicture}[scale=0.6]
 			\draw [shift={(0,0)},->,line width=2pt] (-319.0856167799749:2) arc (-319.0856167799749:40.446232020841364:2);
@@ -3161,7 +3164,7 @@ Thus for an interioir point $z_0$ in $\mathcal{C}$ \begin{tcolorbox}[hbox, befor
 	\textbf{\underline{Solution}}: Let $f(z) = e^z$. Since $f(z)$ is entire, and $z_0 = 1$ is inside $\mathcal{C}$, we have, by \textbf{CIF}, $$\int_{\mathcal{C}} \dfrac{e^z}{z-1} dz = 2\pi i f(1) = 2\pi i e^1 = 2\pi e i$$
 \end{example}
 \begin{example}
-	Evaluate $\int_{\mathcal{C}} \dfrac{e^{i\pi z}}{2z^2-5z+2} dz$. 
+	Evaluate $\displaystyle\int_{\mathcal{C}} \dfrac{e^{i\pi z}}{2z^2-5z+2} dz$. 
 	\begin{center}
 		\begin{tikzpicture}[scale=0.6]
 			\draw [shift={(0,0)},->,line width=2pt] (-319.0856167799749:2) arc (-319.0856167799749:40.446232020841364:2);
@@ -3215,7 +3218,7 @@ So the value of $f$ at any point \underline{inside} $\mathcal{C}$ is determined 
 	\end{tcolorbox} 
 \end{theorem}
 \begin{example}
-	Evaluate $\int_{\mathcal{C}} \dfrac{z^3+2z+1}{(z-1)^3} dz$. 
+	Evaluate $\displaystyle\int_{\mathcal{C}} \dfrac{z^3+2z+1}{(z-1)^3} dz$. 
 	\begin{center}
 		\begin{tikzpicture}[scale=0.6]
 			\draw [shift={(0,0)},->,line width=2pt] (-319.0856167799749:2) arc (-319.0856167799749:40.446232020841364:2);
@@ -3378,9 +3381,9 @@ We can use this to prove the \textbf{Fundamental Theorem of Algebra}.
 	\end{center}
 \end{definition}
 \begin{example}
-	$\sum_{n=0}^\infty \left(\dfrac{1}{2}+i\right)^n$ and $\sum_{n=0}^\infty i^n$ divergent. 
+	$\displaystyle\sum_{n=0}^\infty \left(\dfrac{1}{2}+i\right)^n$ and $\sum_{n=0}^\infty i^n$ divergent. 
 
-	$\sum_{n=0}^\infty \left(\dfrac{i}{2}\right)^n$ is convergent, and equals $\dfrac{1}{1-\frac{i}{2}} = \dfrac{2}{2-i} = \dfrac{4+2i}{3}$
+	$\displaystyle\sum_{n=0}^\infty \left(\dfrac{i}{2}\right)^n$ is convergent, and equals $\dfrac{1}{1-\frac{i}{2}} = \dfrac{2}{2-i} = \dfrac{4+2i}{3}$
 \end{example}
 \begin{proposition}
 	\textbf{\underline{Comparison Test}}: If $\sum_{k=1}^\infty M_k$ is a convergent series of real numbers and $|z_k| \leq M_k$ for all sufficiently large $k$, then $\sum_{k=1}^\infty z_k$ converges. 
@@ -3606,7 +3609,7 @@ For series, we apply the above ideas to the sequence of partial sums: $S_n(x) = 
 \end{example}
 \begin{example}
 	\begin{align*}
-		\dfrac{\sin z}{z} &= \dfrac{\sum_{n = 0}^\infty \dfrac{(-1)^n}{(2n+1)!}z^{2n+1}}{z}\\
+		\dfrac{\sin z}{z} &= \dfrac{\displaystyle\sum_{n = 0}^\infty \dfrac{(-1)^n}{(2n+1)!}z^{2n+1}}{z}\\
 		&= 1-\dfrac{z^2}{3!} + \dfrac{z^4}{5!} - \cdots 
 	\end{align*}
 	for $|z| < \infty$, $z \neq 0$. 
@@ -3770,22 +3773,17 @@ Note: Removable singularities can be ``removed'' by defining $$f(z_0) = \lim_{z 
 \begin{example}
 	Find and classify isolated singularities: \begin{enumerate}
 		\item $\dfrac{1}{z^2+2z+1} = \dfrac{1}{(z+1)^2}$: $z = -1$ is a pole of order 2 by definition
-		\item $f(z) = \dfrac{\sin z}{z^3+z} = \dfrac{\sin z}{z(z^2+1)}$: singularities at $z= 0$ and $z = -1$. 
+		\item $f(z) = \dfrac{\sin z}{z^2+z} = \dfrac{\sin z}{z(z+1)}$: singularities at $z= 0$ and $z = -1$. 
 		\begin{itemize}
 			\item $z= 0$: Try \begin{align*}
-				\lim_{z \rightarrow 0} (z-0)^0 \dfrac{\sin z}{z^3+z} &= \lim_{z \rightarrow 0} \dfrac{\cos z}{3z^2+1} \;\;\text{By L'Hopital's Rule}\\
+				\lim_{z \rightarrow 0} (z-0)^0 \dfrac{\sin z}{z^2+z} &= \lim_{z \rightarrow 0} \dfrac{\cos z}{2z+1} \;\;\text{By L'Hopital's Rule}\\
 				&= 1
 			\end{align*} So $f$ has a removable singularity at $z = 0$
-			\item $z= -1$: Try $\lim_{z \rightarrow -1} (z-(-1))^0 \dfrac{\sin z}{z^3+z} = \dfrac{1}{2}\sin (1)$. 
-			% 	Try \begin{align*}
-			% 	\lim_{z \rightarrow -1} (z-(-1))^1 \dfrac{\sin z}{z^3+z} &= \lim_{z \rightarrow -1} (z+1) \dfrac{\sin z}{z^3+z}\\
-			% 	&= \lim_{z \rightarrow -1} \dfrac{\sin z}{z(z^2+1)}\\
-			% 	&= \dfrac{\sin (-1)}{-1}\\
-			% 	&= \sin 1\\
-			% 	&\neq 0
-			% \end{align*} 
-			% So $f$ has a pole of order 1 (``simple pole'') at $z = -1$
-			So $f$ has a removable singularity at $z = -1$
+			\item $z= -1$: Try $\displaystyle\lim_{z \rightarrow -1} (z-(-1))^0 \dfrac{\sin z}{z^2+z}$. This is undefined. 
+			
+			Try $\displaystyle\lim_{z \rightarrow -1} (z-(-1))^1 \dfrac{\sin z}{z^2+z} = \lim_{z \rightarrow -1} \dfrac{\sin z}{z} = \dfrac{\sin(-1)}{-1} = \sin(1) \neq 0$. 
+			
+			So $f$ has a pole of order 1 (``simple pole'') at $z = -1$
 		\end{itemize}
 	\end{enumerate}
 \end{example}
@@ -3822,7 +3820,7 @@ Note: Removable singularities can be ``removed'' by defining $$f(z_0) = \lim_{z 
 \begin{example}
 	Locate and classify isolated singularities for $f(z) = \dfrac{e^z}{\Log z}$.
 
-	\textbf{\underline{Solution}}: Look at $z=1$ again. $\lim_{z \rightarrow 1} \dfrac{e^z}{\Log z} = ``\infty''$. $$\lim_{z \rightarrow 1} (z-1)\dfrac{e^z}{\Log z} = \lim_{z \rightarrow 1} \dfrac{e^z+(z-1)e^z}{1/z} = e \neq 0$$
+	\textbf{\underline{Solution}}: Look at $z=1$ again. $\displaystyle\lim_{z \rightarrow 1} \dfrac{e^z}{\Log z} = ``\infty''$. $$\lim_{z \rightarrow 1} (z-1)\dfrac{e^z}{\Log z} = \lim_{z \rightarrow 1} \dfrac{e^z+(z-1)e^z}{1/z} = e \neq 0$$
 	So $z = 1$ is a pole of order 1, i.e. a simple pole. 
 
 	\textbf{\underline{Solution 2}}: Let $g(z) = \dfrac{1}{f(z)} = \dfrac{\Log z}{e^z}$. Then, $g(1) = 0$, and $$g'(1) = \left.\left(\dfrac{e^z\frac{1}{z} - \Log z \cdot e^z}{(e^z)^2}\right)\right|_{z=1} = \dfrac{1}{e} \neq 0$$
@@ -3894,7 +3892,7 @@ $c_{-1}$ is called the \textbf{\underline{residue of $f$ at $z_0$}}, denoted $\R
 	\end{center}
 \end{proof}
 \begin{example}
-	Evaluate $\int_{\mathcal{C}}e^{\frac{2i}{z}}dz$.
+	Evaluate $\displaystyle\int_{\mathcal{C}}e^{\frac{2i}{z}}dz$.
 	\begin{center}
 		\begin{tikzpicture}[scale=1]
 			\draw [->,line width=2pt] (-2,0) -- (2,0);
@@ -3909,7 +3907,7 @@ $c_{-1}$ is called the \textbf{\underline{residue of $f$ at $z_0$}}, denoted $\R
 	So $\int_{\mathcal{C}}e^{\frac{2i}{z}}dz = 2\pi i \cdot \Res(0) = 2\pi i \cdot 2i = -4\pi$
 \end{example}
 \begin{example}
-	Evaluate $\int_{\mathcal{C}}\dfrac{5z-3}{z(z-1)}dz$.
+	Evaluate $\displaystyle\int_{\mathcal{C}}\dfrac{5z-3}{z(z-1)}dz$.
 	\begin{center}
 		\begin{tikzpicture}[scale=1]
 			\draw [->,line width=2pt] (-2,0) -- (2,0);
@@ -3955,7 +3953,7 @@ Actually, we do not need the whole series. Look for shortcuts: \begin{itemize}
 	\item If $f$ has an essential singularity at $z=z_0$: Need to find the Laurent series. There is no shortcut here. 
 \end{itemize}
 \begin{example}
-	Evaluate $\int_{\mathcal{C}} \dfrac{e^z}{z^4+z^2} dz$
+	Evaluate $\displaystyle\int_{\mathcal{C}} \dfrac{e^z}{z^4+z^2} dz$
 	\begin{center}
 		\begin{tikzpicture}[scale=1]
 			\draw [->,line width=2pt] (-2,0) -- (2,0);
@@ -3973,7 +3971,7 @@ Actually, we do not need the whole series. Look for shortcuts: \begin{itemize}
 	By Residue Theorem, $$\int_{\mathcal{C}} \dfrac{e^z}{z^4+z^2} dz = 2\pi i \left(1+\dfrac{ie^i}{2}\right)$$
 \end{example}
 \begin{example}
-	Evaluate $\int_{\mathcal{C}} \dfrac{dz}{z^4+1}$
+	Evaluate $\displaystyle\int_{\mathcal{C}} \dfrac{dz}{z^4+1}$
 	\begin{center}
 		\begin{tikzpicture}[scale=1]
 			\draw [->,line width=2pt] (-0.5,0) -- (2,0);
@@ -4010,7 +4008,7 @@ Actually, we do not need the whole series. Look for shortcuts: \begin{itemize}
 	\end{center}
 \end{example}
 \begin{example}
-	Evaluate $\int_{\mathcal{C}} \dfrac{dz}{(z+1)^3(z^2+4)}$
+	Evaluate $\displaystyle\int_{\mathcal{C}} \dfrac{dz}{(z+1)^3(z^2+4)}$
 	\begin{center}
 		\begin{tikzpicture}[scale=0.8]
 			\draw [->,line width=1pt] (-4,0) -- (4,0);
@@ -4026,7 +4024,7 @@ Actually, we do not need the whole series. Look for shortcuts: \begin{itemize}
 		&=\lim_{z \rightarrow -1} \dfrac{d^2}{dz^2}\left(\dfrac{1}{z^2+4}\right)\\
 		&= \dfrac{-1}{125}
 	\end{align*}
-	Thus, $\int_{\mathcal{C}} \dfrac{dz}{(z+1)^3(z^2+4)} = 2\pi i \left(\dfrac{-1}{125}\right) = \dfrac{-2\pi i}{125}$
+	Thus, $\displaystyle\int_{\mathcal{C}} \dfrac{dz}{(z+1)^3(z^2+4)} = 2\pi i \left(\dfrac{-1}{125}\right) = \dfrac{-2\pi i}{125}$
 \end{example}
 \begin{example}
 	$f(z) = \dfrac{\tanh z}{z^2}$. Find $\Res(0)$ and $\Res(\frac{\pi}{2}i)$
@@ -4067,7 +4065,7 @@ Then $dz = ie^{i\theta} d\theta$, so $d\theta = \dfrac{dz}{iz}$.
 Also, $\cos \theta = \dfrac{e^{i\theta} + e^{-i\theta}}{2} = \dfrac{z+z^{-1}}{2}$, $\sin \theta = \dfrac{e^{i\theta}-e^{-i\theta}}{2i} = \dfrac{z-z^{-1}}{2i}$. 
 
 \begin{example}
-	Evaluate $\int_{0}^{2\pi} \dfrac{1}{8+\sin\theta} d\theta$
+	Evaluate $\displaystyle\int_{0}^{2\pi} \dfrac{1}{8+\sin\theta} d\theta$
 
 	\textbf{\underline{Solution}}: Using the above substitution, we get $$I = \int_{0}^{2\pi} \dfrac{1}{8+\sin\theta} d\theta = \int_{\mathcal{C}}\dfrac{1}{8 + \frac{1}{2i}(z-\frac{1}{z})} \dfrac{dz}{iz} = \int_{\mathcal{C}} \dfrac{2}{z^2+16iz-1}dz$$
 	\begin{center}
@@ -4083,9 +4081,9 @@ Also, $\cos \theta = \dfrac{e^{i\theta} + e^{-i\theta}}{2} = \dfrac{z+z^{-1}}{2}
 Generalize the process above, we may see that $$\int_{0}^{2\pi} \dfrac{1}{k+\sin\theta} = \dfrac{2\pi}{\sqrt{k^2-1}}, \;\;\; k > 1$$
 
 \begin{example}
-	Evaluate $\int_{0}^{\pi} \dfrac{\cos \theta}{5+4\cos\theta} d\theta$
+	Evaluate $\displaystyle\int_{0}^{\pi} \dfrac{\cos \theta}{5+4\cos\theta} d\theta$
 
-	\textbf{\underline{Solution}}: Let $I = \int_{0}^{\pi} \dfrac{\cos \theta}{5+4\cos\theta} d\theta$. We want to have $\int_{0}^{2\pi}$. Notice that\begin{align*}
+	\textbf{\underline{Solution}}: Let $I = \displaystyle\int_{0}^{\pi} \dfrac{\cos \theta}{5+4\cos\theta} d\theta$. We want to have $\int_{0}^{2\pi}$. Notice that\begin{align*}
 		\int_{0}^{\pi} F(\cos \theta) d\theta &= \dfrac{1}{2} \int_{-\pi}^{\pi} F(\cos \theta) d\theta \;\;\text{ by symmetry}\\
 		&=\dfrac{1}{2} \int_{0}^{2\pi} F(\cos \theta) d\theta \;\;\text{ by periodicity}
 	\end{align*}
@@ -4113,9 +4111,9 @@ Generalize the process above, we may see that $$\int_{0}^{2\pi} \dfrac{1}{k+\sin
 	So by Residue Theorem $$I = \dfrac{-i}{4} \cdot 2\pi i \cdot \left(\dfrac{1}{2} - \dfrac{5}{6}\right) = \dfrac{\pi}{2}\cdot \left(-\dfrac{1}{3}\right) = \dfrac{-\pi}{6}$$
 \end{example}
 \begin{example}
-	Evaluate $\int_{0}^{2\pi} \dfrac{\cos 2\theta}{5-4\sin\theta} d\theta$
+	Evaluate $\displaystyle\int_{0}^{2\pi} \dfrac{\cos 2\theta}{5-4\sin\theta} d\theta$
 
-	\textbf{\underline{Solution}}: Let $I = \int_{0}^{2\pi} \dfrac{\cos 2\theta}{5-4\sin\theta} d\theta$. 
+	\textbf{\underline{Solution}}: Let $I = \displaystyle\int_{0}^{2\pi} \dfrac{\cos 2\theta}{5-4\sin\theta} d\theta$. 
 
 	Let $z = e^{i\theta}$, so $dz = izd\theta$, and \begin{align*}
 		I &= \int_{0}^{2\pi} \dfrac{(e^{i2\theta} + e^{-i2\theta})/2}{5-4(e^{i\theta - e^{-i\theta}})/2i} d\theta\\
@@ -4204,7 +4202,7 @@ If $\deg Q - \deg P \geq 2$, then $\lim_{|z| \rightarrow \infty} \dfrac{zP(z)}{Q
 Thus, $\left|\int_{\mathcal{C}_R}\dfrac{P(z)}{Q(z)}dz\right| \leq \dfrac{\epsilon}{\pi R} = \epsilon$, and we have shown $$\lim_{R \rightarrow \infty}\int_{\mathcal{C}_R}\dfrac{P(z)}{Q(z)}dz = 0$$
 From the result above and the residue theorem, we now have $$\int_{-\infty}^{\infty}\dfrac{P(x)}{Q(x)}dx = 2\pi i \sum \Res(f, \text{ upper half plane}), \;\;\;\;\text{ if } \deg Q - \deg P \geq 2$$
 \begin{example}
-	Evaluate $\int_{-\infty}^{\infty} \dfrac{1}{(x^2+1)(x^2+4)}dx$
+	Evaluate $\displaystyle\int_{-\infty}^{\infty} \dfrac{1}{(x^2+1)(x^2+4)}dx$
 
 	\textbf{\underline{Solution}}: $$f(z) = \dfrac{1}{(z^2+1)(z^2+4)} = \dfrac{1}{(z-i)(z+i)(z-2i)(z+2i)}$$
 	$$\Res(f, i) = \lim_{z \rightarrow i} (z-i)f(z) = \dfrac{1}{(2i)(-i)(3i)} = \dfrac{1}{6i}$$
@@ -4212,9 +4210,9 @@ From the result above and the residue theorem, we now have $$\int_{-\infty}^{\in
 	So $I = 2\pi i \cdot \left(\dfrac{1}{6i}-\dfrac{1}{12i}\right) = \dfrac{\pi}{6}$
 \end{example}
 \begin{example}
-	Evaluate $\int_{0}^{\infty} \dfrac{1}{x^6+1} dx$
+	Evaluate $\displaystyle\int_{0}^{\infty} \dfrac{1}{x^6+1} dx$
 
-	\textbf{\underline{Solution}}: By symmetry, $\int_{0}^{\infty} \dfrac{1}{x^6+1} dx = \dfrac{1}{2}\int_{-\infty}^{\infty} \dfrac{1}{x^6+1} dx$. 
+	\textbf{\underline{Solution}}: By symmetry, $\displaystyle\int_{0}^{\infty} \dfrac{1}{x^6+1} dx = \dfrac{1}{2}\int_{-\infty}^{\infty} \dfrac{1}{x^6+1} dx$. 
 
 	With $f(z) = \dfrac{1}{z^6+1}$, poles are $(-1)^{1/6} = \left(e^{i(\pi + 2k\pi)}\right)^{1/6} = e^{i(\frac{\pi}{6}+k\pi/3)} = e^{i\pi/6}, e^{i\pi/2}, e^{i5\pi/6}$ in upper half plane. 
 
@@ -4247,13 +4245,13 @@ From the result above and the residue theorem, we now have $$\int_{-\infty}^{\in
 		\end{tikzpicture}
 	\end{center}
 \end{example}
-Integrals of the form $\int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)} \cos \alpha x dx$: 
+Integrals of the form $\displaystyle\int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)} \cos \alpha x \, dx$: 
 
 We can change the above $\cos \alpha x$ to be $\sin \alpha x$. 
 
 Note that $|\sin z|$ and $\cos z$ grow exponentially as $\Im z \rightarrow \infty$
 
-Wrtie $\int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)} \cos \alpha x dx = \Re\left(\int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)}e^{i\alpha x}dx\right)$ (or with $\Im()$ for $\sin \alpha x$)
+Wrtie $\displaystyle\int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)} \cos \alpha x \, dx = \Re\left(\int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)}e^{i\alpha x}dx\right)$ (or with $\Im()$ for $\sin \alpha x$)
 
 \begin{theorem}
 	\underline{\textbf{Jordan's Lemma}}: Let $P(z)$, $Q(z)$ be polynomials with $deg Q - \deg P \geq 1$, then $$\lim_{R \rightarrow \infty} \int_{\mathcal{C}_R} \dfrac{P(x)}{Q(x)}e^{i\alpha x} dz = 0$$
@@ -4273,18 +4271,18 @@ Wrtie $\int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)} \cos \alpha x dx = \Re\left(\i
 	For $\sin \alpha x$, just change $\Re$ to be $\Im$. 
 \end{proof}
 \begin{example}
-	Evaluate $\cpv \int_{-\infty}^{\infty} \dfrac{x\sin x}{x^2+4}dx$
+	Evaluate $\displaystyle\cpv \int_{-\infty}^{\infty} \dfrac{x\sin x}{x^2+4}dx$
 
 	Note: this might not converge in the usual sense. $\left|\dfrac{x \sin x}{x^2+4}\right| \approx \left|\dfrac{1}{x}\right|$ as $x \rightarrow \infty$ (but sort of alternating). 
 
 	\underline{\textbf{Solution}}: Let $f(z) = \dfrac{ze^{iz}}{z^2+4}$. Poles at $z=2i$. $z=-2i$ is not in the upper half plane, so we ignore. 
 
-	$\Res(2i) = \lim_{z \rightarrow 2i} (z-2i) \dfrac{z e^{iz}}{(z+2i)(z-2i)} = \dfrac{2i e^{i(2i)}}{4i} = \dfrac{1}{2}e^{-2}$. 
+	$\Res(2i) = \displaystyle\lim_{z \rightarrow 2i} (z-2i) \dfrac{z e^{iz}}{(z+2i)(z-2i)} = \dfrac{2i e^{i(2i)}}{4i} = \dfrac{1}{2}e^{-2}$. 
 
-	Thus, $\cpv \int_{-\infty}^{\infty} \dfrac{x\sin x}{x^2+4}dx = \Im \left(2\pi i \cdot \dfrac{1}{2}e^{-2}\right) = \dfrac{\pi}{e^2}$. 
+	Thus, $\cpv \displaystyle\int_{-\infty}^{\infty} \dfrac{x\sin x}{x^2+4}dx = \Im \left(2\pi i \cdot \dfrac{1}{2}e^{-2}\right) = \dfrac{\pi}{e^2}$. 
 \end{example}
 \begin{example}
-	Evaluate $\int_{-\infty}^{\infty} \dfrac{\cos 3x}{x^4+4}dx$
+	Evaluate $\displaystyle\int_{-\infty}^{\infty} \dfrac{\cos 3x}{x^4+4}dx$
 
 	Note: this would converge in the usual sense, so $\cpv \int = \int$ by comparison test. 
 
@@ -4306,9 +4304,9 @@ Wrtie $\int_{-\infty}^{\infty} \dfrac{P(x)}{Q(x)} \cos \alpha x dx = \Re\left(\i
 	\end{align*}
 \end{example}
 Note that in general, $$\int_{-\infty}^{\infty} \dfrac{\cos kx}{x^4+4}dx = \dfrac{\pi}{4} \cdot \dfrac{\cos k + \sin k}{e^k}, \;\;\; k > 0$$
-e.g. $\int_{-\infty}^{\infty} \dfrac{\cos 100\pi x}{x^4+4}dx = \dfrac{\pi}{4}e^{-100\pi}$
+e.g. $\displaystyle\int_{-\infty}^{\infty} \dfrac{\cos 100\pi x}{x^4+4}dx = \dfrac{\pi}{4}e^{-100\pi}$
 \subsection{Very Improper Integrals}
-Consider $\int_{-\infty}^{\infty} \dfrac{x}{x^3-8} dx$. This one does not converge in the usual sense. \begin{center}
+Consider $\displaystyle\int_{-\infty}^{\infty} \dfrac{x}{x^3-8} dx$. This one does not converge in the usual sense. \begin{center}
 	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 		\begin{axis}[
 			x=1cm,y=1cm,
@@ -4392,7 +4390,7 @@ So if $f$ satisfies one of the earlier conditions, and $b \in \mathbb{R}$ is a s
 \end{tcolorbox}
 Note that we can easily extend this to any finite number of simple poles on the $x$-axis. 
 \begin{example}
-	Evaluate $\cpv\int_{-\infty}^{\infty} \dfrac{x}{x^3-8}dx$
+	Evaluate $\cpv\displaystyle\int_{-\infty}^{\infty} \dfrac{x}{x^3-8}dx$
 
 	\textbf{\underline{Solution}}: $f(z) = \dfrac{z}{z^3-8} = \dfrac{z}{(z-2)(z+1+\sqrt{3}i)(z+1-\sqrt{3}i)}$. 
 	\begin{align*}
@@ -4405,7 +4403,7 @@ Note that we can easily extend this to any finite number of simple poles on the 
 	So, $$\cpv\int_{-\infty}^{\infty} \dfrac{x}{x^3-8}dx = 2\pi i \cdot \left(\dfrac{-1-\sqrt{3}i}{12}\right) + \pi i \cdot \dfrac{1}{6} = \dfrac{2\sqrt{3}\pi}{6} = \dfrac{\sqrt{3}\pi}{6}$$
 \end{example}
 \begin{example}
-	Evaluate $\cpv\int_{-\infty}^{\infty} \dfrac{\cos2x}{x^2-16}dx$
+	Evaluate $\cpv\displaystyle\int_{-\infty}^{\infty} \dfrac{\cos2x}{x^2-16}dx$
 
 	\textbf{\underline{Solution}}: $f(z) = \dfrac{e^{i2z}}{z^2-16}$. We have simple poles at $z = \pm 4$. 
 	\begin{align*}
@@ -4948,8 +4946,30 @@ Fluids: $\vec{v} = \Delta \phi$
 	Note: if we use $\infty$ as one of the points, e.g. $z_3 = \infty$, then RHS simplifies to $$\dfrac{z-z_1}{z_2-z_1}\cdot\underbrace{\dfrac{z_2-z_3}{z-z_3}}_{\rightarrow 1} = \dfrac{z-z_1}{z_2-z_1}$$
 \end{proposition}
 \begin{example}
-	Find a mapping which takes circle $|z+1| = 1$ to the real axis. 
-
+	Find a mapping which takes circle $|z+1| = 1$ to the real axis.
+	\begin{center}
+		\begin{tikzpicture}[scale = 0.9]
+			\draw [line width=2pt,fill=black,fill opacity=0.19] (-1,0) circle (1cm);
+			\fill [line width=2pt,color=red,fill=red,fill opacity=0.1] (8,0) -- (8,2) -- (13,2) -- (13,0) -- cycle;
+			\draw [->,line width=2pt] (-3,0) -- (3,0);
+			\draw [->,line width=2pt] (0,-3) -- (0,3);
+			\draw [->,line width=2pt] (4,0) -- (5,0);
+			\draw [->,line width=2pt] (6,0) -- (14,0);
+			\draw [->,line width=2pt] (10,-3) -- (10,3);
+			\draw [fill=black] (-2,0) circle (2.5pt);
+			\draw[color=black] (-2.43,0.41) node {$Z_1$};
+			\draw [fill=black] (0,0) circle (2.5pt);
+			\draw[color=black] (0.3,0.41) node {$Z_3$};
+			\draw [fill=black] (-1,-1) circle (2.5pt);
+			\draw[color=black] (-1.0497665728924521,-1.343156292997391) node {$Z_2$};
+			\draw [fill=black] (8,0) circle (2.5pt);
+			\draw[color=black] (7.868856726333841,-0.26323948432280525) node {$w_1$};
+			\draw [fill=black] (10,0) circle (2.5pt);
+			\draw[color=black] (9.76802076917535,-0.3190972502887321) node {$w_2$};
+			\draw [fill=black] (13,0) circle (2.5pt);
+			\draw[color=black] (13.156725237774902,0.4070537072683168) node {$w_3$};
+		\end{tikzpicture}
+	\end{center}
 	\textbf{\underline{Solution}}: Choose points on circle: $z_1 = -2, z_2 = -1-i, z_3 = 0$, and map these to (respectively) $w_1 = -1, w_2 = 0, w_3 = \infty$. 
 	$$\dfrac{(w-w_1)(w_2-w_3)}{(w-w_3)(w_2-w_1)} = \dfrac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)} \;\;\;\Rightarrow \;\;\;\dfrac{w+1}{1} = \dfrac{(z+2)(-1-i)}{z(1-i)}$$
 	So $$w = \dfrac{(-1+i)z+(-2-2i)}{(1-i)z}$$
@@ -4957,14 +4977,49 @@ Fluids: $\vec{v} = \Delta \phi$
 \end{example}
 \begin{example}
 	This is a ``pipe within a pipe''
+	\begin{center}
+		\begin{tikzpicture}
+			\draw [line width=2pt,fill=black,fill opacity=0.2] (0,2) circle (2cm);
+			\draw [line width=2pt,color=white,fill=white] (0,1) circle (1cm);	
+			\draw [->,line width=2pt] (-3,0) -- (3,0);
+			\draw [->,line width=2pt] (0,-1) -- (0,5);
+			\draw [->,line width=1pt] (2.47,4.24) -- (1.51,3.54);
+			\draw [->,line width=1pt] (3.92,2.289) -- (0.98,1.6);
+			\draw [fill=black] (0,4) circle (2.5pt);
+			\draw [fill=black] (0,2) circle (2.5pt);
+			\draw[color=black] (0.28,2.36) node {$2i$};
+			\draw[color=black] (-1,2.7) node {$\nabla^2\phi = 0$};
+			\draw[color=black] (0.22,4.2) node {$4i$};
+			\draw[color=black] (3.2,4.17) node {$\phi=15$};
+			\draw[color=black] (4.7,2.3) node {$\phi=65$};
+		\end{tikzpicture}
+	\end{center}
 
 	Find $\phi(x,y)$
 
 	\textbf{\underline{Solution}}: Key idea: $z= 0$ in on both circles, so send it to $\infty$ so that we get lines. 
 
 	Which other points? One option: notice orthogonal intersection with $y$-axis, so if we map $y$-axis to $v$-axis
-
-
+	\begin{center}
+		\begin{tikzpicture}[scale=.9]
+			\draw [line width=2pt,fill=black,fill opacity=0.2] (0,2) circle (2cm);
+			\draw [line width=2pt,color=white,fill=white] (0,1) circle (1cm);
+			\draw[line width=1.2pt] (10,1.717157287525381) -- (10.282842712474618,1.717157287525381) -- (10.282842712474618,2) -- (10,2) -- cycle; 
+			\draw[line width=1.2pt] (10,-0.28284271247461895) -- (10.282842712474618,-0.28284271247461895) -- (10.282842712474618,0) -- (10,0) -- cycle; 
+			\draw[line width=1.2pt] (0,1.717157287525381) -- (0.282842712474619,1.717157287525381) -- (0.28284271247461895,2) -- (0,2) -- cycle; 
+			\draw[line width=1.2pt] (0,3.717157287525381) -- (0.282842712474619,3.717157287525381) -- (0.28284271247461895,4) -- (0,4) -- cycle; 
+			\draw [->,line width=2pt] (-3,0) -- (3,0);
+			\draw [->,line width=2pt] (0,-1) -- (0,5);
+			\draw [->,line width=2pt] (5,2) -- (6,2);
+			\draw [->,line width=2pt] (10,-1) -- (10,5);
+			\draw [line width=2pt] (7,2)-- (13,2);
+			\draw [line width=2pt] (7,0)-- (13,0);
+			\draw [fill=black] (0,2) circle (2.5pt);
+			\draw [fill=black] (10,2) circle (2.5pt);
+			\draw [fill=black] (10,0) circle (2.5pt);
+			\draw [fill=black] (0,4) circle (2.5pt);
+		\end{tikzpicture}
+	\end{center}
 	So we get horizontal lines. 
 
 	Choose points: $$\begin{dcases}
@@ -4974,18 +5029,44 @@ Fluids: $\vec{v} = \Delta \phi$
 	\end{dcases}$$
 	The mapping is $$\dfrac{(w-w_1)(w_2-w_3)}{(w-w_3)(w_2-w_1)} = \dfrac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)} \;\;\;\Rightarrow \;\;\;\dfrac{-i}{w-i} = \dfrac{z(2i-4i)}{(z-4i)(2i)}$$
 	So $$w = i + i\cdot \dfrac{z-4i}{z} = \dfrac{iz+iz+4}{z} = \dfrac{2iz+4}{z}$$
-	The image is 
+	The image is \begin{center}
+		\definecolor{ffqqqq}{rgb}{1,0,0}
+		\definecolor{zzttqq}{rgb}{0.6,0.2,0}
+		\begin{tikzpicture}[scale=1.5]
+			\fill[line width=2pt,color=red,fill=red,fill opacity=0.1] (-2,0) -- (-2,2) -- (2,2) -- (2,0) -- cycle;
+			\draw [->,line width=1.2pt] (-2.62,0) -- (3,0);
+			\draw [->,line width=1.2pt] (0,-1) -- (0,3);
+			\draw [line width=2pt,color=red] (-2,0)-- (2,0);
+			\draw [line width=2pt,color=red] (-2,2)-- (2,2);
+			\draw (-3.96,2.56) node[anchor=north west] {$w-plane$};
+			\draw (3.1,-0.06) node[anchor=north west] {$u$};
+			\draw[color=black] (0.26,2.83) node {$v$};
+			\draw (1.98,2.3) node[anchor=north west] {$\Phi=15$};
+			\draw[color=black] (1,1.09) node {$\nabla^2\Phi = 0$};
+			\draw[color=black] (1,-0.15) node {$\Phi=65$};
+		\end{tikzpicture}
+	\end{center}
 
 	Is it mapping inside to inside? Let's check a point. $f(3i) = \dfrac{2i(3i)+4}{3i} = \dfrac{2i}{3}$. So yes. 
 
 	The solution in $w$-plane is (using the function $g(w) = w$ which is analytic everywhere) $$\Phi(u,v) = A\cdot v + B$$
 	Applying Boundary Conditions: $$\begin{dcases}A \cdot 1 + B = 15 & \Rightarrow A = -50\\ A \cdot 0 + B = 65 & \Rightarrow B = 65\end{dcases} \;\;\;\Rightarrow \;\;\;\Phi(u,v) = -50v+65 = -50\Im(w)+65$$
-	So, $\phi(x,y) = -50\Im\left(\dfrac{2iz+4}{z}\right) + 65$. To write in terms of $x$ and $y$, ntoe that $$\dfrac{2iz+4}{z} = \dfrac{2i(x+iy)+4}{x+iy} = \cdots = \dfrac{\text{stuff } + i(2x^2+2y^2-4y)}{x^2+y^2}$$
+	So, $\phi(x,y) = -50\Im\left(\dfrac{2iz+4}{z}\right) + 65$. To write in terms of $x$ and $y$, note that $$\dfrac{2iz+4}{z} = \dfrac{2i(x+iy)+4}{x+iy} = \cdots = \dfrac{\text{stuff } + i(2x^2+2y^2-4y)}{x^2+y^2}$$
 	So \begin{align*}
 		\phi(x,y) &= -50\Im\left(\dfrac{2iz+4}{z}\right) + 65\\
 		&= -50\cdot \left(\dfrac{2(x^2+y^2-2y)}{x^2+y^2}\right) + 65\\
 		&= \cdots\\
 		&= \dfrac{200y}{x^2+y^2}-65
 	\end{align*}
+
+	We can look at the isotherms as an exercise: \begin{center}
+		\begin{tikzpicture}
+			\draw [->,line width=1pt] (-4,0) -- (4,0);
+			\draw [->,line width=1pt] (0,-1) -- (0,5);
+			\draw [line width=1pt] (0,1) circle (1cm);
+			\draw [line width=1pt] (0,1.5) circle (1.5cm);
+			\draw [line width=1pt] (0,2) circle (2cm);
+		\end{tikzpicture}
+	\end{center}
 \end{example}
 \end{document}
